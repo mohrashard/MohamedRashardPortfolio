@@ -120,10 +120,7 @@ The portfolio showcases several key projects:
 Feel free to reach out to me:
 
 - **Email**: mohrashard@gmail.com
-- **Phone**: (+94)71 938 2296
 - **LinkedIn**: [Mohamed Rashard](https://www.linkedin.com/in/mohamedrashard)
 - **GitHub**: [mohrashard](https://github.com/mohrashard/)
 
-## 📄 License
 
-This project is licensed under the MIT License - see the LICENSE file for details.
