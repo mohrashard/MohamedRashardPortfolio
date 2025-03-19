@@ -134,7 +134,7 @@ function App() {
         <div className="home-content">
           <div className="home-text">
             <h1 className="glitch-effect" data-text="Mohamed Rashard">
-              Mohamed Rashard
+              Mohamed Rashard Rizmi
             </h1>
             <div className="title-wrapper">
               <h2 className="typing-effect">Software Engineer</h2>
