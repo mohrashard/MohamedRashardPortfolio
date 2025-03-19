@@ -1738,7 +1738,6 @@ section {
     border-radius: var(--border-radius);
   }
 
-
   /* About Section Adjustments */
   .about-details {
     flex-direction: column;
@@ -1755,10 +1754,35 @@ section {
   }
 
   /* Contact Section Adjustments */
+  .contact-section {
+    padding: 4rem 1.5rem;
+  }
+  
   .contact-info {
     padding: 2rem;
+    gap: 1.5rem;
+  }
+  
+  .contact-item {
+    flex-direction: row; /* Keep horizontal layout */
+    align-items: center; /* Center align items vertically */
+  }
+  
+  .contact-icon {
+    width: 40px;
+    height: 40px;
+    min-width: 40px; /* Prevent icon from shrinking */
+    font-size: 0.9rem;
+  }
+  
+  .contact-item a {
+    word-break: normal;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
   }
 }
+
 @media (max-width: 576px) {
   :root {
     --border-radius: 6px;
@@ -1811,9 +1835,66 @@ section {
     min-width: auto;
   }
 
+  /* Contact Section Adjustments for smaller screens */
+  .contact-section {
+    padding: 3rem 1rem;
+  }
+  
+  .contact-info {
+    padding: 1.5rem;
+    gap: 1.2rem;
+  }
+  
+  /* Keep horizontal layout */
+  .contact-item {
+    flex-direction: row;
+    align-items: center;
+    gap: 0.8rem;
+  }
+  
+  .contact-icon {
+    width: 35px;
+    height: 35px;
+    min-width: 35px;
+  }
+  
+  .contact-item a {
+    font-size: 0.95rem;
+  }
+  
+  .contact-item:hover {
+    transform: translateX(5px);
+  }
+
   .footer-content {
     flex-direction: column;
     gap: 1.5rem;
     text-align: center;
+  }
+}
+
+@media (max-width: 400px) {
+  /* Further adjustments for very small screens */
+  .contact-info {
+    padding: 1.2rem;
+  }
+  
+  .contact-item {
+    gap: 0.7rem;
+  }
+  
+  .contact-icon {
+    width: 32px;
+    height: 32px;
+    min-width: 32px;
+  }
+  
+  .contact-item a {
+    font-size: 0.9rem;
+    /* Add ellipsis for very long text on small screens */
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    max-width: 75vw; /* Limit text width on tiny screens */
   }
 }
