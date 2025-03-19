@@ -1,70 +1,129 @@
-# Getting Started with Create React App
+# Mohamed Rashard Rizmi - Portfolio
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Welcome to my personal portfolio website repository! This site showcases my skills, projects, and professional experience as a Software Engineer.
 
-## Available Scripts
+## 🚀 Live Demo
 
-In the project directory, you can run:
+[Visit My Portfolio](https://mohrashard.github.io/portfolio) 
 
-### `npm start`
+## 📋 Overview
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+This portfolio is built with React.js and custom CSS to create a responsive, modern, and interactive web experience. The portfolio highlights my technical abilities, projects, and professional journey in software engineering.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## 🛠️ Technologies Used
 
-### `npm test`
+- **Frontend Framework**: React.js
+- **Styling**: Custom CSS
+- **Deployment**: GitHub Pages
+- **Version Control**: Git
+- **Package Management**: npm
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## ✨ Features
 
-### `npm run build`
+- **Responsive Design**: Optimized for all device sizes (mobile, tablet, desktop)
+- **Dynamic Content**: Interactive project displays and skill visualizations
+- **Modern UI/UX**: Clean interface with smooth animations and transitions
+- **Project Showcase**: Detailed views of my academic and personal projects
+- **Contact Form**: Easy way for potential employers or collaborators to reach out
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## 📂 Project Structure
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+```
+portfolio/
+├── .vscode/
+├── node_modules/
+├── public/
+│   ├── favicon.ico
+│   ├── index.html
+│   ├── logo192.png
+│   ├── logo512.png
+│   ├── manifest.json
+│   ├── Mohamed_Rashard_CV.pdf
+│   ├── mylogo.png
+│   └── robots.txt
+├── src/
+│   ├── App.css
+│   ├── App.js
+│   ├── App.test.js
+│   ├── index.css
+│   ├── index.js
+│   ├── logo.svg
+│   ├── reportWebVitals.js
+│   └── setupTests.js
+├── .gitignore
+├── package-lock.json
+├── package.json
+└── README.md
+```
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## 🚀 Getting Started
 
-### `npm run eject`
+### Prerequisites
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+- Node.js (v14.0.0 or later)
+- npm (v6.0.0 or later)
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+### Installation
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/mohrashard/portfolio.git
+   cd portfolio
+   ```
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+2. Install dependencies:
+   ```bash
+   npm install
+   ```
 
-## Learn More
+3. Start the development server:
+   ```bash
+   npm start
+   ```
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+4. Open [http://localhost:3000](http://localhost:3000) to view the portfolio in your browser.
 
 ### Deployment
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+This portfolio is configured for easy deployment to GitHub Pages:
 
-### `npm run build` fails to minify
+```bash
+npm run deploy
+```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+## 🔍 Featured Projects
+
+The portfolio showcases several key projects:
+
+1. **Tasknet - Crowd-Sourced Local Marketplace**
+   - A web platform connecting local buyers and service providers
+   - Technologies: HTML, CSS, JavaScript, PHP
+   - Features: User-friendly interface, secure transactions, location-based service matching
+
+2. **MegaCityCab - Ride Booking Management System**
+   - A comprehensive ride booking system for Colombo's cab service
+   - Technologies: Java, AJAX, MSSQL
+   - Features: Secure login, role-based access, customizable bookings, multiple payment methods
+
+3. **Gallery Cafe Website**
+   - Responsive website for a café
+   - Technologies: HTML, CSS, JavaScript, PHP
+
+4. **Additional Academic Projects**
+   - Amber Bakery System (C++)
+   - Student Management System (Java)
+   - Dog App (Android/Java)
+   - Inventory Management System (C#)
+
+## 📞 Contact
+
+Feel free to reach out to me:
+
+- **Email**: mohrashard@gmail.com
+- **Phone**: (+94)71 938 2296
+- **LinkedIn**: [Mohamed Rashard](https://www.linkedin.com/in/mohamedrashard)
+- **GitHub**: [mohrashard](https://github.com/mohrashard/)
+
+## 📄 License
+
+This project is licensed under the MIT License - see the LICENSE file for details.
