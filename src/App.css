@@ -307,6 +307,7 @@ section {
 }
 
 /* Text content */
+/* Text content */
 .home-text {
   max-width: 600px;
   animation: slideUp 0.8s ease-out;
@@ -329,8 +330,11 @@ section {
 
 .glitch-effect {
   position: relative;
+  display: inline-block; /* Ensure proper containment */
+  width: 100%; /* Ensure text wraps properly */
 }
 
+/* Make sure the glitch pseudo-elements maintain proper positioning */
 .glitch-effect::before,
 .glitch-effect::after {
   content: attr(data-text);
@@ -345,6 +349,7 @@ section {
   -webkit-text-fill-color: transparent;
   background-clip: text;
   color: transparent;
+  pointer-events: none; /* Prevent interference with interactions */
 }
 
 .glitch-effect::before {
@@ -362,6 +367,8 @@ section {
   opacity: 0.8;
   clip-path: polygon(0 55%, 100% 55%, 100% 100%, 0 100%);
 }
+
+
 
 .title-wrapper {
   position: relative;
@@ -899,7 +906,34 @@ section {
     width: 100%;
   }
 }
+@media (max-width: 576px) {
+  .home-text h1 {
+    font-size: 2.5rem;
+    margin-top: 80px;
+    line-height: 1.2; /* Improve line height for better readability */
+    word-break: break-word; /* Allow long names to break properly */
+  }
+  
+  .glitch-effect::before,
+  .glitch-effect::after {
+    /* Adjust glitch effect for smaller screens */
+    left: 1px; /* Reduce the offset for smaller text */
+  }
+  
+  .glitch-effect::before {
+    left: 1px;
+  }
+  
+  .glitch-effect::after {
+    left: -1px;
+  }
+}
 
+@media (max-width: 768px) {
+  .home-text h1 {
+    font-size: 3.5rem;
+  }
+}
 /* About Section */
 .about-section {
   background-color: var(--section-bg-dark);
