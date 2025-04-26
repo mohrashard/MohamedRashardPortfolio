@@ -1,17 +1,66 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import "./App.css";
 
 function App() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [activeSection, setActiveSection] = useState("home");
   const [isScrolling, setIsScrolling] = useState(false);
+  const titleRef = useRef(null);
+
+  // Typing effect for multiple titles
+  useEffect(() => {
+    const titles = [
+      "Software Engineer",
+      "Web Developer",
+      "Full-Stack Developer",
+      "Front-End Designer",
+      "Content Creator",
+      "AI Enthusiast",
+    ];
+
+    let currentIndex = 0;
+    const titleElement = titleRef.current;
+
+    if (!titleElement) return;
+
+    // Wait for the initial animation to complete
+    const initialAnimationDuration = 3500;
+
+    const cycleTitle = () => {
+      // Hide current title
+      titleElement.style.opacity = "0";
+
+      setTimeout(() => {
+        // Update to next title
+        currentIndex = (currentIndex + 1) % titles.length;
+        titleElement.textContent = titles[currentIndex];
+
+        // Show new title with typing effect
+        titleElement.style.opacity = "1";
+        titleElement.classList.remove("typing-effect");
+        void titleElement.offsetWidth; // Force reflow
+        titleElement.classList.add("typing-effect");
+      }, 500);
+    };
+
+    // Start cycling after the initial title has been displayed
+    const initialTimer = setTimeout(() => {
+      const interval = setInterval(cycleTitle, 4000); // Change every 4 seconds
+
+      // Cleanup on unmount
+      return () => clearInterval(interval);
+    }, initialAnimationDuration);
+
+    // Cleanup on unmount
+    return () => clearTimeout(initialTimer);
+  }, []);
 
   // Handle scroll and set active section
   useEffect(() => {
     const handleScroll = () => {
       if (isScrolling) return;
 
-      const sections = ["home", "about", "skills", "projects", "contact"];
+      const sections = ["home", "about", "experience", "skills", "projects", "contact"];
       const sectionElements = sections.map((section) =>
         document.getElementById(section)
       );
@@ -96,6 +145,14 @@ function App() {
             </li>
             <li>
               <button
+                className={activeSection === "experience" ? "active" : ""}
+                onClick={() => scrollToSection("experience")}
+              >
+                Experience
+              </button>
+            </li>
+            <li>
+              <button
                 className={activeSection === "skills" ? "active" : ""}
                 onClick={() => scrollToSection("skills")}
               >
@@ -137,7 +194,9 @@ function App() {
               Mohamed Rashard Rizmi
             </h1>
             <div className="title-wrapper">
-              <h2 className="typing-effect">Software Engineer</h2>
+              <h2 className="typing-effect" ref={titleRef}>
+                Software Engineer
+              </h2>
             </div>
             <p>Crafting elegant solutions to complex problems</p>
             <div className="cta-buttons">
@@ -152,16 +211,32 @@ function App() {
               </button>
             </div>
             <div className="social-links">
-              <a href="https://www.instagram.com/moh_.rashaxd?igsh=MW81NndsYnFjZXlvdg==" className="social-icon" aria-label="Instagram">
+              <a
+                href="https://www.instagram.com/moh_.rashaxd?igsh=MW81NndsYnFjZXlvdg=="
+                className="social-icon"
+                aria-label="Instagram"
+              >
                 <i className="fab fa-instagram"></i>
               </a>
-              <a href="https://www.tiktok.com/@mohh.rasharrd?_t=ZS-8uoMDC9PJTu&_r=1" className="social-icon" aria-label="TikTok">
+              <a
+                href="https://www.tiktok.com/@mohh.rasharrd?_t=ZS-8uoMDC9PJTu&_r=1"
+                className="social-icon"
+                aria-label="TikTok"
+              >
                 <i className="fab fa-tiktok"></i>
               </a>
-              <a href="https://www.facebook.com/share/1EnKfVXh1z/" className="social-icon" aria-label="Facebook">
+              <a
+                href="https://www.facebook.com/share/1EnKfVXh1z/"
+                className="social-icon"
+                aria-label="Facebook"
+              >
                 <i className="fab fa-facebook-f"></i>
               </a>
-              <a href="https://youtube.com/@moh_rashard?feature=shared" className="social-icon" aria-label="YouTube">
+              <a
+                href="https://youtube.com/@moh_rashard?feature=shared"
+                className="social-icon"
+                aria-label="YouTube"
+              >
                 <i className="fab fa-youtube"></i>
               </a>
             </div>
@@ -290,6 +365,29 @@ function App() {
         </div>
       </section>
 
+      {/* Work Experience Section */}
+      <section id="experience" className="experience-section">
+        <div className="section-header">
+          <h2>Work Experience</h2>
+          <div className="underline"></div>
+        </div>
+
+        {/* Internship Status Banner */}
+        <div className="seeking-status">
+          <div className="seeking-badge">
+            <span className="pulse-dot"></span>
+            <span>Actively Seeking Software Engineering Internships</span>
+          </div>
+          <p className="seeking-description">
+            I am currently looking for opportunities to apply my skills in a
+            professional environment. Interested in roles involving full-stack
+            development, backend systems, or AI applications.
+          </p>
+        </div>
+
+       {/* Add Experience Template Here */}
+      </section>
+
       {/* Skills Section */}
       <section id="skills" className="skills-section">
         <div className="section-header">
@@ -306,6 +404,7 @@ function App() {
                 { name: "Python", icon: "devicon-python-plain" },
                 { name: "C#", icon: "devicon-csharp-plain" },
                 { name: "PHP", icon: "devicon-php-plain" },
+                { name: "R", icon: "devicon-r-plain" },
               ].map((skill, index) => (
                 <div
                   className="skill-item"
@@ -456,6 +555,37 @@ function App() {
               ))}
             </div>
           </div>
+
+          <div className="skills-category">
+            <h3>AI Tools</h3>
+            <div className="skills-grid">
+              {[
+                { name: "ChatGPT", iconClass: "ai-icon chatgpt-icon" },
+                { name: "Gemini", iconClass: "ai-icon gemini-icon" },
+                { name: "Claude", iconClass: "ai-icon claude-icon" },
+                { name: "Blackbox", iconClass: "ai-icon blackbox-icon" },
+                { name: "Perplexity", iconClass: "ai-icon perplexity-icon" },
+                { name: "DeepSeek", iconClass: "ai-icon deepseek-icon" },
+              ].map((skill, index) => (
+                <div
+                  className="skill-item"
+                  key={index}
+                  data-aos="fade-up"
+                  data-aos-delay={index * 100}
+                >
+                  <div className="skill-card-content">
+                    <div className={skill.iconClass}></div>
+                    <span className="skill-name">{skill.name}</span>
+                    <div
+                      className="skill-progress"
+                      style={{ width: "85%" }}
+                    ></div>
+                  </div>
+                  <div className="skill-card-bg"></div>
+                </div>
+              ))}
+            </div>
+          </div>
         </div>
       </section>
 
@@ -463,7 +593,7 @@ function App() {
       <section id="projects" className="projects-section">
         <div className="section-container">
           <div className="section-header">
-            <h2>Academic Projects</h2>
+            <h2>Projects</h2>
             <div className="section-underline"></div>
             <p className="section-description">
               A collection of my latest work in software development
