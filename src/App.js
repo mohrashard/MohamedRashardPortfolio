@@ -60,7 +60,14 @@ function App() {
     const handleScroll = () => {
       if (isScrolling) return;
 
-      const sections = ["home", "about", "experience", "skills", "projects", "contact"];
+      const sections = [
+        "home",
+        "about",
+        "experience",
+        "skills",
+        "projects",
+        "contact",
+      ];
       const sectionElements = sections.map((section) =>
         document.getElementById(section)
       );
@@ -385,7 +392,7 @@ function App() {
           </p>
         </div>
 
-       {/* Add Experience Template Here */}
+        {/* Add Experience Template Here */}
       </section>
 
       {/* Skills Section */}
@@ -405,6 +412,10 @@ function App() {
                 { name: "C#", icon: "devicon-csharp-plain" },
                 { name: "PHP", icon: "devicon-php-plain" },
                 { name: "R", icon: "devicon-r-plain" },
+                {
+                  name: "TypeScript",
+                  icon: "devicon-typescript-plain colored",
+                },
               ].map((skill, index) => (
                 <div
                   className="skill-item"
@@ -464,6 +475,7 @@ function App() {
                 { name: "React", icon: "devicon-react-original" },
                 { name: "ASP.NET", icon: "devicon-dot-net-plain colored" },
                 { name: "Java Servlet", icon: "devicon-tomcat-line colored" },
+                { name: "Flask", icon: "devicon-flask-original colored" },
               ].map((skill, index) => (
                 <div
                   className="skill-item"
@@ -535,6 +547,7 @@ function App() {
                 },
                 { name: "Git", icon: "devicon-git-plain colored" },
                 { name: "GitHub", icon: "devicon-github-original" },
+                { name: "Figma", icon: "devicon-figma-plain colored" },
               ].map((skill, index) => (
                 <div
                   className="skill-item"
@@ -602,6 +615,22 @@ function App() {
 
           <div className="projects-grid">
             {[
+              {
+                title: "AI/ML Integrated Web Application",
+                subtitle: "Flask and React Project (Ongoing)",
+                description:
+                  "Developing a web app with a custom AI/ML model using Flask and React to deliver personalized experiences.",
+                github: "#",
+                tags: [
+                  "Flask",
+                  "React",
+                  "Python",
+                  "AI/ML",
+                  "JavaScript",
+                  "TypeScript",
+                  "Ongoing Project",
+                ],
+              },
               {
                 title: "MegaCityCab",
                 subtitle: "Ride Booking Management System",
@@ -696,30 +725,36 @@ function App() {
                       </span>
                     ))}
                   </div>
-                  <a
-                    href={project.github}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="project-link"
-                  >
-                    <span>View on GitHub</span>
-                    <svg
-                      className="project-link-arrow"
-                      width="16"
-                      height="16"
-                      viewBox="0 0 24 24"
-                      fill="none"
-                      xmlns="http://www.w3.org/2000/svg"
+                  {project.title === "AI/ML Integrated Web Application" ? (
+                    <div className="project-link disabled">
+                      <span>Coming Soon</span>
+                    </div>
+                  ) : (
+                    <a
+                      href={project.github}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="project-link"
                     >
-                      <path
-                        d="M5 12H19M19 12L12 5M19 12L12 19"
-                        stroke="currentColor"
-                        strokeWidth="2"
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                      />
-                    </svg>
-                  </a>
+                      <span>View on GitHub</span>
+                      <svg
+                        className="project-link-arrow"
+                        width="16"
+                        height="16"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <path
+                          d="M5 12H19M19 12L12 5M19 12L12 19"
+                          stroke="currentColor"
+                          strokeWidth="2"
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                        />
+                      </svg>
+                    </a>
+                  )}
                 </div>
               </div>
             ))}
