@@ -506,6 +506,8 @@ function App() {
                   name: "MSSQL",
                   icon: "devicon-microsoftsqlserver-plain colored",
                 },
+                // Added MongoDB here
+                { name: "MongoDB", icon: "devicon-mongodb-plain colored" },
               ].map((skill, index) => (
                 <div
                   className="skill-item"
@@ -548,6 +550,12 @@ function App() {
                 { name: "Git", icon: "devicon-git-plain colored" },
                 { name: "GitHub", icon: "devicon-github-original" },
                 { name: "Figma", icon: "devicon-figma-plain colored" },
+                // Added Jupyter and Colab here
+                {
+                  name: "Jupyter Notebook",
+                  icon: "devicon-jupyter-plain colored",
+                },
+                { name: "Google Colab", icon: "devicon-google-plain colored" },
               ].map((skill, index) => (
                 <div
                   className="skill-item"
@@ -616,19 +624,37 @@ function App() {
           <div className="projects-grid">
             {[
               {
-                title: "AI/ML Integrated Web Application",
-                subtitle: "Flask and React Project (Ongoing)",
+                title: "Mentora",
+                subtitle:
+                  "An AI-Powered Web Platform for Mental Wellness Assessment Using Lifestyle and Digital Behavior (Ongoing)",
                 description:
-                  "Developing a web app with a custom AI/ML model using Flask and React to deliver personalized experiences.",
+                  "Developing a Flask and React web app to assess mental wellness through lifestyle and digital behavior analysis, offering personalized insights and support.",
                 github: "#",
+                liveDemo: null,
                 tags: [
-                  "Flask",
                   "React",
+                  "Flask",
                   "Python",
                   "AI/ML",
-                  "JavaScript",
-                  "TypeScript",
+                  "MongoDB",
+                  "Jupyter Notebook",
                   "Ongoing Project",
+                ],
+              },
+              {
+                title: "OceansFlixx",
+                subtitle: "Movie Explorer Web Application",
+                description:
+                  "A responsive web application that allows users to search for movies, view details, and discover trending films. Features real-time data from TMDb API with user authentication and all essential movie website functionalities.",
+                github: "https://github.com/mohrashard/movie-explorer",
+                liveDemo: "https://oceansflixx.vercel.app/",
+                tags: [
+                  "React",
+                  "Material-UI",
+                  "TMDb API",
+                  "Responsive Design",
+                  "Authentication",
+                  "Movie Database",
                 ],
               },
               {
@@ -637,6 +663,7 @@ function App() {
                 description:
                   "Built a ride booking system for Colombo's cab service using Java, AJAX, and MSSQL. Implemented secure login, role-based access, customizable bookings, and payment methods for passengers, drivers, and admins.",
                 github: "https://github.com/mohrashard/MegaCityCab.git",
+                liveDemo: null,
                 tags: [
                   "Java",
                   "AJAX",
@@ -653,6 +680,7 @@ function App() {
                 description:
                   "Developed a C++ application to manage inventory, billing, and sales for a bakery.",
                 github: "https://github.com/mohrashard/Amber-Bakery-System.git",
+                liveDemo: null,
                 tags: [
                   "C++",
                   "Console Application",
@@ -667,6 +695,7 @@ function App() {
                   "Developed a scalable University Management System using OOP concepts, featuring modular functionalities for records management and a user-friendly interface.",
                 github:
                   "https://github.com/mohrashard/Student-Management-System.git",
+                liveDemo: null,
                 tags: ["Java", "OOP", "UI/UX", "JFrame"],
               },
               {
@@ -676,6 +705,7 @@ function App() {
                   "Designed and developed a responsive website for a café using HTML, CSS, JavaScript, and PHP.",
                 github:
                   "https://github.com/mohrashard/Gallery-Cafe-Web-Developement-.git",
+                liveDemo: null,
                 tags: ["HTML", "CSS", "JavaScript", "PHP", "JASON"],
               },
               {
@@ -684,6 +714,7 @@ function App() {
                 description:
                   "Built an Android app with Java to provide user-friendly features for a specific domain.",
                 github: "https://github.com/mohrashard/Dog-App.git",
+                liveDemo: null,
                 tags: ["Java", "Android", "Mobile Development"],
               },
               {
@@ -693,6 +724,7 @@ function App() {
                   "Created a service-oriented application utilizing C# to demonstrate modularity and web service integration.",
                 github:
                   "https://github.com/mohrashard/Inventory-Management-System.git",
+                liveDemo: null,
                 tags: ["C#", "Web Services", "SOA"],
               },
               {
@@ -701,6 +733,7 @@ function App() {
                 description:
                   "Collaborated in a team to develop a web platform using HTML, CSS, JavaScript, and PHP to connect local buyers and service providers.",
                 github: "https://github.com/mohrashard/TaskNet.git",
+                liveDemo: null,
                 tags: [
                   "HTML",
                   "CSS",
@@ -725,36 +758,81 @@ function App() {
                       </span>
                     ))}
                   </div>
-                  {project.title === "AI/ML Integrated Web Application" ? (
-                    <div className="project-link disabled">
-                      <span>Coming Soon</span>
-                    </div>
-                  ) : (
-                    <a
-                      href={project.github}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="project-link"
-                    >
-                      <span>View on GitHub</span>
-                      <svg
-                        className="project-link-arrow"
-                        width="16"
-                        height="16"
-                        viewBox="0 0 24 24"
-                        fill="none"
-                        xmlns="http://www.w3.org/2000/svg"
+                  <div className="project-links">
+                    {project.github === "#" ? (
+                      <div className="project-link disabled">
+                        <span>Coming Soon</span>
+                      </div>
+                    ) : (
+                      <a
+                        href={project.github}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="project-link"
                       >
-                        <path
-                          d="M5 12H19M19 12L12 5M19 12L12 19"
-                          stroke="currentColor"
-                          strokeWidth="2"
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                        />
-                      </svg>
-                    </a>
-                  )}
+                        <span>View on GitHub</span>
+                        <svg
+                          className="project-link-arrow"
+                          width="16"
+                          height="16"
+                          viewBox="0 0 24 24"
+                          fill="none"
+                          xmlns="http://www.w3.org/2000/svg"
+                        >
+                          <path
+                            d="M5 12H19M19 12L12 5M19 12L12 19"
+                            stroke="currentColor"
+                            strokeWidth="2"
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                          />
+                        </svg>
+                      </a>
+                    )}
+                    {project.liveDemo && (
+                      <a
+                        href={project.liveDemo}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="project-link live-demo"
+                      >
+                        <span>Live Demo</span>
+                        <svg
+                          className="project-link-arrow"
+                          width="16"
+                          height="16"
+                          viewBox="0 0 24 24"
+                          fill="none"
+                          xmlns="http://www.w3.org/2000/svg"
+                        >
+                          <path
+                            d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"
+                            stroke="currentColor"
+                            strokeWidth="2"
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                          />
+                          <polyline
+                            points="15,3 21,3 21,9"
+                            stroke="currentColor"
+                            strokeWidth="2"
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                          />
+                          <line
+                            x1="10"
+                            y1="14"
+                            x2="21"
+                            y2="3"
+                            stroke="currentColor"
+                            strokeWidth="2"
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                          />
+                        </svg>
+                      </a>
+                    )}
+                  </div>
                 </div>
               </div>
             ))}
