@@ -398,6 +398,7 @@ function App() {
           <div className="underline"></div>
         </div>
         <div className="skills-content">
+          {/* Programming Languages */}
           <div className="skills-category">
             <h3>Programming Languages</h3>
             <div className="skills-grid">
@@ -407,7 +408,6 @@ function App() {
                 { name: "Python", icon: "devicon-python-plain" },
                 { name: "C#", icon: "devicon-csharp-plain" },
                 { name: "PHP", icon: "devicon-php-plain" },
-                { name: "R", icon: "devicon-r-plain" },
                 {
                   name: "TypeScript",
                   icon: "devicon-typescript-plain colored",
@@ -433,12 +433,13 @@ function App() {
             </div>
           </div>
 
+          {/* Web Development */}
           <div className="skills-category">
-            <h3>Web Technologies</h3>
+            <h3>Web Development</h3>
             <div className="skills-grid">
               {[
-                { name: "HTML5", icon: "devicon-html5-plain colored" },
-                { name: "CSS3", icon: "devicon-css3-plain colored" },
+                { name: "HTML", icon: "devicon-html5-plain colored" },
+                { name: "CSS", icon: "devicon-css3-plain colored" },
                 {
                   name: "JavaScript",
                   icon: "devicon-javascript-plain colored",
@@ -464,14 +465,18 @@ function App() {
             </div>
           </div>
 
+          {/* Frameworks */}
           <div className="skills-category">
             <h3>Frameworks</h3>
             <div className="skills-grid">
               {[
-                { name: "React", icon: "devicon-react-original" },
                 { name: "ASP.NET", icon: "devicon-dot-net-plain colored" },
                 { name: "Java Servlet", icon: "devicon-tomcat-line colored" },
+                { name: "React", icon: "devicon-react-original" },
                 { name: "Flask", icon: "devicon-flask-original colored" },
+                { name: "Express", icon: "devicon-express-original" },
+                { name: "Node", icon: "devicon-nodejs-plain colored" },
+                { name: "Laravel", icon: "devicon-laravel-plain colored" },
               ].map((skill, index) => (
                 <div
                   className="skill-item"
@@ -493,6 +498,7 @@ function App() {
             </div>
           </div>
 
+          {/* Databases */}
           <div className="skills-category">
             <h3>Databases</h3>
             <div className="skills-grid">
@@ -503,6 +509,10 @@ function App() {
                   icon: "devicon-microsoftsqlserver-plain colored",
                 },
                 { name: "MongoDB", icon: "devicon-mongodb-plain colored" },
+                {
+                  name: "PostgreSQL",
+                  icon: "devicon-postgresql-plain colored",
+                },
               ].map((skill, index) => (
                 <div
                   className="skill-item"
@@ -524,6 +534,7 @@ function App() {
             </div>
           </div>
 
+          {/* Tools & Technologies */}
           <div className="skills-category">
             <h3>Tools & Technologies</h3>
             <div className="skills-grid">
@@ -542,9 +553,13 @@ function App() {
                   name: "IntelliJ IDEA",
                   icon: "devicon-intellij-plain colored",
                 },
+                { name: "Python IDLE", icon: "devicon-python-plain" },
+                {
+                  name: "MS SQL Server Studio",
+                  icon: "devicon-microsoftsqlserver-plain colored",
+                },
                 { name: "Git", icon: "devicon-git-plain colored" },
                 { name: "GitHub", icon: "devicon-github-original" },
-                { name: "Figma", icon: "devicon-figma-plain colored" },
                 {
                   name: "Jupyter Notebook",
                   icon: "devicon-jupyter-plain colored",
@@ -571,38 +586,46 @@ function App() {
             </div>
           </div>
 
-          <div className="skills-category">
-            <h3>AI Tools</h3>
-            <div className="skills-grid">
-              {[
-                { name: "ChatGPT", iconClass: "ai-icon chatgpt-icon" },
-                { name: "Gemini", iconClass: "ai-icon gemini-icon" },
-                { name: "Claude", iconClass: "ai-icon claude-icon" },
-                { name: "Blackbox", iconClass: "ai-icon blackbox-icon" },
-                { name: "Perplexity", iconClass: "ai-icon perplexity-icon" },
-                { name: "DeepSeek", iconClass: "ai-icon deepseek-icon" },
-              ].map((skill, index) => (
-                <div
-                  className="skill-item"
-                  key={index}
-                  data-aos="fade-up"
-                  data-aos-delay={index * 100}
-                >
-                  <div className="skill-card-content">
-                    <div className={skill.iconClass}></div>
-                    <span className="skill-name">{skill.name}</span>
-                    <div
-                      className="skill-progress"
-                      style={{ width: "85%" }}
-                    ></div>
-                  </div>
-                  <div className="skill-card-bg"></div>
-                </div>
-              ))}
-            </div>
-          </div>
+{/* AI/ML Skills */}
+<div className="skills-category">
+  <h3>AI/ML Skills</h3>
+  <div className="skills-grid">
+    {[
+      { name: "Machine Learning", icon: "devicon-python-plain colored" },
+      { name: "Artificial Intelligence", icon: "devicon-tensorflow-original colored" },
+      { name: "Random Forest", icon: "fas fa-tree", color: "#228B22" },
+      { name: "Hugging Face", icon: "devicon-pytorch-original colored" },
+      { name: "scikit-learn", icon: "fas fa-cogs", color: "#F7931E" },
+      { name: "XGBoost", icon: "devicon-anaconda-original colored" },
+      { name: "Neural Networks", icon: "fas fa-project-diagram", color: "#9932CC" },
+      { name: "Pandas", icon: "fas fa-table", color: "#150458" },
+      { name: "TensorFlow", icon: "devicon-tensorflow-original colored" },
+    ].map((skill, index) => (
+      <div
+        className="skill-item"
+        key={index}
+        data-aos="fade-up"
+        data-aos-delay={index * 100}
+      >
+        <div className="skill-card-content">
+          <i 
+            className={`skill-icon ${skill.icon}`}
+            style={skill.color ? { color: skill.color } : {}}
+          ></i>
+          <span className="skill-name">{skill.name}</span>
+          <div
+            className="skill-progress"
+            style={{ width: "85%" }}
+          ></div>
+        </div>
+        <div className="skill-card-bg"></div>
+      </div>
+    ))}
+  </div>
+</div>
         </div>
       </section>
+
       {/* Projects Section */}
       <section id="projects" className="projects-section">
         <div className="section-container">
