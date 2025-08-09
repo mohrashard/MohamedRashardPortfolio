@@ -15,7 +15,7 @@ function App() {
       "Full-Stack Developer",
       "Front-End Designer",
       "Content Creator",
-      "AI Enthusiast",
+      "AI/ML Engineer",
     ];
 
     let currentIndex = 0;
@@ -276,13 +276,13 @@ function App() {
       </section>
 
       {/* About Section */}
-      <section id="about" className="about-section">
-        <div className="section-header">
+      <section id="about" class="about-section">
+        <div class="section-header">
           <h2>About Me</h2>
-          <div className="underline"></div>
+          <div class="underline"></div>
         </div>
-        <div className="about-content">
-          <div className="about-text" style={{ textAlign: "justify" }}>
+        <div class="about-content">
+          <div class="about-text">
             <p>
               Aspiring Software Engineer with a strong foundation in full-stack
               development, object-oriented programming (OOP), and database
@@ -309,18 +309,13 @@ function App() {
             </p>
           </div>
 
-          <div className="about-details">
+          <div class="about-details">
             <div class="about-education">
               <h3>Education</h3>
               <div class="education-item">
                 <h4>B.Sc. (Hons) in Software Engineering</h4>
                 <p>Cardiff Metropolitan University</p>
-                <span class="date">2025 - Expected Feb 2026</span>
-              </div>
-              <div class="education-item">
-                <h4>HND in Software Engineering and Computing</h4>
-                <p>Cardiff Metropolitan University</p>
-                <span class="date">Feb 2025</span>
+                <span class="date">Mar 2023 -Nov 2026</span>
               </div>
               <div class="education-item">
                 <h4>Diploma in Computing</h4>
@@ -338,6 +333,7 @@ function App() {
                 <span class="date">Mar 2022</span>
               </div>
             </div>
+
             <div class="about-languages">
               <h3>Languages</h3>
               <div class="language-item">
@@ -624,12 +620,33 @@ function App() {
           <div className="projects-grid">
             {[
               {
+                title: "LiverLens",
+                subtitle:
+                  "AI-Powered Liver Disease Prediction & Clinical Data Platform",
+                description:
+                  "A full-stack React and Flask web application integrating an XGBoost AI model for liver disease risk prediction. Features secure multi-role authentication, personalized dashboards, bulk prediction uploads, report generation, advanced data visualization, and a learning module tailored to Doctors, Researchers, and Students.",
+                github: "https://github.com/mohrashard/LiverLens",
+                liveDemo: null,
+                tags: [
+                  "React",
+                  "Flask",
+                  "Python",
+                  "XGBoost",
+                  "AI/ML",
+                  "MongoDB",
+                  "Role-Based Access",
+                  "Medical AI",
+                  
+                ],
+              },
+
+              {
                 title: "Mentora",
                 subtitle:
-                  "An AI-Powered Web Platform for Mental Wellness Assessment Using Lifestyle and Digital Behavior (Ongoing)",
+                  "An AI-Powered Web Platform for Mental Wellness Assessment Using Lifestyle and Digital Behavior",
                 description:
-                  "Developing a Flask and React web app to assess mental wellness through lifestyle and digital behavior analysis, offering personalized insights and support.",
-                github: "#",
+                  "Developed a Flask and React web app to assess mental wellness through lifestyle and digital behavior analysis, offering personalized insights and support.",
+                github: "https://github.com/mohrashard/mentora.git",
                 liveDemo: null,
                 tags: [
                   "React",
@@ -638,9 +655,11 @@ function App() {
                   "AI/ML",
                   "MongoDB",
                   "Jupyter Notebook",
-                  "Ongoing Project",
+                  "Data Visualization",
+                  "Randon Forest",
                 ],
               },
+
               {
                 title: "OceansFlixx",
                 subtitle: "Movie Explorer Web Application",
