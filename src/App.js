@@ -586,43 +586,95 @@ function App() {
             </div>
           </div>
 
-{/* AI/ML Skills */}
-<div className="skills-category">
-  <h3>AI/ML Skills</h3>
-  <div className="skills-grid">
-    {[
-      { name: "Machine Learning", icon: "devicon-python-plain colored" },
-      { name: "Artificial Intelligence", icon: "devicon-tensorflow-original colored" },
-      { name: "Random Forest", icon: "fas fa-tree", color: "#228B22" },
-      { name: "Hugging Face", icon: "devicon-pytorch-original colored" },
-      { name: "scikit-learn", icon: "fas fa-cogs", color: "#F7931E" },
-      { name: "XGBoost", icon: "devicon-anaconda-original colored" },
-      { name: "Neural Networks", icon: "fas fa-project-diagram", color: "#9932CC" },
-      { name: "Pandas", icon: "fas fa-table", color: "#150458" },
-      { name: "TensorFlow", icon: "devicon-tensorflow-original colored" },
-    ].map((skill, index) => (
-      <div
-        className="skill-item"
-        key={index}
-        data-aos="fade-up"
-        data-aos-delay={index * 100}
-      >
-        <div className="skill-card-content">
-          <i 
-            className={`skill-icon ${skill.icon}`}
-            style={skill.color ? { color: skill.color } : {}}
-          ></i>
-          <span className="skill-name">{skill.name}</span>
-          <div
-            className="skill-progress"
-            style={{ width: "85%" }}
-          ></div>
-        </div>
-        <div className="skill-card-bg"></div>
-      </div>
-    ))}
-  </div>
-</div>
+          {/* AI/ML Skills */}
+          <div className="skills-category">
+            <h3>AI/ML Skills</h3>
+            <div className="skills-grid">
+              {[
+                {
+                  name: "Machine Learning",
+                  icon: "devicon-python-plain colored",
+                },
+                {
+                  name: "Artificial Intelligence",
+                  icon: "devicon-tensorflow-original colored",
+                },
+                {
+                  name: "Random Forest",
+                  icon: "fas fa-tree",
+                  color: "#228B22",
+                },
+                {
+                  name: "Hugging Face",
+                  icon: "devicon-pytorch-original colored",
+                },
+                { name: "scikit-learn", icon: "fas fa-cogs", color: "#F7931E" },
+                { name: "XGBoost", icon: "devicon-anaconda-original colored" },
+                {
+                  name: "Neural Networks",
+                  icon: "fas fa-project-diagram",
+                  color: "#9932CC",
+                },
+                { name: "Pandas", icon: "fas fa-table", color: "#150458" },
+                {
+                  name: "TensorFlow",
+                  icon: "devicon-tensorflow-original colored",
+                },
+              ].map((skill, index) => (
+                <div
+                  className="skill-item"
+                  key={index}
+                  data-aos="fade-up"
+                  data-aos-delay={index * 100}
+                >
+                  <div className="skill-card-content">
+                    <i
+                      className={`skill-icon ${skill.icon}`}
+                      style={skill.color ? { color: skill.color } : {}}
+                    ></i>
+                    <span className="skill-name">{skill.name}</span>
+                    <div
+                      className="skill-progress"
+                      style={{ width: "85%" }}
+                    ></div>
+                  </div>
+                  <div className="skill-card-bg"></div>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          {/* AI Tools */}
+          <div className="skills-category">
+            <h3>AI Tools</h3>
+            <div className="skills-grid">
+              {[
+                { name: "ChatGPT", iconClass: "ai-icon chatgpt-icon" },
+                { name: "Gemini", iconClass: "ai-icon gemini-icon" },
+                { name: "Claude", iconClass: "ai-icon claude-icon" },
+                { name: "Blackbox", iconClass: "ai-icon blackbox-icon" },
+                { name: "Perplexity", iconClass: "ai-icon perplexity-icon" },
+                { name: "DeepSeek", iconClass: "ai-icon deepseek-icon" },
+              ].map((skill, index) => (
+                <div
+                  className="skill-item"
+                  key={index}
+                  data-aos="fade-up"
+                  data-aos-delay={index * 100}
+                >
+                  <div className="skill-card-content">
+                    <div className={skill.iconClass}></div>
+                    <span className="skill-name">{skill.name}</span>
+                    <div
+                      className="skill-progress"
+                      style={{ width: "85%" }}
+                    ></div>
+                  </div>
+                  <div className="skill-card-bg"></div>
+                </div>
+              ))}
+            </div>
+          </div>
         </div>
       </section>
 
