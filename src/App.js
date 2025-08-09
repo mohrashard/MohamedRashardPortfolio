@@ -502,7 +502,6 @@ function App() {
                   name: "MSSQL",
                   icon: "devicon-microsoftsqlserver-plain colored",
                 },
-                // Added MongoDB here
                 { name: "MongoDB", icon: "devicon-mongodb-plain colored" },
               ].map((skill, index) => (
                 <div
@@ -546,7 +545,6 @@ function App() {
                 { name: "Git", icon: "devicon-git-plain colored" },
                 { name: "GitHub", icon: "devicon-github-original" },
                 { name: "Figma", icon: "devicon-figma-plain colored" },
-                // Added Jupyter and Colab here
                 {
                   name: "Jupyter Notebook",
                   icon: "devicon-jupyter-plain colored",
@@ -605,7 +603,6 @@ function App() {
           </div>
         </div>
       </section>
-
       {/* Projects Section */}
       <section id="projects" className="projects-section">
         <div className="section-container">
@@ -634,9 +631,9 @@ function App() {
                   "XGBoost",
                   "AI/ML",
                   "MongoDB",
+                  "Data Visualization",
                   "Role-Based Access",
                   "Medical AI",
-                  
                 ],
               },
 
@@ -645,7 +642,7 @@ function App() {
                 subtitle:
                   "An AI-Powered Web Platform for Mental Wellness Assessment Using Lifestyle and Digital Behavior",
                 description:
-                  "Developed a Flask and React web app to assess mental wellness through lifestyle and digital behavior analysis, offering personalized insights and support.",
+                  "An AI web platform assesses mental wellness by analyzing lifestyle and digital behavior. It generates personalized mental wellness scores and context-aware recommendations to promote positive behavioral changes. Designed for individuals, parents, counselors, and educators, the platform uses Flask, React, machine learning, and MongoDB to securely provide proactive support, bridging the gap between digital habits and mental health.",
                 github: "https://github.com/mohrashard/mentora.git",
                 liveDemo: null,
                 tags: [
@@ -655,7 +652,6 @@ function App() {
                   "AI/ML",
                   "MongoDB",
                   "Jupyter Notebook",
-                  "Data Visualization",
                   "Randon Forest",
                 ],
               },
