@@ -79,7 +79,7 @@ export default function Services() {
       `Hi there,\n\nI'm interested in your ${service.title} services.\n\nSpecifically, I'm looking for:\n\n${service.features.map(feature => `• ${feature}`).join('\n')}\n\nCould we schedule a consultation to discuss my project requirements?\n\nBest regards`
     );
     
-    window.open(`mailto:your-email@example.com?subject=${subject}&body=${body}`, '_blank');
+    window.open(`mailto:mohrashard@gmail.com?subject=${subject}&body=${body}`, '_blank');
   };
 
   const handleStartProject = () => {
@@ -120,7 +120,7 @@ export default function Services() {
           break;
           
         case 'call':
-          window.open('tel:+1234567890', '_self');
+          window.open('tel:+94719382296', '_self');
           modal.remove();
           break;
           
