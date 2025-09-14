@@ -160,6 +160,9 @@ body {
   transform: rotate(-45deg) translate(7px, -6px);
 }
 
+/* Add viewport meta tag in your HTML head if not present */
+/* <meta name="viewport" content="width=device-width, initial-scale=1.0"> */
+
 /* Home Section */
 .home-section {
   min-height: 100vh;
@@ -229,10 +232,10 @@ body {
 }
 
 .typing-effect {
-  font-size: clamp(1.5rem, 4vw, 2.2rem); /* slightly larger max size for bigger screens */
+  font-size: clamp(1.5rem, 4vw, 2.2rem);
   color: var(--primary-color);
-  font-weight: 600; /* a bit bolder for emphasis */
-  border-right: 2px solid var(--primary-color); /* thinner, cleaner caret */
+  font-weight: 600;
+  border-right: 2px solid var(--primary-color);
   padding-right: 6px;
   white-space: nowrap;
   overflow: hidden;
@@ -259,9 +262,6 @@ body {
     border-color: transparent;
   }
 }
-
-
-
 
 .hero-description {
   font-size: 1.2rem;
@@ -756,26 +756,57 @@ body {
   }
 }
 
-/* Mobile Responsive */
+/* Mobile Responsive - UPDATED with immediate mobile styles */
+@media (max-width: 1200px) {
+  .home-content {
+    gap: 3rem;
+  }
+  
+  .illustration {
+    height: 500px;
+  }
+  
+  .tech-orbit {
+    width: 250px;
+    height: 250px;
+  }
+  
+  .tech-icon {
+    width: 50px;
+    height: 50px;
+    font-size: 1.2rem;
+  }
+}
+
+@media (max-width: 992px) {
+  .home-content {
+    gap: 2rem;
+  }
+  
+  .service-highlights {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  
+  .illustration {
+    height: 450px;
+  }
+  
+  .tech-orbit {
+    width: 220px;
+    height: 220px;
+  }
+  
+  .code-lines {
+    padding: 1.5rem;
+    font-size: 0.9rem;
+  }
+}
+
+/* Main mobile breakpoint - UPDATED with performance optimizations */
 @media (max-width: 768px) {
-  .header {
-    padding: 1rem;
-  }
-  
-
-  
-
-  .nav-links {
-    flex-direction: column;
-    gap: 1rem;
-  }
-  
-  .mobile-menu {
-    display: block;
-  }
-  
   .home-section {
     padding: 6rem 1rem 2rem;
+    min-height: auto;
   }
   
   .home-content {
@@ -784,31 +815,88 @@ body {
     text-align: center;
   }
   
+  .home-text, .home-graphic {
+    animation: none; /* Remove animations on mobile for better performance */
+  }
+  
+  .glitch-effect {
+    animation: none; /* Disable glitch effect on mobile */
+    font-size: 2.2rem;
+  }
+  
+  .typing-effect {
+    animation: none; /* Disable typing animation on mobile */
+    border-right: none;
+    white-space: normal;
+    display: block;
+    font-size: 1.5rem;
+  }
+  
+  .hero-description {
+    font-size: 1.1rem;
+    margin-bottom: 2rem;
+  }
+  
   .service-highlights {
     grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+  
+  .service-item {
+    padding: 1.2rem;
+    flex-direction: column;
+    text-align: center;
+    align-items: center;
+  }
+  
+  .service-icon {
+    width: 45px;
+    height: 45px;
+    font-size: 1.1rem;
   }
   
   .cta-buttons {
     flex-direction: column;
     align-items: center;
+    gap: 0.8rem;
+    margin-bottom: 2rem;
   }
   
-  .cta-buttons button {
+  .primary-btn,
+  .secondary-btn,
+  .accent-btn {
     width: 100%;
     max-width: 300px;
+    justify-content: center;
+    padding: 0.9rem 1.5rem;
   }
   
   .social-links {
     justify-content: center;
+    flex-wrap: wrap;
+    margin-top: 1.5rem;
+  }
+  
+  .social-icon {
+    width: 45px;
+    height: 45px;
+    font-size: 1rem;
+  }
+  
+  /* Simplify graphics on mobile */
+  .home-graphic {
+    order: -1; /* Move graphic to top on mobile */
+    margin-bottom: 1rem;
+    height: 300px;
   }
   
   .illustration {
-    height: 400px;
+    height: 300px;
   }
   
   .tech-orbit {
-    width: 200px;
-    height: 200px;
+    width: 180px;
+    height: 180px;
   }
   
   .tech-icon {
@@ -819,11 +907,14 @@ body {
   
   .code-lines {
     padding: 1rem;
-    font-size: 0.8rem;
+    font-size: 0.7rem;
+    transform: translate(-50%, -50%) scale(0.8);
   }
   
+  /* Reduce animation intensity on mobile */
   .blob {
     filter: blur(20px);
+    animation-duration: 8s;
   }
   
   .blob-1 {
@@ -832,23 +923,41 @@ body {
   }
   
   .blob-2 {
+    width: 90px;
+    height: 90px;
+  }
+  
+  .blob-3 {
     width: 100px;
     height: 100px;
   }
   
-  .blob-3 {
-    width: 110px;
-    height: 110px;
+  .floating-element {
+    animation: none;
+    display: none;
+  }
+  
+  .particles-container::before {
+    animation: none;
+    display: none;
+  }
+  
+  .scroll-indicator {
+    bottom: 20px;
+  }
+  
+  .scroll-indicator span {
+    font-size: 0.8rem;
   }
 }
 
 @media (max-width: 480px) {
   .home-section {
-    padding: 5rem 1rem 2rem;
+    padding: 5rem 1rem 1.5rem;
   }
   
   .glitch-effect {
-    font-size: 2rem;
+    font-size: 1.8rem;
   }
   
   .typing-effect {
@@ -857,6 +966,7 @@ body {
   
   .hero-description {
     font-size: 1rem;
+    margin-bottom: 1.5rem;
   }
   
   .service-item {
@@ -870,14 +980,73 @@ body {
   }
   
   .cta-buttons button {
-    padding: 0.8rem 1.5rem;
+    padding: 0.8rem 1.2rem;
     font-size: 0.9rem;
   }
   
+  .home-graphic {
+    height: 250px;
+  }
+  
+  .illustration {
+    height: 250px;
+  }
+  
+  .tech-orbit {
+    width: 150px;
+    height: 150px;
+  }
+  
+  .tech-icon {
+    width: 35px;
+    height: 35px;
+    font-size: 0.9rem;
+  }
+  
+  .code-lines {
+    padding: 0.8rem;
+    font-size: 0.6rem;
+    transform: translate(-50%, -50%) scale(0.7);
+  }
+}
+
+/* Add this for immediate mobile detection and styling */
+@media (max-width: 768px) and (max-height: 900px) {
+  .home-section {
+    min-height: 100vh;
+    padding-top: 5rem;
+  }
+}
+
+/* Performance optimizations for mobile */
+@media (max-width: 768px) {
+  .home-section::before {
+    background: radial-gradient(circle at 20% 50%, rgba(33, 150, 243, 0.1) 0%, transparent 40%),
+                radial-gradient(circle at 80% 20%, rgba(63, 81, 181, 0.1) 0%, transparent 40%);
+  }
+  
+  .service-item {
+    backdrop-filter: none;
+  }
+  
   .social-icon {
-    width: 45px;
-    height: 45px;
-    font-size: 1rem;
+    backdrop-filter: none;
+  }
+  
+  .code-lines {
+    backdrop-filter: none;
+  }
+}
+
+/* Reduced motion for users who prefer it */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
   }
 }
 /* About Section */
