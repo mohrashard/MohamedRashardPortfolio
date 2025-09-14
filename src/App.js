@@ -179,15 +179,7 @@ function App() {
         </button>
       </li>
 
-      {/* ✅ Services with same style */}
-      <li>
-        <Link
-          to="/services"
-          className={location.pathname === "/services" ? "active" : ""}
-        >
-          Services
-        </Link>
-      </li>
+
 
       <li>
         <button
@@ -196,6 +188,16 @@ function App() {
         >
           Contact
         </button>
+      </li>
+
+            {/* ✅ Services with same style */}
+      <li>
+        <Link
+          to="/services"
+          className={location.pathname === "/services" ? "active" : ""}
+        >
+          Services
+        </Link>
       </li>
     </ul>
   </nav>
@@ -272,7 +274,7 @@ function App() {
             <div className="cta-buttons">
               <button
                 className="primary-btn"
-                onClick={() => scrollToSection("portfolio")}
+                onClick={() => scrollToSection("projects")}
                 aria-label="View my portfolio and projects"
               >
                 <i className="fas fa-rocket"></i>
@@ -298,7 +300,7 @@ function App() {
 
             <div className="social-links">
               <a
-                href="https://www.linkedin.com/in/mohamed-rashard"
+                href="https://www.linkedin.com/in/mohamedrashard"
                 className="social-icon linkedin"
                 aria-label="Connect on LinkedIn"
                 target="_blank"
@@ -308,7 +310,7 @@ function App() {
                 <span className="tooltip">LinkedIn</span>
               </a>
               <a
-                href="https://github.com/mohamed-rashard"
+                href="https://github.com/mohrashard/"
                 className="social-icon github"
                 aria-label="View GitHub Profile"
                 target="_blank"
@@ -421,18 +423,7 @@ function App() {
 
         <div className="particles-container"></div>
 
-        <div
-          className="scroll-indicator"
-          onClick={() => scrollToSection("about")}
-          role="button"
-          tabIndex="0"
-          aria-label="Scroll to about section"
-        >
-          <span>Discover More</span>
-          <div className="mouse">
-            <div className="mouse-wheel"></div>
-          </div>
-        </div>
+
       </section>
 
       {/* About Section */}
