@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useRef } from "react";
+import { Link, useLocation } from "react-router-dom";
 import "./App.css";
 
 function App() {
@@ -7,6 +8,7 @@ function App() {
   const [isScrolling, setIsScrolling] = useState(false);
   const titleRef = useRef(null);
 
+  const location = useLocation();
   // Typing effect for multiple titles
   useEffect(() => {
     const titles = [
@@ -128,72 +130,87 @@ function App() {
   return (
     <div className="app">
       {/* Header/Navigation */}
-      <header className="header">
-        <div className="logo">
-          <span className="logo-text">MRR</span>
-        </div>
-        <nav className={`nav ${isMenuOpen ? "open" : ""}`}>
-          <ul className="nav-links">
-            <li>
-              <button
-                className={activeSection === "home" ? "active" : ""}
-                onClick={() => scrollToSection("home")}
-              >
-                Home
-              </button>
-            </li>
-            <li>
-              <button
-                className={activeSection === "about" ? "active" : ""}
-                onClick={() => scrollToSection("about")}
-              >
-                About
-              </button>
-            </li>
-            <li>
-              <button
-                className={activeSection === "experience" ? "active" : ""}
-                onClick={() => scrollToSection("experience")}
-              >
-                Experience
-              </button>
-            </li>
-            <li>
-              <button
-                className={activeSection === "skills" ? "active" : ""}
-                onClick={() => scrollToSection("skills")}
-              >
-                Skills
-              </button>
-            </li>
-            <li>
-              <button
-                className={activeSection === "projects" ? "active" : ""}
-                onClick={() => scrollToSection("projects")}
-              >
-                Projects
-              </button>
-            </li>
-            <li>
-              <button
-                className={activeSection === "contact" ? "active" : ""}
-                onClick={() => scrollToSection("contact")}
-              >
-                Contact
-              </button>
-            </li>
-          </ul>
-        </nav>
-        <div className="mobile-menu" onClick={() => setIsMenuOpen(!isMenuOpen)}>
-          <div className={`hamburger ${isMenuOpen ? "open" : ""}`}>
-            <span></span>
-            <span></span>
-            <span></span>
-          </div>
-        </div>
-      </header>
 
-      {/* Home Section */}
+
+<header className="header">
+  <div className="logo">
+    <span className="logo-text">MRR</span>
+  </div>
+  <nav className={`nav ${isMenuOpen ? "open" : ""}`}>
+    <ul className="nav-links">
+      <li>
+        <button
+          className={activeSection === "home" ? "active" : ""}
+          onClick={() => scrollToSection("home")}
+        >
+          Home
+        </button>
+      </li>
+      <li>
+        <button
+          className={activeSection === "about" ? "active" : ""}
+          onClick={() => scrollToSection("about")}
+        >
+          About
+        </button>
+      </li>
+      <li>
+        <button
+          className={activeSection === "experience" ? "active" : ""}
+          onClick={() => scrollToSection("experience")}
+        >
+          Experience
+        </button>
+      </li>
+      <li>
+        <button
+          className={activeSection === "skills" ? "active" : ""}
+          onClick={() => scrollToSection("skills")}
+        >
+          Skills
+        </button>
+      </li>
+      <li>
+        <button
+          className={activeSection === "projects" ? "active" : ""}
+          onClick={() => scrollToSection("projects")}
+        >
+          Projects
+        </button>
+      </li>
+
+      {/* ✅ Services with same style */}
+      <li>
+        <Link
+          to="/services"
+          className={location.pathname === "/services" ? "active" : ""}
+        >
+          Services
+        </Link>
+      </li>
+
+      <li>
+        <button
+          className={activeSection === "contact" ? "active" : ""}
+          onClick={() => scrollToSection("contact")}
+        >
+          Contact
+        </button>
+      </li>
+    </ul>
+  </nav>
+  <div className="mobile-menu" onClick={() => setIsMenuOpen(!isMenuOpen)}>
+    <div className={`hamburger ${isMenuOpen ? "open" : ""}`}>
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+  </div>
+</header>
+
+
+
+      {/* SEO-Optimized Home Section */}
       <section id="home" className="home-section">
         <div className="home-content">
           <div className="home-text">
@@ -202,73 +219,216 @@ function App() {
             </h1>
             <div className="title-wrapper">
               <h2 className="typing-effect" ref={titleRef}>
-                Software Engineer
+                Full-Stack Developer & AI Solutions Expert
               </h2>
             </div>
-            <p>Crafting elegant solutions to complex problems</p>
+            <p className="hero-description">
+              Specializing in <strong>web app development</strong>,{" "}
+              <strong>mobile app development</strong>, and cutting-edge{" "}
+              <strong>AI solutions</strong>. Transform your ideas into powerful
+              digital experiences.
+            </p>
+
+            {/* Service Highlights */}
+            <div className="service-highlights">
+              <div className="service-item">
+                <div className="service-icon">
+                  <i className="fab fa-react"></i>
+                </div>
+                <div className="service-content">
+                  <h3>React & Next.js Development</h3>
+                  <p>Modern web applications with optimal performance</p>
+                </div>
+              </div>
+              <div className="service-item">
+                <div className="service-icon">
+                  <i className="fas fa-mobile-alt"></i>
+                </div>
+                <div className="service-content">
+                  <h3>React Native Apps</h3>
+                  <p>Cross-platform mobile solutions</p>
+                </div>
+              </div>
+              <div className="service-item">
+                <div className="service-icon">
+                  <i className="fas fa-robot"></i>
+                </div>
+                <div className="service-content">
+                  <h3>AI Integration</h3>
+                  <p>Smart automation and machine learning</p>
+                </div>
+              </div>
+              <div className="service-item">
+                <div className="service-icon">
+                  <i className="fas fa-code"></i>
+                </div>
+                <div className="service-content">
+                  <h3>Custom Software</h3>
+                  <p>Tailored solutions for your business needs</p>
+                </div>
+              </div>
+            </div>
+
             <div className="cta-buttons">
               <button
                 className="primary-btn"
-                onClick={() => scrollToSection("about")}
+                onClick={() => scrollToSection("portfolio")}
+                aria-label="View my portfolio and projects"
               >
+                <i className="fas fa-rocket"></i>
                 Explore My Work
               </button>
-              <button className="secondary-btn" onClick={handleDownloadResume}>
+              <button
+                className="secondary-btn"
+                onClick={() => scrollToSection("contact")}
+                aria-label="Contact me for project collaboration"
+              >
+                <i className="fas fa-handshake"></i>
+                Hire Me
+              </button>
+              <button
+                className="accent-btn"
+                onClick={handleDownloadResume}
+                aria-label="Download my resume PDF"
+              >
+                <i className="fas fa-download"></i>
                 Download CV
               </button>
             </div>
+
             <div className="social-links">
               <a
+                href="https://www.linkedin.com/in/mohamed-rashard"
+                className="social-icon linkedin"
+                aria-label="Connect on LinkedIn"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <i className="fab fa-linkedin-in"></i>
+                <span className="tooltip">LinkedIn</span>
+              </a>
+              <a
+                href="https://github.com/mohamed-rashard"
+                className="social-icon github"
+                aria-label="View GitHub Profile"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <i className="fab fa-github"></i>
+                <span className="tooltip">GitHub</span>
+              </a>
+              <a
                 href="https://www.instagram.com/moh_.rashaxd?igsh=MW81NndsYnFjZXlvdg=="
-                className="social-icon"
-                aria-label="Instagram"
+                className="social-icon instagram"
+                aria-label="Follow on Instagram"
+                target="_blank"
+                rel="noopener noreferrer"
               >
                 <i className="fab fa-instagram"></i>
+                <span className="tooltip">Instagram</span>
               </a>
               <a
                 href="https://www.tiktok.com/@mohh.rasharrd?_t=ZS-8uoMDC9PJTu&_r=1"
-                className="social-icon"
-                aria-label="TikTok"
+                className="social-icon tiktok"
+                aria-label="Follow on TikTok"
+                target="_blank"
+                rel="noopener noreferrer"
               >
                 <i className="fab fa-tiktok"></i>
+                <span className="tooltip">TikTok</span>
               </a>
               <a
                 href="https://www.facebook.com/share/1EnKfVXh1z/"
-                className="social-icon"
-                aria-label="Facebook"
+                className="social-icon facebook"
+                aria-label="Connect on Facebook"
+                target="_blank"
+                rel="noopener noreferrer"
               >
                 <i className="fab fa-facebook-f"></i>
+                <span className="tooltip">Facebook</span>
               </a>
               <a
                 href="https://youtube.com/@moh_rashard?feature=shared"
-                className="social-icon"
-                aria-label="YouTube"
+                className="social-icon youtube"
+                aria-label="Subscribe on YouTube"
+                target="_blank"
+                rel="noopener noreferrer"
               >
                 <i className="fab fa-youtube"></i>
+                <span className="tooltip">YouTube</span>
               </a>
             </div>
           </div>
+
           <div className="home-graphic">
             <div className="illustration">
+              <div className="tech-orbit">
+                <div className="tech-icon tech-react">
+                  <i className="fab fa-react"></i>
+                </div>
+                <div className="tech-icon tech-js">
+                  <i className="fab fa-js-square"></i>
+                </div>
+                <div className="tech-icon tech-node">
+                  <i className="fab fa-node-js"></i>
+                </div>
+                <div className="tech-icon tech-python">
+                  <i className="fab fa-python"></i>
+                </div>
+              </div>
               <div className="blob blob-1"></div>
               <div className="blob blob-2"></div>
               <div className="blob blob-3"></div>
               <div className="code-lines">
-                <div className="code-line"></div>
-                <div className="code-line"></div>
-                <div className="code-line"></div>
-                <div className="code-line"></div>
-                <div className="code-line"></div>
+                <div className="code-line code-react">
+                  <span className="code-text">const</span>
+                  <span className="code-var">solution</span>
+                  <span className="code-text">= </span>
+                  <span className="code-string">'innovative'</span>
+                </div>
+                <div className="code-line code-function">
+                  <span className="code-text">function </span>
+                  <span className="code-func">buildApp</span>
+                  <span className="code-text">() </span>
+                </div>
+                <div className="code-line code-return">
+                  <span className="code-text"> return </span>
+                  <span className="code-string">&lt;Success /&gt;</span>
+                </div>
+                <div className="code-line code-close">
+                  <span className="code-text"></span>
+                </div>
+                <div className="code-line code-ai">
+                  <span className="code-text">AI.</span>
+                  <span className="code-func">integrate</span>
+                  <span className="code-text">(solution)</span>
+                </div>
+              </div>
+              <div className="floating-elements">
+                <div className="floating-element element-1">
+                  <i className="fas fa-code"></i>
+                </div>
+                <div className="floating-element element-2">
+                  <i className="fas fa-brain"></i>
+                </div>
+                <div className="floating-element element-3">
+                  <i className="fas fa-mobile-alt"></i>
+                </div>
               </div>
             </div>
           </div>
         </div>
+
         <div className="particles-container"></div>
+
         <div
           className="scroll-indicator"
           onClick={() => scrollToSection("about")}
+          role="button"
+          tabIndex="0"
+          aria-label="Scroll to about section"
         >
-          <span>Scroll</span>
+          <span>Discover More</span>
           <div className="mouse">
             <div className="mouse-wheel"></div>
           </div>
