@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState, useEffect, useRef, useCallback } from "react";
 import { Link, useLocation } from "react-router-dom";
 import "./App.css";
 
@@ -57,56 +57,165 @@ function App() {
     return () => clearTimeout(initialTimer);
   }, []);
 
-  // Handle scroll and set active section
-  useEffect(() => {
-    const handleScroll = () => {
-      if (isScrolling) return;
+useEffect(() => {
+  const sections = [
+    "home",
+    "about", 
+   // "experience",
+    "skills",
+    "projects",
+    "contact",
+  ];
 
-      const sections = [
-        "home",
-        "about",
-        "experience",
-        "skills",
-        "projects",
-        "contact",
-      ];
-      const sectionElements = sections.map((section) =>
-        document.getElementById(section)
-      );
+  // Throttle function for better performance
+  const throttle = (func, limit) => {
+    let inThrottle;
+    return function() {
+      const args = arguments;
+      const context = this;
+      if (!inThrottle) {
+        func.apply(context, args);
+        inThrottle = true;
+        setTimeout(() => inThrottle = false, limit);
+      }
+    }
+  };
 
-      const scrollPosition = window.scrollY + 100;
+  const handleScroll = throttle(() => {
+    // Don't interfere during programmatic scrolling, but allow immediate updates
+    if (isScrolling) {
+      // Still update active section even during programmatic scroll
+      // but with a shorter delay to prevent conflicts
+      setTimeout(() => {
+        updateActiveSection();
+      }, 50);
+      return;
+    }
+    
+    updateActiveSection();
+  }, 16); // ~60fps for smooth updates
 
-      for (let i = sectionElements.length - 1; i >= 0; i--) {
-        const section = sectionElements[i];
-        if (section && section.offsetTop <= scrollPosition) {
+  const updateActiveSection = () => {
+    const scrollPosition = window.scrollY;
+    const windowHeight = window.innerHeight;
+    const documentHeight = document.documentElement.scrollHeight;
+    
+    // Handle edge case: if at bottom of page, set last section as active
+    if (scrollPosition + windowHeight >= documentHeight - 10) {
+      setActiveSection(sections[sections.length - 1]);
+      return;
+    }
+
+    // Get all section elements with their positions
+    const sectionData = sections.map(sectionId => {
+      const element = document.getElementById(sectionId);
+      if (!element) return null;
+      
+      const rect = element.getBoundingClientRect();
+      const offsetTop = element.offsetTop;
+      const height = element.offsetHeight;
+      
+      return {
+        id: sectionId,
+        offsetTop,
+        height,
+        top: rect.top,
+        bottom: rect.bottom
+      };
+    }).filter(Boolean);
+
+    // Find the section that's most visible in viewport
+    let activeSection = sections[0]; // default to first section
+    let maxVisibility = 0;
+
+    sectionData.forEach(section => {
+      // Calculate how much of the section is visible
+      const viewportTop = 0;
+      const viewportBottom = windowHeight;
+      const sectionTop = Math.max(section.top, viewportTop);
+      const sectionBottom = Math.min(section.bottom, viewportBottom);
+      
+      if (sectionBottom > sectionTop) {
+        const visibleHeight = sectionBottom - sectionTop;
+        const visibilityRatio = visibleHeight / Math.min(section.height, windowHeight);
+        
+        // Also consider if section is near the top of viewport
+        const distanceFromTop = Math.abs(section.top);
+        const proximityBonus = distanceFromTop < 100 ? 0.3 : 0;
+        
+        const totalScore = visibilityRatio + proximityBonus;
+        
+        if (totalScore > maxVisibility) {
+          maxVisibility = totalScore;
+          activeSection = section.id;
+        }
+      }
+    });
+
+    // Alternative simpler approach: section that crosses the middle of viewport
+    const middleOfViewport = windowHeight / 2;
+    for (let i = sectionData.length - 1; i >= 0; i--) {
+      const section = sectionData[i];
+      if (section.top <= middleOfViewport && section.bottom >= middleOfViewport) {
+        activeSection = section.id;
+        break;
+      }
+    }
+
+    setActiveSection(activeSection);
+  };
+
+  // Initial call to set active section on mount
+  updateActiveSection();
+
+  // Add scroll listener
+  window.addEventListener("scroll", handleScroll, { passive: true });
+  
+  // Also listen to resize events to recalculate positions
+  window.addEventListener("resize", updateActiveSection);
+
+  return () => {
+    window.removeEventListener("scroll", handleScroll);
+    window.removeEventListener("resize", updateActiveSection);
+  };
+}, [isScrolling]); // Keep isScrolling dependency
+
+// Enhanced smooth scroll function
+const scrollToSection = useCallback((sectionId) => {
+  const element = document.getElementById(sectionId);
+  if (!element) return;
+
+  setIsScrolling(true);
+  
+  // Immediately set active section for instant feedback
+  setActiveSection(sectionId);
+
+  const headerHeight = 80; // Your fixed header height
+  const targetPosition = element.offsetTop - headerHeight;
+
+  window.scrollTo({
+    top: targetPosition,
+    behavior: 'smooth'
+  });
+
+  // Reset isScrolling flag after scroll completes
+  setTimeout(() => {
+    setIsScrolling(false);
+    // Ensure correct section is still active after scroll
+    setTimeout(() => {
+      const sections = ["home", "about", "experience", "skills", "projects", "contact"];
+      const scrollPos = window.scrollY + headerHeight + 50;
+      
+      for (let i = sections.length - 1; i >= 0; i--) {
+        const sec = document.getElementById(sections[i]);
+        if (sec && sec.offsetTop <= scrollPos) {
           setActiveSection(sections[i]);
           break;
         }
       }
-    };
-
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, [isScrolling]);
-
-  // Smooth scroll to section
-  const scrollToSection = (sectionId) => {
-    setIsScrolling(true);
-    setIsMenuOpen(false);
-
-    const element = document.getElementById(sectionId);
-    if (element) {
-      window.scrollTo({
-        top: element.offsetTop,
-        behavior: "smooth",
-      });
-
-      setTimeout(() => {
-        setActiveSection(sectionId);
-        setIsScrolling(false);
-      }, 500);
-    }
-  };
+    }, 100);
+  }, 1000); // Smooth scroll typically takes ~1 second
+}, []);
 
   const handleDownloadResume = () => {
     const resumeUrl = process.env.PUBLIC_URL + "/Mohamed_Rashard_Rizmi_CV.pdf";
@@ -155,12 +264,12 @@ function App() {
         </button>
       </li>
       <li>
-        <button
+        {/* <button
           className={activeSection === "experience" ? "active" : ""}
           onClick={() => scrollToSection("experience")}
         >
           Experience
-        </button>
+        </button> */}
       </li>
       <li>
         <button
@@ -520,19 +629,20 @@ function App() {
       </section>
 
       {/* Work Experience Section */}
-      <section id="experience" className="experience-section">
+      {/* <section id="experience" className="experience-section">
         <div className="section-header">
           <h2>Work Experience</h2>
           <div className="underline"></div>
-        </div>
+        </div> */}
 
         {/* Internship Status Banner */}
-        <div className="seeking-status">
+        {/* <div className="seeking-status">
           <div className="seeking-badge">
             <span className="pulse-dot"></span>
             <span>Actively Seeking Software Engineering Internships</span>
-          </div>
-          <p className="seeking-description">
+          </div> */}
+
+          {/* <p className="seeking-description">
             I am currently looking for opportunities to apply my skills in a
             professional environment. Interested in roles involving full-stack
             development, backend systems, or AI applications.
@@ -540,7 +650,7 @@ function App() {
         </div>
 
         {/* Add Experience Template Here */}
-      </section>
+      {/* </section>  */}
 
       {/* Skills Section */}
       <section id="skills" className="skills-section">
