@@ -19,6 +19,7 @@
   --gradient-start: #2196f3;
   --gradient-end: #3f51b5;
   --transition: all 0.3s ease;
+  --typing-duration: 3.5s; 
 }
 
 * {
@@ -397,40 +398,43 @@ a:hover {
 
 .title-wrapper {
   margin-bottom: 2rem;
+  height: clamp(2rem, 5vw, 3rem); /* Fixed height to prevent vertical shifts */
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
 }
 
 .typing-effect {
-  font-size: clamp(1.5rem, 4vw, 2.2rem);
+  font-size: clamp(1.2rem, 3.5vw, 2.2rem);
   color: var(--primary-color);
   font-weight: 600;
-  border-right: 2px solid var(--primary-color);
-  padding-right: 6px;
   white-space: nowrap;
-  overflow: hidden;
   display: inline-block;
-  animation: typing 3.5s steps(40, end) forwards, blink-caret 0.75s step-end infinite;
+  min-height: 1.4em;
+  min-width: 300px; /* Minimum width to prevent horizontal shifts */
+  max-width: 100%;
+  position: relative;
+  overflow: hidden;
 }
 
-/* Typing animation */
-@keyframes typing {
-  from {
-    width: 0;
-  }
-  to {
-    width: 100%;
-  }
+/* Animated cursor */
+.typing-cursor {
+  color: var(--primary-color);
+  font-weight: 400;
+  animation: blink-cursor 1.2s infinite;
+  font-size: 1em;
+  line-height: 1;
 }
 
-/* Blinking caret animation */
-@keyframes blink-caret {
-  0%, 100% {
-    border-color: var(--primary-color);
+/* Cursor blinking animation */
+@keyframes blink-cursor {
+  0%, 50% {
+    opacity: 1;
   }
-  50% {
-    border-color: transparent;
+  51%, 100% {
+    opacity: 0;
   }
 }
-
 .hero-description {
   font-size: 1.2rem;
   margin-bottom: 3rem;
@@ -925,6 +929,7 @@ a:hover {
 }
 
 /* Mobile Responsive - UPDATED with immediate mobile styles */
+/* Mobile Responsive - ENHANCED for better typing effect and performance */
 @media (max-width: 1200px) {
   .home-content {
     gap: 3rem;
@@ -969,7 +974,8 @@ a:hover {
     font-size: 0.9rem;
   }
 }
-/* Main mobile breakpoint - UPDATED with performance optimizations */
+
+/* Main mobile breakpoint - FIXED typing effect to work responsively */
 @media (max-width: 768px) {
   .home-section {
     padding: 6rem 1rem 2rem;
@@ -988,19 +994,22 @@ a:hover {
   
   .glitch-effect {
     animation: none; /* Disable glitch effect on mobile */
-    font-size: 2.2rem;
+    font-size: clamp(2rem, 6vw, 2.5rem); /* Adjusted clamp for mobile */
   }
   
-  .typing-effect {
- 
-    border-right: none;
-    white-space: normal;
-    display: block;
-    font-size: 1.5rem;
+    .typing-effect {
+    font-size: clamp(1.1rem, 5vw, 1.5rem);
+    border-right: 2px solid var(--primary-color);
+    white-space: nowrap;
+    display: inline-block;
+    padding-right: 6px;
+    min-height: 1.3em;
+    text-align: center;
+    margin: 0 auto;
   }
   
   .hero-description {
-    font-size: 1.1rem;
+    font-size: clamp(0.95rem, 4vw, 1.1rem);
     margin-bottom: 2rem;
   }
   
@@ -1127,7 +1136,7 @@ a:hover {
   }
 }
 
-/* Extra small screens */
+/* Extra small screens - FURTHER RESPONSIVE ADJUSTMENTS */
 @media (max-width: 480px) {
   .home-section {
     min-height: 150vh; /* Slightly taller for very small screens */
@@ -1135,15 +1144,18 @@ a:hover {
   }
   
   .glitch-effect {
-    font-size: 1.8rem;
+    font-size: clamp(1.6rem, 7vw, 2rem);
   }
   
   .typing-effect {
-    font-size: 1.2rem;
+    font-size: clamp(1rem, 4.5vw, 1.4rem);
+    border-right: 1px solid var(--primary-color);
+    padding-right: 3px;
+    animation: typing var(--typing-duration, 2.5s) steps(25, end) forwards, blink-caret 0.75s step-end infinite;
   }
   
   .hero-description {
-    font-size: 1rem;
+    font-size: clamp(0.9rem, 3.5vw, 1rem);
     margin-bottom: 1.5rem;
   }
   
@@ -1194,6 +1206,10 @@ a:hover {
     min-height: 120vh;
     padding-top: 5rem;
   }
+  
+  .typing-effect {
+    animation: typing var(--typing-duration, 2.8s) steps(35, end) forwards, blink-caret 0.75s step-end infinite; /* Slightly faster for short screens */
+  }
 }
 
 /* Reduced motion for users who prefer it */
@@ -1205,6 +1221,32 @@ a:hover {
     animation-iteration-count: 1 !important;
     transition-duration: 0.01ms !important;
     scroll-behavior: auto !important;
+  }
+  
+  .typing-effect {
+    animation: none !important;
+    border-right: none !important;
+    width: auto !important;
+  }
+}
+
+/* Landscape orientation adjustments for mobile */
+@media (max-width: 768px) and (orientation: landscape) {
+  .home-section {
+    min-height: 100vh;
+    padding: 4rem 1rem 1rem;
+  }
+  
+  .home-content {
+    gap: 1.5rem;
+  }
+  
+  .typing-effect {
+    font-size: clamp(1.1rem, 4vw, 1.6rem);
+  }
+  
+  .hero-description {
+    font-size: clamp(0.85rem, 3vw, 1rem);
   }
 }
 

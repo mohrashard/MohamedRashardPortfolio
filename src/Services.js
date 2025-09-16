@@ -1,6 +1,7 @@
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState, Suspense } from "react";
 import { useNavigate } from "react-router-dom";
 import { ArrowLeft, Home, Zap, Layers, ExternalLink, Shield, Send, Menu, X } from "lucide-react";
+import { Helmet } from "react-helmet";
 import "./Services.css";
 
 export default function Services() {
@@ -12,7 +13,7 @@ export default function Services() {
   const navigate = useNavigate();
 
   useEffect(() => {
-      document.title = "Services | Mohamed Rashard";
+    document.title = "Services | Mohamed Rashard";
     setIsLoaded(true);
 
     const observerOptions = {
@@ -33,6 +34,7 @@ export default function Services() {
 
     return () => observer.disconnect();
   }, []);
+  
 
   const scrollToSection = (ref) => {
     ref.current?.scrollIntoView({ behavior: 'smooth' });
@@ -112,6 +114,7 @@ export default function Services() {
   };
 
   const handleStartProject = () => {
+    const activeElement = document.activeElement;
     const modal = document.createElement('div');
     modal.className = 'project-modal';
     modal.innerHTML = `
@@ -120,13 +123,13 @@ export default function Services() {
         <h3>Ready to Build Something Amazing?</h3>
         <p>Let's discuss your vision and create something extraordinary together!</p>
         <div class="modal-actions">
-          <button class="modal-btn primary" data-action="email">
+          <button class="modal-btn primary" data-action="email" aria-label="Send email inquiry">
             📧 Send Email
           </button>
-          <button class="modal-btn secondary" data-action="call">
+          <button class="modal-btn secondary" data-action="call" aria-label="Call +94719382296">
             📞 Call Now
           </button>
-          <button class="modal-btn tertiary" data-action="close">
+          <button class="modal-btn tertiary" data-action="close" aria-label="Close modal">
             ✕ Close
           </button>
         </div>
@@ -144,15 +147,18 @@ export default function Services() {
           );
           window.open(`mailto:mohrashard@gmail.com?subject=${subject}&body=${body}`, '_blank');
           modal.remove();
+          activeElement?.focus();
           break;
           
         case 'call':
           window.open('tel:+94719382296', '_self');
           modal.remove();
+          activeElement?.focus();
           break;
           
         case 'close':
           modal.remove();
+          activeElement?.focus();
           break;
       }
     };
@@ -162,11 +168,15 @@ export default function Services() {
     modal.addEventListener('click', (e) => {
       if (e.target === modal) {
         modal.remove();
+        activeElement?.focus();
       }
     });
 
     document.body.appendChild(modal);
-    setTimeout(() => modal.classList.add('show'), 10);
+    setTimeout(() => {
+      modal.classList.add('show');
+      modal.querySelector('button[data-action="email"]').focus();
+    }, 10);
   };
 
   const TechGrid = ({ tech }) => (
@@ -195,10 +205,66 @@ export default function Services() {
     return <div className="particles-container">{particles}</div>;
   };
 
+  const pageDescription = "Expert React developer specializing in cutting-edge web applications, responsive frontend websites, cross-platform mobile solutions, and intelligent AI integrations that drive business growth and innovation.";
+  const pageKeywords = "web development, mobile development, AI solutions, React, Next.js, React Native, frontend development, landing pages, machine learning";
+  const ogImage = "https://mohamedrashard.vercel.app/assets/og-image.png";
+  const currentUrl = window.location.href;
+  const currentOrigin = window.location.origin;
+
+  const personSchema = JSON.stringify({
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Mohamed Rashard",
+    "url": currentOrigin,
+    "email": "mohrashard@gmail.com",
+    "telephone": "+94719382296",
+    "jobTitle": "Software Developer",
+    "knowsAbout": ["Web Development", "Mobile Development", "AI", "Machine Learning"]
+  });
+
+  const webPageSchema = JSON.stringify({
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    "name": "Services | Mohamed Rashard",
+    "description": pageDescription,
+    "url": currentUrl,
+    "author": {
+      "@type": "Person",
+      "name": "Mohamed Rashard"
+    }
+  });
+
   return (
     <>
+      <Helmet>
+        <title>Services | Mohamed Rashard</title>
+        <meta name="description" content={pageDescription} />
+        <meta name="keywords" content={pageKeywords} />
+        <meta name="author" content="Mohamed Rashard" />
+        <meta name="robots" content="index, follow" />
+        <meta property="og:title" content="Mohamed Rashard | Services" />
+        <meta property="og:description" content={pageDescription} />
+        <meta property="og:url" content={currentUrl} />
+        <meta property="og:image" content={ogImage} />
+        <meta property="og:type" content="website" />
+        <meta property="og:locale" content="en_US" />
+        <meta property="og:site_name" content="Mohamed Rashard" />
+        <meta name="twitter:title" content="Services | Mohamed Rashard" />
+        <meta name="twitter:description" content={pageDescription} />
+        <meta name="twitter:image" content={ogImage} />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:creator" content="@mohrashard" />
+        <link rel="canonical" href={currentUrl} />
+        <link rel="preload" as="image" href={ogImage} />
+        <link rel="manifest" href="/manifest.json" />
+        <script type="application/ld+json">{personSchema}</script>
+        <script type="application/ld+json">{webPageSchema}</script>
+      </Helmet>
       <div className="services-page">
-        <FloatingParticles />
+        
+        <Suspense fallback={null}>
+          <FloatingParticles />
+        </Suspense>
 
         {/* Navigation */}
         <nav className="services-nav-bar">
@@ -282,6 +348,7 @@ export default function Services() {
         <main 
           ref={cardsRef}
           className="services-section"
+          id="main-content"
         >
           <div className="services-container">
             <h2 className="section-title">
@@ -296,8 +363,9 @@ export default function Services() {
                   itemScope 
                   itemType="https://schema.org/Service"
                 >
+                  <meta itemProp="serviceType" content={service.tech.join(', ')} />
                   <div className={`service-icon ${service.gradient}`}>
-                    <span role="img" aria-label={service.title}>{service.icon}</span>
+                    <span role="img" aria-label={`${service.title} icon`}>{service.icon}</span>
                     <div className="icon-glow"></div>
                   </div>
 
@@ -378,7 +446,7 @@ export default function Services() {
                 "serviceType": service.tech.join(", "),
                 "provider": {
                   "@type": "Person",
-                  "name": "Mohrashard"
+                  "name": "Mohamed Rashard"
                 }
               }
             }))

@@ -1,6 +1,24 @@
-import React, { useEffect, useRef, useState } from 'react';
-import { Code, Zap, Globe, Shield, ExternalLink,Cpu, CheckCircle, Rocket, Database, Layers, Monitor, ArrowLeft, Home, Send, Menu, X } from 'lucide-react';
-import './WebApps.css';
+import React, { useEffect, useRef, useState } from "react";
+import { Helmet } from "react-helmet";
+import {
+  Code,
+  Zap,
+  Globe,
+  Shield,
+  ExternalLink,
+  Cpu,
+  CheckCircle,
+  Rocket,
+  Database,
+  Layers,
+  Monitor,
+  ArrowLeft,
+  Home,
+  Send,
+  Menu,
+  X,
+} from "lucide-react";
+import "./WebApps.css";
 
 const WebApp = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -10,75 +28,99 @@ const WebApp = () => {
   const contentRef = useRef(null);
   const ctaRef = useRef(null);
 
-  useEffect(() => {
-    // Update page title and meta description for SEO
-    document.title = "Web Development Services | React, Next.js, Node.js | Mohamed Rashard";
-    
-    // Update or create meta description
-    let metaDescription = document.querySelector('meta[name="description"]');
-    if (!metaDescription) {
-      metaDescription = document.createElement('meta');
-      metaDescription.setAttribute('name', 'description');
-      document.head.appendChild(metaDescription);
-    }
-    metaDescription.setAttribute('content', 'Custom React and Next.js applications with scalable Node.js backends, SEO optimization, and modern architecture for startups and enterprises.');
-    
-    // Add structured data for better SEO
-    const structuredData = {
-      "@context": "https://schema.org",
-      "@type": "Service",
-      "name": "Web Development Services",
-      "description": "Custom React and Next.js applications with scalable Node.js backends",
-      "provider": {
-        "@type": "Person",
-        "name": "Mohamed Rashard",
-        "email": "mohrashard@gmail.com"
-      },
-      "serviceType": "Web App Development",
-      "areaServed": "Worldwide"
-    };
-    
-    let scriptTag = document.getElementById('web-dev-structured-data');
-    if (!scriptTag) {
-      scriptTag = document.createElement('script');
-      scriptTag.id = 'web-dev-structured-data';
-      scriptTag.type = 'application/ld+json';
-      document.head.appendChild(scriptTag);
-    }
-    scriptTag.textContent = JSON.stringify(structuredData);
+  const structuredData = {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    name: "Web Development Services",
+    description:
+      "Custom React and Next.js applications with scalable Node.js backends",
+    provider: {
+      "@type": "Person",
+      name: "Mohamed Rashard",
+      email: "mohrashard@gmail.com",
+    },
+    serviceType: "Web App Development",
+    areaServed: "Worldwide",
+  };
 
+  const personData = {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    name: "Mohamed Rashard",
+    email: "mohrashard@gmail.com",
+    jobTitle: "Web Developer",
+    url: "https://mohamedrashard.vercel.app",
+  };
+
+  const creativeWorkData = {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    name: "Web Development Services",
+    description:
+      "Custom React and Next.js applications with scalable Node.js backends, SEO optimization, and modern architecture for startups and enterprises.",
+    author: {
+      "@type": "Person",
+      name: "Mohamed Rashard",
+    },
+    keywords: "web development, React, Next.js, Node.js",
+    url: "https://mohamedrashard.vercel.app/web-app",
+  };
+
+  const breadcrumbData = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [{
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Home",
+      "item": "https://mohamedrashard.vercel.app"
+    },{
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Web App",
+      "item": "https://mohamedrashard.vercel.app/web-app"
+    }]
+  };
+
+  useEffect(() => {
     // Add page entrance animations
-    const elements = document.querySelectorAll('.webapp__animate-on-load');
+    const elements = document.querySelectorAll(".webapp__animate-on-load");
     elements.forEach((el, index) => {
       el.style.animationDelay = `${index * 0.1}s`;
-      el.classList.add('webapp__fade-in-up');
+      el.classList.add("webapp__fade-in-up");
     });
 
     // Add intersection observer for scroll animations
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('webapp__animate-in-view');
-        }
-      });
-    }, { threshold: 0.1 });
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("webapp__animate-in-view");
+          }
+        });
+      },
+      { threshold: 0.1 }
+    );
 
-    const scrollElements = document.querySelectorAll('.webapp__animate-on-scroll');
-    scrollElements.forEach(el => observer.observe(el));
+    const scrollElements = document.querySelectorAll(
+      ".webapp__animate-on-scroll"
+    );
+    scrollElements.forEach((el) => observer.observe(el));
 
     return () => {
-      scrollElements.forEach(el => observer.unobserve(el));
+      scrollElements.forEach((el) => observer.unobserve(el));
     };
   }, []);
 
-  const mailtoLink = "mailto:mohrashard@gmail.com?subject=Request%20for%20Web%20Application%20Development&body=Hello%20Mohamed,%20I%20would%20like%20to%20discuss%20a%20new%20web%20application%20project.%20Please%20get%20back%20to%20me%20with%20more%20details.";
+  const mailtoLink =
+    "mailto:mohrashard@gmail.com?subject=Request%20for%20Web%20Application%20Development&body=Hello%20Mohamed,%20I%20would%20like%20to%20discuss%20a%20new%20web%20application%20project.%20Please%20get%20back%20to%20me%20with%20more%20details.";
 
   const handleBack = () => {
     window.history.back();
   };
 
   const scrollToSection = (ref) => {
-    ref.current?.scrollIntoView({ behavior: 'smooth' });
+    ref.current?.scrollIntoView({ behavior: "smooth" });
     setIsMenuOpen(false); // Close menu after scroll
   };
 
@@ -86,166 +128,305 @@ const WebApp = () => {
     setIsMenuOpen(!isMenuOpen);
   };
 
-const benefits = [
-  {
-    icon: <Zap className="webapp__benefit-icon" />,
-    title: "Lightning-fast Frontend Development",
-    description: "Build modern, high-performance web applications using React.js and Next.js with optimized UI/UX and seamless interactivity"
-  },
-  {
-    icon: <Database className="webapp__benefit-icon" />,
-    title: "Robust Backend Solutions",
-    description: "Scalable backend architectures using Node.js with Express, Python with Flask, or Java with Spring Boot for reliable server-side functionality"
-  },
-  {
-    icon: <Code className="webapp__benefit-icon" />,
-    title: "Full-Stack Application Development",
-    description: "Integrate frontend and backend seamlessly to create complete applications with efficient data flow and responsive design"
-  },
-  {
-    icon: <Shield className="webapp__benefit-icon" />,
-    title: "Custom Enterprise Software Solutions",
-    description: "Tailored software for complex business workflows, combining backend APIs, databases, and secure frontend interfaces"
-  },
-  {
-    icon: <Globe className="webapp__benefit-icon" />,
-    title: "SEO Optimization & Performance Tuning",
-    description: "Ensure search engine visibility and blazing fast loading speeds with optimized code and modern web practices"
-  }
-];
+  const benefits = [
+    {
+      icon: <Zap className="webapp__benefit-icon" aria-hidden="true" />,
+      title: "Lightning-fast Frontend Development",
+      description:
+        "Build modern, high-performance web applications using React.js and Next.js with optimized UI/UX and seamless interactivity",
+    },
+    {
+      icon: <Database className="webapp__benefit-icon" aria-hidden="true" />,
+      title: "Robust Backend Solutions",
+      description:
+        "Scalable backend architectures using Node.js with Express, Python with Flask, or Java with Spring Boot for reliable server-side functionality",
+    },
+    {
+      icon: <Code className="webapp__benefit-icon" aria-hidden="true" />,
+      title: "Full-Stack Application Development",
+      description:
+        "Integrate frontend and backend seamlessly to create complete applications with efficient data flow and responsive design",
+    },
+    {
+      icon: <Shield className="webapp__benefit-icon" aria-hidden="true" />,
+      title: "Custom Enterprise Software Solutions",
+      description:
+        "Tailored software for complex business workflows, combining backend APIs, databases, and secure frontend interfaces",
+    },
+    {
+      icon: <Globe className="webapp__benefit-icon" aria-hidden="true" />,
+      title: "SEO Optimization & Performance Tuning",
+      description:
+        "Ensure search engine visibility and blazing fast loading speeds with optimized code and modern web practices",
+    },
+  ];
 
-const techStack = [
-  {
-    name: "HTML5",
-    description: "Standard markup language for structuring web content",
-    icon: <Code className="webapp__tech-icon" />
-  },
-  {
-    name: "CSS3",
-    description: "Styling language for designing responsive and visually appealing interfaces",
-    icon: <Layers className="webapp__tech-icon" />
-  },
-  {
-    name: "JavaScript",
-    description: "Programming language for interactive and dynamic web applications",
-    icon: <Zap className="webapp__tech-icon" />
-  },
-  {
-    name: "PHP",
-    description: "Server-side scripting language for building dynamic web applications",
-    icon: <Database className="webapp__tech-icon" />
-  },
-  {
-    name: "React",
-    description: "Modern UI library for building interactive user interfaces",
-    icon: <Code className="webapp__tech-icon" />
-  },
-  {
-    name: "Next.js",
-    description: "Full-stack React framework for production-ready web applications",
-    icon: <Layers className="webapp__tech-icon" />
-  },
-  {
-    name: "Node.js",
-    description: "Scalable backend runtime for high-performance APIs",
-    icon: <Database className="webapp__tech-icon" />
-  },
-  {
-    name: "TypeScript",
-    description: "Type-safe JavaScript for maintainable and scalable codebases",
-    icon: <Monitor className="webapp__tech-icon" />
-  },
-  {
-    name: "Python/Flask",
-    description: "Lightweight Python framework for building APIs and backend services",
-    icon: <Cpu className="webapp__tech-icon" />
-  },
-  {
-    name: "Java/Spring Boot",
-    description: "Robust Java framework for building enterprise-grade backend applications",
-    icon: <Globe className="webapp__tech-icon" />
-  }
-];
+  const techStack = [
+    {
+      name: "HTML5",
+      description: "Standard markup language for structuring web content",
+      icon: <Code className="webapp__tech-icon" aria-hidden="true" />,
+    },
+    {
+      name: "CSS3",
+      description:
+        "Styling language for designing responsive and visually appealing interfaces",
+      icon: <Layers className="webapp__tech-icon" aria-hidden="true" />,
+    },
+    {
+      name: "JavaScript",
+      description:
+        "Programming language for interactive and dynamic web applications",
+      icon: <Zap className="webapp__tech-icon" aria-hidden="true" />,
+    },
+    {
+      name: "PHP",
+      description:
+        "Server-side scripting language for building dynamic web applications",
+      icon: <Database className="webapp__tech-icon" aria-hidden="true" />,
+    },
+    {
+      name: "React",
+      description: "Modern UI library for building interactive user interfaces",
+      icon: <Code className="webapp__tech-icon" aria-hidden="true" />,
+    },
+    {
+      name: "Next.js",
+      description:
+        "Full-stack React framework for production-ready web applications",
+      icon: <Layers className="webapp__tech-icon" aria-hidden="true" />,
+    },
+    {
+      name: "Node.js",
+      description: "Scalable backend runtime for high-performance APIs",
+      icon: <Database className="webapp__tech-icon" aria-hidden="true" />,
+    },
+    {
+      name: "TypeScript",
+      description:
+        "Type-safe JavaScript for maintainable and scalable codebases",
+      icon: <Monitor className="webapp__tech-icon" aria-hidden="true" />,
+    },
+    {
+      name: "Python/Flask",
+      description:
+        "Lightweight Python framework for building APIs and backend services",
+      icon: <Cpu className="webapp__tech-icon" aria-hidden="true" />,
+    },
+    {
+      name: "Java/Spring Boot",
+      description:
+        "Robust Java framework for building enterprise-grade backend applications",
+      icon: <Globe className="webapp__tech-icon" aria-hidden="true" />,
+    },
+  ];
 
-const caseStudies = [
-  {
-    title: "LiverLens",
-    type: "Web Application",
-    problem: "Healthcare providers needed accurate liver disease risk prediction tools",
-    solution: "Developed a machine learning model using clinical data for early detection",
-    result: "AI-powered diagnostic tool that helps doctors assess liver disease risk with 92% accuracy",
-    technologies: ["Python", "scikit-learn", "Medical AI", "Predictive Modeling"],
-    github: "https://github.com/mohrashard/LiverLens.git"
-  },
-  {
-    title: "Mentora AI",
-    type: "Web Application",
-    problem: "Lack of personalized mental wellness insights for users",
-    solution: "Built an AI platform that analyzes user input to provide mental health insights",
-    result: "Mental wellness platform with AI-powered personalized recommendations and tracking",
-    technologies: ["Python", "scikit-learn", "Medical AI", "Predictive Modeling", "Recommendation Engine"],
-    github: "https://github.com/mohrashard/mentora.git"
-  },
-  {
-    title: "Tasknet",
-    type: "Web Platform",
-    problem: "Local buyers and service providers lacked a unified platform for collaboration",
-    solution: "Collaborated in a team to develop a web platform using HTML, CSS, JavaScript, and PHP",
-    result: "User-friendly system with secure transactions and location-based service matching",
-    technologies: ["HTML", "CSS", "JavaScript", "PHP", "Web Development"],
-    github: "https://github.com/mohrashard/TaskNet" // replace with actual GitHub link if available
-  },
-  {
-    title: "MegaCityCab",
-    type: "Ride Booking Management System",
-    problem: "Colombo's cab service needed a secure and manageable booking system",
-    solution: "Built a ride booking system using Java, AJAX, and MSSQL with secure login and role-based access",
-    result: "Customizable bookings, multiple payment options, and streamlined management for passengers, drivers, and admins",
-    technologies: ["Java", "AJAX", "MSSQL", "Web Development", "Database Management"],
-    github: "https://github.com/mohrashard/MegaCityCab" // replace with actual GitHub link if available
-  }
-];
-
-
+  const caseStudies = [
+    {
+      title: "LiverLens",
+      type: "Web Application",
+      problem:
+        "Healthcare providers needed accurate liver disease risk prediction tools",
+      solution:
+        "Developed a machine learning model using clinical data for early detection",
+      result:
+        "AI-powered diagnostic tool that helps doctors assess liver disease risk with 92% accuracy",
+      technologies: [
+        "Python",
+        "scikit-learn",
+        "Medical AI",
+        "Predictive Modeling",
+      ],
+      github: "https://github.com/mohrashard/LiverLens.git",
+    },
+    {
+      title: "Mentora AI",
+      type: "Web Application",
+      problem: "Lack of personalized mental wellness insights for users",
+      solution:
+        "Built an AI platform that analyzes user input to provide mental health insights",
+      result:
+        "Mental wellness platform with AI-powered personalized recommendations and tracking",
+      technologies: [
+        "Python",
+        "scikit-learn",
+        "Medical AI",
+        "Predictive Modeling",
+        "Recommendation Engine",
+      ],
+      github: "https://github.com/mohrashard/mentora.git",
+    },
+    {
+      title: "Tasknet",
+      type: "Web Platform",
+      problem:
+        "Local buyers and service providers lacked a unified platform for collaboration",
+      solution:
+        "Collaborated in a team to develop a web platform using HTML, CSS, JavaScript, and PHP",
+      result:
+        "User-friendly system with secure transactions and location-based service matching",
+      technologies: ["HTML", "CSS", "JavaScript", "PHP", "Web Development"],
+      github: "https://github.com/mohrashard/TaskNet", // replace with actual GitHub link if available
+    },
+    {
+      title: "MegaCityCab",
+      type: "Ride Booking Management System",
+      problem:
+        "Colombo's cab service needed a secure and manageable booking system",
+      solution:
+        "Built a ride booking system using Java, AJAX, and MSSQL with secure login and role-based access",
+      result:
+        "Customizable bookings, multiple payment options, and streamlined management for passengers, drivers, and admins",
+      technologies: [
+        "Java",
+        "AJAX",
+        "MSSQL",
+        "Web Development",
+        "Database Management",
+      ],
+      github: "https://github.com/mohrashard/MegaCityCab", // replace with actual GitHub link if available
+    },
+  ];
 
   const navSections = [
-    { label: 'Services', icon: <Zap className="webapp__nav-icon-small" />, ref: benefitsRef },
-    { label: 'Tech', icon: <Layers className="webapp__nav-icon-small" />, ref: techRef },
-    { label: 'Cases', icon: <ExternalLink className="webapp__nav-icon-small" />, ref: casesRef },
-    { label: 'Why Us', icon: <Shield className="webapp__nav-icon-small" />, ref: contentRef },
-    { label: 'Quote', icon: <Send className="webapp__nav-icon-small" />, ref: ctaRef }
+    {
+      label: "Services",
+      icon: <Zap className="webapp__nav-icon-small" aria-hidden="true" />,
+      ref: benefitsRef,
+    },
+    {
+      label: "Tech",
+      icon: <Layers className="webapp__nav-icon-small" aria-hidden="true" />,
+      ref: techRef,
+    },
+    {
+      label: "Cases",
+      icon: <ExternalLink className="webapp__nav-icon-small" aria-hidden="true" />,
+      ref: casesRef,
+    },
+    {
+      label: "Why Us",
+      icon: <Shield className="webapp__nav-icon-small" aria-hidden="true" />,
+      ref: contentRef,
+    },
+    {
+      label: "Quote",
+      icon: <Send className="webapp__nav-icon-small" aria-hidden="true" />,
+      ref: ctaRef,
+    },
   ];
 
   return (
-    <div className="webapp__webapp-container">
+    <div className="webapp__webapp-container" role="main">
+      <Helmet htmlAttributes={{ lang: "en" }}>
+        <title>
+          Web Development Services | React, Next.js, Node.js | Mohamed Rashard
+        </title>
+        <meta
+          name="description"
+          content="Custom React and Next.js applications with scalable Node.js backends, SEO optimization, and modern architecture for startups and enterprises."
+        />
+        <meta
+          name="keywords"
+          content="web development, React, Next.js, Node.js, custom web apps, SEO optimization, full-stack development, enterprise software"
+        />
+        <meta name="author" content="Mohamed Rashard" />
+        <meta
+          property="og:title"
+          content="Web Development Services | React, Next.js, Node.js | Mohamed Rashard"
+        />
+        <meta
+          property="og:description"
+          content="Custom React and Next.js applications with scalable Node.js backends, SEO optimization, and modern architecture for startups and enterprises."
+        />
+        <meta
+          property="og:url"
+          content="https://mohamedrashard.vercel.app/web-app"
+        />
+        <meta
+          property="og:image"
+          content="https://mohamedrashard.vercel.app/assets/og-image.png"
+        />
+        <meta property="og:type" content="website" />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta
+          name="twitter:title"
+          content="Web Development Services | React, Next.js, Node.js | Mohamed Rashard"
+        />
+        <meta
+          name="twitter:description"
+          content="Custom React and Next.js applications with scalable Node.js backends, SEO optimization, and modern architecture for startups and enterprises."
+        />
+        <meta
+          name="twitter:image"
+          content="https://mohamedrashard.vercel.app/assets/og-image.png"
+        />
+        <script type="application/ld+json">
+          {JSON.stringify(structuredData)}
+        </script>
+        <script type="application/ld+json">{JSON.stringify(personData)}</script>
+        <script type="application/ld+json">
+          {JSON.stringify(creativeWorkData)}
+        </script>
+        <script type="application/ld+json">
+          {JSON.stringify(breadcrumbData)}
+        </script>
+        <link rel="canonical" href="https://mohamedrashard.vercel.app/web-app" />
+        <meta name="robots" content="index, follow" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <meta property="og:image:width" content="1200" />
+        <meta property="og:image:height" content="630" />
+        <meta name="twitter:image:alt" content="Mohamed Rashard - Web Development Services" />
+        <link rel="preconnect" href="https://github.com" />
+        <link rel="dns-prefetch" href="https://github.com" />
+        
+      </Helmet>
       {/* Enhanced Navigation Bar */}
       <nav className="webapp__nav-bar">
         {/* Left: Back and Home */}
         <div className="webapp__nav-left">
-          <button onClick={handleBack} className="webapp__nav-btn webapp__nav-action-btn" aria-label="Go back">
-            <ArrowLeft className="webapp__nav-icon" />
+          <button
+            onClick={handleBack}
+            className="webapp__nav-btn webapp__nav-action-btn"
+            aria-label="Go back"
+          >
+            <ArrowLeft className="webapp__nav-icon" aria-hidden="true" />
             <span>Back</span>
           </button>
-          <a href="/" className="webapp__nav-btn webapp__nav-action-btn" aria-label="Go home">
-            <Home className="webapp__nav-icon" />
+          <a
+            href="/"
+            className="webapp__nav-btn webapp__nav-action-btn"
+            aria-label="Go home"
+          >
+            <Home className="webapp__nav-icon" aria-hidden="true" />
             <span>Home</span>
           </a>
         </div>
 
         {/* Right: Hamburger for Mobile */}
-        <button 
-          onClick={toggleMenu} 
-          className="webapp__nav-hamburger" 
+        <button
+          onClick={toggleMenu}
+          className="webapp__nav-hamburger"
           aria-label="Toggle menu"
           aria-expanded={isMenuOpen}
         >
-          {isMenuOpen ? <X className="webapp__nav-icon" /> : <Menu className="webapp__nav-icon" />}
+          {isMenuOpen ? (
+            <X className="webapp__nav-icon" aria-hidden="true" />
+          ) : (
+            <Menu className="webapp__nav-icon" aria-hidden="true" />
+          )}
         </button>
 
         {/* Center: Section Links (Desktop) */}
-        <div className={`webapp__nav-center ${isMenuOpen ? 'webapp__nav-center--open' : ''}`}>
+        <div
+          className={`webapp__nav-center ${
+            isMenuOpen ? "webapp__nav-center--open" : ""
+          }`}
+          aria-label="Main menu"
+          aria-expanded={isMenuOpen}
+        >
           {navSections.map((section, index) => (
-            <button 
+            <button
               key={index}
               onClick={() => scrollToSection(section.ref)}
               className="webapp__nav-btn webapp__nav-section-btn"
@@ -260,19 +441,22 @@ const caseStudies = [
 
       {/* Mobile Dropdown Overlay */}
       {isMenuOpen && (
-        <div className="webapp__nav-dropdown-overlay" onClick={toggleMenu}></div>
+        <div
+          className="webapp__nav-dropdown-overlay"
+          onClick={toggleMenu}
+        ></div>
       )}
 
       {/* Futuristic Background Effects */}
       <div className="webapp__cyber-grid"></div>
       <div className="webapp__floating-particles"></div>
-      
+
       {/* Hero Section */}
       <section className="webapp__hero-section">
         <div className="webapp__hero-content webapp__animate-on-load">
           <div className="webapp__hero-title-wrapper">
             <h1 className="webapp__hero-title">
-              Custom Web Development with{' '}
+              Custom Web Development with{" "}
               <span className="webapp__gradient-text webapp__modern-tech-glow">
                 Modern Technologies
               </span>
@@ -280,10 +464,14 @@ const caseStudies = [
             <div className="webapp__title-underline"></div>
           </div>
           <p className="webapp__hero-subtitle webapp__animate-on-load">
-            Scalable, SEO-friendly web applications built with cutting-edge tools for businesses and startups.
+            Scalable, SEO-friendly web applications built with cutting-edge
+            tools for businesses and startups.
           </p>
-          <a href={mailtoLink} className="webapp__cta-btn webapp__cyber-btn webapp__animate-on-load">
-            <Rocket className="webapp__btn-icon" />
+          <a
+            href={mailtoLink}
+            className="webapp__cta-btn webapp__cyber-btn webapp__animate-on-load"
+          >
+            <Rocket className="webapp__btn-icon" aria-hidden="true" />
             <span>Request a Quote</span>
             <div className="webapp__btn-glow"></div>
           </a>
@@ -293,20 +481,28 @@ const caseStudies = [
       </section>
 
       {/* Service Overview Section */}
-      <section ref={benefitsRef} className="webapp__section webapp__benefits-section">
+      <section
+        ref={benefitsRef}
+        className="webapp__section webapp__benefits-section"
+      >
         <div className="webapp__section-content">
           <h2 className="webapp__section-title webapp__animate-on-scroll">
             Why Choose Our Web App Development Services?
           </h2>
           <div className="webapp__benefits-grid">
             {benefits.map((benefit, index) => (
-              <div key={index} className="webapp__benefit-card webapp__animate-on-scroll webapp__hover-glow">
+              <div
+                key={index}
+                className="webapp__benefit-card webapp__animate-on-scroll webapp__hover-glow"
+              >
                 <div className="webapp__card-border"></div>
                 <div className="webapp__benefit-icon-wrapper">
                   {benefit.icon}
                 </div>
                 <h3 className="webapp__benefit-title">{benefit.title}</h3>
-                <p className="webapp__benefit-description">{benefit.description}</p>
+                <p className="webapp__benefit-description">
+                  {benefit.description}
+                </p>
                 <div className="webapp__card-glow"></div>
               </div>
             ))}
@@ -322,10 +518,11 @@ const caseStudies = [
           </h2>
           <div className="webapp__tech-grid">
             {techStack.map((tech, index) => (
-              <div key={index} className="webapp__tech-card webapp__animate-on-scroll webapp__cyber-card">
-                <div className="webapp__tech-icon-wrapper">
-                  {tech.icon}
-                </div>
+              <div
+                key={index}
+                className="webapp__tech-card webapp__animate-on-scroll webapp__cyber-card"
+              >
+                <div className="webapp__tech-icon-wrapper">{tech.icon}</div>
                 <h3 className="webapp__tech-name">{tech.name}</h3>
                 <p className="webapp__tech-description">{tech.description}</p>
                 <div className="webapp__tech-border"></div>
@@ -336,90 +533,114 @@ const caseStudies = [
       </section>
 
       {/* Case Studies Section */}
-<section ref={casesRef} className="webapp__section webapp__cases-section">
-  <div className="webapp__section-content">
-    <h2 className="webapp__section-title webapp__animate-on-scroll">
-  Web App Success Stories
-    </h2>
-    <div className="webapp__cases-grid">
-      {caseStudies.map((study, index) => (
-        <div
-          key={index}
-          className="webapp__case-card webapp__animate-on-scroll"
-          onClick={() => window.open(study.github, "_blank")}
-          style={{ cursor: "pointer" }}
-        >
-          <div className="webapp__case-header">
-            <h3 className="webapp__case-title">
-              {study.title} <span className="webapp__case-type">({study.type})</span>
-            </h3>
-            <ExternalLink className="webapp__case-link-icon" />
+      <section ref={casesRef} className="webapp__section webapp__cases-section">
+        <div className="webapp__section-content">
+          <h2 className="webapp__section-title webapp__animate-on-scroll">
+            Web App Success Stories
+          </h2>
+          <div className="webapp__cases-grid">
+            {caseStudies.map((study, index) => (
+              <div
+                key={index}
+                className="webapp__case-card webapp__animate-on-scroll"
+                onClick={() => window.open(study.github, "_blank", "noopener,noreferrer")}
+                onKeyDown={(e) => {
+                  if (e.key === "Enter" || e.key === " ") {
+                    window.open(study.github, "_blank", "noopener,noreferrer");
+                  }
+                }}
+                role="button"
+                tabIndex={0}
+                aria-label={`View ${study.title} case study on GitHub`}
+                style={{ cursor: "pointer" }}
+              >
+                <div className="webapp__case-header">
+                  <h3 className="webapp__case-title">
+                    {study.title}{" "}
+                    <span className="webapp__case-type">({study.type})</span>
+                  </h3>
+                  <ExternalLink className="webapp__case-link-icon" aria-hidden="true" />
+                </div>
+
+                <div className="webapp__case-content">
+                  <div className="webapp__case-section">
+                    <h4 className="webapp__case-label webapp__problem-label">
+                      Challenge:
+                    </h4>
+                    <p className="webapp__case-text">{study.problem}</p>
+                  </div>
+
+                  <div className="webapp__case-section">
+                    <h4 className="webapp__case-label webapp__solution-label">
+                      AI Solution:
+                    </h4>
+                    <p className="webapp__case-text">{study.solution}</p>
+                  </div>
+
+                  <div className="webapp__case-section">
+                    <h4 className="webapp__case-label webapp__result-label">
+                      Impact:
+                    </h4>
+                    <p className="webapp__case-text">{study.result}</p>
+                  </div>
+
+                  <div className="webapp__tech-tags">
+                    {study.technologies.map((tech, techIndex) => (
+                      <span key={techIndex} className="webapp__tech-tag">
+                        {tech}
+                      </span>
+                    ))}
+                  </div>
+                </div>
+                <div className="webapp__case-border"></div>
+              </div>
+            ))}
           </div>
-
-          <div className="webapp__case-content">
-            <div className="webapp__case-section">
-              <h4 className="webapp__case-label webapp__problem-label">Challenge:</h4>
-              <p className="webapp__case-text">{study.problem}</p>
-            </div>
-
-            <div className="webapp__case-section">
-              <h4 className="webapp__case-label webapp__solution-label">AI Solution:</h4>
-              <p className="webapp__case-text">{study.solution}</p>
-            </div>
-
-            <div className="webapp__case-section">
-              <h4 className="webapp__case-label webapp__result-label">Impact:</h4>
-              <p className="webapp__case-text">{study.result}</p>
-            </div>
-
-            <div className="webapp__tech-tags">
-              {study.technologies.map((tech, techIndex) => (
-                <span key={techIndex} className="webapp__tech-tag">
-                  {tech}
-                </span>
-              ))}
-            </div>
-          </div>
-          <div className="webapp__case-border"></div>
         </div>
-      ))}
-    </div>
-  </div>
-</section>
-
+      </section>
 
       {/* SEO-Friendly Content Block */}
-      <section ref={contentRef} className="webapp__section webapp__content-section">
+      <section
+        ref={contentRef}
+        className="webapp__section webapp__content-section"
+      >
         <div className="webapp__section-content">
           <h2 className="webapp__section-title webapp__animate-on-scroll">
             Why Choose Custom Web App Development?
           </h2>
           <div className="webapp__content-text webapp__animate-on-scroll">
             <p>
-              Custom React applications provide unmatched flexibility and performance for modern businesses seeking digital transformation. 
-              Our expertise in Next.js performance optimization ensures your web applications load instantly while maintaining excellent 
-              search engine visibility. With scalable backend architecture built on Node.js, your application can handle growing user 
-              demands without compromising on speed or reliability.
+              Custom React applications provide unmatched flexibility and
+              performance for modern businesses seeking digital transformation.
+              Our expertise in Next.js performance optimization ensures your web
+              applications load instantly while maintaining excellent search
+              engine visibility. With scalable backend architecture built on
+              Node.js, your application can handle growing user demands without
+              compromising on speed or reliability.
             </p>
             <p>
-              Enterprise-grade software solutions require careful planning, robust architecture, and future-proof technology choices. 
-              Our development approach focuses on creating maintainable, secure, and scalable applications that serve as the foundation 
-              for your digital growth strategy. From startup MVPs to complex enterprise systems, we deliver solutions that drive 
-              business success.
+              Enterprise-grade software solutions require careful planning,
+              robust architecture, and future-proof technology choices. Our
+              development approach focuses on creating maintainable, secure, and
+              scalable applications that serve as the foundation for your
+              digital growth strategy. From startup MVPs to complex enterprise
+              systems, we deliver solutions that drive business success.
             </p>
           </div>
-          
+
           <div className="webapp__features-grid webapp__animate-on-scroll">
             <div className="webapp__feature-item">
-              <CheckCircle className="webapp__feature-icon" />
-              <span className="webapp__feature-text">Custom React Applications</span>
+              <CheckCircle className="webapp__feature-icon" aria-hidden="true" />
+              <span className="webapp__feature-text">
+                Custom React Applications
+              </span>
             </div>
             <div className="webapp__feature-item">
-              <CheckCircle className="webapp__feature-icon" />
+              <CheckCircle className="webapp__feature-icon" aria-hidden="true" />
               <span className="webapp__feature-text">Next.js Performance</span>
             </div>
             <div className="webapp__feature-item">
-              <CheckCircle className="webapp__feature-icon" />
+              <CheckCircle className="webapp__feature-icon" aria-hidden="true" />
               <span className="webapp__feature-text">Scalable Backend</span>
             </div>
           </div>
@@ -433,10 +654,14 @@ const caseStudies = [
             Ready to Build Your Next Web App?
           </h2>
           <p className="webapp__cta-subtitle webapp__animate-on-scroll">
-            Let's discuss your project requirements and create something amazing together.
+            Let's discuss your project requirements and create something amazing
+            together.
           </p>
-          <a href={mailtoLink} className="webapp__cta-btn webapp__cyber-btn webapp__final-cta webapp__animate-on-scroll">
-            <Rocket className="webapp__btn-icon" />
+          <a
+            href={mailtoLink}
+            className="webapp__cta-btn webapp__cyber-btn webapp__final-cta webapp__animate-on-scroll"
+          >
+            <Rocket className="webapp__btn-icon" aria-hidden="true" />
             <span>Request a Quote</span>
             <div className="webapp__btn-glow"></div>
           </a>
