@@ -6,8 +6,20 @@ export default function ScrollToTop() {
   const { pathname } = useLocation();
 
   useEffect(() => {
-    // Scroll to top when route changes
-    window.scrollTo(0, 0);
+    // Use requestAnimationFrame for smoother scrolling
+    const scrollToTop = () => {
+      window.scrollTo({
+        top: 0,
+        left: 0,
+        behavior: 'instant' // Instant scroll to prevent animation conflicts
+      });
+    };
+
+    // Small delay to ensure DOM is ready
+    const timeoutId = setTimeout(scrollToTop, 0);
+
+    // Cleanup
+    return () => clearTimeout(timeoutId);
   }, [pathname]);
 
   return null;

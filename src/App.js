@@ -456,6 +456,15 @@ function App() {
                 Services
               </Link>
             </li>
+                        <li>
+              <Link
+                to="/blog"
+                className={location.pathname === "/blog" ? "active" : ""}
+                aria-label="Navigate to Services page"
+              >
+                Blogs
+              </Link>
+            </li>
           </ul>
         </nav>
 

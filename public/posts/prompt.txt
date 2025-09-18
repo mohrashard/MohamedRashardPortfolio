@@ -1,0 +1,36 @@
+I want you to generate a **professional, detailed, and well-structured blog** in **Markdown format** following this exact style and structure:
+
+1. Start with YAML front matter:
+---
+title: <Insert Blog Title Here>
+date: <Current Date>
+description: <Insert Blog Description Here>
+---
+
+2. Use # for the main blog title and ##, ### for sections and subtopics.
+
+3. Write an **introductory paragraph** explaining the topic, why it’s important, and what the reader will gain.
+
+4. Break the blog into **well-defined sections**, using subheadings. Include bullet points, examples, or numbers where needed.
+
+5. Add **tips, examples, or pro tips** in relevant sections to provide actionable advice.
+
+6. Include a **conclusion** summarizing main points and giving a final actionable tip.
+
+7. Use clear, professional, and SEO-friendly language.
+
+8. Keep it reader-friendly, informative, and engaging (800–1500 words).
+
+9. Separate sections with --- for readability.
+
+10. Make the blog self-contained without requiring external references.
+
+**Instructions for AI:**
+
+- Replace <Insert Blog Title Here> and <Insert Blog Description Here> with the actual title and description I provide.  
+- Ensure the content is original, relevant, and practical.  
+- Include actionable advice, examples, and numbers where applicable.  
+- Output the entire blog in Markdown with all formatting, headings, bullet points, and separators intact.
+
+**Blog Title:** "<Insert Blog Title Here>"  
+**Description:** "<Insert Blog Description Here>"

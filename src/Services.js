@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState, Suspense } from "react";
 import { useNavigate } from "react-router-dom";
-import { ArrowLeft, Home, Zap, Layers, ExternalLink, Shield, Send, Menu, X } from "lucide-react";
+import { ArrowLeft, Home, Zap, Send, Menu, X } from "lucide-react";
 import { Helmet } from "react-helmet";
 import "./Services.css";
 
