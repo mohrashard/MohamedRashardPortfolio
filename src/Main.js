@@ -10,8 +10,7 @@ import FrontendWeb from "./FrontendWeb";
 import ScrollToTop from './ScrollToTop'; 
 import Post from './Post';
 import Blog from './Blog';
-import PageWrapper from './PageWrapper';
-import AnimatedRoutes from "./AnimatedRoutes";
+
 
 // GA Listener component to track route changes
 function GAListener() {
@@ -27,16 +26,16 @@ function GAListener() {
 export default function Main() {
   return (
     <Router>
-        <AnimatedRoutes />
+   
       <ScrollToTop />
       <GAListener /> {/* Tracks page views on route change */}
       <Routes>
         <Route path="/" element={<App />} />
         <Route path="/services" element={<Services />} />
-    <Route path="/services/web-apps" element={<PageWrapper><WebApp /></PageWrapper>} />
-<Route path="/services/mobile-apps" element={<PageWrapper><MobileApps /></PageWrapper>} />
-<Route path="/services/ai-solutions" element={<PageWrapper><AIAndML /></PageWrapper>} />
-<Route path="/services/frontend-websites" element={<PageWrapper><FrontendWeb /></PageWrapper>} />
+        <Route path="/services/web-apps" element={<WebApp />} />
+        <Route path="/services/mobile-apps" element={<MobileApps />} />
+        <Route path="/services/ai-solutions" element={<AIAndML />} />
+        <Route path="/services/frontend-websites" element={<FrontendWeb />} />
         <Route path="/blog" element={<Blog />} />
         <Route path="/blog/:slug" element={<Post />} />
       </Routes>
