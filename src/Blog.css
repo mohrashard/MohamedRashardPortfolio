@@ -1437,6 +1437,13 @@ body {
   outline-offset: 2px;
 }
 
+@media (max-width: 768px) {
+  .blog-container a:focus,
+  .blog-container button:focus {
+    outline: none;
+  }
+}
+
 /* Print styles */
 @media print {
   .blog-container .post-actions,
