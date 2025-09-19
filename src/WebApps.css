@@ -958,10 +958,12 @@
 }
 
 @media (max-width: 768px) {
+  /* Show hamburger */
   .webapp__nav-hamburger {
     display: block;
   }
-  
+
+  /* Mobile nav dropdown */
   .webapp__nav-center {
     position: absolute;
     top: 100%;
@@ -971,98 +973,119 @@
     overflow: hidden;
     background: var(--nav-dropdown-bg);
     flex-direction: column;
-    gap: 0;
-    border-radius: 0 0 50px 50px;
+    border-radius: 0 0 30px 30px;
     border-top: 1px solid var(--nav-border);
     opacity: 0;
     padding: 0;
     margin-top: 0.5rem;
+    transition: all 0.35s ease; /* Smooth dropdown animation */
   }
-  
+
   .webapp__nav-center--open {
-    max-height: 300px;
+    max-height: 400px; /* slightly larger */
     opacity: 1;
-    padding: 1rem 0;
+    padding: 0.75rem 0;
     gap: 0.5rem;
   }
-  
+
+  /* Mobile nav links */
   .webapp__nav-section-btn {
     justify-content: flex-start;
-    padding: 1rem 2rem;
-    min-width: auto;
-    border-radius: 0;
+    padding: 1rem clamp(1rem, 4vw, 2rem);
     width: 100%;
-    text-align: left;
-    min-height: 48px; /* Larger touch target */
+    border-radius: 0;
+    min-height: 52px; /* Bigger tap target */
+    font-size: 1rem; /* Slightly larger text for readability */
   }
-  
+
   .webapp__nav-section-btn:hover {
-    background: rgba(0, 255, 255, 0.1);
-    transform: none;
+    background: rgba(0, 255, 255, 0.08);
   }
-  
+
+  /* Sections spacing */
   .webapp__section {
-    padding: clamp(3rem, 8vw, 5rem) 1rem; /* Adjusted fluid padding */
+    padding: clamp(2.5rem, 7vw, 4rem) clamp(1rem, 5vw, 2rem);
   }
-  
+
+  /* Single column grids */
   .webapp__benefits-grid,
   .webapp__tech-grid,
-  .webapp__features-grid {
-    grid-template-columns: 1fr;
-    gap: clamp(1rem, 3vw, 1.5rem);
-  }
-  
+  .webapp__features-grid,
   .webapp__cases-grid {
     grid-template-columns: 1fr;
-    gap: clamp(1rem, 3vw, 1.5rem);
+    gap: clamp(1rem, 4vw, 1.5rem);
   }
-  
+
+  /* Hero section adjustments */
   .webapp__hero-section {
     padding: 1rem;
-    padding-top: 120px; /* Extra for mobile nav */
-    min-height: 100vh; /* Ensure full viewport */
-    align-items: flex-start; /* Adjust for shorter titles */
-    padding-top: max(140px, 20vh); /* Fluid top padding */
+    padding-top: max(120px, 18vh); /* Dynamic offset */
+    min-height: 100vh;
+    align-items: flex-start;
+    text-align: center; /* Centered text feels better on mobile */
   }
-  
+
   .webapp__hero-content {
-    padding-top: 2rem; /* Additional space after nav */
+    padding-top: 1.5rem;
   }
-  
+
+  /* Cards */
   .webapp__benefit-card,
   .webapp__tech-card,
   .webapp__case-card {
-    padding: clamp(1.5rem, 6vw, 2rem);
-  }
-  
-  .webapp__title-underline {
-    width: clamp(120px, 30vw, 150px);
-  }
-  
-  .webapp__nav-left {
-    gap: 0.25rem;
-  }
-  
-  .webapp__nav-action-btn {
-    padding: 0.6rem;
-    min-width: 50px;
-    font-size: 0.8rem;
-  }
-  
-  .webapp__nav-action-btn span {
-    display: none; /* Hide text on small mobile for compactness */
+    padding: clamp(1.25rem, 5vw, 2rem);
+    border-radius: 16px; /* Softer corners */
   }
 
+  /* Title underline */
+  .webapp__title-underline {
+    width: clamp(100px, 25vw, 140px);
+    margin: 0 auto; /* Centered underline for mobile */
+  }
+
+  /* Navigation compact */
+  .webapp__nav-left {
+    gap: 0.5rem;
+  }
+
+  .webapp__nav-action-btn {
+    padding: 0.6rem;
+    min-width: 44px; /* WCAG min touch target */
+    font-size: 0.85rem;
+  }
+
+  .webapp__nav-action-btn span {
+    display: none;
+  }
+
+  /* Background effects */
   .webapp__hero-bg-effect {
-    width: 400px;
-    height: 400px;
-    opacity: 0.2; /* Slightly reduce on tablet/mobile for performance */
+    width: clamp(250px, 50vw, 380px);
+    height: clamp(250px, 50vw, 380px);
+    opacity: 0.15; /* Even lighter for performance */
   }
 
   .webapp__cta-bg-effect {
-    opacity: 0.1;
+    opacity: 0.08;
   }
 }
+
+/* Extra-small screens (phones under 400px) */
+@media (max-width: 400px) {
+  .webapp__nav-section-btn {
+    padding: 0.85rem 1rem;
+    font-size: 0.9rem;
+  }
+
+  .webapp__hero-section {
+    padding-top: max(100px, 15vh);
+  }
+
+  .webapp__title-underline {
+    width: 90px;
+  }
+}
+
 
 @media (max-width: 600px) {
   .webapp__nav-bar {
