@@ -12,7 +12,7 @@ import App from "./App";
 import MobileApps from "./MobileApp";
 import AIAndML from "./AISolution";
 import FrontendWeb from "./FrontendWeb";
-
+import ScrollToTop from "./ScrollToTop";
 import Post from "./Post";
 import Blog from "./Blog";
 import PageWrapper from "./PageWrapper";
@@ -33,7 +33,7 @@ export default function Main() {
   return (
     <Router>
       <AnimatedRoutes />
-    
+      <ScrollToTop />
       <GAListener /> 
       <Routes>
         <Route path="/" element={<App />} />
