@@ -1,3 +1,4 @@
+/* CSS Variables */
 :root {
   --primary-color: #2196f3;
   --secondary-color: #03a9f4;
@@ -1018,7 +1019,7 @@
   
   .webapp__hero-section {
     padding: 1rem;
-    padding-top: 140px; /* Extra for mobile nav */
+    padding-top: 120px; /* Extra for mobile nav */
     min-height: 100vh; /* Ensure full viewport */
     align-items: flex-start; /* Adjust for shorter titles */
     padding-top: max(140px, 20vh); /* Fluid top padding */
@@ -1227,15 +1228,3 @@
   }
 }
 
-@media (prefers-contrast: high) {
-  .webapp__webapp-container {
-    --primary-color: #4da6ff;
-    --cyber-blue: #66ffff;
-    --cyber-purple: #ff66ff;
-    --neon-glow: 0 0 30px; /* Stronger for contrast */
-  }
-  
-  .webapp__nav-btn {
-    border: 2px solid var(--cyber-blue);
-  }
-}
