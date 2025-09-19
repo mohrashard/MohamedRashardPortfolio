@@ -30,7 +30,7 @@ const parseFrontmatter = (content) => {
   return { data: frontmatter, content: bodyContent };
 };
 
-const POSTS_PER_PAGE = 6;
+const POSTS_PER_PAGE = 5;
 
 const Blog = () => {
   const [posts, setPosts] = useState([]);
@@ -40,15 +40,13 @@ const Blog = () => {
 
   // Google Analytics pageview tracking
 
-
-
-
   useEffect(() => {
     const loadPosts = async () => {
       try {
         const postSlugs = [
           'web-app-cost',
           'building-professional-website',
+          'ai-in-software-development-guide',
         ];
         
         const loadedPosts = [];
@@ -58,13 +56,24 @@ const Blog = () => {
             const response = await fetch(`/posts/${slug}.md`);
             if (response.ok) {
               const text = await response.text();
-              const { data: frontmatter } = parseFrontmatter(text);
+              let { data: frontmatter } = parseFrontmatter(text);
               
-              if (frontmatter.title && frontmatter.date) {
-                loadedPosts.push({ slug, frontmatter });
-              } else {
-                console.warn(`Post ${slug} is missing required frontmatter (title or date)`);
+              // Handle missing frontmatter fields to ensure all posts load
+              if (!frontmatter.title) {
+                frontmatter.title = slug
+                  .split('-')
+                  .map(word => word.charAt(0).toUpperCase() + word.slice(1))
+                  .join(' ');
               }
+              if (!frontmatter.date) {
+                frontmatter.date = new Date().toISOString().split('T')[0];
+                console.warn(`Post ${slug} missing date; using current date`);
+              }
+              if (!frontmatter.description) {
+                frontmatter.description = 'No description available.';
+              }
+              
+              loadedPosts.push({ slug, frontmatter });
             } else {
               console.warn(`Could not fetch post: ${slug} (${response.status})`);
             }
@@ -73,9 +82,15 @@ const Blog = () => {
           }
         }
 
-        loadedPosts.sort(
-          (a, b) => new Date(b.frontmatter.date) - new Date(a.frontmatter.date)
-        );
+        // Sort by date descending, with invalid dates at the end
+        loadedPosts.sort((a, b) => {
+          const timeA = new Date(a.frontmatter.date).getTime();
+          const timeB = new Date(b.frontmatter.date).getTime();
+          if (isNaN(timeA) && isNaN(timeB)) return 0;
+          if (isNaN(timeA)) return 1; // a invalid -> after b
+          if (isNaN(timeB)) return -1; // b invalid -> a before b
+          return timeB - timeA; // descending
+        });
 
         setPosts(loadedPosts);
         setTotalPages(Math.ceil(loadedPosts.length / POSTS_PER_PAGE));
@@ -211,8 +226,6 @@ const Blog = () => {
           <link rel="preconnect" href="https://vercel.live" />
         </Helmet>
         
-  
-        
         <div className="blog-background"></div>
         
         <nav className="blog-nav">
@@ -290,8 +303,6 @@ const Blog = () => {
         </script>
       </Helmet>
       
- 
-
       <div className="blog-background"></div>
 
       <nav className="blog-nav">
