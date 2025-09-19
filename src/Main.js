@@ -23,7 +23,7 @@ function GAListener() {
   const location = useLocation();
   useEffect(() => {
     if (window.gtag) {
-      window.gtag("config", "G-3F63E7EG0D", { page_path: location.pathname }); 
+      window.gtag("config", "G-3F63E7EG0D", { page_path: location.pathname });
     }
   }, [location]);
   return null;
@@ -34,10 +34,17 @@ export default function Main() {
     <Router>
       <AnimatedRoutes />
       <ScrollToTop />
-      <GAListener /> 
+      <GAListener />
       <Routes>
         <Route path="/" element={<App />} />
-        <Route path="/services" element={<Services />} />
+        <Route
+          path="/services"
+          element={
+            <PageWrapper>
+              <Services />
+            </PageWrapper>
+          }
+        />
         <Route
           path="/services/web-apps"
           element={
