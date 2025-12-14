@@ -264,9 +264,9 @@ function App() {
   return (
     <div className="app">
       <Helmet>
-        {/* Page Title */}
+        {/* Page Title - Optimized for "Person Like Me" searches */}
         <title>
-          Mohamed Rashard Rizmi | Software Engineer | Web, Mobile & AI Solutions
+          Mohamed Rashard Rizmi | Software Engineer in Colombo, Sri Lanka | AI & Web Developer
         </title>
 
         {/* Canonical URL */}
@@ -275,24 +275,24 @@ function App() {
         {/* SEO Meta Tags */}
         <meta
           name="description"
-          content="Mohamed Rashard Rizmi - Experienced Software Engineer specializing in web development, full-stack development, AI/ML engineering, React, Python, Java, and more. Based in Colombo, Sri Lanka. Explore my portfolio, skills, projects, and contact for collaborations."
+          content="Mohamed Rashard Rizmi is a top-rated Software Engineer in Colombo, Sri Lanka, specializing in full-stack web development, AI content generation, and mobile apps. Hire Mohamed for custom React solutions."
         />
         <meta
           name="keywords"
-          content="Software Engineer, Web Developer, Full-Stack Developer, AI/ML Engineer, React Developer, Python Developer, Java Developer, Colombo Software Engineer, Sri Lanka Developer, Portfolio Website, Mohamed Rashard Rizmi"
+          content="Mohamed Rashard Rizmi, Software Engineer Colombo, Web Developer Sri Lanka, AI Engineer Sri Lanka, React Developer Colombo, Full-Stack Developer Sri Lanka, Hire Software Engineer Sri Lanka, Portfolio Website, Mobile App Developer Colombo, Python Developer, Java Developer"
         />
         <meta name="author" content="Mohamed Rashard Rizmi" />
         <meta name="robots" content="index, follow" />
 
         {/* Open Graph Tags */}
-        <meta property="og:type" content="website" />
+        <meta property="og:type" content="profile" />
         <meta
           property="og:title"
-          content="Mohamed Rashard Rizmi | Software Engineer Portfolio"
+          content="Mohamed Rashard Rizmi | Best Software Engineer in Colombo"
         />
         <meta
           property="og:description"
-          content="Professional software engineer offering web app development, mobile app development, AI solutions, and custom software in Colombo, Sri Lanka."
+          content="Looking for a skilled Software Engineer in Sri Lanka? Mohamed Rashard specializes in React, AI, and scalable web solutions. View portfolio and contact now."
         />
         <meta property="og:url" content="https://mohamedrashard.vercel.app" />
         <meta
@@ -306,25 +306,31 @@ function App() {
         <meta name="twitter:card" content="summary_large_image" />
         <meta
           name="twitter:title"
-          content="Mohamed Rashard Rizmi | Software Engineer"
+          content="Mohamed Rashard Rizmi | Software Engineer Portfolio"
         />
         <meta
           name="twitter:description"
-          content="Explore my skills in full-stack development, AI/ML, and more. Contact for projects in Colombo, Sri Lanka."
+          content="Expert Software Engineer in Colombo. Specializing in Web & AI. Check out my projects."
         />
         <meta
           name="twitter:image"
           content="https://mohamedrashard.vercel.app/assets/og-image.png"
         />
 
-        {/* Schema.org - Person */}
+        {/* Schema.org - Person (Enhanced) */}
         <script type="application/ld+json">
           {JSON.stringify({
             "@context": "https://schema.org",
             "@type": "Person",
             name: "Mohamed Rashard Rizmi",
+            alternateName: "Mohamed Rashard",
             jobTitle: "Software Engineer",
+            worksFor: {
+              "@type": "Organization",
+              name: "Freelance",
+            },
             url: "https://mohamedrashard.vercel.app",
+            image: "https://mohamedrashard.vercel.app/assets/og-image.png",
             address: {
               "@type": "PostalAddress",
               addressLocality: "Colombo",
@@ -340,41 +346,40 @@ function App() {
               "https://www.facebook.com/share/1EnKfVXh1z/",
               "https://youtube.com/@moh_rashard",
             ],
+            alumniOf: {
+              "@type": "CollegeOrUniversity",
+              name: "Cardiff Metropolitan University",
+            },
             knowsAbout: [
               "Software Engineering",
               "Web Development",
               "Full-Stack Development",
-              "AI/ML Engineering",
+              "Artificial Intelligence",
               "React",
+              "Next.js",
               "Python",
               "Java",
-              "C++",
-              "Databases",
-              "Cloud Computing",
             ],
           })}
         </script>
 
-        {/* Schema.org - CreativeWork */}
+        {/* Schema.org - WebSite */}
         <script type="application/ld+json">
           {JSON.stringify({
             "@context": "https://schema.org",
-            "@type": "CreativeWork",
-            name: "Mohamed Rashard Rizmi Portfolio",
-            author: {
+            "@type": "WebSite",
+            "url": "https://mohamedrashard.vercel.app",
+            "name": "Mohamed Rashard Rizmi Portfolio",
+            "author": {
               "@type": "Person",
-              name: "Mohamed Rashard Rizmi",
+              "name": "Mohamed Rashard Rizmi"
             },
-            description:
-              "Portfolio showcasing projects in AI, web development, full-stack applications, and more.",
-            url: "https://mohamedrashard.vercel.app/",
+            "description": "Portfolio of Mohamed Rashard Rizmi, a Software Engineer based in Colombo, Sri Lanka."
           })}
         </script>
 
-        {/* Content Security Policy (example - customize as needed) */}
-        <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' https://www.googletagmanager.com; connect-src 'self' https://analytics.google.com; img-src 'self' data: https://mohamedrashard.vercel.app;" />
-
-
+        {/* Content Security Policy */}
+        <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://www.googletagmanager.com https://www.google-analytics.com; connect-src 'self' https://analytics.google.com https://www.google-analytics.com https://www.googletagmanager.com; img-src 'self' data: https:; style-src 'self' 'unsafe-inline' https://cdnjs.cloudflare.com https://cdn.jsdelivr.net https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com https://cdnjs.cloudflare.com https://cdn.jsdelivr.net;" />
       </Helmet>
 
       {/* Header/Navigation */}
