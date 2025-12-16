@@ -1,7 +1,117 @@
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useEffect, useRef, useState, useCallback, useMemo } from 'react';
 import { Helmet } from 'react-helmet';
 import { Code, Zap, Globe, Shield, ExternalLink, CheckCircle, Rocket, Database, Layers, Monitor, ArrowLeft, Home, Send, Menu, X } from 'lucide-react';
 import './WebApps.css';
+
+const benefits = [
+  {
+    icon: <Zap className="webapp__benefit-icon" />,
+    title: "Responsive Design for All Devices",
+    description: "Websites that look perfect on desktop, tablet, and mobile with adaptive layouts"
+  },
+  {
+    icon: <Globe className="webapp__benefit-icon" />,
+    title: "SEO-Optimized Structure & Performance",
+    description: "Search engine friendly websites with fast loading speeds and proper semantic markup"
+  },
+  {
+    icon: <Database className="webapp__benefit-icon" />,
+    title: "Modern UI/UX with Tailwind CSS",
+    description: "Beautiful, accessible interfaces with modern design principles and frameworks"
+  },
+  {
+    icon: <Shield className="webapp__benefit-icon" />,
+    title: "Fast Loading & Accessibility Focused",
+    description: "Performance-optimized websites that follow accessibility standards (WCAG)"
+  }
+];
+
+const techStack = [
+  {
+    name: "React",
+    description: "Modern UI library for interactive user interfaces",
+    icon: <Code className="webapp__tech-icon" />
+  },
+  {
+    name: "HTML5",
+    description: "Semantic markup for SEO and accessibility",
+    icon: <Layers className="webapp__tech-icon" />
+  },
+  {
+    name: "CSS3 & Tailwind",
+    description: "Modern styling with utility-first CSS framework",
+    icon: <Database className="webapp__tech-icon" />
+  },
+  {
+    name: "JavaScript",
+    description: "Interactive functionality and dynamic content",
+    icon: <Monitor className="webapp__tech-icon" />
+  }
+];
+
+const caseStudies = [
+  {
+    title: "Wanthem Landing Page",
+    problem: "Need a minimalist, high-impact landing page to showcase a luxury watch brand",
+    solution: "Single React landing page with Tailwind CSS, smooth animations, and clear call-to-action",
+    result: "Clean, visually appealing landing page that effectively communicates brand value and drives user engagement",
+    technologies: ["React", "Tailwind CSS", "UX/UI Design", "Animation"],
+    link: "https://wanthem.vercel.app/"
+  },
+  {
+    title: "OceansFlixx Movie Platform",
+    problem: "Users need an engaging platform to discover trending movies and filter by genre or category",
+    solution: "React application with JavaScript, movie API integration, dynamic content rendering, and filtering options",
+    result: "Interactive movie recommendation platform showing trending films, with filters for genres and categories, improving user engagement and discovery",
+    technologies: ["React", "JavaScript", "API Integration", "Dynamic Content", "Filtering", "CSS", "MUI"],
+    link: "https://oceansflixx.vercel.app/"
+  },
+  {
+    title: "Mohamed Rashard Portfolio",
+    problem: "Building a modern personal portfolio to showcase skills, projects, and professional experience",
+    solution: "Single-page React application with Tailwind CSS, interactive sections, and performance optimization",
+    result: "Fast-loading, visually appealing portfolio that effectively presents personal brand and professional work",
+    technologies: ["React", "CSS", "Responsive Design", "Performance Optimization"],
+    link: "https://mohamedrashard.vercel.app/"
+  }
+];
+
+const structuredData = {
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "name": "Mohamed Rashard",
+  "email": "mohrashard@gmail.com",
+  "url": "https://mohamedrashard.vercel.app/"
+};
+
+const pageData = {
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  "name": "Frontend Website & Landing Page Development",
+  "description": "Modern, responsive, SEO-friendly websites and landing pages using React, Tailwind CSS, HTML, CSS, and JavaScript",
+  "url": "https://mohamedrashard.vercel.app/services/frontend-websites",
+  "author": {
+    "@type": "Person",
+    "name": "Mohamed Rashard",
+    "email": "mohrashard@gmail.com"
+  }
+};
+
+const breadcrumbData = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [{
+    "@type": "ListItem",
+    "position": 1,
+    "name": "Home",
+    "item": "https://mohamedrashard.vercel.app/"
+  }, {
+    "@type": "ListItem",
+    "position": 2,
+    "name": "Frontend Development",
+    "item": "https://mohamedrashard.vercel.app/services/frontend-websites"
+  }]
+};
 
 const FrontendWeb = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -10,6 +120,14 @@ const FrontendWeb = () => {
   const casesRef = useRef(null);
   const contentRef = useRef(null);
   const ctaRef = useRef(null);
+
+  const navSections = useMemo(() => [
+    { label: 'Services', icon: <Zap className="webapp__nav-icon-small" />, ref: benefitsRef },
+    { label: 'Tech', icon: <Layers className="webapp__nav-icon-small" />, ref: techRef },
+    { label: 'Cases', icon: <ExternalLink className="webapp__nav-icon-small" />, ref: casesRef },
+    { label: 'Why Us', icon: <Shield className="webapp__nav-icon-small" />, ref: contentRef },
+    { label: 'Quote', icon: <Send className="webapp__nav-icon-small" />, ref: ctaRef }
+  ], []);
 
   useEffect(() => {
     // Add page entrance animations
@@ -38,20 +156,20 @@ const FrontendWeb = () => {
 
   const mailtoLink = "mailto:mohrashard@gmail.com?subject=Request%20for%20Frontend%20Website%20Development&body=Hello%20Mohamed,%20I%20would%20like%20to%20discuss%20a%20new%20frontend%20website%20or%20landing%20page%20project.%20Please%20get%20back%20to%20me%20with%20more%20details.";
 
-  const handleBack = () => {
+  const handleBack = useCallback(() => {
     window.history.back();
-  };
+  }, []);
 
-  const scrollToSection = (ref) => {
+  const scrollToSection = useCallback((ref) => {
     ref.current?.scrollIntoView({ behavior: 'smooth' });
     setIsMenuOpen(false); // Close menu after scroll
-  };
+  }, []);
 
-  const toggleMenu = () => {
-    setIsMenuOpen(!isMenuOpen);
-  };
+  const toggleMenu = useCallback(() => {
+    setIsMenuOpen(prev => !prev);
+  }, []);
 
-  const handleCaseStudyClick = (link, title) => {
+  const handleCaseStudyClick = useCallback((link, title) => {
     if (window.gtag) {
       window.gtag('event', 'click', {
         'event_category': 'Case Study',
@@ -60,9 +178,9 @@ const FrontendWeb = () => {
       });
     }
     window.open(link, "_blank", "noopener,noreferrer");
-  };
+  }, []);
 
-  const handleCTAClick = () => {
+  const handleCTAClick = useCallback(() => {
     if (window.gtag) {
       window.gtag('event', 'click', {
         'event_category': 'CTA',
@@ -70,88 +188,7 @@ const FrontendWeb = () => {
         'value': 1
       });
     }
-  };
-
-  const benefits = [
-    {
-      icon: <Zap className="webapp__benefit-icon" />,
-      title: "Responsive Design for All Devices",
-      description: "Websites that look perfect on desktop, tablet, and mobile with adaptive layouts"
-    },
-    {
-      icon: <Globe className="webapp__benefit-icon" />,
-      title: "SEO-Optimized Structure & Performance", 
-      description: "Search engine friendly websites with fast loading speeds and proper semantic markup"
-    },
-    {
-      icon: <Database className="webapp__benefit-icon" />,
-      title: "Modern UI/UX with Tailwind CSS",
-      description: "Beautiful, accessible interfaces with modern design principles and frameworks"
-    },
-    {
-      icon: <Shield className="webapp__benefit-icon" />,
-      title: "Fast Loading & Accessibility Focused",
-      description: "Performance-optimized websites that follow accessibility standards (WCAG)"
-    }
-  ];
-
-  const techStack = [
-    {
-      name: "React",
-      description: "Modern UI library for interactive user interfaces",
-      icon: <Code className="webapp__tech-icon" />
-    },
-    {
-      name: "HTML5", 
-      description: "Semantic markup for SEO and accessibility",
-      icon: <Layers className="webapp__tech-icon" />
-    },
-    {
-      name: "CSS3 & Tailwind",
-      description: "Modern styling with utility-first CSS framework", 
-      icon: <Database className="webapp__tech-icon" />
-    },
-    {
-      name: "JavaScript",
-      description: "Interactive functionality and dynamic content",
-      icon: <Monitor className="webapp__tech-icon" />
-    }
-  ];
-
-  const caseStudies = [
-    {
-      title: "Wanthem Landing Page",
-      problem: "Need a minimalist, high-impact landing page to showcase a luxury watch brand",
-      solution: "Single React landing page with Tailwind CSS, smooth animations, and clear call-to-action",
-      result: "Clean, visually appealing landing page that effectively communicates brand value and drives user engagement",
-      technologies: ["React", "Tailwind CSS", "UX/UI Design", "Animation"],
-      link: "https://wanthem.vercel.app/"
-    },
-    {
-      title: "OceansFlixx Movie Platform",
-      problem: "Users need an engaging platform to discover trending movies and filter by genre or category",
-      solution: "React application with JavaScript, movie API integration, dynamic content rendering, and filtering options",
-      result: "Interactive movie recommendation platform showing trending films, with filters for genres and categories, improving user engagement and discovery",
-      technologies: ["React", "JavaScript", "API Integration", "Dynamic Content", "Filtering" , "CSS" ,"MUI"],
-      link: "https://oceansflixx.vercel.app/"
-    },
-    {
-      title: "Mohamed Rashard Portfolio",
-      problem: "Building a modern personal portfolio to showcase skills, projects, and professional experience",
-      solution: "Single-page React application with Tailwind CSS, interactive sections, and performance optimization",
-      result: "Fast-loading, visually appealing portfolio that effectively presents personal brand and professional work",
-      technologies: ["React", "CSS", "Responsive Design", "Performance Optimization"],
-      link: "https://mohamedrashard.vercel.app/"
-    }
-  ];
-
-  const navSections = [
-    { label: 'Services', icon: <Zap className="webapp__nav-icon-small" />, ref: benefitsRef },
-    { label: 'Tech', icon: <Layers className="webapp__nav-icon-small" />, ref: techRef },
-    { label: 'Cases', icon: <ExternalLink className="webapp__nav-icon-small" />, ref: casesRef },
-    { label: 'Why Us', icon: <Shield className="webapp__nav-icon-small" />, ref: contentRef },
-    { label: 'Quote', icon: <Send className="webapp__nav-icon-small" />, ref: ctaRef }
-  ];
+  }, []);
 
   return (
     <>
@@ -177,44 +214,13 @@ const FrontendWeb = () => {
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="true" />
         <script type="application/ld+json">
-          {JSON.stringify({
-            "@context": "https://schema.org",
-            "@type": "Person",
-            "name": "Mohamed Rashard",
-            "email": "mohrashard@gmail.com",
-            "url": "https://mohamedrashard.vercel.app/"
-          })}
+          {JSON.stringify(structuredData)}
         </script>
         <script type="application/ld+json">
-          {JSON.stringify({
-            "@context": "https://schema.org",
-            "@type": "WebPage",
-            "name": "Frontend Website & Landing Page Development",
-            "description": "Modern, responsive, SEO-friendly websites and landing pages using React, Tailwind CSS, HTML, CSS, and JavaScript",
-            "url": "https://mohamedrashard.vercel.app/services/frontend-websites",
-            "author": {
-              "@type": "Person",
-              "name": "Mohamed Rashard",
-              "email": "mohrashard@gmail.com"
-            }
-          })}
+          {JSON.stringify(pageData)}
         </script>
         <script type="application/ld+json">
-          {JSON.stringify({
-            "@context": "https://schema.org",
-            "@type": "BreadcrumbList",
-            "itemListElement": [{
-              "@type": "ListItem",
-              "position": 1,
-              "name": "Home",
-              "item": "https://mohamedrashard.vercel.app/"
-            }, {
-              "@type": "ListItem",
-              "position": 2,
-              "name": "Frontend Development",
-              "item": "https://mohamedrashard.vercel.app/services/frontend-websites"
-            }]
-          })}
+          {JSON.stringify(breadcrumbData)}
         </script>
       </Helmet>
       <div className="webapp__webapp-container">
@@ -233,9 +239,9 @@ const FrontendWeb = () => {
           </div>
 
           {/* Right: Hamburger for Mobile */}
-          <button 
-            onClick={toggleMenu} 
-            className="webapp__nav-hamburger" 
+          <button
+            onClick={toggleMenu}
+            className="webapp__nav-hamburger"
             aria-label="Toggle menu"
             aria-expanded={isMenuOpen}
           >
@@ -245,7 +251,7 @@ const FrontendWeb = () => {
           {/* Center: Section Links (Desktop) */}
           <div className={`webapp__nav-center ${isMenuOpen ? 'webapp__nav-center--open' : ''}`}>
             {navSections.map((section, index) => (
-              <button 
+              <button
                 key={index}
                 onClick={() => scrollToSection(section.ref)}
                 className="webapp__nav-btn webapp__nav-section-btn"
@@ -266,7 +272,7 @@ const FrontendWeb = () => {
         {/* Futuristic Background Effects */}
         <div className="webapp__cyber-grid" aria-hidden="true"></div>
         <div className="webapp__floating-particles" aria-hidden="true"></div>
-        
+
         {/* Hero Section */}
         <section className="webapp__hero-section">
           <div className="webapp__hero-content webapp__animate-on-load">
@@ -399,20 +405,20 @@ const FrontendWeb = () => {
             </h2>
             <div className="webapp__content-text webapp__animate-on-scroll">
               <p>
-                Custom React applications with Tailwind CSS provide unmatched flexibility and modern design capabilities 
-                for businesses seeking an impactful online presence. Our expertise in responsive web design ensures your 
-                website looks perfect on all devices while maintaining excellent search engine visibility through semantic 
-                HTML structure and performance optimization. With clean, maintainable code architecture, your website will 
+                Custom React applications with Tailwind CSS provide unmatched flexibility and modern design capabilities
+                for businesses seeking an impactful online presence. Our expertise in responsive web design ensures your
+                website looks perfect on all devices while maintaining excellent search engine visibility through semantic
+                HTML structure and performance optimization. With clean, maintainable code architecture, your website will
                 be future-proof and easily extensible as your business grows.
               </p>
               <p>
-                Professional landing page development requires careful planning, conversion-focused design, and technical 
-                excellence. Our development approach focuses on creating visually stunning, fast-loading websites that 
-                effectively communicate your brand message and drive user engagement. From personal portfolios to corporate 
+                Professional landing page development requires careful planning, conversion-focused design, and technical
+                excellence. Our development approach focuses on creating visually stunning, fast-loading websites that
+                effectively communicate your brand message and drive user engagement. From personal portfolios to corporate
                 websites and startup landing pages, we deliver solutions that help you stand out in the digital landscape.
               </p>
             </div>
-            
+
             <div className="webapp__features-grid webapp__animate-on-scroll">
               <div className="webapp__feature-item">
                 <CheckCircle className="webapp__feature-icon" />
@@ -463,4 +469,4 @@ const FrontendWeb = () => {
   );
 };
 
-export default FrontendWeb;
+export default React.memo(FrontendWeb);

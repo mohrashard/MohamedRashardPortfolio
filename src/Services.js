@@ -1,15 +1,135 @@
-import { useEffect, useRef, useState, Suspense } from "react";
+import { useEffect, useRef, useState, Suspense, useCallback, useMemo, memo } from "react";
 import { useNavigate } from "react-router-dom";
-import { ArrowLeft, Home, Zap, Layers, ExternalLink, Shield, Send, Menu, X } from "lucide-react";
+import { ArrowLeft, Home, Zap, Send, Menu, X } from "lucide-react";
 import { Helmet } from "react-helmet";
 import "./Services.css";
+
+// --- Helper Components Moved Outside to Prevent Re-renders ---
+
+const TechGrid = memo(({ tech }) => (
+  <div className="tech-stack">
+    {tech.map((item, index) => (
+      <span key={index} className="tech-badge">
+        {item}
+      </span>
+    ))}
+  </div>
+));
+
+const FloatingParticles = memo(() => {
+  // Generate particles once and memoize them
+  const particles = useMemo(() => Array.from({ length: 30 }, (_, i) => ({
+    id: i,
+    left: Math.random() * 100,
+    top: Math.random() * 100,
+    delay: Math.random() * 15,
+    duration: 20 + Math.random() * 15
+  })), []);
+
+  return (
+    <div className="particles-container">
+      {particles.map((p) => (
+        <div
+          key={p.id}
+          className="particle"
+          style={{
+            left: `${p.left}%`,
+            top: `${p.top}%`,
+            animationDelay: `${p.delay}s`,
+            animationDuration: `${p.duration}s`,
+          }}
+        />
+      ))}
+    </div>
+  );
+});
+
+// --- Modal Component with React State ---
+
+const ProjectModal = ({ onClose }) => {
+  const modalRef = useRef(null);
+
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      modalRef.current?.classList.add('show');
+      const emailBtn = modalRef.current?.querySelector('button[data-action="email"]');
+      if (emailBtn) emailBtn.focus();
+    }, 10);
+    return () => clearTimeout(timer);
+  }, []);
+
+  const handleAction = (action) => {
+    switch (action) {
+      case 'email':
+        const subject = encodeURIComponent('New Project Inquiry - Let\'s Build Something Amazing!');
+        const body = encodeURIComponent(
+          `Hi there,\n\nI'm ready to start a new project and would love to discuss my ideas with you.\n\nI'm particularly interested in:\n\n• Web Development\n• Mobile Development\n• AI Integration\n• Frontend Websites\n\nLet's schedule a call to bring my vision to life!\n\nBest regards`
+        );
+        window.open(`mailto:mohrashard@gmail.com?subject=${subject}&body=${body}`, '_blank');
+        onClose();
+        break;
+      case 'call':
+        window.open('tel:+94719382296', '_self');
+        onClose();
+        break;
+      case 'close':
+      default:
+        onClose();
+        break;
+    }
+  };
+
+  return (
+    <div
+      className="project-modal"
+      ref={modalRef}
+      onClick={(e) => { if (e.target === modalRef.current) onClose(); }}
+    >
+      <div className="project-modal-content">
+        <div className="modal-icon">🚀</div>
+        <h3>Ready to Build Something Amazing?</h3>
+        <p>Let's discuss your vision and create something extraordinary together!</p>
+        <div className="modal-actions">
+          <button
+            className="modal-btn primary"
+            data-action="email"
+            onClick={() => handleAction('email')}
+            aria-label="Send email inquiry"
+          >
+            📧 Send Email
+          </button>
+          <button
+            className="modal-btn secondary"
+            data-action="call"
+            onClick={() => handleAction('call')}
+            aria-label="Call +94719382296"
+          >
+            📞 Call Now
+          </button>
+          <button
+            className="modal-btn tertiary"
+            data-action="close"
+            onClick={() => handleAction('close')}
+            aria-label="Close modal"
+          >
+            ✕ Close
+          </button>
+        </div>
+      </div>
+    </div>
+  );
+};
+
+// --- Main Component ---
 
 export default function Services() {
   const heroRef = useRef(null);
   const cardsRef = useRef(null);
   const ctaRef = useRef(null);
+  // eslint-disable-next-line
   const [isLoaded, setIsLoaded] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [isModalOpen, setIsModalOpen] = useState(false);
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -34,23 +154,22 @@ export default function Services() {
 
     return () => observer.disconnect();
   }, []);
-  
 
-  const scrollToSection = (ref) => {
+  const scrollToSection = useCallback((ref) => {
     ref.current?.scrollIntoView({ behavior: 'smooth' });
     setIsMenuOpen(false);
-  };
+  }, []);
 
-  const toggleMenu = () => {
-    setIsMenuOpen(!isMenuOpen);
-  };
+  const toggleMenu = useCallback(() => {
+    setIsMenuOpen((prev) => !prev);
+  }, []);
 
-  const navSections = [
+  const navSections = useMemo(() => [
     { label: 'Services', icon: <Zap className="services-nav-icon-small" />, ref: cardsRef },
     { label: 'Contact', icon: <Send className="services-nav-icon-small" />, ref: ctaRef }
-  ];
+  ], []);
 
-  const services = [
+  const services = useMemo(() => [
     {
       icon: "💻",
       title: "Web Development",
@@ -107,109 +226,25 @@ export default function Services() {
       gradient: "gradient-accent",
       tech: ["Python", "TensorFlow", "OpenAI", "Machine Learning"]
     }
-  ];
+  ], []);
 
-  const handleViewMore = (serviceSlug) => {
+  const handleViewMore = useCallback((serviceSlug) => {
     navigate(`/services/${serviceSlug}`);
-  };
+  }, [navigate]);
 
-  const handleStartProject = () => {
-    const activeElement = document.activeElement;
-    const modal = document.createElement('div');
-    modal.className = 'project-modal';
-    modal.innerHTML = `
-      <div class="project-modal-content">
-        <div class="modal-icon">🚀</div>
-        <h3>Ready to Build Something Amazing?</h3>
-        <p>Let's discuss your vision and create something extraordinary together!</p>
-        <div class="modal-actions">
-          <button class="modal-btn primary" data-action="email" aria-label="Send email inquiry">
-            📧 Send Email
-          </button>
-          <button class="modal-btn secondary" data-action="call" aria-label="Call +94719382296">
-            📞 Call Now
-          </button>
-          <button class="modal-btn tertiary" data-action="close" aria-label="Close modal">
-            ✕ Close
-          </button>
-        </div>
-      </div>
-    `;
+  const handleStartProject = useCallback(() => {
+    setIsModalOpen(true);
+  }, []);
 
-    const handleModalClick = (e) => {
-      const action = e.target.closest('[data-action]')?.dataset.action;
-      
-      switch (action) {
-        case 'email':
-          const subject = encodeURIComponent('New Project Inquiry - Let\'s Build Something Amazing!');
-          const body = encodeURIComponent(
-            `Hi there,\n\nI'm ready to start a new project and would love to discuss my ideas with you.\n\nI'm particularly interested in:\n\n• Web Development\n• Mobile Development\n• AI Integration\n• Frontend Websites\n\nLet's schedule a call to bring my vision to life!\n\nBest regards`
-          );
-          window.open(`mailto:mohrashard@gmail.com?subject=${subject}&body=${body}`, '_blank');
-          modal.remove();
-          activeElement?.focus();
-          break;
-          
-        case 'call':
-          window.open('tel:+94719382296', '_self');
-          modal.remove();
-          activeElement?.focus();
-          break;
-          
-        case 'close':
-          modal.remove();
-          activeElement?.focus();
-          break;
-      }
-    };
-
-    modal.addEventListener('click', handleModalClick);
-
-    modal.addEventListener('click', (e) => {
-      if (e.target === modal) {
-        modal.remove();
-        activeElement?.focus();
-      }
-    });
-
-    document.body.appendChild(modal);
-    setTimeout(() => {
-      modal.classList.add('show');
-      modal.querySelector('button[data-action="email"]').focus();
-    }, 10);
-  };
-
-  const TechGrid = ({ tech }) => (
-    <div className="tech-stack">
-      {tech.map((item, index) => (
-        <span key={index} className="tech-badge">
-          {item}
-        </span>
-      ))}
-    </div>
-  );
-
-  const FloatingParticles = () => {
-    const particles = Array.from({ length: 30 }, (_, i) => (
-      <div
-        key={i}
-        className="particle"
-        style={{
-          left: `${Math.random() * 100}%`,
-          top: `${Math.random() * 100}%`,
-          animationDelay: `${Math.random() * 15}s`,
-          animationDuration: `${20 + Math.random() * 15}s`,
-        }}
-      />
-    ));
-    return <div className="particles-container">{particles}</div>;
-  };
+  const handleCloseModal = useCallback(() => {
+    setIsModalOpen(false);
+  }, []);
 
   const pageDescription = "Expert React developer specializing in cutting-edge web applications, responsive frontend websites, cross-platform mobile solutions, and intelligent AI integrations that drive business growth and innovation.";
   const pageKeywords = "web development, mobile development, AI solutions, React, Next.js, React Native, frontend development, landing pages, machine learning";
   const ogImage = "https://mohamedrashard.vercel.app/assets/og-image.png";
-  const currentUrl = window.location.href;
-  const currentOrigin = window.location.origin;
+  const currentUrl = typeof window !== 'undefined' ? window.location.href : '';
+  const currentOrigin = typeof window !== 'undefined' ? window.location.origin : '';
 
   const personSchema = JSON.stringify({
     "@context": "https://schema.org",
@@ -260,8 +295,10 @@ export default function Services() {
         <script type="application/ld+json">{personSchema}</script>
         <script type="application/ld+json">{webPageSchema}</script>
       </Helmet>
+
       <div className="services-page">
-        
+        {isModalOpen && <ProjectModal onClose={handleCloseModal} />}
+
         <Suspense fallback={null}>
           <FloatingParticles />
         </Suspense>
@@ -281,9 +318,9 @@ export default function Services() {
           </div>
 
           {/* Right: Hamburger for Mobile */}
-          <button 
-            onClick={toggleMenu} 
-            className="services-nav-hamburger" 
+          <button
+            onClick={toggleMenu}
+            className="services-nav-hamburger"
             aria-label="Toggle menu"
             aria-expanded={isMenuOpen}
           >
@@ -293,7 +330,7 @@ export default function Services() {
           {/* Center: Section Links (Desktop) */}
           <div className={`services-nav-center ${isMenuOpen ? 'services-nav-center--open' : ''}`}>
             {navSections.map((section, index) => (
-              <button 
+              <button
                 key={index}
                 onClick={() => scrollToSection(section.ref)}
                 className="services-nav-btn services-nav-section-btn"
@@ -312,7 +349,7 @@ export default function Services() {
         )}
 
         {/* Hero Section */}
-        <header 
+        <header
           ref={heroRef}
           className="services-hero"
         >
@@ -330,12 +367,12 @@ export default function Services() {
             </h1>
 
             <p className="hero-description">
-              Expert React developer specializing in cutting-edge web applications, responsive frontend websites, 
+              Expert React developer specializing in cutting-edge web applications, responsive frontend websites,
               cross-platform mobile solutions, and intelligent AI integrations that drive business growth and innovation.
             </p>
 
-            <button 
-              className="cta-button primary pulse" 
+            <button
+              className="cta-button primary pulse"
               onClick={handleStartProject}
               aria-label="Start your project with professional development services"
             >
@@ -345,7 +382,7 @@ export default function Services() {
         </header>
 
         {/* Services Section */}
-        <main 
+        <main
           ref={cardsRef}
           className="services-section"
           id="main-content"
@@ -357,10 +394,10 @@ export default function Services() {
 
             <div className="services-grid">
               {services.map((service, index) => (
-                <article 
+                <article
                   key={index}
                   className="service-card"
-                  itemScope 
+                  itemScope
                   itemType="https://schema.org/Service"
                 >
                   <meta itemProp="serviceType" content={service.tech.join(', ')} />
@@ -388,8 +425,8 @@ export default function Services() {
                     ))}
                   </ul>
 
-                  <button 
-                    className="cta-button secondary glow" 
+                  <button
+                    className="cta-button secondary glow"
                     onClick={() => handleViewMore(service.slug)}
                     aria-label={`View more details about ${service.title}`}
                   >
@@ -412,12 +449,12 @@ export default function Services() {
             </h2>
 
             <p className="cta-description">
-              Let's discuss your project and create innovative solutions that drive growth, enhance user experience, and 
+              Let's discuss your project and create innovative solutions that drive growth, enhance user experience, and
               position your business at the forefront of technology.
             </p>
 
-            <button 
-              className="cta-button primary large pulse" 
+            <button
+              className="cta-button primary large pulse"
               onClick={handleStartProject}
               aria-label="Contact me to start your transformative project"
             >
@@ -463,13 +500,13 @@ export default function Services() {
                 "@type": "ListItem",
                 "position": 1,
                 "name": "Home",
-                "item": window.location.origin
+                "item": currentOrigin
               },
               {
                 "@type": "ListItem",
                 "position": 2,
                 "name": "Services",
-                "item": window.location.href
+                "item": currentUrl
               }
             ]
           })}

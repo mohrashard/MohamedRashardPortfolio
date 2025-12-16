@@ -1,15 +1,124 @@
-import React, { useEffect, useRef, useState } from "react";
+import React, { useEffect, useRef, useState, useCallback, useMemo } from "react";
 import { Code, Zap, Globe, Shield, ExternalLink, CheckCircle, Rocket, Database, Layers, Monitor, ArrowLeft, Home, Send, Menu, X, Smartphone, Settings, Users } from "lucide-react";
 import { Helmet } from "react-helmet";
 import "./WebApps.css";
 
-export default function MobileApps() {
+const benefits = [
+  {
+    icon: <Smartphone className="webapp__benefit-icon" />,
+    title: "Cross-Platform Development",
+    description: "Build iOS and Android apps simultaneously with React Native for faster delivery and cost efficiency."
+  },
+  {
+    icon: <Rocket className="webapp__benefit-icon" />,
+    title: "Fast & User-Friendly UI/UX",
+    description: "Stunning, intuitive interfaces optimized for performance and seamless user experience."
+  },
+  {
+    icon: <Settings className="webapp__benefit-icon" />,
+    title: "Scalable Architecture",
+    description: "Designed to scale with your growing business needs, easy to maintain and upgrade."
+  },
+  {
+    icon: <Users className="webapp__benefit-icon" />,
+    title: "Startup-Friendly Solutions",
+    description: "Tailored mobile solutions for startups and small businesses to launch quickly and efficiently."
+  }
+];
+
+const techStack = [
+  {
+    name: "React Native",
+    description: "Framework for building native mobile apps using React",
+    icon: <Code className="webapp__tech-icon" />
+  },
+  {
+    name: "Expo",
+    description: "Platform and toolset for building universal React Native apps quickly",
+    icon: <Layers className="webapp__tech-icon" />
+  },
+  {
+    name: "TypeScript",
+    description: "Type-safe development for maintainable and scalable mobile apps",
+    icon: <Monitor className="webapp__tech-icon" />
+  },
+  {
+    name: "Firebase",
+    description: "Backend services for authentication, real-time database, and cloud functions",
+    icon: <Database className="webapp__tech-icon" />
+  },
+  {
+    name: "Flutter",
+    description: "UI toolkit from Google for building natively compiled, cross-platform mobile apps",
+    icon: <Globe className="webapp__tech-icon" />
+  }
+];
+
+const caseStudies = [
+  {
+    title: "PawPal Nutritions",
+    type: "Mobile App Demo",
+    problem: "Dog owners needed an easy way to browse and purchase dog food online",
+    solution: "Android app prototype built with Java, showcasing a dog food marketplace with product listing, categories, and basic cart functionality",
+    result: "Interactive demo demonstrating app workflow, product browsing, and marketplace features for potential clients",
+    technologies: ["Java", "Android Studio", "UI/UX Design", "Marketplace Prototype"]
+  }
+];
+
+const personData = {
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "name": "Mohamed Rashard",
+  "email": "mohrashard@gmail.com",
+  "url": "https://mohamedrashard.vercel.app",
+  "jobTitle": "Mobile App Developer"
+};
+
+const creativeWorkData = {
+  "@context": "https://schema.org",
+  "@type": "CreativeWork",
+  "name": "Mobile App Development Services",
+  "description": "Cross-platform mobile app development with React Native and Expo. iOS and Android apps for startups and small businesses.",
+  "url": "https://mohamedrashard.vercel.app/services/mobile-apps",
+  "author": {
+    "@type": "Person",
+    "name": "Mohamed Rashard"
+  }
+};
+
+const serviceData = {
+  "@context": "https://schema.org",
+  "@type": "Service",
+  "serviceType": "Mobile App Development",
+  "name": "Cross-Platform Mobile App Development",
+  "description": "Professional React Native and Expo mobile app development services for iOS and Android platforms",
+  "provider": {
+    "@type": "Person",
+    "name": "Mohamed Rashard",
+    "email": "mohrashard@gmail.com"
+  },
+  "areaServed": "Worldwide",
+  "availableChannel": {
+    "@type": "ServiceChannel",
+    "serviceUrl": "https://mohamedrashard.vercel.app/services/mobile-apps"
+  }
+};
+
+const MobileApps = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const benefitsRef = useRef(null);
   const techRef = useRef(null);
   const casesRef = useRef(null);
   const contentRef = useRef(null);
   const ctaRef = useRef(null);
+
+  const navSections = useMemo(() => [
+    { label: 'Benefits', icon: <Zap className="webapp__nav-icon-small" />, ref: benefitsRef },
+    { label: 'Tech', icon: <Layers className="webapp__nav-icon-small" />, ref: techRef },
+    { label: 'Cases', icon: <ExternalLink className="webapp__nav-icon-small" />, ref: casesRef },
+    { label: 'Why Us', icon: <Shield className="webapp__nav-icon-small" />, ref: contentRef },
+    { label: 'Quote', icon: <Send className="webapp__nav-icon-small" />, ref: ctaRef }
+  ], []);
 
   useEffect(() => {
     // Add page entrance animations
@@ -38,127 +147,18 @@ export default function MobileApps() {
 
   const mailtoLink = "mailto:mohrashard@gmail.com?subject=Request%20for%20Mobile%20App%20Development&body=Hello%20Mohamed,%20I%20would%20like%20to%20discuss%20a%20new%20mobile%20app%20project.%20Please%20get%20back%20to%20me%20with%20more%20details.";
 
-  const handleBack = () => {
+  const handleBack = useCallback(() => {
     window.history.back();
-  };
+  }, []);
 
-  const scrollToSection = (ref) => {
+  const scrollToSection = useCallback((ref) => {
     ref.current?.scrollIntoView({ behavior: 'smooth' });
     setIsMenuOpen(false); // Close menu after scroll
-  };
+  }, []);
 
-  const toggleMenu = () => {
-    setIsMenuOpen(!isMenuOpen);
-  };
-
-  const benefits = [
-    {
-      icon: <Smartphone className="webapp__benefit-icon" />,
-      title: "Cross-Platform Development",
-      description: "Build iOS and Android apps simultaneously with React Native for faster delivery and cost efficiency."
-    },
-    {
-      icon: <Rocket className="webapp__benefit-icon" />,
-      title: "Fast & User-Friendly UI/UX", 
-      description: "Stunning, intuitive interfaces optimized for performance and seamless user experience."
-    },
-    {
-      icon: <Settings className="webapp__benefit-icon" />,
-      title: "Scalable Architecture",
-      description: "Designed to scale with your growing business needs, easy to maintain and upgrade."
-    },
-    {
-      icon: <Users className="webapp__benefit-icon" />,
-      title: "Startup-Friendly Solutions",
-      description: "Tailored mobile solutions for startups and small businesses to launch quickly and efficiently."
-    }
-  ];
-
-const techStack = [
-  {
-    name: "React Native",
-    description: "Framework for building native mobile apps using React",
-    icon: <Code className="webapp__tech-icon" />
-  },
-  {
-    name: "Expo", 
-    description: "Platform and toolset for building universal React Native apps quickly",
-    icon: <Layers className="webapp__tech-icon" />
-  },
-  {
-    name: "TypeScript",
-    description: "Type-safe development for maintainable and scalable mobile apps", 
-    icon: <Monitor className="webapp__tech-icon" />
-  },
-  {
-    name: "Firebase",
-    description: "Backend services for authentication, real-time database, and cloud functions",
-    icon: <Database className="webapp__tech-icon" />
-  },
-  {
-    name: "Flutter",
-    description: "UI toolkit from Google for building natively compiled, cross-platform mobile apps",
-    icon: <Globe className="webapp__tech-icon" />
-  }
-];
-
-  const caseStudies = [
-  {
-    title: "PawPal Nutritions",
-    type: "Mobile App Demo",
-    problem: "Dog owners needed an easy way to browse and purchase dog food online",
-    solution: "Android app prototype built with Java, showcasing a dog food marketplace with product listing, categories, and basic cart functionality",
-    result: "Interactive demo demonstrating app workflow, product browsing, and marketplace features for potential clients",
-    technologies: ["Java", "Android Studio", "UI/UX Design", "Marketplace Prototype"]
-  }
-  ];
-
-  const navSections = [
-    { label: 'Benefits', icon: <Zap className="webapp__nav-icon-small" />, ref: benefitsRef },
-    { label: 'Tech', icon: <Layers className="webapp__nav-icon-small" />, ref: techRef },
-    { label: 'Cases', icon: <ExternalLink className="webapp__nav-icon-small" />, ref: casesRef },
-    { label: 'Why Us', icon: <Shield className="webapp__nav-icon-small" />, ref: contentRef },
-    { label: 'Quote', icon: <Send className="webapp__nav-icon-small" />, ref: ctaRef }
-  ];
-
-  const personData = {
-    "@context": "https://schema.org",
-    "@type": "Person",
-    "name": "Mohamed Rashard",
-    "email": "mohrashard@gmail.com",
-    "url": "https://mohamedrashard.vercel.app",
-    "jobTitle": "Mobile App Developer"
-  };
-
-  const creativeWorkData = {
-    "@context": "https://schema.org",
-    "@type": "CreativeWork",
-    "name": "Mobile App Development Services",
-    "description": "Cross-platform mobile app development with React Native and Expo. iOS and Android apps for startups and small businesses.",
-    "url": "https://mohamedrashard.vercel.app/services/mobile-apps",
-    "author": {
-      "@type": "Person",
-      "name": "Mohamed Rashard"
-    }
-  };
-
-  const serviceData = {
-    "@context": "https://schema.org",
-    "@type": "Service",
-    "serviceType": "Mobile App Development",
-    "name": "Cross-Platform Mobile App Development",
-    "description": "Professional React Native and Expo mobile app development services for iOS and Android platforms",
-    "provider": {
-      "@type": "Person",
-      "name": "Mohamed Rashard",
-      "email": "mohrashard@gmail.com"
-    },
-    "areaServed": "Worldwide",
-    "availableChannel": {
-      "@type": "ServiceChannel",
-      "serviceUrl": "https://mohamedrashard.vercel.app/services/mobile-apps"
-    }
-  };
+  const toggleMenu = useCallback(() => {
+    setIsMenuOpen(prev => !prev);
+  }, []);
 
   return (
     <>
@@ -218,9 +218,9 @@ const techStack = [
           </div>
 
           {/* Right: Hamburger for Mobile */}
-          <button 
-            onClick={toggleMenu} 
-            className="webapp__nav-hamburger" 
+          <button
+            onClick={toggleMenu}
+            className="webapp__nav-hamburger"
             aria-label="Toggle menu"
             aria-expanded={isMenuOpen}
           >
@@ -230,7 +230,7 @@ const techStack = [
           {/* Center: Section Links (Desktop) */}
           <div className={`webapp__nav-center ${isMenuOpen ? 'webapp__nav-center--open' : ''}`}>
             {navSections.map((section, index) => (
-              <button 
+              <button
                 key={index}
                 onClick={() => scrollToSection(section.ref)}
                 className="webapp__nav-btn webapp__nav-section-btn"
@@ -251,7 +251,7 @@ const techStack = [
         {/* Futuristic Background Effects */}
         <div className="webapp__cyber-grid" aria-hidden="true"></div>
         <div className="webapp__floating-particles" aria-hidden="true"></div>
-        
+
         {/* Hero Section */}
         <section className="webapp__hero-section">
           <div className="webapp__hero-content webapp__animate-on-load">
@@ -335,23 +335,23 @@ const techStack = [
                     </h3>
                     <ExternalLink className="webapp__case-link-icon" />
                   </div>
-                  
+
                   <div className="webapp__case-content">
                     <div className="webapp__case-section">
                       <h4 className="webapp__case-label webapp__problem-label">Problem:</h4>
                       <p className="webapp__case-text">{study.problem}</p>
                     </div>
-                    
+
                     <div className="webapp__case-section">
                       <h4 className="webapp__case-label webapp__solution-label">Solution:</h4>
                       <p className="webapp__case-text">{study.solution}</p>
                     </div>
-                    
+
                     <div className="webapp__case-section">
                       <h4 className="webapp__case-label webapp__result-label">Result:</h4>
                       <p className="webapp__case-text">{study.result}</p>
                     </div>
-                    
+
                     <div className="webapp__tech-tags">
                       {study.technologies.map((tech, techIndex) => (
                         <span key={techIndex} className="webapp__tech-tag">
@@ -375,20 +375,20 @@ const techStack = [
             </h2>
             <div className="webapp__content-text webapp__animate-on-scroll">
               <p>
-                React Native allows us to create cross-platform mobile apps with a single codebase, 
-                delivering fast and responsive user experiences on both iOS and Android. Startups 
-                benefit from reduced development time while retaining a native look and feel. Our 
-                solutions ensure scalable architecture, smooth UX, and cutting-edge features for 
+                React Native allows us to create cross-platform mobile apps with a single codebase,
+                delivering fast and responsive user experiences on both iOS and Android. Startups
+                benefit from reduced development time while retaining a native look and feel. Our
+                solutions ensure scalable architecture, smooth UX, and cutting-edge features for
                 your mobile business needs.
               </p>
               <p>
-                With performance optimization and access to native device features, React Native 
-                provides the perfect balance between development efficiency and app performance. 
-                Our expertise ensures your mobile application will be maintainable, scalable, and 
+                With performance optimization and access to native device features, React Native
+                provides the perfect balance between development efficiency and app performance.
+                Our expertise ensures your mobile application will be maintainable, scalable, and
                 ready for future enhancements as your business grows.
               </p>
             </div>
-            
+
             <div className="webapp__features-grid webapp__animate-on-scroll">
               <div className="webapp__feature-item">
                 <CheckCircle className="webapp__feature-icon" />
@@ -426,4 +426,5 @@ const techStack = [
       </div>
     </>
   );
-}
+};
+export default React.memo(MobileApps);
