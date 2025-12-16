@@ -61,7 +61,7 @@
 /* Enhanced Navigation Bar */
 .webapp__nav-bar {
   position: fixed;
-  top: 1rem;
+  top: 4rem;
   left: 50%;
   transform: translateX(-50%);
   display: flex;
