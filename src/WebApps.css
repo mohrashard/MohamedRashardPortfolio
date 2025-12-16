@@ -61,7 +61,7 @@
 /* Enhanced Navigation Bar */
 .webapp__nav-bar {
   position: fixed;
-  top: 4rem;
+  top: 1rem;
   left: 50%;
   transform: translateX(-50%);
   display: flex;
@@ -1077,108 +1077,72 @@
 }
 
 @media (max-width: 768px) {
-  .webapp__nav-bar {
-    width: 100%;
-    max-width: none;
-    border-radius: 0;
-    top: 0;
-    left: 0;
-    transform: none;
-    padding: 0.5rem 1.5rem;
-    height: 70px;
-  }
-
   .webapp__nav-hamburger {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 44px;
-    height: 44px;
-    padding: 0;
-    z-index: 103;
-    position: relative;
+    display: block;
   }
 
-  /* Full Screen Mobile Menu */
   .webapp__nav-center {
-    position: fixed;
-    top: 0;
+    position: absolute;
+    top: 100%;
     left: 0;
-    right: 0;
-    bottom: 0;
-    width: 100vw;
-    height: 100vh;
+    width: 100%;
     max-height: 0;
-    opacity: 0;
-    visibility: hidden;
-    background: rgba(10, 10, 10, 0.98);
-    backdrop-filter: blur(25px);
-    -webkit-backdrop-filter: blur(25px);
+    overflow: hidden;
+    background: var(--nav-dropdown-bg);
     flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    gap: 1.5rem;
-    padding: 2rem;
-    margin: 0;
-    border: none;
-    border-radius: 0;
-    z-index: 102;
-    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    gap: 0;
+    border-radius: 0 0 50px 50px;
+    border-top: 1px solid var(--nav-border);
+    opacity: 0;
+    padding: 0;
+    margin-top: 0.5rem;
   }
 
   .webapp__nav-center--open {
-    max-height: 100vh;
+    max-height: 300px;
     opacity: 1;
-    visibility: visible;
+    padding: 1rem 0;
+    gap: 0.5rem;
   }
 
   .webapp__nav-section-btn {
+    justify-content: flex-start;
+    padding: 1rem 2rem;
+    min-width: auto;
+    border-radius: 0;
     width: 100%;
-    max-width: 280px;
-    justify-content: center;
-    padding: 1rem;
-    font-size: 1.2rem;
-    background: rgba(255, 255, 255, 0.03);
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    min-height: 60px;
-    border-radius: 50px;
-    text-align: center;
+    text-align: left;
+    min-height: 48px;
+    /* Larger touch target */
   }
 
   .webapp__nav-section-btn:hover {
     background: rgba(0, 255, 255, 0.1);
-    transform: scale(1.05);
-  }
-
-  .webapp__nav-left {
-    z-index: 103;
-    position: relative;
-    gap: 0.5rem;
-  }
-
-  .webapp__nav-action-btn {
-    padding: 0.5rem 1rem;
-    min-width: auto;
-  }
-
-  .webapp__nav-action-btn span {
-    display: none;
+    transform: none;
   }
 
   .webapp__section {
     padding: clamp(3rem, 8vw, 5rem) 1rem;
+    /* Adjusted fluid padding */
   }
 
   .webapp__benefits-grid,
   .webapp__tech-grid,
-  .webapp__features-grid,
+  .webapp__features-grid {
+    grid-template-columns: 1fr;
+    gap: clamp(1rem, 3vw, 1.5rem);
+  }
+
   .webapp__cases-grid {
     grid-template-columns: 1fr;
     gap: clamp(1rem, 3vw, 1.5rem);
   }
 
+
+
   .webapp__hero-content {
     padding-top: 2rem;
+    /* Additional space after nav */
   }
 
   .webapp__benefit-card,
@@ -1191,10 +1155,26 @@
     width: clamp(120px, 30vw, 150px);
   }
 
+  .webapp__nav-left {
+    gap: 0.25rem;
+  }
+
+  .webapp__nav-action-btn {
+    padding: 0.6rem;
+    min-width: 50px;
+    font-size: 0.8rem;
+  }
+
+  .webapp__nav-action-btn span {
+    display: none;
+    /* Hide text on small mobile for compactness */
+  }
+
   .webapp__hero-bg-effect {
     width: 400px;
     height: 400px;
     opacity: 0.2;
+    /* Slightly reduce on tablet/mobile for performance */
   }
 
   .webapp__cta-bg-effect {
