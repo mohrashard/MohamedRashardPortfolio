@@ -1,36 +1,156 @@
-I want you to generate a **professional, detailed, and well-structured blog** in **Markdown format** following this exact style and structure:
+Act as a senior technical writer and SEO strategist.
 
-1. Start with YAML front matter:
----
-title: <Insert Blog Title Here>
-date: <Current Date>
-description: <Insert Blog Description Here>
----
+Write a long-form blog post optimized for:
+1) Generative Engine Optimization (GEO) — so AI tools can extract, summarize, and cite it
+2) Search Engine Optimization (SEO) — so it can rank on Google
 
-2. Use # for the main blog title and ##, ### for sections and subtopics.
+Blog Topic: How Custom Web Development Helps Businesses Scale Faster
+Primary Keyword: custom web development
+Secondary Keywords: business website development, scalable web apps, web development services, business growth
+Target Audience: Small and medium business owners
+Search Intent: Informational 
 
-3. Write an **introductory paragraph** explaining the topic, why it’s important, and what the reader will gain.
+STRUCTURE REQUIREMENTS (STRICT):
 
-4. Break the blog into **well-defined sections**, using subheadings. Include bullet points, examples, or numbers where needed.
+1. Title
+- SEO-optimized
+- Clear and non-clickbait
+- Includes primary keyword
 
-5. Add **tips, examples, or pro tips** in relevant sections to provide actionable advice.
+2. Meta Description (150–160 chars)
+- Clear summary
+- Includes primary keyword
 
-6. Include a **conclusion** summarizing main points and giving a final actionable tip.
+3. Introduction (GEO-first)
+- First sentence must directly answer what the article is about
+- Explicitly define the main concept
+- No storytelling or fluff
 
-7. Use clear, professional, and SEO-friendly language.
+4. Core Sections (Use H2 & H3)
+- Explain concepts clearly
+- Short paragraphs (1–3 lines)
+- Use bullet points and numbered lists
+- Define technical terms explicitly
 
-8. Keep it reader-friendly, informative, and engaging (800–1500 words).
+5. “Why This Matters” Section
+- Explain impact and relevance
+- Use cause-and-effect reasoning
 
-9. Separate sections with --- for readability.
+6. Practical Examples / Use Cases
+- Real-world or developer-focused examples
+- Clear and concise
 
-10. Make the blog self-contained without requiring external references.
+7. FAQ Section (Minimum 5 Q&A)
+- Each answer must start with a direct response
+- 2–3 sentences per answer
+- Optimized for AI extraction and featured snippets
 
-**Instructions for AI:**
+8. Key Takeaways
+- 3–5 bullet points
+- Clear, factual, summarizable
 
-- Replace <Insert Blog Title Here> and <Insert Blog Description Here> with the actual title and description I provide.  
-- Ensure the content is original, relevant, and practical.  
-- Include actionable advice, examples, and numbers where applicable.  
-- Output the entire blog in Markdown with all formatting, headings, bullet points, and separators intact.
+WRITING RULES:
+- Authoritative, neutral, expert tone
+- Avoid hype, fluff, and personal opinions
+- No metaphors or storytelling
+- Use simple, explicit language
+- Make content easy to quote without editing
 
-**Blog Title:** "<Insert Blog Title Here>"  
-**Description:** "<Insert Blog Description Here>"
+SEO RULES:
+- Use primary keyword naturally in:
+  - Title
+  - Intro
+  - One H2
+  - Conclusion
+- Use secondary keywords naturally
+- Optimize headings for search intent
+
+GEO RULES:
+- Answer-first writing
+- Explicit definitions
+- Structured formatting
+- Content must sound like documentation or expert reference
+
+Output in clean Markdown format.
+
+Save the Post as a MD file in public/posts folder and in Blog.js 
+add the name of the MD File in this 
+        const postSlugs = [
+          'web-app-cost',
+          'building-professional-website',
+          'ai-in-software-development-guide',
+        ]; 
+
+
+
+Day 2
+
+Blog Topic: Why Businesses Need Custom Software Instead of Off-the-Shelf Tools
+Primary Keyword: custom software development
+Secondary Keywords: business automation, tailored software, enterprise software solutions, workflow optimization
+Target Audience: Business owners and operations managers
+Search Intent: Educational
+
+Day 3
+
+Blog Topic: How AI-Powered Tools Can Automate Business Operations
+Primary Keyword: AI for business automation
+Secondary Keywords: AI tools for business, process automation, AI software development, operational efficiency
+Target Audience: Business owners, startup founders
+Search Intent: Educational
+
+Day 4
+
+Blog Topic: Web Application vs Website: What Does Your Business Really Need?
+Primary Keyword: web application vs website
+Secondary Keywords: business web apps, custom websites, web development for business, digital solutions
+Target Audience: Business owners, non-technical founders
+Search Intent: Comparison
+
+Day 5
+
+Blog Topic: How Custom CRM Development Improves Customer Management
+Primary Keyword: custom CRM development
+Secondary Keywords: CRM for small business, customer data management, sales automation, CRM software
+Target Audience: Sales-driven businesses, service companies
+Search Intent: Informational
+
+Day 6
+
+Blog Topic: Signs Your Business Needs a Custom Software Solution
+Primary Keyword: custom software for business
+Secondary Keywords: business software needs, software development services, workflow problems, automation solutions
+Target Audience: Growing businesses
+Search Intent: Informational
+
+Day 7
+
+Blog Topic: How AI Chatbots Help Businesses Increase Sales and Support
+Primary Keyword: AI chatbot for business
+Secondary Keywords: customer support automation, AI chatbots, sales automation, business AI solutions
+Target Audience: E-commerce owners, service providers
+Search Intent: Educational
+
+Day 8
+
+Blog Topic: How Much Does Custom Software Development Cost for Businesses?
+Primary Keyword: custom software development cost
+Secondary Keywords: software development pricing, business software budget, development cost breakdown
+Target Audience: Business owners, startup founders
+Search Intent: Informational
+
+Day 9
+
+Blog Topic: How Businesses Can Use Data Dashboards to Make Better Decisions
+Primary Keyword: business data dashboards
+Secondary Keywords: business analytics, custom dashboards, data visualization, decision making tools
+Target Audience: Business owners, managers
+Search Intent: Educational
+
+Day 10
+
+Blog Topic: Choosing the Right Development Partner for Your Business
+Primary Keyword: software development partner
+Secondary Keywords: development agency vs freelancer, hiring developers, software development services
+Target Audience: Businesses looking to hire developers
+Search Intent: Informational

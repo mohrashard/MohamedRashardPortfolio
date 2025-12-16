@@ -7,17 +7,17 @@ import "./Blog.css";
 const parseFrontmatter = (content) => {
   const fmRegex = /^---\s*\n([\s\S]*?)\n---\s*\n([\s\S]*)$/;
   const match = content.match(fmRegex);
-  
+
   if (!match) {
     return { data: {}, content };
   }
-  
+
   const frontmatterString = match[1];
   const bodyContent = match[2];
-  
+
   const frontmatter = {};
   const lines = frontmatterString.split('\n');
-  
+
   lines.forEach(line => {
     const colonIndex = line.indexOf(':');
     if (colonIndex > -1) {
@@ -26,7 +26,7 @@ const parseFrontmatter = (content) => {
       frontmatter[key] = value;
     }
   });
-  
+
   return { data: frontmatter, content: bodyContent };
 };
 
@@ -44,11 +44,12 @@ const Blog = () => {
     const loadPosts = async () => {
       try {
         const postSlugs = [
+          'custom-web-development-scale',
           'web-app-cost',
           'building-professional-website',
           'ai-in-software-development-guide',
         ];
-        
+
         const loadedPosts = [];
 
         for (const slug of postSlugs) {
@@ -57,7 +58,7 @@ const Blog = () => {
             if (response.ok) {
               const text = await response.text();
               let { data: frontmatter } = parseFrontmatter(text);
-              
+
               // Handle missing frontmatter fields to ensure all posts load
               if (!frontmatter.title) {
                 frontmatter.title = slug
@@ -72,7 +73,7 @@ const Blog = () => {
               if (!frontmatter.description) {
                 frontmatter.description = 'No description available.';
               }
-              
+
               loadedPosts.push({ slug, frontmatter });
             } else {
               console.warn(`Could not fetch post: ${slug} (${response.status})`);
@@ -204,7 +205,7 @@ const Blog = () => {
           />
           <meta name="viewport" content="width=device-width, initial-scale=1" />
           <meta name="robots" content="index, follow" />
-          
+
           {/* Open Graph */}
           <meta property="og:title" content="Blog - Mohamed Rashard Rizmi" />
           <meta property="og:description" content="Latest blog posts on web development, mobile apps, and AI solutions." />
@@ -213,21 +214,21 @@ const Blog = () => {
           <meta property="og:image" content="https://mohamedrashard.vercel.app/images/og-image.png" />
           <meta property="og:image:width" content="1200" />
           <meta property="og:image:height" content="630" />
-          
+
           {/* Twitter Card */}
           <meta name="twitter:card" content="summary_large_image" />
           <meta name="twitter:creator" content="@yourhandle" />
           <meta name="twitter:title" content="Blog - Mohamed Rashard Rizmi" />
           <meta name="twitter:description" content="Latest blog posts on web development, mobile apps, and AI solutions." />
           <meta name="twitter:image" content="https://mohamedrashard.vercel.app/images/twitter-card-image.jpg" />
-          
+
           {/* Preconnect to important domains */}
           <link rel="preconnect" href="https://www.google-analytics.com" />
           <link rel="preconnect" href="https://vercel.live" />
         </Helmet>
-        
+
         <div className="blog-background"></div>
-        
+
         <nav className="blog-nav">
           <div className="blog-nav-container">
             <Link to="/blog" className="blog-nav-logo">
@@ -240,7 +241,7 @@ const Blog = () => {
             </div>
           </div>
         </nav>
-        
+
         <div className="blog-page" id="main-content">
           <div className="blog-header">
             <h1>Blog</h1>
@@ -266,7 +267,7 @@ const Blog = () => {
         <meta name="author" content="Mohamed Rashard Rizmi" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <meta name="robots" content="index, follow" />
-        
+
         {/* Open Graph */}
         <meta property="og:title" content="Blog - Mohamed Rashard Rizmi" />
         <meta property="og:description" content="Latest blog posts on web development, mobile apps, and AI solutions." />
@@ -275,18 +276,18 @@ const Blog = () => {
         <meta property="og:image" content="https://mohamedrashard.vercel.app/images/og-image.png" />
         <meta property="og:image:width" content="1200" />
         <meta property="og:image:height" content="630" />
-        
+
         {/* Twitter Card */}
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:creator" content="@yourhandle" />
         <meta name="twitter:title" content="Blog - Mohamed Rashard Rizmi" />
         <meta name="twitter:description" content="Latest blog posts on web development, mobile apps, and AI solutions." />
         <meta name="twitter:image" content="https://mohamedrashard.vercel.app/images/twitter-card-image.jpg" />
-        
+
         {/* Preconnect to important domains */}
         <link rel="preconnect" href="https://www.google-analytics.com" />
         <link rel="preconnect" href="https://vercel.live" />
-        
+
         {/* Structured Data */}
         <script type="application/ld+json">
           {JSON.stringify({
@@ -302,7 +303,7 @@ const Blog = () => {
           })}
         </script>
       </Helmet>
-      
+
       <div className="blog-background"></div>
 
       <nav className="blog-nav">
@@ -336,8 +337,8 @@ const Blog = () => {
             </div>
           ) : (
             currentPagePosts.map(({ slug, frontmatter }, index) => (
-              <div 
-                key={slug} 
+              <div
+                key={slug}
                 className="post-card"
                 style={{ animationDelay: `${index * 0.1}s` }}
               >

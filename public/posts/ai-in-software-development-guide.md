@@ -122,6 +122,8 @@ AI is not here to take your job. It's here to **make you faster, sharper, and mo
 - With only AI, you'll be replaceable.  
 - With AI + your expertise, you'll be unstoppable.  
 
-**Action Step:** Next time you're coding, try this workflow—write the core logic yourself, ask AI to debug or scaffold UI, and then connect everything manually. You'll see how much faster and smoother development becomes.  
+**Action Step:** Next time you're coding, try this workflow—write the core logic yourself, ask AI to debug or scaffold UI, and then connect everything manually. You'll see how much faster and smoother development becomes.
+
+If your business needs a custom web or AI solution, this is exactly the type of problem I help solve.  
 
 ---
