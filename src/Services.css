@@ -84,19 +84,48 @@ html {
 }
 
 /* Enhanced Navigation */
-.services-nav {
+/* Enhanced Navigation */
+.services-nav-bar {
   position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  z-index: 1000;
-  padding: var(--spacing-md) clamp(1rem, 5vw, 2rem);
+  top: 1rem;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 90%;
+  max-width: 1200px;
+  padding: 0.75rem 1.5rem;
   background: rgba(0, 0, 0, 0.9);
   backdrop-filter: blur(25px) saturate(180%);
-  border-bottom: 1px solid hsl(var(--tech-border));
+  border-radius: 50px;
+  border: 1px solid hsl(var(--tech-border));
+  box-shadow: 0 0 15px rgba(0, 255, 255, 0.4), 0 4px 20px rgba(0, 0, 0, 0.3);
+  z-index: 1000;
   transition: var(--transition-smooth);
-  transform: translateY(-100%);
   animation: slideDown 0.6s ease-out 0.2s forwards;
+}
+
+.services-nav-left {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.services-nav-center {
+  display: flex;
+  gap: 0.25rem;
+  flex: 1;
+  justify-content: center;
+}
+
+.services-nav-hamburger {
+  display: none;
+  background: none;
+  border: none;
+  color: white;
+  cursor: pointer;
+  padding: 0.5rem;
+  transition: var(--transition-smooth);
 }
 
 @keyframes slideDown {
