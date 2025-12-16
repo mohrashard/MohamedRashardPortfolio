@@ -7,7 +7,22 @@ function App() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [activeSection, setActiveSection] = useState("home");
   const [isScrolling, setIsScrolling] = useState(false);
+  const [isScrolled, setIsScrolled] = useState(false); // New state for navbar style
   const titleRef = useRef(null);
+
+  // Handle scroll for navbar styling
+  useEffect(() => {
+    const handleScroll = () => {
+      if (window.scrollY > 50) {
+        setIsScrolled(true);
+      } else {
+        setIsScrolled(false);
+      }
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
 
   const [activeSkillTab, setActiveSkillTab] = useState("Programming Languages");
 
@@ -443,94 +458,50 @@ function App() {
 
       {/* Header/Navigation */}
 
-      <header className="header">
-        <div className="logo">
+      <header className={`header ${isScrolled ? "scrolled" : ""}`}>
+        <div className="logo" onClick={() => scrollToSection("home")}>
           <span className="logo-text">MRR</span>
         </div>
         <nav className={`nav ${isMenuOpen ? "open" : ""}`} aria-label="Main navigation">
           <ul className="nav-links">
-            <li>
-              <button
-                className={activeSection === "home" ? "active" : ""}
-                onClick={() => {
-                  scrollToSection("home");
-                  setIsMenuOpen(false); // ✅ close menu
-                }}
-                aria-label="Navigate to Home section"
-              >
-                Home
-              </button>
-            </li>
-            <li>
-              <button
-                className={activeSection === "about" ? "active" : ""}
-                onClick={() => {
-                  scrollToSection("about");
-                  setIsMenuOpen(false);
-                }}
-                aria-label="Navigate to About section"
-              >
-                About
-              </button>
-            </li>
-            <li>
-              <button
-                className={activeSection === "skills" ? "active" : ""}
-                onClick={() => {
-                  scrollToSection("skills");
-                  setIsMenuOpen(false);
-                }}
-                aria-label="Navigate to Skills section"
-              >
-                Skills
-              </button>
-            </li>
-            <li>
-              <button
-                className={activeSection === "projects" ? "active" : ""}
-                onClick={() => {
-                  scrollToSection("projects");
-                  setIsMenuOpen(false);
-                }}
-                aria-label="Navigate to Projects section"
-              >
-                Projects
-              </button>
-            </li>
-            <li>
-              <button
-                className={activeSection === "contact" ? "active" : ""}
-                onClick={() => {
-                  scrollToSection("contact");
-                  setIsMenuOpen(false);
-                }}
-                aria-label="Navigate to Contact section"
-              >
-                Contact
-              </button>
-            </li>
+            {["home", "about", "skills", "projects", "contact"].map((section, index) => (
+              <li key={section} style={{ "--i": index }}>
+                <button
+                  className={activeSection === section ? "active" : ""}
+                  onClick={() => {
+                    scrollToSection(section);
+                    setIsMenuOpen(false);
+                  }}
+                  aria-label={`Navigate to ${section.charAt(0).toUpperCase() + section.slice(1)} section`}
+                >
+                  {section.charAt(0).toUpperCase() + section.slice(1)}
+                </button>
+              </li>
+            ))}
 
-            {/* ✅ Services with same style */}
-            <li>
+            <li style={{ "--i": 5 }}>
               <Link
                 to="/services"
                 className={location.pathname === "/services" ? "active" : ""}
                 aria-label="Navigate to Services page"
+                onClick={() => setIsMenuOpen(false)}
               >
                 Services
               </Link>
             </li>
-            <li>
+            <li style={{ "--i": 6 }}>
               <Link
                 to="/blog"
                 className={location.pathname === "/blog" ? "active" : ""}
-                aria-label="Navigate to Services page"
+                aria-label="Navigate to Blog page"
+                onClick={() => setIsMenuOpen(false)}
               >
                 Blogs
               </Link>
             </li>
           </ul>
         </nav>
+
 
         <div className="mobile-menu" onClick={() => setIsMenuOpen(!isMenuOpen)}>
           <div className={`hamburger ${isMenuOpen ? "open" : ""}`}>
