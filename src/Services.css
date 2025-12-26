@@ -564,8 +564,8 @@ html {
   border-radius: var(--radius-lg);
   box-shadow: var(--shadow-elevated);
   transition: var(--transition-elastic);
-  opacity: 0;
-  transform: translateY(60px) rotateX(10deg);
+  opacity: 1;
+  transform: none;
   overflow: hidden;
 }
 
