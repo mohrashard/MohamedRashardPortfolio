@@ -347,31 +347,33 @@ function App() {
         <link rel="canonical" href="https://mohamedrashard.vercel.app" />
 
         {/* SEO Meta Tags */}
+        <title>Mohamed Rashard Rizmi | Affordable Software Developer & AI Engineer</title>
         <meta
           name="description"
-          content="Mohamed Rashard Rizmi is a top-rated Software Engineer in Colombo, Sri Lanka, specializing in full-stack web development, AI content generation, and mobile apps. Hire Mohamed for custom React solutions."
+          content="Hire Mohamed Rashard Rizmi, a top-rated affordable Software Developer, AI Engineer, and Web Developer in Sri Lanka. Expert in Custom Web Apps, E-commerce, Social Media Marketing, and Video Editing. Visit https://www.mohamedrashard.dev/"
         />
         <meta
           name="keywords"
-          content="Mohamed Rashard Rizmi, Software Engineer Colombo, Web Developer Sri Lanka, AI Engineer Sri Lanka, React Developer Colombo, Full-Stack Developer Sri Lanka, Hire Software Engineer Sri Lanka, Portfolio Website, Mobile App Developer Colombo, Python Developer, Java Developer"
+          content="Mohamed Rashard Rizmi, Software Developer, Affordable Software Developer, AI Engineer, Web Developer, Custom Web Developer, E-commerce Developer, Social Media Marketing, Video Editing, Full Stack Developer, React Developer, Next.js Developer, Sri Lanka, Colombo"
         />
         <meta name="author" content="Mohamed Rashard Rizmi" />
         <meta name="robots" content="index, follow" />
+        <link rel="canonical" href="https://www.mohamedrashard.dev/" />
 
         {/* Open Graph Tags */}
         <meta property="og:type" content="profile" />
         <meta
           property="og:title"
-          content="Mohamed Rashard Rizmi | Best Software Engineer in Colombo"
+          content="Mohamed Rashard Rizmi | Affordable Software Developer & AI Engineer"
         />
         <meta
           property="og:description"
-          content="Looking for a skilled Software Engineer in Sri Lanka? Mohamed Rashard specializes in React, AI, and scalable web solutions. View portfolio and contact now."
+          content="Looking for an affordable & expert Software Developer? Mohamed Rashard specializes in AI, Custom Web Development, E-commerce, and Digital Marketing."
         />
-        <meta property="og:url" content="https://mohamedrashard.vercel.app" />
+        <meta property="og:url" content="https://www.mohamedrashard.dev/" />
         <meta
           property="og:image"
-          content="https://mohamedrashard.vercel.app/assets/og-image.png"
+          content="https://www.mohamedrashard.dev/assets/og-image.png"
         />
         <meta property="og:image:width" content="1200" />
         <meta property="og:image:height" content="630" />
@@ -380,15 +382,15 @@ function App() {
         <meta name="twitter:card" content="summary_large_image" />
         <meta
           name="twitter:title"
-          content="Mohamed Rashard Rizmi | Software Engineer Portfolio"
+          content="Mohamed Rashard Rizmi | Top Software Developer & AI Engineer"
         />
         <meta
           name="twitter:description"
-          content="Expert Software Engineer in Colombo. Specializing in Web & AI. Check out my projects."
+          content="Hire Mohamed Rashard for affordable Software Development, AI Engineering, Web Apps, and Social Media Marketing."
         />
         <meta
           name="twitter:image"
-          content="https://mohamedrashard.vercel.app/assets/og-image.png"
+          content="https://www.mohamedrashard.dev/assets/og-image.png"
         />
 
         {/* Schema.org - Person (Enhanced) */}
@@ -398,20 +400,20 @@ function App() {
             "@type": "Person",
             name: "Mohamed Rashard Rizmi",
             alternateName: "Mohamed Rashard",
-            jobTitle: "Software Engineer",
+            jobTitle: "Software Developer & AI Engineer",
             worksFor: {
               "@type": "Organization",
               name: "Freelance",
             },
-            url: "https://mohamedrashard.vercel.app",
-            image: "https://mohamedrashard.vercel.app/assets/og-image.png",
+            url: "https://www.mohamedrashard.dev/",
+            image: "https://www.mohamedrashard.dev/assets/og-image.png",
             address: {
               "@type": "PostalAddress",
               addressLocality: "Colombo",
               addressCountry: "Sri Lanka",
             },
             email: "mohrashard@gmail.com",
-            telephone: "+94 71 938 2296",
+
             sameAs: [
               "https://www.linkedin.com/in/mohamedrashard",
               "https://github.com/mohrashard/",
@@ -419,6 +421,7 @@ function App() {
               "https://www.tiktok.com/@mohh.rasharrd",
               "https://www.facebook.com/share/1EnKfVXh1z/",
               "https://youtube.com/@moh_rashard",
+              "https://www.mohamedrashard.dev/"
             ],
             alumniOf: {
               "@type": "CollegeOrUniversity",
@@ -429,6 +432,10 @@ function App() {
               "Web Development",
               "Full-Stack Development",
               "Artificial Intelligence",
+              "Custom Web Development",
+              "E-commerce Development",
+              "Social Media Marketing",
+              "Video Editing",
               "React",
               "Next.js",
               "Python",
@@ -442,13 +449,13 @@ function App() {
           {JSON.stringify({
             "@context": "https://schema.org",
             "@type": "WebSite",
-            "url": "https://mohamedrashard.vercel.app",
+            "url": "https://www.mohamedrashard.dev/",
             "name": "Mohamed Rashard Rizmi Portfolio",
             "author": {
               "@type": "Person",
               "name": "Mohamed Rashard Rizmi"
             },
-            "description": "Portfolio of Mohamed Rashard Rizmi, a Software Engineer based in Colombo, Sri Lanka."
+            "description": "Official Portfolio of Mohamed Rashard Rizmi - Affordable Software Developer, AI Engineer, and Web Specialist in Colombo, Sri Lanka."
           })}
         </script>
 
@@ -591,14 +598,7 @@ function App() {
                 <i className="fas fa-handshake" aria-hidden="true"></i>
                 Hire Me
               </button>
-              <button
-                className="accent-btn"
-                onClick={handleDownloadResume}
-                aria-label="Download my resume PDF"
-              >
-                <i className="fas fa-download" aria-hidden="true"></i>
-                Download CV
-              </button>
+
             </div>
 
             <div className="social-links">
@@ -1262,25 +1262,7 @@ function App() {
                 mohrashard
               </a>
             </div>
-            <div className="contact-item">
-              <div className="contact-icon">
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  width="24"
-                  height="24"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  strokeWidth="2"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  aria-hidden="true"
-                >
-                  <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
-                </svg>
-              </div>
-              <a href="tel:+94719382296" aria-label="Call me at +94 71 938 2296">(+94) 71 938 2296</a>
-            </div>
+
           </div>
         </div>
       </section>

@@ -41,7 +41,7 @@ const personData = {
   name: "Mohamed Rashard",
   email: "mohrashard@gmail.com",
   jobTitle: "Web Developer",
-  url: "https://mohamedrashard.vercel.app",
+  url: "https://www.mohamedrashard.dev/",
 };
 
 const creativeWorkData = {
@@ -54,8 +54,8 @@ const creativeWorkData = {
     "@type": "Person",
     name: "Mohamed Rashard",
   },
-  keywords: "web development, React, Next.js, Node.js",
-  url: "https://mohamedrashard.vercel.app/web-app",
+  keywords: "Mohamed Rashard Rizmi, Software Developer, Affordable Software Developer, AI Engineer, Web Developer, Custom Web Developer, E-commerce Developer, Social Media Marketing, Video Editing, Full Stack Developer, React Developer, Next.js Developer, Sri Lanka, Colombo",
+  url: "https://www.mohamedrashard.dev/web-app",
 };
 
 const breadcrumbData = {
@@ -65,12 +65,12 @@ const breadcrumbData = {
     "@type": "ListItem",
     "position": 1,
     "name": "Home",
-    "item": "https://mohamedrashard.vercel.app"
+    "item": "https://www.mohamedrashard.dev/"
   }, {
     "@type": "ListItem",
     "position": 2,
     "name": "Web App",
-    "item": "https://mohamedrashard.vercel.app/web-app"
+    "item": "https://www.mohamedrashard.dev/web-app"
   }]
 };
 
@@ -328,7 +328,7 @@ const WebApp = () => {
         />
         <meta
           name="keywords"
-          content="web development, React, Next.js, Node.js, custom web apps, SEO optimization, full-stack development, enterprise software"
+          content="Mohamed Rashard Rizmi, Software Developer, Affordable Software Developer, AI Engineer, Web Developer, Custom Web Developer, E-commerce Developer, Social Media Marketing, Video Editing, Full Stack Developer, React Developer, Next.js Developer, Sri Lanka, Colombo"
         />
         <meta name="author" content="Mohamed Rashard" />
         <meta
@@ -341,11 +341,11 @@ const WebApp = () => {
         />
         <meta
           property="og:url"
-          content="https://mohamedrashard.vercel.app/web-app"
+          content="https://www.mohamedrashard.dev/web-app"
         />
         <meta
           property="og:image"
-          content="https://mohamedrashard.vercel.app/assets/og-image.png"
+          content="https://www.mohamedrashard.dev/assets/og-image.png"
         />
         <meta property="og:type" content="website" />
         <meta name="twitter:card" content="summary_large_image" />
@@ -359,7 +359,7 @@ const WebApp = () => {
         />
         <meta
           name="twitter:image"
-          content="https://mohamedrashard.vercel.app/assets/og-image.png"
+          content="https://www.mohamedrashard.dev/assets/og-image.png"
         />
         <script type="application/ld+json">
           {JSON.stringify(structuredData)}
@@ -371,7 +371,7 @@ const WebApp = () => {
         <script type="application/ld+json">
           {JSON.stringify(breadcrumbData)}
         </script>
-        <link rel="canonical" href="https://mohamedrashard.vercel.app/web-app" />
+        <link rel="canonical" href="https://www.mohamedrashard.dev/web-app" />
         <meta name="robots" content="index, follow" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <meta property="og:image:width" content="1200" />

@@ -225,9 +225,9 @@ const structuredDataCreativeWork = {
     "@type": "Person",
     name: "Mohamed Rashard",
     email: "mohrashard@gmail.com",
-    url: "https://mohamedrashard.vercel.app",
+    url: "https://www.mohamedrashard.dev/",
   },
-  url: "https://mohamedrashard.vercel.app/services/ai-solutions",
+  url: "https://www.mohamedrashard.dev/services/ai-solutions",
 };
 
 const structuredDataPerson = {
@@ -235,7 +235,7 @@ const structuredDataPerson = {
   "@type": "Person",
   name: "Mohamed Rashard",
   email: "mohrashard@gmail.com",
-  url: "https://mohamedrashard.vercel.app",
+  url: "https://www.mohamedrashard.dev/",
   jobTitle: "AI & Machine Learning Developer",
 };
 
@@ -245,7 +245,7 @@ const structuredDataWebPage = {
   name: "AI & Machine Learning Solutions",
   description:
     "Custom AI and Machine Learning solutions including chatbots, predictive models, NLP applications, and automation tools. Expertise in scikit-learn, XGBoost, TensorFlow, and Hugging Face.",
-  url: "https://mohamedrashard.vercel.app/services/ai-solutions",
+  url: "https://www.mohamedrashard.dev/services/ai-solutions",
   publisher: {
     "@type": "Person",
     name: "Mohamed Rashard",
@@ -386,7 +386,7 @@ const AIAndML = () => {
         />
         <meta
           name="keywords"
-          content="AI development, machine learning solutions, custom AI, NLP, predictive analytics, chatbots, automation tools, TensorFlow, scikit-learn, XGBoost, Hugging Face, OpenAI, Gemini AI, PyTorch, LangChain"
+          content="Mohamed Rashard Rizmi, Software Developer, Affordable Software Developer, AI Engineer, Web Developer, Custom Web Developer, E-commerce Developer, Social Media Marketing, Video Editing, Full Stack Developer, React Developer, Next.js Developer, Sri Lanka, Colombo, AI development, machine learning solutions, NLP, predictive analytics"
         />
         <meta name="author" content="Mohamed Rashard" />
         <meta
@@ -401,11 +401,11 @@ const AIAndML = () => {
         <meta property="og:site_name" content="Mohamed Rashard" />
         <meta
           property="og:url"
-          content="https://mohamedrashard.vercel.app/services/ai-solutions"
+          content="https://www.mohamedrashard.dev/services/ai-solutions"
         />
         <meta
           property="og:image"
-          content="https://mohamedrashard.vercel.app/assets/og-image.png"
+          content="https://www.mohamedrashard.dev/assets/og-image.png"
         />
         <meta property="og:image:width" content="1200" />
         <meta property="og:image:height" content="630" />
@@ -421,12 +421,12 @@ const AIAndML = () => {
         />
         <meta
           name="twitter:image"
-          content="https://mohamedrashard.vercel.app/assets/og-image.png"
+          content="https://www.mohamedrashard.dev/assets/og-image.png"
         />
         <meta name="twitter:creator" content="@mohrashard" />
         <meta name="robots" content="index, follow, max-image-preview:large" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <link rel="canonical" href="https://mohamedrashard.vercel.app/services/ai-solutions" />
+        <link rel="canonical" href="https://www.mohamedrashard.dev/services/ai-solutions" />
         <script type="application/ld+json">
           {JSON.stringify(structuredDataService)}
         </script>

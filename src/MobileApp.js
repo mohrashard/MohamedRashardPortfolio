@@ -70,7 +70,7 @@ const personData = {
   "@type": "Person",
   "name": "Mohamed Rashard",
   "email": "mohrashard@gmail.com",
-  "url": "https://mohamedrashard.vercel.app",
+  "url": "https://www.mohamedrashard.dev/",
   "jobTitle": "Mobile App Developer"
 };
 
@@ -79,7 +79,7 @@ const creativeWorkData = {
   "@type": "CreativeWork",
   "name": "Mobile App Development Services",
   "description": "Cross-platform mobile app development with React Native and Expo. iOS and Android apps for startups and small businesses.",
-  "url": "https://mohamedrashard.vercel.app/services/mobile-apps",
+  "url": "https://www.mohamedrashard.dev/services/mobile-apps",
   "author": {
     "@type": "Person",
     "name": "Mohamed Rashard"
@@ -100,7 +100,7 @@ const serviceData = {
   "areaServed": "Worldwide",
   "availableChannel": {
     "@type": "ServiceChannel",
-    "serviceUrl": "https://mohamedrashard.vercel.app/services/mobile-apps"
+    "serviceUrl": "https://www.mohamedrashard.dev/services/mobile-apps"
   }
 };
 
@@ -166,12 +166,12 @@ const MobileApps = () => {
         <html lang="en" />
         <title>Mobile App Development Services | React Native, Expo | Mohamed Rashard</title>
         <meta name="description" content="Cross-platform mobile app development with React Native and Expo. iOS and Android apps for startups and small businesses." />
-        <meta name="keywords" content="react native development, expo mobile apps, cross-platform mobile development, ios android apps, startup mobile solutions" />
+        <meta name="keywords" content="Mohamed Rashard Rizmi, Software Developer, Affordable Software Developer, AI Engineer, Web Developer, Custom Web Developer, E-commerce Developer, Social Media Marketing, Video Editing, Full Stack Developer, React Developer, Next.js Developer, Sri Lanka, Colombo, React Native, Mobile Apps" />
         <meta name="author" content="Mohamed Rashard" />
         <meta name="robots" content="index, follow" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-        <link rel="canonical" href="https://mohamedrashard.vercel.app/services/mobile-apps" />
+        <link rel="canonical" href="https://www.mohamedrashard.dev/services/mobile-apps" />
         <link rel="icon" type="image/x-icon" href="/favicon.ico" />
         <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
         <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
@@ -180,8 +180,8 @@ const MobileApps = () => {
         <meta property="og:type" content="website" />
         <meta property="og:title" content="Mobile App Development Services | React Native, Expo | Mohamed Rashard" />
         <meta property="og:description" content="Cross-platform mobile app development with React Native and Expo. iOS and Android apps for startups and small businesses." />
-        <meta property="og:url" content="https://mohamedrashard.vercel.app/services/mobile-apps" />
-        <meta property="og:image" content="https://mohamedrashard.vercel.app/assets/og-image.png" />
+        <meta property="og:url" content="https://www.mohamedrashard.dev/services/mobile-apps" />
+        <meta property="og:image" content="https://www.mohamedrashard.dev/assets/og-image.png" />
         <meta property="og:image:width" content="1200" />
         <meta property="og:image:height" content="630" />
         <meta property="og:site_name" content="Mohamed Rashard" />
@@ -189,7 +189,7 @@ const MobileApps = () => {
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content="Mobile App Development Services | React Native, Expo | Mohamed Rashard" />
         <meta name="twitter:description" content="Cross-platform mobile app development with React Native and Expo. iOS and Android apps for startups and small businesses." />
-        <meta name="twitter:image" content="https://mohamedrashard.vercel.app/assets/og-image.png" />
+        <meta name="twitter:image" content="https://www.mohamedrashard.dev/assets/og-image.png" />
         <meta name="twitter:creator" content="@mohamedrashard" />
 
         <script type="application/ld+json">

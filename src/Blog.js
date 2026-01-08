@@ -45,6 +45,7 @@ const Blog = () => {
       try {
         const postSlugs = [
           'custom-web-development-scale',
+          'why-custom-software-is-better',
           'web-app-cost',
           'building-professional-website',
           'ai-in-software-development-guide',

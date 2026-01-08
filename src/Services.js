@@ -240,9 +240,9 @@ export default function Services() {
     setIsModalOpen(false);
   }, []);
 
-  const pageDescription = "Expert React developer specializing in cutting-edge web applications, responsive frontend websites, cross-platform mobile solutions, and intelligent AI integrations that drive business growth and innovation.";
-  const pageKeywords = "web development, mobile development, AI solutions, React, Next.js, React Native, frontend development, landing pages, machine learning";
-  const ogImage = "https://mohamedrashard.vercel.app/assets/og-image.png";
+  const pageDescription = "Expert React developer specializing in cutting-edge web applications, responsive frontend websites, cross-platform mobile solutions, and intelligent AI integrations that drive business growth and innovation. Affordable Software Developer & AI Engineer in Sri Lanka.";
+  const pageKeywords = "Mohamed Rashard Rizmi, Software Developer, Affordable Software Developer, AI Engineer, Web Developer, Custom Web Developer, E-commerce Developer, Social Media Marketing, Video Editing, Full Stack Developer, React Developer, Next.js Developer, Sri Lanka, Colombo";
+  const ogImage = "https://www.mohamedrashard.dev/assets/og-image.png";
   const currentUrl = typeof window !== 'undefined' ? window.location.href : '';
   const currentOrigin = typeof window !== 'undefined' ? window.location.origin : '';
 
@@ -250,11 +250,11 @@ export default function Services() {
     "@context": "https://schema.org",
     "@type": "Person",
     "name": "Mohamed Rashard",
-    "url": currentOrigin,
+    "url": "https://www.mohamedrashard.dev/",
     "email": "mohrashard@gmail.com",
     "telephone": "+94719382296",
     "jobTitle": "Software Developer",
-    "knowsAbout": ["Web Development", "Mobile Development", "AI", "Machine Learning"]
+    "knowsAbout": ["Web Development", "Mobile Development", "AI", "Machine Learning", "Social Media Marketing", "Video Editing"]
   });
 
   const webPageSchema = JSON.stringify({
@@ -262,7 +262,7 @@ export default function Services() {
     "@type": "WebPage",
     "name": "Services | Mohamed Rashard",
     "description": pageDescription,
-    "url": currentUrl,
+    "url": "https://www.mohamedrashard.dev/services",
     "author": {
       "@type": "Person",
       "name": "Mohamed Rashard"
@@ -279,7 +279,7 @@ export default function Services() {
         <meta name="robots" content="index, follow" />
         <meta property="og:title" content="Mohamed Rashard | Services" />
         <meta property="og:description" content={pageDescription} />
-        <meta property="og:url" content={currentUrl} />
+        <meta property="og:url" content="https://www.mohamedrashard.dev/services" />
         <meta property="og:image" content={ogImage} />
         <meta property="og:type" content="website" />
         <meta property="og:locale" content="en_US" />
@@ -289,7 +289,7 @@ export default function Services() {
         <meta name="twitter:image" content={ogImage} />
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:creator" content="@mohrashard" />
-        <link rel="canonical" href={currentUrl} />
+        <link rel="canonical" href="https://www.mohamedrashard.dev/services" />
         <link rel="preload" as="image" href={ogImage} />
         <link rel="manifest" href="/manifest.json" />
         <script type="application/ld+json">{personSchema}</script>
