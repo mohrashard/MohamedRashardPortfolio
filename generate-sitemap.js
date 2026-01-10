@@ -2,7 +2,7 @@ const fs = require("fs");
 const path = require("path");
 
 // Base URL of your site
-const BASE_URL = "https://mohamedrashard.vercel.app";
+const BASE_URL = "https://www.mohamedrashard.dev";
 
 // Static pages
 const staticPages = [
@@ -38,16 +38,16 @@ const allPages = [...staticPages, ...blogPosts];
 const sitemap = `<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 ${allPages
-  .map(
-    (page) => `
+    .map(
+      (page) => `
   <url>
     <loc>${BASE_URL}${page.url}</loc>
     <lastmod>${new Date().toISOString().split("T")[0]}</lastmod>
     <changefreq>${page.changefreq}</changefreq>
     <priority>${page.priority}</priority>
   </url>`
-  )
-  .join("")}
+    )
+    .join("")}
 </urlset>`;
 
 // Save sitemap.xml in public folder

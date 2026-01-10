@@ -344,10 +344,9 @@ function App() {
         </title>
 
         {/* Canonical URL */}
-        <link rel="canonical" href="https://mohamedrashard.vercel.app" />
+        <link rel="canonical" href="https://www.mohamedrashard.dev/" />
 
         {/* SEO Meta Tags */}
-        <title>Mohamed Rashard Rizmi | Affordable Software Developer & AI Engineer</title>
         <meta
           name="description"
           content="Hire Mohamed Rashard Rizmi, a top-rated affordable Software Developer, AI Engineer, and Web Developer in Sri Lanka. Expert in Custom Web Apps, E-commerce, Social Media Marketing, and Video Editing. Visit https://www.mohamedrashard.dev/"
@@ -358,7 +357,6 @@ function App() {
         />
         <meta name="author" content="Mohamed Rashard Rizmi" />
         <meta name="robots" content="index, follow" />
-        <link rel="canonical" href="https://www.mohamedrashard.dev/" />
 
         {/* Open Graph Tags */}
         <meta property="og:type" content="profile" />
@@ -407,6 +405,7 @@ function App() {
             },
             url: "https://www.mohamedrashard.dev/",
             image: "https://www.mohamedrashard.dev/assets/og-image.png",
+            logo: "https://www.mohamedrashard.dev/mylogo.png",
             address: {
               "@type": "PostalAddress",
               addressLocality: "Colombo",
