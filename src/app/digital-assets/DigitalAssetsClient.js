@@ -35,20 +35,21 @@ export default function DigitalAssetsClient() {
             </div>
 
             {/* Navigation */}
-            <nav className="absolute top-0 left-0 right-0 z-50 p-6 md:p-8 flex justify-between items-center max-w-7xl mx-auto w-full">
-                <Link href="/labs" className="group flex items-center gap-2 px-5 py-2.5 rounded-full bg-white/5 border border-white/10 backdrop-blur-md hover:bg-white/10 hover:border-white/20 hover:shadow-[0_0_15px_rgba(255,255,255,0.1)] transition-all duration-300">
+            <nav className="absolute top-0 left-0 right-0 z-50 p-4 md:p-8 flex justify-between items-center max-w-7xl mx-auto w-full">
+                <Link href="/labs" className="group flex items-center gap-2 px-3 md:px-5 py-2.5 rounded-full bg-white/5 border border-white/10 backdrop-blur-md hover:bg-white/10 hover:border-white/20 hover:shadow-[0_0_15px_rgba(255,255,255,0.1)] transition-all duration-300">
                     <i className="fas fa-arrow-left text-slate-400 group-hover:text-white group-hover:-translate-x-1 transition-all"></i>
-                    <span className="text-sm font-semibold text-slate-300 group-hover:text-white">Back to Labs</span>
+                    <span className="hidden md:inline text-sm font-semibold text-slate-300 group-hover:text-white">Back to Labs</span>
                 </Link>
-                <div className="flex items-center gap-4">
-                    <Link href="/blog" className="group flex items-center gap-2 px-5 py-2.5 rounded-full bg-white/5 border border-white/10 backdrop-blur-md hover:bg-white/10 hover:border-white/20 hover:shadow-[0_0_15px_rgba(147,51,234,0.2)] transition-all duration-300">
-                        <span className="text-sm font-semibold text-slate-300 group-hover:text-white">Read Blogs</span>
+                <div className="flex items-center gap-2 md:gap-4">
+                    <Link href="/blog" className="group flex items-center gap-2 px-3 md:px-5 py-2.5 rounded-full bg-white/5 border border-white/10 backdrop-blur-md hover:bg-white/10 hover:border-white/20 hover:shadow-[0_0_15px_rgba(147,51,234,0.2)] transition-all duration-300">
+                        <span className="hidden md:inline text-sm font-semibold text-slate-300 group-hover:text-white">Read Blogs</span>
                         <i className="fas fa-book-open text-slate-400 group-hover:text-white group-hover:translate-x-1 transition-all"></i>
                     </Link>
 
                     <div className="relative group">
-                        <Link href="/services" className="group flex items-center gap-2 px-5 py-2.5 rounded-full bg-white/5 border border-white/10 backdrop-blur-md hover:bg-white/10 hover:border-white/20 transition-all duration-300">
-                            <span className="text-sm font-semibold text-slate-300 group-hover:text-white">Hire Me</span>
+                        <Link href="/services" className="group flex items-center gap-2 px-3 md:px-5 py-2.5 rounded-full bg-white/5 border border-white/10 backdrop-blur-md hover:bg-white/10 hover:border-white/20 transition-all duration-300">
+                            <span className="hidden md:inline text-sm font-semibold text-slate-300 group-hover:text-white">Hire Me</span>
+                            <i className="fas fa-handshake text-slate-400 group-hover:text-white transition-all"></i>
                         </Link>
                         {/* Professional Tooltip */}
                         <div className="absolute top-full right-0 mt-4 w-64 p-4 rounded-2xl bg-[#0f0f0f] border border-white/10 shadow-[0_10px_40px_-10px_rgba(0,0,0,0.5)] opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 transform group-hover:translate-y-0 translate-y-2 z-50 pointer-events-none">

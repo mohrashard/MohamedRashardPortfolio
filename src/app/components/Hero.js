@@ -67,37 +67,39 @@ export default function Hero() {
     };
 
     return (
-        <section id="home" className="relative min-h-screen flex items-center pt-28 pb-20 overflow-hidden">
-            {/* Background Decoration: Mars + Blue Theme */}
-            <div className="absolute inset-0 z-0">
-                {/* Mars (Red/Orange) - Top Right */}
-                <div className="absolute top-[-10%] right-[-5%] w-[600px] h-[600px] bg-orange-600/20 rounded-full blur-[120px] mix-blend-screen animate-pulse"></div>
+        <section id="home" className="relative min-h-screen flex items-center pt-32 pb-20 overflow-hidden bg-[#020617]">
+            {/* Background Decoration: Navy Blue Space Theme */}
+            <div className="absolute inset-0 z-0 overflow-hidden pointer-events-none">
+                {/* Deep Space Blue - Top Right */}
+                <div className="absolute top-[-20%] right-[-10%] w-[500px] md:w-[700px] h-[500px] md:h-[700px] bg-blue-900/20 rounded-full blur-[120px] mix-blend-screen animate-pulse"></div>
 
-                {/* Blue (Tech/Ice) - Bottom Left */}
-                <div className="absolute bottom-[-10%] left-[-5%] w-[600px] h-[600px] bg-cyan-600/15 rounded-full blur-[120px] mix-blend-screen animate-pulse" style={{ animationDelay: '1s' }}></div>
+                {/* Cosmic Purple/Navy - Bottom Left */}
+                <div className="absolute bottom-[-20%] left-[-10%] w-[500px] md:w-[700px] h-[500px] md:h-[700px] bg-indigo-900/20 rounded-full blur-[120px] mix-blend-screen animate-pulse" style={{ animationDelay: '1s' }}></div>
 
-                <div className="absolute inset-0 bg-[url('/grid-pattern.svg')] opacity-[0.05]"></div>
+                {/* Stars/Grid overlay */}
+                <div className="absolute inset-0 bg-[url('/grid-pattern.svg')] opacity-[0.03]"></div>
+                <div className="absolute inset-0 bg-gradient-to-b from-transparent via-[#020617]/50 to-[#020617]"></div>
             </div>
 
-            <div className="max-w-7xl mx-auto px-6 md:px-12 w-full grid lg:grid-cols-2 gap-16 items-center relative z-10">
+            <div className="max-w-7xl mx-auto px-6 md:px-12 w-full grid lg:grid-cols-2 gap-12 lg:gap-16 items-center relative z-10">
                 {/* Hero Text */}
                 <motion.div
                     initial={{ opacity: 0, y: 30 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.8 }}
-                    className="space-y-8"
+                    className="space-y-6 md:space-y-8 text-center lg:text-left"
                 >
                     <div>
-                        <h1 className="glitch-effect text-5xl md:text-7xl lg:text-8xl font-black mb-4 leading-tight tracking-tight">
+                        <h1 className="glitch-effect text-4xl sm:text-5xl md:text-7xl lg:text-8xl font-black mb-4 leading-tight tracking-tight">
                             Mohamed <br />
                             Rashard Rizmi
                         </h1>
-                        <div className="h-10 md:h-12 flex items-center">
-                            <h2 ref={titleRef} className="text-2xl md:text-3xl font-semibold text-blue-400/90 font-mono"></h2>
+                        <div className="h-8 md:h-12 flex items-center justify-center lg:justify-start">
+                            <h2 ref={titleRef} className="text-xl sm:text-2xl md:text-3xl font-semibold text-blue-400/90 font-mono"></h2>
                         </div>
                     </div>
 
-                    <p className="text-lg text-slate-400 max-w-xl leading-relaxed">
+                    <p className="text-base sm:text-lg text-slate-400 max-w-xl mx-auto lg:mx-0 leading-relaxed">
                         Specializing in <strong className="text-blue-400">web app development</strong>,
                         <strong className="text-blue-400"> mobile solutions</strong>, and cutting-edge
                         <strong className="text-blue-400"> AI integration</strong>.
@@ -105,15 +107,15 @@ export default function Hero() {
                     </p>
 
                     {/* Service Highlights - Mini Grid */}
-                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4 text-left">
                         {[
                             { title: "React & Next.js", desc: "Modern Web Apps", icon: "fab fa-react", color: "text-sky-400" },
                             { title: "React Native", desc: "Mobile Solutions", icon: "fas fa-mobile-alt", color: "text-indigo-400" },
                             { title: "AI Integration", desc: "Smart Automation", icon: "fas fa-robot", color: "text-amber-400" },
                             { title: "Custom Software", desc: "Tailored Solutions", icon: "fas fa-code", color: "text-emerald-400" },
                         ].map((s, i) => (
-                            <div key={i} className="flex items-center gap-4 p-4 rounded-2xl bg-white/5 border border-white/5 hover:bg-white/10 hover:-translate-y-1 transition-all duration-300">
-                                <div className={`w-10 h-10 rounded-full bg-white/5 flex items-center justify-center text-lg ${s.color}`}>
+                            <div key={i} className="flex items-center gap-3 sm:gap-4 p-3 sm:p-4 rounded-2xl bg-white/5 border border-white/5 hover:bg-white/10 hover:-translate-y-1 transition-all duration-300">
+                                <div className={`w-8 h-8 sm:w-10 sm:h-10 rounded-full bg-white/5 flex items-center justify-center text-base sm:text-lg ${s.color}`}>
                                     <i className={s.icon}></i>
                                 </div>
                                 <div>
@@ -125,17 +127,17 @@ export default function Hero() {
                     </div>
 
                     {/* CTA Buttons */}
-                    <div className="flex flex-wrap gap-4 pt-4">
-                        <button onClick={() => scrollToSection("projects")} className="px-8 py-4 rounded-full bg-gradient-to-r from-blue-600 to-indigo-600 text-white font-bold text-sm uppercase tracking-wider hover:shadow-[0_0_25px_rgba(37,99,235,0.4)] hover:-translate-y-1 transition-all duration-300 flex items-center gap-3">
+                    <div className="flex flex-wrap justify-center lg:justify-start gap-4 pt-4">
+                        <button onClick={() => scrollToSection("projects")} className="px-6 sm:px-8 py-3 sm:py-4 rounded-full bg-gradient-to-r from-blue-600 to-indigo-600 text-white font-bold text-xs sm:text-sm uppercase tracking-wider hover:shadow-[0_0_25px_rgba(37,99,235,0.4)] hover:-translate-y-1 transition-all duration-300 flex items-center gap-2 sm:gap-3">
                             <i className="fas fa-rocket"></i> Explore My Work
                         </button>
-                        <button onClick={() => scrollToSection("contact")} className="px-8 py-4 rounded-full bg-transparent border border-white/20 text-white font-bold text-sm uppercase tracking-wider hover:bg-white/5 hover:border-white/40 hover:-translate-y-1 transition-all duration-300 flex items-center gap-3">
+                        <button onClick={() => scrollToSection("contact")} className="px-6 sm:px-8 py-3 sm:py-4 rounded-full bg-transparent border border-white/20 text-white font-bold text-xs sm:text-sm uppercase tracking-wider hover:bg-white/5 hover:border-white/40 hover:-translate-y-1 transition-all duration-300 flex items-center gap-2 sm:gap-3">
                             <i className="fas fa-handshake"></i> Hire Me
                         </button>
                     </div>
 
                     {/* Social Links */}
-                    <div className="flex gap-4 pt-6">
+                    <div className="flex justify-center lg:justify-start gap-4 pt-6">
                         {[
                             { icon: "fab fa-linkedin-in", href: "https://www.linkedin.com/in/mohamedrashard", color: "hover:bg-[#0077b5]" },
                             { icon: "fab fa-github", href: "https://github.com/mohrashard/", color: "hover:bg-[#333]" },
@@ -144,7 +146,7 @@ export default function Hero() {
                             { icon: "fab fa-facebook-f", href: "https://www.facebook.com/share/1EnKfVXh1z/", color: "hover:bg-[#1877f2]" },
                             { icon: "fab fa-youtube", href: "https://youtube.com/@moh_rashard", color: "hover:bg-red-600" },
                         ].map((social, i) => (
-                            <a key={i} href={social.href} target="_blank" rel="noopener noreferrer" className={`w-12 h-12 rounded-full bg-white/5 border border-white/10 flex items-center justify-center text-slate-300 transition-all duration-300 hover:text-white hover:-translate-y-2 hover:shadow-lg ${social.color}`}>
+                            <a key={i} href={social.href} target="_blank" rel="noopener noreferrer" className={`w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-white/5 border border-white/10 flex items-center justify-center text-slate-300 transition-all duration-300 hover:text-white hover:-translate-y-2 hover:shadow-lg ${social.color}`}>
                                 <i className={social.icon}></i>
                             </a>
                         ))}
