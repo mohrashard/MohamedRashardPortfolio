@@ -2,6 +2,7 @@
 title: Understanding Web App Development Costs
 date: 2025-09-18
 description: A comprehensive guide to understanding the factors that influence web application development costs.
+image: "/posts/web-app-development-cost.png"
 ---
 
 # Understanding Web App Development Costs

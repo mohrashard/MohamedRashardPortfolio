@@ -1,7 +1,8 @@
 ---
-title: Building Your Digital Presence: The Importance of a Professional Website
+title: "Building Your Digital Presence: The Importance of a Professional Website"
 date: 2025-09-18
 description: Explore why a well-designed website is crucial for businesses in Sri Lanka. Learn how a professional online presence can enhance credibility, attract customers, and drive growth.
+image: "/posts/professional-website-design.png"
 ---
 
 # Building Your Digital Presence: The Importance of a Professional Website

@@ -1,0 +1,57 @@
+@import "tailwindcss";
+@plugin "@tailwindcss/typography";
+
+@layer base {
+    :root {
+        --primary: #2196f3;
+        --accent: #64ffda;
+        --bg-dark: #050505;
+    }
+
+    body {
+        @apply bg-[#050505] text-[#ccd6f6] selection:bg-blue-500/30;
+        font-family: 'Poppins', sans-serif;
+        scroll-behavior: smooth;
+    }
+}
+
+@layer utilities {
+    .glitch-effect {
+        @apply relative inline-block font-extrabold tracking-tighter;
+        background: linear-gradient(to right, #fff, var(--primary), #fff);
+        background-size: 200% auto;
+        -webkit-background-clip: text;
+        background-clip: text;
+        -webkit-text-fill-color: transparent;
+        animation: shine 5s linear infinite;
+    }
+
+    @keyframes shine {
+        to {
+            background-position: 200% center;
+        }
+    }
+
+    .typing-cursor {
+        @apply text-[#2196f3] font-light animate-pulse ml-1;
+    }
+
+    /* Orbit Animation for Hero Graphic */
+    .tech-orbit {
+        @apply absolute w-72 h-72 border border-white/5 rounded-full animate-[spin_25s_linear_infinite];
+    }
+
+    .tech-icon-orbit {
+        @apply absolute w-12 h-12 bg-zinc-900 border border-white/10 rounded-full flex items-center justify-center animate-[counter-rotate_25s_linear_infinite];
+    }
+
+    @keyframes counter-rotate {
+        from {
+            transform: rotate(360deg);
+        }
+
+        to {
+            transform: rotate(0deg);
+        }
+    }
+}

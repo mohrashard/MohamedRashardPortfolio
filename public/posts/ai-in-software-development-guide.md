@@ -1,7 +1,9 @@
 ---
-title: Smarter Software Development with AI: A Practical Guide for Developers
+title: "Smarter Software Development with AI: A Practical Guide for Developers"
 date: 2025-09-19
-description: Learn how to use AI effectively in software development to speed up your workflow without losing control. A practical guide to combining human expertise with AI tools for backend, frontend, and beyond.
+description: >- 
+    Learn how to use AI effectively in software development to speed up your workflow without losing control. A practical guide to combining human expertise with AI tools for backend, frontend, and beyond.
+image: "/posts/ai-in-software-dev.png"
 ---
 
 # Smarter Software Development with AI: A Practical Guide for Developers
