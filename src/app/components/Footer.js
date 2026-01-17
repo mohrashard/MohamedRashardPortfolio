@@ -19,15 +19,21 @@ export default function Footer() {
                         <p className="text-slate-400 leading-relaxed max-w-sm mb-8">
                             Mr² Labs – The innovation hub of Mohamed Rashard Rizmi. Pioneering AI solutions, custom software ecosystems, and futuristic digital experiences from Colombo to the world.
                         </p>
-                        <div className="flex gap-4">
-                            <a href="https://github.com/mohrashard/" target="_blank" rel="noopener noreferrer" className="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center text-slate-400 hover:bg-white hover:text-black transition-all">
-                                <i className="fab fa-github"></i>
+                        <div className="flex gap-4 flex-wrap">
+                            <a href="https://x.com/mrr_labs" target="_blank" rel="noopener noreferrer" className="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center text-slate-400 hover:bg-black hover:text-white transition-all border border-white/5">
+                                <i className="fab fa-twitter"></i>
                             </a>
-                            <a href="https://www.linkedin.com/in/mohamedrashard" target="_blank" rel="noopener noreferrer" className="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center text-slate-400 hover:bg-[#0077b5] hover:text-white transition-all">
+                            <a href="https://web.facebook.com/profile.php?id=61575921543570" target="_blank" rel="noopener noreferrer" className="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center text-slate-400 hover:bg-[#1877F2] hover:text-white transition-all border border-white/5">
+                                <i className="fab fa-facebook-f"></i>
+                            </a>
+                            <a href="https://www.instagram.com/mrr_labs/" target="_blank" rel="noopener noreferrer" className="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center text-slate-400 hover:bg-gradient-to-tr hover:from-[#f09433] hover:via-[#dc2743] hover:to-[#bc1888] hover:text-white transition-all border border-white/5">
+                                <i className="fab fa-instagram"></i>
+                            </a>
+                            <a href="https://www.linkedin.com/in/mohamedrashard" target="_blank" rel="noopener noreferrer" className="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center text-slate-400 hover:bg-[#0077b5] hover:text-white transition-all border border-white/5">
                                 <i className="fab fa-linkedin-in"></i>
                             </a>
-                            <a href="mailto:mohrashard@gmail.com" className="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center text-slate-400 hover:bg-red-500 hover:text-white transition-all">
-                                <i className="fas fa-envelope"></i>
+                            <a href="https://github.com/mohrashard/" target="_blank" rel="noopener noreferrer" className="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center text-slate-400 hover:bg-white hover:text-black transition-all border border-white/5">
+                                <i className="fab fa-github"></i>
                             </a>
                         </div>
                     </div>

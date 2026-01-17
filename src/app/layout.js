@@ -13,9 +13,12 @@ const poppins = Poppins({
 // Comprehensive SEO Metadata migrated from App.js for High Ranking
 export const metadata = {
     metadataBase: new URL("https://www.mohamedrashard.dev"),
-    title: "Mohamed Rashard Rizmi | Software Engineer in Colombo, Sri Lanka | AI & Web Developer",
-    description: "Hire Mohamed Rashard Rizmi, a top-rated affordable Software Developer, AI Engineer, and Web Developer in Sri Lanka. Expert in Custom Web Apps, E-commerce, and AI Solutions.",
-    keywords: ["Mohamed Rashard Rizmi", "Software Developer", "Affordable Software Developer", "AI Engineer", "Web Developer", "Custom Web Developer", "E-commerce Developer", "Full Stack Developer", "React Developer", "Next.js", "Sri Lanka", "Colombo"],
+    title: {
+        default: "Mr2 Labs | Systems Architecture & Revenue Ecosystems (Mr²)",
+        template: "%s | Mr2 Labs (Mr²)"
+    },
+    description: "Mr2 Labs architects high-ticket automated revenue ecosystems and custom AI solutions. Led by Mohamed Rashard Rizmi, we build digital dominance.",
+    keywords: ["Mr2 Labs", "Mr 2 Labs", "Mister 2 Labs", "Mr Squared Labs", "Mohamed Rashard Labs", "Systems Architecture", "High-Ticket Web Architecture", "Custom AI Systems Sri Lanka", "Automated Revenue Systems", "Next.js", "AI Integration"],
     authors: [{ name: "Mohamed Rashard Rizmi" }],
     creator: "Mohamed Rashard Rizmi",
     publisher: "Mohamed Rashard Rizmi",
@@ -27,11 +30,11 @@ export const metadata = {
         canonical: "https://www.mohamedrashard.dev/",
     },
     openGraph: {
-        type: "profile",
-        title: "Mohamed Rashard Rizmi | Affordable Software Developer & AI Engineer",
-        description: "Looking for an affordable & expert Software Developer? Mohamed Rashard specializes in AI, Custom Web Development, E-commerce, and Digital Marketing.",
+        type: "website",
+        title: "Mr2 Labs | High-Ticket Systems Architecture & AI (Mr²)",
+        description: "Mr2 Labs architects high-ticket automated revenue ecosystems and custom AI solutions for global visionaries.",
         url: "https://www.mohamedrashard.dev/",
-        siteName: "Mohamed Rashard Portfolio",
+        siteName: "Mr2 Labs (Mr Squared)",
         images: [
             {
                 url: "https://www.mohamedrashard.dev/assets/og-image.png",
@@ -44,8 +47,8 @@ export const metadata = {
     },
     twitter: {
         card: "summary_large_image",
-        title: "Mohamed Rashard Rizmi | Top Software Developer & AI Engineer",
-        description: "Hire Mohamed Rashard for affordable Software Development, AI Engineering, Web Apps, and Social Media Marketing.",
+        title: "Mr2 Labs | Systems Architecture & AI",
+        description: "We build high-ticket automated revenue ecosystems. Stop competing, start dominating.",
         images: ["https://www.mohamedrashard.dev/assets/og-image.png"],
     },
     icons: {
@@ -65,10 +68,10 @@ export default function RootLayout({ children }) {
         "@type": "Person",
         name: "Mohamed Rashard Rizmi",
         alternateName: "Mohamed Rashard",
-        jobTitle: "Software Developer & AI Engineer",
+        jobTitle: "Systems Architect & AI Engineer",
         worksFor: {
             "@type": "Organization",
-            name: "Freelance",
+            name: "Mr² Labs",
         },
         url: "https://www.mohamedrashard.dev/",
         image: "https://www.mohamedrashard.dev/assets/og-image.png",
@@ -80,12 +83,13 @@ export default function RootLayout({ children }) {
         },
         email: "mohrashard@gmail.com",
         sameAs: [
+            "https://x.com/mrr_labs",
+            "https://web.facebook.com/profile.php?id=61575921543570",
+            "https://www.instagram.com/mrr_labs/",
             "https://www.linkedin.com/in/mohamedrashard",
+            "https://medium.com/@mohrashard",
+            "https://dev.to/mohrashard",
             "https://github.com/mohrashard/",
-            "https://www.instagram.com/moh_.rashaxd",
-            "https://www.tiktok.com/@mohh.rasharrd",
-            "https://www.facebook.com/share/1EnKfVXh1z/",
-            "https://youtube.com/@moh_rashard",
             "https://www.mohamedrashard.dev/"
         ],
         alumniOf: {
@@ -99,16 +103,28 @@ export default function RootLayout({ children }) {
         ],
     };
 
-    const jsonLdWebsite = {
+    const jsonLdOrganization = {
         "@context": "https://schema.org",
-        "@type": "WebSite",
-        url: "https://www.mohamedrashard.dev/",
-        name: "Mohamed Rashard Rizmi Portfolio",
-        author: {
+        "@type": "Organization",
+        "name": "Mr² Labs",
+        "alternateName": ["Mr2 Labs", "Mr 2 Labs", "Mister 2 Labs", "Mr Squared Labs", "Mohamed Rashard Labs"],
+        "founder": {
             "@type": "Person",
             "name": "Mohamed Rashard Rizmi"
         },
-        description: "Official Portfolio of Mohamed Rashard Rizmi - Affordable Software Developer, AI Engineer, and Web Specialist in Colombo, Sri Lanka."
+        "url": "https://www.mohamedrashard.dev/",
+        "logo": "https://www.mohamedrashard.dev/mr-squared-logo.png",
+        "sameAs": [
+            "https://x.com/mrr_labs",
+            "https://web.facebook.com/profile.php?id=61575921543570",
+            "https://www.instagram.com/mrr_labs/",
+            "https://www.linkedin.com/in/mohamedrashard",
+            "https://medium.com/@mohrashard",
+            "https://dev.to/mohrashard",
+            "https://github.com/mohrashard/",
+            "https://www.mohamedrashard.dev/"
+        ],
+        "knowsAbout": ["Systems Architecture", "AI Integration", "NextJS", "Revenue Operations", "High-Ticket Sales Infrastructures"]
     };
 
     return (
@@ -125,7 +141,7 @@ export default function RootLayout({ children }) {
                 />
                 <script
                     type="application/ld+json"
-                    dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLdWebsite) }}
+                    dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLdOrganization) }}
                 />
             </head>
             <body className={`${poppins.className} bg-[#050505] text-[#e0e0e0]`}>

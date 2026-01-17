@@ -7,11 +7,8 @@ import Projects from "./components/Projects";
 import Contact from "./components/Contact";
 
 export const metadata = {
-    title: {
-        default: "Mohamed Rashard Rizmi | AI & Web Developer",
-        template: "%s | Mohamed Rashard Rizmi"
-    },
-    description: "Portfolio of Mohamed Rashard Rizmi, a Software Engineer & AI Specialist based in Colombo, Sri Lanka. Expert in Next.js, React, and Machine Learning.",
+    title: "Mr2 Labs | Systems Architecture & Revenue Ecosystems (Mr²)",
+    description: "Mr2 Labs architects high-ticket automated revenue ecosystems and custom AI solutions. We engineer digital dominance for global visionaries.",
     alternates: {
         canonical: "https://www.mohamedrashard.dev",
     },

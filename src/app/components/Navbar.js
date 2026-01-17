@@ -2,8 +2,11 @@
 import React, { useState, useEffect } from "react";
 import Link from "next/link";
 import Image from "next/image";
+import { usePathname, useRouter } from "next/navigation";
 
 export default function Navbar() {
+    const pathname = usePathname();
+    const router = useRouter();
     const [isScrolled, setIsScrolled] = useState(false);
     const [isMenuOpen, setIsMenuOpen] = useState(false);
     const [activeSection, setActiveSection] = useState("home");
@@ -35,6 +38,10 @@ export default function Navbar() {
 
     const scrollToSection = (id) => {
         setIsMenuOpen(false);
+        if (pathname !== "/") {
+            router.push("/");
+            return;
+        }
         const element = document.getElementById(id);
         if (element) {
             const headerOffset = 80;
@@ -79,11 +86,17 @@ export default function Navbar() {
                         </button>
                     ))}
                     <div className="w-px h-6 bg-white/10 mx-2"></div>
+                    <Link href="/services" className="px-5 py-2 rounded-full text-sm font-medium text-slate-300 hover:text-white hover:bg-white/5 transition-all">
+                        Services
+                    </Link>
                     <Link href="/labs" className="px-5 py-2 rounded-full text-sm font-medium text-slate-300 hover:text-white hover:bg-white/5 transition-all">
                         Labs
                     </Link>
+                    <Link href="/digital-assets" className="px-5 py-2 rounded-full text-sm font-medium text-slate-300 hover:text-white hover:bg-white/5 transition-all">
+                        Digital Assets
+                    </Link>
                     <Link href="/blog" className="px-5 py-2 rounded-full text-sm font-medium text-slate-300 hover:text-white hover:bg-white/5 transition-all">
-                        Blogs
+                        Blog
                     </Link>
                 </nav>
 
@@ -114,11 +127,17 @@ export default function Navbar() {
                             {item.charAt(0).toUpperCase() + item.slice(1)}
                         </button>
                     ))}
+                    <Link href="/services" className="text-left p-4 rounded-xl text-sm font-medium text-slate-400 hover:bg-white/5 hover:text-white hover:translate-x-2 transition-all">
+                        Services
+                    </Link>
                     <Link href="/labs" className="text-left p-4 rounded-xl text-sm font-medium text-slate-400 hover:bg-white/5 hover:text-white hover:translate-x-2 transition-all">
                         Labs
                     </Link>
+                    <Link href="/digital-assets" className="text-left p-4 rounded-xl text-sm font-medium text-slate-400 hover:bg-white/5 hover:text-white hover:translate-x-2 transition-all">
+                        Digital Assets
+                    </Link>
                     <Link href="/blog" className="text-left p-4 rounded-xl text-sm font-medium text-slate-400 hover:bg-white/5 hover:text-white hover:translate-x-2 transition-all">
-                        Blogs
+                        Blog
                     </Link>
                 </div>
             </div>
