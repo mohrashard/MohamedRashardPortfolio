@@ -86,14 +86,9 @@ export default function Navbar() {
                         </button>
                     ))}
                     <div className="w-px h-6 bg-white/10 mx-2"></div>
-                    <Link href="/services" className="px-5 py-2 rounded-full text-sm font-medium text-slate-300 hover:text-white hover:bg-white/5 transition-all">
-                        Services
-                    </Link>
+
                     <Link href="/labs" className="px-5 py-2 rounded-full text-sm font-medium text-slate-300 hover:text-white hover:bg-white/5 transition-all">
                         Labs
-                    </Link>
-                    <Link href="/digital-assets" className="px-5 py-2 rounded-full text-sm font-medium text-slate-300 hover:text-white hover:bg-white/5 transition-all">
-                        Digital Assets
                     </Link>
                     <Link href="/blog" className="px-5 py-2 rounded-full text-sm font-medium text-slate-300 hover:text-white hover:bg-white/5 transition-all">
                         Blog
