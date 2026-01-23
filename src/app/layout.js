@@ -14,42 +14,67 @@ const poppins = Poppins({
 export const metadata = {
     metadataBase: new URL("https://www.mohamedrashard.dev"),
     title: {
-        default: "Mr2 Labs | Systems Architecture & Revenue Ecosystems (Mr²)",
-        template: "%s | Mr2 Labs (Mr²)"
+        default: "Mr² Labs | Systems Architecture & Revenue Ecosystems",
+        template: "%s | Mr² Labs"
     },
-    description: "Mr2 Labs architects high-ticket automated revenue ecosystems and custom AI solutions. Led by Mohamed Rashard Rizmi, we build digital dominance.",
-    keywords: ["Mr2 Labs", "Mr 2 Labs", "Mister 2 Labs", "Mr Squared Labs", "Mohamed Rashard Labs", "Systems Architecture", "High-Ticket Web Architecture", "Custom AI Systems Sri Lanka", "Automated Revenue Systems", "Next.js", "AI Integration"],
-    authors: [{ name: "Mohamed Rashard Rizmi" }],
-    creator: "Mohamed Rashard Rizmi",
-    publisher: "Mohamed Rashard Rizmi",
+    description: "Mr² Labs (Mr2 Labs) architects high-ticket automated revenue ecosystems and custom AI solutions. Led by Mohamed Rashad Rizmi, we build digital dominance.",
+    keywords: [
+        "Mohamed Rashad Rizmi",
+        "Mr2 Labs",
+        "Mr 2 Labs",
+        "mrr labs",
+        "Mr Squared Labs",
+        "Software Engineer Sri Lanka",
+        "AI Integration",
+        "Next.js Developer",
+        "Web Developer",
+        "Mobile App Developer",
+        "Saas developer",
+        "E-commerce Developer",
+        "AI Developer",
+        "Systems Architecture",
+        "High-Ticket Web Architecture",
+        "Automated Revenue Systems"
+    ],
+    authors: [{ name: "Mohamed Rashad Rizmi" }],
+    creator: "Mohamed Rashad Rizmi",
+    publisher: "Mohamed Rashad Rizmi",
     robots: {
         index: true,
         follow: true,
+        googleBot: {
+            index: true,
+            follow: true,
+            'max-video-preview': -1,
+            'max-image-preview': 'large',
+            'max-snippet': -1,
+        },
     },
     alternates: {
         canonical: "https://www.mohamedrashard.dev/",
     },
     openGraph: {
         type: "website",
-        title: "Mr2 Labs | High-Ticket Systems Architecture & AI (Mr²)",
-        description: "Mr2 Labs architects high-ticket automated revenue ecosystems and custom AI solutions for global visionaries.",
+        title: "Mr² Labs | Systems Architecture & AI",
+        description: "Mr² Labs (Mr2 Labs) architects high-ticket automated revenue ecosystems and custom AI solutions combined with cutting-edge Web & Mobile Development.",
         url: "https://www.mohamedrashard.dev/",
-        siteName: "Mr2 Labs (Mr Squared)",
+        siteName: "Mr² Labs",
         images: [
             {
-                url: "https://www.mohamedrashard.dev/assets/og-image.png",
+                url: "https://www.mohamedrashard.dev/mr-squared-logo.png",
                 width: 1200,
                 height: 630,
-                alt: "Mohamed Rashard Rizmi Portfolio",
+                alt: "Mr² Labs - Mohamed Rashad Rizmi",
             },
         ],
         locale: "en_US",
     },
     twitter: {
         card: "summary_large_image",
-        title: "Mr2 Labs | Systems Architecture & AI",
-        description: "We build high-ticket automated revenue ecosystems. Stop competing, start dominating.",
-        images: ["https://www.mohamedrashard.dev/assets/og-image.png"],
+        title: "Mr² Labs | Systems Architecture & AI",
+        description: "We build high-ticket automated revenue ecosystems. Stop competing, start dominating. Led by Mohamed Rashad Rizmi.",
+        images: ["https://www.mohamedrashard.dev/mr-squared-logo.png"],
+        creator: "@mrr_labs",
     },
     icons: {
         icon: "/mr-squared-logo.png",
@@ -66,11 +91,11 @@ export default function RootLayout({ children }) {
     const jsonLdPerson = {
         "@context": "https://schema.org",
         "@type": "Person",
-        name: "Mohamed Rashard Rizmi",
+        name: "Mohamed Rashad Rizmi",
         alternateName: "Mohamed Rashard",
         jobTitle: "Systems Architect & AI Engineer",
         worksFor: {
-            "@type": "Organization",
+            "@type": "ProfessionalService",
             name: "Mr² Labs",
         },
         url: "https://www.mohamedrashard.dev/",
@@ -99,21 +124,22 @@ export default function RootLayout({ children }) {
         knowsAbout: [
             "Software Engineering", "Web Development", "Full-Stack Development",
             "Artificial Intelligence", "Custom Web Development", "E-commerce Development",
-            "React", "Next.js", "Python", "Java"
+            "React", "Next.js", "Python", "Java", "Mobile App Development", "SaaS Development"
         ],
     };
 
     const jsonLdOrganization = {
         "@context": "https://schema.org",
-        "@type": "Organization",
+        "@type": "ProfessionalService",
         "name": "Mr² Labs",
-        "alternateName": ["Mr2 Labs", "Mr 2 Labs", "Mister 2 Labs", "Mr Squared Labs", "Mohamed Rashard Labs"],
+        "alternateName": ["Mr2 Labs", "Mr 2 Labs", "Mister 2 Labs", "Mr Squared Labs", "mrr labs"],
         "founder": {
             "@type": "Person",
-            "name": "Mohamed Rashard Rizmi"
+            "name": "Mohamed Rashad Rizmi"
         },
         "url": "https://www.mohamedrashard.dev/",
         "logo": "https://www.mohamedrashard.dev/mr-squared-logo.png",
+        "image": "https://www.mohamedrashard.dev/assets/og-image.png",
         "sameAs": [
             "https://x.com/mrr_labs",
             "https://web.facebook.com/profile.php?id=61575921543570",
@@ -124,7 +150,13 @@ export default function RootLayout({ children }) {
             "https://github.com/mohrashard/",
             "https://www.mohamedrashard.dev/"
         ],
-        "knowsAbout": ["Systems Architecture", "AI Integration", "NextJS", "Revenue Operations", "High-Ticket Sales Infrastructures"]
+        "knowsAbout": ["Systems Architecture", "AI Integration", "NextJS", "Revenue Operations", "High-Ticket Sales Infrastructures"],
+        "priceRange": "$$$",
+        "address": {
+            "@type": "PostalAddress",
+            "addressLocality": "Colombo",
+            "addressCountry": "Sri Lanka"
+        }
     };
 
     return (

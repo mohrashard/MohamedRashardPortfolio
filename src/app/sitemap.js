@@ -5,12 +5,9 @@ export default function sitemap() {
     const baseUrl = 'https://www.mohamedrashard.dev';
 
     // 1. Static Routes
+    // 1. Static Routes
     const routes = [
         '',
-        '/about',
-        '/skills',
-        '/projects',
-        '/contact',
         '/services',
         '/labs',
         '/digital-assets',

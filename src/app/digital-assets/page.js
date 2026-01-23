@@ -3,9 +3,8 @@ import Image from 'next/image';
 import DigitalAssetsClient from './DigitalAssetsClient';
 
 export const metadata = {
-    metadataBase: new URL("https://www.mohamedrashard.dev"),
-    title: "Digital Assets Marketplace | Mr² Labs | Colombo, Sri Lanka",
-    description: "Premium Digital Assets by Mr² Labs. Download engineered Next.js templates, AI SaaS tools, and Python scripts. Powered by Mohamed Rashard Rizmi, Sri Lanka.",
+    title: "Digital Assets Marketplace",
+    description: "Premium Digital Assets by Mr² Labs. Download engineered Next.js templates, AI SaaS tools, and Python scripts. Powered by Mohamed Rashad Rizmi, Sri Lanka.",
     keywords: [
         "Mr² Labs Store",
         "Mohamed Rashard Digital Assets",
@@ -18,7 +17,7 @@ export const metadata = {
         "React Native UI Kits"
     ],
     openGraph: {
-        title: "Digital Assets Store | Mr² Labs | Colombo",
+        title: "Digital Assets Marketplace | Mr² Labs",
         description: "Accelerate your development with professionally engineered templates, AI tools, and automation scripts from Mr² Labs.",
         url: "https://www.mohamedrashard.dev/digital-assets",
         type: "website",
@@ -33,7 +32,7 @@ export const metadata = {
     },
     twitter: {
         card: "summary_large_image",
-        title: "Digital Assets Store | Mr² Labs",
+        title: "Digital Assets Marketplace | Mr² Labs",
         description: "Premium Developer Assets from Sri Lanka.",
         images: ["/mr-squared-logo.png"],
     },

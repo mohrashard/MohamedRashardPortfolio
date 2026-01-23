@@ -6,13 +6,7 @@ import Skills from "./components/Skills";
 import Projects from "./components/Projects";
 import Contact from "./components/Contact";
 
-export const metadata = {
-    title: "Mr2 Labs | Systems Architecture & Revenue Ecosystems (Mr²)",
-    description: "Mr2 Labs architects high-ticket automated revenue ecosystems and custom AI solutions. We engineer digital dominance for global visionaries.",
-    alternates: {
-        canonical: "https://www.mohamedrashard.dev",
-    },
-};
+
 
 export default function Home() {
     return (

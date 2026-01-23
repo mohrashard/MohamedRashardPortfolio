@@ -3,8 +3,7 @@ import Image from 'next/image';
 import { projectsData } from '../digital-assets/data';
 
 export const metadata = {
-    metadataBase: new URL("https://www.mohamedrashard.dev"),
-    title: "Services | Mr² Labs | AI & Software Engineering in Colombo",
+    title: "Services - AI & Software Engineering",
     description: "Expert Software Development & AI Solutions by Mr² Labs (Colombo, Sri Lanka). We build scalable Web Apps, Mobile Solutions, and Custom AI Systems for global businesses.",
     keywords: [
         "Mr² Labs",
@@ -20,7 +19,7 @@ export const metadata = {
         "Freelance Software Engineer Sri Lanka"
     ],
     openGraph: {
-        title: "Services | Mr² Labs | Innovation from Colombo",
+        title: "Services - AI & Software Engineering | Mr² Labs",
         description: "Transform your business with high-performance Web Apps and AI Solutions from Mr² Labs. Led by Mohamed Rashard Rizmi.",
         url: "https://www.mohamedrashard.dev/services",
         type: "website",
@@ -35,7 +34,7 @@ export const metadata = {
     },
     twitter: {
         card: "summary_large_image",
-        title: "Services | Mr² Labs",
+        title: "Services - AI & Software Engineering | Mr² Labs",
         description: "Expert Software Engineering Services in Sri Lanka.",
         images: ["/mr-squared-logo.png"],
     },

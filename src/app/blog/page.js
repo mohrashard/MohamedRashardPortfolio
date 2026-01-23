@@ -3,9 +3,8 @@ import Image from 'next/image';
 import { getSortedPostsData } from '../../lib/posts';
 
 export const metadata = {
-    metadataBase: new URL("https://www.mohamedrashard.dev"),
-    title: "Tech Blog | Mr² Labs | Software Insights from Colombo",
-    description: "Expert articles on Web Development, AI, and SaaS Architecture by Mr² Labs (Colombo, Sri Lanka). Insights from Mohamed Rashard Rizmi.",
+    title: "Tech Blog & Software Insights",
+    description: "Expert articles on Web Development, AI, and SaaS Architecture by Mr² Labs (Colombo, Sri Lanka). Insights from Mohamed Rashad Rizmi.",
     keywords: [
         "Mr² Labs Blog",
         "Software Development Blog Sri Lanka",
@@ -17,7 +16,7 @@ export const metadata = {
         "Freelance Developer Insights"
     ],
     openGraph: {
-        title: "Tech Blog | Mr² Labs | Insights",
+        title: "Tech Blog | Mr² Labs",
         description: "Expert articles on Web Development, AI, and SaaS Architecture from Mr² Labs in Colombo.",
         url: "https://www.mohamedrashard.dev/blog",
         type: "website",
@@ -32,7 +31,7 @@ export const metadata = {
     },
     twitter: {
         card: "summary_large_image",
-        title: "Mr² Labs Tech Blog",
+        title: "Tech Blog | Mr² Labs",
         description: "Engineering insights from Sri Lanka.",
         images: ["/mr-squared-logo.png"],
     },

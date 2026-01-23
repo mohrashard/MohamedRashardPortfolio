@@ -19,7 +19,7 @@ export async function generateMetadata({ params }) {
         return { title: "Article Not Found" };
     }
 
-    const title = `${postData.title} | Blog by Mohamed Rashard`;
+    const title = postData.title; // Using template
     const canonicalUrl = `https://www.mohamedrashard.dev/blog/${slug}`;
 
     return {
@@ -30,7 +30,7 @@ export async function generateMetadata({ params }) {
             canonical: canonicalUrl,
         },
         openGraph: {
-            title: title,
+            title: `${title} | Mr² Labs`,
             description: postData.excerpt,
             url: canonicalUrl,
             images: [
@@ -47,7 +47,7 @@ export async function generateMetadata({ params }) {
         },
         twitter: {
             card: "summary_large_image",
-            title: title,
+            title: `${title} | Mr² Labs`,
             description: postData.excerpt,
             images: [postData.image || '/services-tech.png'],
         },

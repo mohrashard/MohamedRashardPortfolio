@@ -4,8 +4,7 @@ import Image from 'next/image';
 import SpaceBackground from './components/SpaceBackground';
 
 export const metadata = {
-    metadataBase: new URL("https://www.mohamedrashard.dev"),
-    title: "Labs | Mr² Labs | Innovation Hub Sri Lanka",
+    title: "Labs - Innovation Hub",
     description: "The Innovation Hub of Mr² Labs (Mohamed Rashard Rizmi). Explore experimental AI projects, futuristic web apps, and digital experiments from Colombo.",
     keywords: [
         "Mr² Labs",
@@ -17,7 +16,7 @@ export const metadata = {
         "Digital Innovation"
     ],
     openGraph: {
-        title: "Labs | Mr² Labs | Innovation Hub",
+        title: "Labs - Innovation Hub | Mr² Labs",
         description: "Explore the future of tech at Mr² Labs. Experimental AI, Web 3.0, and Digital Innovation from Colombo, Sri Lanka.",
         url: "https://www.mohamedrashard.dev/labs",
         type: "website",
@@ -32,7 +31,7 @@ export const metadata = {
     },
     twitter: {
         card: "summary_large_image",
-        title: "Labs | Mr² Labs",
+        title: "Labs - Innovation Hub | Mr² Labs",
         description: "Innovation and Experiments by Mohamed Rashard Rizmi.",
         images: ["/mr-squared-logo.png"],
     },

@@ -141,10 +141,9 @@ export default function Hero() {
                         {[
                             { icon: "fab fa-linkedin-in", href: "https://www.linkedin.com/in/mohamedrashard", color: "hover:bg-[#0077b5]" },
                             { icon: "fab fa-github", href: "https://github.com/mohrashard/", color: "hover:bg-[#333]" },
-                            { icon: "fab fa-instagram", href: "https://www.instagram.com/moh_.rashaxd", color: "hover:bg-pink-600" },
-                            { icon: "fab fa-tiktok", href: "https://www.tiktok.com/@mohh.rasharrd", color: "hover:bg-black" },
-                            { icon: "fab fa-facebook-f", href: "https://www.facebook.com/share/1EnKfVXh1z/", color: "hover:bg-[#1877f2]" },
-                            { icon: "fab fa-youtube", href: "https://youtube.com/@moh_rashard", color: "hover:bg-red-600" },
+                            { icon: "fab fa-twitter", href: "https://x.com/mrr_labs", color: "hover:bg-black" },
+                            { icon: "fab fa-instagram", href: "https://www.instagram.com/mrr_labs/", color: "hover:bg-pink-600" },
+                            { icon: "fab fa-facebook-f", href: "https://web.facebook.com/profile.php?id=61575921543570", color: "hover:bg-[#1877f2]" },
                         ].map((social, i) => (
                             <a key={i} href={social.href} target="_blank" rel="noopener noreferrer" className={`w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-white/5 border border-white/10 flex items-center justify-center text-slate-300 transition-all duration-300 hover:text-white hover:-translate-y-2 hover:shadow-lg ${social.color}`}>
                                 <i className={social.icon}></i>
