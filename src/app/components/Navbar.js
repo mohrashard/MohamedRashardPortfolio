@@ -122,14 +122,8 @@ export default function Navbar() {
                             {item.charAt(0).toUpperCase() + item.slice(1)}
                         </button>
                     ))}
-                    <Link href="/services" className="text-left p-4 rounded-xl text-sm font-medium text-slate-400 hover:bg-white/5 hover:text-white hover:translate-x-2 transition-all">
-                        Services
-                    </Link>
                     <Link href="/labs" className="text-left p-4 rounded-xl text-sm font-medium text-slate-400 hover:bg-white/5 hover:text-white hover:translate-x-2 transition-all">
                         Labs
-                    </Link>
-                    <Link href="/digital-assets" className="text-left p-4 rounded-xl text-sm font-medium text-slate-400 hover:bg-white/5 hover:text-white hover:translate-x-2 transition-all">
-                        Digital Assets
                     </Link>
                     <Link href="/blog" className="text-left p-4 rounded-xl text-sm font-medium text-slate-400 hover:bg-white/5 hover:text-white hover:translate-x-2 transition-all">
                         Blog
