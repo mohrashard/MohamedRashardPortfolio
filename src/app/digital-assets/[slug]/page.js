@@ -172,7 +172,7 @@ export default async function ProductPage({ params }) {
                                     <span className="block text-slate-400 text-xs font-bold uppercase tracking-wider mb-1">Total Price</span>
                                     <div className="flex items-baseline gap-2">
                                         <span className="text-5xl font-black text-white">{asset.price}</span>
-                                        <span className="text-lg text-slate-500 line-through decoration-red-500 decoration-2 opacity-60">$999</span>
+                                        <span className="text-lg text-slate-500 line-through decoration-red-500 decoration-2 opacity-60">{asset.originalPrice || "$999"}</span>
                                     </div>
                                 </div>
                                 <div className="flex flex-col items-end text-right">
@@ -221,7 +221,7 @@ export default async function ProductPage({ params }) {
                             <ul className="space-y-4">
                                 {[
                                     { text: "Source Code (GitHub)", icon: "fab fa-github" },
-                                    { text: "Documentation PDF", icon: "fas fa-file-pdf" },
+                                    { text: asset.delivery || "Documentation PDF", icon: "fas fa-file-pdf" },
                                     { text: "Figma Assets", icon: "fab fa-figma" },
                                     { text: "Free Updates", icon: "fas fa-sync" }
                                 ].map((item, i) => (
