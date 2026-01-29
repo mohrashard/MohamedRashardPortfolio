@@ -11,7 +11,7 @@ export const assets = [
         longDescription: `<h2>🚀 Nexus Animator: The Ultimate "Code-to-Content" Engine</h2>
 
 <h3><strong>Why Choose Nexus Animator?</strong></h3>
-<p>Most creators rely on expensive stock footage or confusing video editors. Nexus Animator gives you a "Creative Coder" brain inside Google Gemini, allowing you to generate professional animations with simple text commands.</p>
+<p>Recently, <strong>Claude Code</strong> went viral for creating stunning programmatic animations. Nexus Animator is your <strong>free, unlimited replacement</strong> for that exact workflow. Stop searching for the perfect background—create it.</p>
 
 <h3><strong>✨ Core Benefits</strong></h3>
 
@@ -87,7 +87,7 @@ export const assets = [
 
 <h3><strong>🛠️ What Can You Build?</strong></h3>
 <ul class="space-y-2">
-    <li><i class="fab fa-tiktok text-pink-500 mr-2"></i><strong>For Content Creators:</strong> Unique, "Oddly Satisfying" backgrounds for TikTok/Reels/Shorts.</li>
+    <li><i class="fab fa-tiktok text-pink-500 mr-2"></i><strong>For Content Creators:</strong> Generate unlimited, royalty-free <strong>b-roll</strong> and "Oddly Satisfying" backgrounds for TikTok/Reels/Shorts.</li>
     <li><i class="fab fa-twitch text-purple-500 mr-2"></i><strong>For Streamers:</strong> Interactive "Starting Soon" screens that react to your mouse.</li>
     <li><i class="fas fa-code text-blue-500 mr-2"></i><strong>For Web Developers:</strong> Drop-in code for stunning landing pages that load instantly.</li>
     <li><i class="fas fa-paint-brush text-orange-500 mr-2"></i><strong>For Designers:</strong> Create moving brand assets that stand out from static logos.</li>
@@ -123,9 +123,9 @@ export const assets = [
 
 <hr class="my-8 border-white/10" />
 
-<div class="text-center">
-<h3><strong>📢 Ready to Upgrade Your Visuals?</strong></h3>
-<p class="text-xl mb-6">Stop searching for the perfect background. <strong class="text-purple-400">Create it.</strong></p>
+<div class="text-center flex flex-col items-center">
+    <h3 class="text-center"><strong>📢 Ready to Upgrade Your Visuals?</strong></h3>
+    <p class="text-xl mb-6 text-center">Stop searching for the perfect background. <strong class="text-purple-400">Create it.</strong></p>
 </div>`,
         buyLink: "https://mrrlabs.gumroad.com/l/nexusanimator",
         delivery: "PDF (Gem Link)",

@@ -140,10 +140,10 @@ export default async function ProductPage({ params }) {
                         </div>
 
                         {/* Tech Stack Floating Badges */}
-                        <div className="absolute -bottom-6 left-1/2 -translate-x-1/2 flex gap-3 p-2 rounded-2xl bg-black/80 backdrop-blur-xl border border-white/10 shadow-xl w-max max-w-[90%] overflow-x-auto no-scrollbar">
+                        <div className="absolute -bottom-6 left-1/2 -translate-x-1/2 flex flex-wrap justify-center gap-2 p-2 rounded-2xl bg-black/80 backdrop-blur-xl border border-white/10 shadow-xl w-[90%] md:w-max max-w-full z-20">
                             {asset.tech.map((t, i) => (
-                                <div key={i} className="px-4 py-2 rounded-xl bg-white/5 border border-white/5 text-xs font-bold text-slate-200 flex items-center gap-2 whitespace-nowrap">
-                                    <div className="w-2 h-2 rounded-full bg-purple-500 shadow-[0_0_8px_rgba(168,85,247,0.8)]"></div>
+                                <div key={i} className="px-3 py-1.5 md:px-4 md:py-2 rounded-xl bg-white/5 border border-white/5 text-[10px] md:text-xs font-bold text-slate-200 flex items-center gap-2 whitespace-nowrap">
+                                    <div className="w-1.5 h-1.5 md:w-2 md:h-2 rounded-full bg-purple-500 shadow-[0_0_8px_rgba(168,85,247,0.8)]"></div>
                                     {t}
                                 </div>
                             ))}
@@ -175,12 +175,7 @@ export default async function ProductPage({ params }) {
                                         <span className="text-lg text-slate-500 line-through decoration-red-500 decoration-2 opacity-60">{asset.originalPrice || "$999"}</span>
                                     </div>
                                 </div>
-                                <div className="flex flex-col items-end text-right">
-                                    <div className="flex text-yellow-500 text-sm mb-1">
-                                        {[1, 2, 3, 4, 5].map(i => <i key={i} className="fas fa-star"></i>)}
-                                    </div>
-                                    <span className="text-xs text-slate-500 font-bold">5.0 (42 Reviews)</span>
-                                </div>
+
                             </div>
 
                             <Link href={asset.buyLink || "#"} target="_blank" className="relative group w-full flex items-center justify-center gap-3 py-4 rounded-2xl bg-white text-black font-black text-lg overflow-hidden shadow-[0_0_40px_rgba(255,255,255,0.3)] hover:shadow-[0_0_60px_rgba(255,255,255,0.5)] transition-all transform hover:-translate-y-1">
@@ -212,6 +207,20 @@ export default async function ProductPage({ params }) {
                                 <div dangerouslySetInnerHTML={{ __html: asset.longDescription }} />
                             </div>
                         </section>
+
+                        {/* Reviews Section */}
+                        <section className="pt-12 border-t border-white/10">
+                            <h3 className="text-2xl font-bold text-white mb-6 flex items-center gap-3">
+                                <i className="fas fa-star text-yellow-500"></i> Reviews
+                            </h3>
+                            <div className="p-8 rounded-2xl bg-white/5 border border-white/10 text-center">
+                                <div className="mb-4">
+                                    <i className="fas fa-comment-slash text-4xl text-slate-600"></i>
+                                </div>
+                                <h4 className="text-lg font-bold text-white mb-2">No Reviews Yet</h4>
+                                <p className="text-slate-400 text-sm">Be the first to share your experience with this product!</p>
+                            </div>
+                        </section>
                     </div>
 
                     {/* Sidebar Features */}
@@ -220,10 +229,8 @@ export default async function ProductPage({ params }) {
                             <h3 className="text-xl font-bold text-white mb-6">What You Get</h3>
                             <ul className="space-y-4">
                                 {[
-                                    { text: "Source Code (GitHub)", icon: "fab fa-github" },
-                                    { text: asset.delivery || "Documentation PDF", icon: "fas fa-file-pdf" },
-                                    { text: "Figma Assets", icon: "fab fa-figma" },
-                                    { text: "Free Updates", icon: "fas fa-sync" }
+                                    { text: "Nexus Animator Gem Link", icon: "fas fa-gem" },
+                                    { text: "Step-by-Step Usage Guide", icon: "fas fa-book-open" }
                                 ].map((item, i) => (
                                     <li key={i} className="flex items-center gap-4 text-slate-300 p-3 rounded-xl bg-white/5 border border-white/5 hover:bg-white/10 transition-colors">
                                         <div className="w-8 h-8 rounded-full bg-black flex items-center justify-center text-purple-400">
