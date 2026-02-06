@@ -166,7 +166,7 @@ export default function Blog() {
                                     {post.title}
                                 </h3>
                                 <p className="text-slate-400 text-sm line-clamp-3 mb-6">
-                                    {post.excerpt}
+                                    {post.excerpt || post.description}
                                 </p>
                                 <div className="mt-auto pt-6 border-t border-white/5 flex text-sm font-bold text-slate-300 group-hover:text-white transition-colors">
                                     Read more <span className="ml-2 group-hover:translate-x-1 transition-transform">→</span>

@@ -24,14 +24,14 @@ export async function generateMetadata({ params }) {
 
     return {
         title: title,
-        description: postData.excerpt,
+        description: postData.excerpt || postData.description,
         keywords: [postData.category, "Software Engineering", "Tech Blog", "Sri Lanka", "Tutorial"],
         alternates: {
             canonical: canonicalUrl,
         },
         openGraph: {
             title: `${title} | Mr² Labs`,
-            description: postData.excerpt,
+            description: postData.excerpt || postData.description,
             url: canonicalUrl,
             images: [
                 {
@@ -48,7 +48,7 @@ export async function generateMetadata({ params }) {
         twitter: {
             card: "summary_large_image",
             title: `${title} | Mr² Labs`,
-            description: postData.excerpt,
+            description: postData.excerpt || postData.description,
             images: [postData.image || '/services-tech.png'],
         },
     };
@@ -84,7 +84,7 @@ export default async function Post({ params }) {
             }
         },
         "datePublished": postData.date,
-        "description": postData.excerpt,
+        "description": postData.excerpt || postData.description,
         "mainEntityOfPage": {
             "@type": "WebPage",
             "@id": `https://www.mohamedrashard.dev/blog/${slug}`
