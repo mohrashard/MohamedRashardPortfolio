@@ -1,196 +1,267 @@
 "use client";
-import React, { useRef, useEffect } from "react";
-import { motion } from "framer-motion";
+import React, { useRef, useState, useMemo } from "react";
+import { Canvas, useFrame, useThree } from "@react-three/fiber";
+import {
+    Float,
+    MeshDistortMaterial,
+    GradientTexture,
+    PerspectiveCamera,
+    OrbitControls,
+    Points,
+    PointMaterial,
+    MeshWobbleMaterial
+} from "@react-three/drei";
+import { motion, AnimatePresence } from "framer-motion";
+import { Github, Linkedin, Twitter, Instagram, Rocket, Briefcase, ChevronDown } from "lucide-react";
+import * as THREE from "three";
 
-export default function Hero() {
-    const titleRef = useRef(null);
+// --- 3D Components ---
 
-    // Typing Effect
-    useEffect(() => {
-        const titles = ["Software Engineer", "AI/ML Engineer", "Web Developer", "Full-Stack Developer", "Content Creator"];
-        let count = 0;
-        let index = 0;
-        let currentText = "";
-        let isDeleting = false;
-        let timer = null;
-        let ismounted = true;
+function ParticleField({ count = 2000 }) {
+    const pointsRef = useRef(null);
+    const [mouse] = useState(() => new THREE.Vector2());
 
-        const type = () => {
-            if (!ismounted) return;
-            const currentTitle = titles[count % titles.length];
-
-            if (isDeleting) {
-                currentText = currentTitle.substring(0, currentText.length - 1);
-            } else {
-                currentText = currentTitle.substring(0, currentText.length + 1);
-            }
-
-            if (titleRef.current) {
-                titleRef.current.innerHTML = `${currentText}<span class="typing-cursor">|</span>`;
-            }
-
-            let typeSpeed = isDeleting ? 40 : 100;
-
-            if (!isDeleting && currentText === currentTitle) {
-                typeSpeed = 2000;
-                isDeleting = true;
-            } else if (isDeleting && currentText === "") {
-                isDeleting = false;
-                count++;
-                typeSpeed = 200;
-            }
-
-            timer = setTimeout(type, typeSpeed);
-        };
-
-        // Start typing
-        timer = setTimeout(type, 1000);
-
-        return () => {
-            clearTimeout(timer);
-            ismounted = false;
+    // Create a distribution that feels like a nebula
+    const points = useMemo(() => {
+        const p = new Float32Array(count * 3);
+        for (let i = 0; i < count; i++) {
+            p[i * 3] = (Math.random() - 0.5) * 20;
+            p[i * 3 + 1] = (Math.random() - 0.5) * 20;
+            p[i * 3 + 2] = (Math.random() - 0.5) * 20;
         }
-    }, []);
+        return p;
+    }, [count]);
 
-    const scrollToSection = (id) => {
-        const element = document.getElementById(id);
-        if (element) {
-            const headerOffset = 80;
-            const elementPosition = element.getBoundingClientRect().top;
-            const offsetPosition = elementPosition + window.scrollY - headerOffset;
-
-            window.scrollTo({
-                top: offsetPosition,
-                behavior: "smooth"
-            });
-        }
-    };
+    useFrame((state) => {
+        if (!pointsRef.current) return;
+        // Subtle drift based on mouse
+        const x = (state.mouse.x * 0.2);
+        const y = (state.mouse.y * 0.2);
+        pointsRef.current.rotation.y += 0.001 + (x * 0.005);
+        pointsRef.current.rotation.x += 0.0005 + (y * 0.005);
+    });
 
     return (
-        <section id="home" className="relative min-h-screen flex items-center pt-32 pb-20 overflow-hidden bg-[#020617]">
-            {/* Background Decoration: Navy Blue Space Theme */}
-            <div className="absolute inset-0 z-0 overflow-hidden pointer-events-none">
-                {/* Deep Space Blue - Top Right */}
-                <div className="absolute top-[-20%] right-[-10%] w-[500px] md:w-[700px] h-[500px] md:h-[700px] bg-blue-900/20 rounded-full blur-[120px] mix-blend-screen animate-pulse"></div>
+        <Points ref={pointsRef} positions={points} stride={3} frustumCulled={false}>
+            <PointMaterial
+                transparent
+                color="#818cf8"
+                size={0.015}
+                sizeAttenuation={true}
+                depthWrite={false}
+                blending={THREE.AdditiveBlending}
+            />
+        </Points>
+    );
+}
 
-                {/* Cosmic Purple/Navy - Bottom Left */}
-                <div className="absolute bottom-[-20%] left-[-10%] w-[500px] md:w-[700px] h-[500px] md:h-[700px] bg-indigo-900/20 rounded-full blur-[120px] mix-blend-screen animate-pulse" style={{ animationDelay: '1s' }}></div>
+function FloatingCore() {
+    return (
+        <Float speed={2} rotationIntensity={2} floatIntensity={2}>
+            <mesh>
+                <icosahedronGeometry args={[2.2, 20]} />
+                <MeshDistortMaterial
+                    distort={0.45}
+                    speed={5}
+                    roughness={0}
+                    metalness={1}
+                    emissive="#1e1b4b"
+                    emissiveIntensity={0.5}
+                >
+                    <GradientTexture
+                        stops={[0, 0.4, 0.8, 1]}
+                        colors={['#0ea5e9', '#6366f1', '#4338ca', '#1e3a8a']}
+                    />
+                </MeshDistortMaterial>
+            </mesh>
+            {/* Outer wireframe shell for technical feel */}
+            <mesh scale={1.1}>
+                <icosahedronGeometry args={[2.2, 2]} />
+                <meshBasicMaterial color="#6366f1" wireframe transparent opacity={0.1} />
+            </mesh>
+        </Float>
+    );
+}
 
-                {/* Stars/Grid overlay */}
-                <div className="absolute inset-0 bg-[url('/grid-pattern.svg')] opacity-[0.03]"></div>
-                <div className="absolute inset-0 bg-gradient-to-b from-transparent via-[#020617]/50 to-[#020617]"></div>
+// --- UI Components ---
+
+const TypingEffect = () => {
+    const titles = ["Software Engineer", "AI/ML Expert", "Web Architect", "Full-Stack Dev"];
+    const [index, setIndex] = useState(0);
+    const [displayText, setDisplayText] = useState("");
+    const [isDeleting, setIsDeleting] = useState(false);
+
+    React.useEffect(() => {
+        const timeout = setTimeout(() => {
+            const currentTitle = titles[index % titles.length];
+            if (!isDeleting) {
+                setDisplayText(currentTitle.substring(0, displayText.length + 1));
+                if (displayText === currentTitle) {
+                    setTimeout(() => setIsDeleting(true), 2500);
+                }
+            } else {
+                setDisplayText(currentTitle.substring(0, displayText.length - 1));
+                if (displayText === "") {
+                    setIsDeleting(false);
+                    setIndex(index + 1);
+                }
+            }
+        }, isDeleting ? 40 : 80);
+        return () => clearTimeout(timeout);
+    }, [displayText, isDeleting, index]);
+
+    return (
+        <div className="h-8 flex items-center">
+            <span className="text-blue-400 font-mono tracking-wider">
+                {"> "} {displayText}
+                <motion.span
+                    animate={{ opacity: [1, 0] }}
+                    transition={{ repeat: Infinity, duration: 0.8 }}
+                    className="inline-block w-2 h-5 bg-blue-400 ml-1 align-middle"
+                />
+            </span>
+        </div>
+    );
+};
+
+export default function Hero() {
+    return (
+        <section id="home" className="relative w-full h-screen bg-[#020202] overflow-hidden">
+
+            {/* Background Mesh Gradient */}
+            <div className="absolute inset-0 opacity-30 pointer-events-none">
+                <div className="absolute top-[-10%] left-[-10%] w-[50%] h-[50%] bg-blue-600/20 blur-[120px] rounded-full" />
+                <div className="absolute bottom-[-10%] right-[-10%] w-[50%] h-[50%] bg-indigo-600/20 blur-[120px] rounded-full" />
             </div>
 
-            <div className="max-w-7xl mx-auto px-6 md:px-12 w-full grid lg:grid-cols-2 gap-12 lg:gap-16 items-center relative z-10">
-                {/* Hero Text */}
-                <motion.div
-                    initial={{ opacity: 0, y: 30 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.8 }}
-                    className="space-y-6 md:space-y-8 text-center lg:text-left"
-                >
-                    <div>
-                        <h1 className="glitch-effect text-4xl sm:text-5xl md:text-7xl lg:text-8xl font-black mb-4 leading-tight tracking-tight">
-                            Mohamed <br />
-                            Rashard Rizmi
-                        </h1>
-                        <div className="h-8 md:h-12 flex items-center justify-center lg:justify-start">
-                            <h2 ref={titleRef} className="text-xl sm:text-2xl md:text-3xl font-semibold text-blue-400/90 font-mono"></h2>
+            {/* 3D Engine Layer */}
+            <div className="absolute inset-0 z-0">
+                <Canvas dpr={[1, 2]}>
+                    <PerspectiveCamera makeDefault position={[0, 0, 10]} />
+                    <ambientLight intensity={0.2} />
+                    <spotLight position={[10, 10, 10]} angle={0.15} penumbra={1} intensity={2} color="#6366f1" />
+                    <pointLight position={[-10, -10, -10]} intensity={1} color="#0ea5e9" />
+
+                    <FloatingCore />
+                    <ParticleField />
+
+                    <OrbitControls
+                        enableZoom={false}
+                        enablePan={false}
+                        autoRotate
+                        autoRotateSpeed={0.3}
+                    />
+                </Canvas>
+            </div>
+
+            {/* Content Layer */}
+            <div className="relative z-10 w-full h-full flex items-center px-6 md:px-16 pt-20 pointer-events-none">
+                <div className="max-w-7xl mx-auto w-full grid lg:grid-cols-2 gap-8 items-center">
+
+                    <motion.div
+                        initial={{ opacity: 0, y: 20 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ duration: 0.8 }}
+                        className="space-y-8 pointer-events-auto"
+                    >
+                        <div className="space-y-4">
+
+
+                            <h1 className="text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-black text-white leading-[0.95] tracking-tighter">
+                                <motion.span
+                                    initial={{ filter: "blur(10px)", opacity: 0 }}
+                                    animate={{ filter: "blur(0px)", opacity: 1 }}
+                                    transition={{ duration: 1 }}
+                                >
+                                    MOHAMED
+                                </motion.span>
+                                <br />
+                                <motion.span
+                                    initial={{ x: -20, opacity: 0 }}
+                                    animate={{ x: 0, opacity: 1 }}
+                                    transition={{ delay: 0.3, duration: 1 }}
+                                    className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 via-indigo-400 to-cyan-400"
+                                >
+                                    RASHARD RIZMI.
+                                </motion.span>
+                            </h1>
+
+                            <TypingEffect />
                         </div>
-                    </div>
 
-                    <p className="text-base sm:text-lg text-slate-400 max-w-xl mx-auto lg:mx-0 leading-relaxed">
-                        Specializing in <strong className="text-blue-400">web app development</strong>,
-                        <strong className="text-blue-400"> mobile solutions</strong>, and cutting-edge
-                        <strong className="text-blue-400"> AI integration</strong>.
-                        Transforming complex problems into elegant digital experiences.
-                    </p>
+                        <p className="text-slate-400 max-w-md text-lg leading-relaxed font-light">
+                            Crafting <span className="text-white font-medium">digital intelligence</span> through high-performance code and neural architectures.
+                        </p>
 
-                    {/* Service Highlights - Mini Grid */}
-                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4 text-left">
+                        <div className="flex flex-wrap gap-6 pt-4">
+                            <motion.a
+                                whileHover={{ scale: 1.05, boxShadow: "0 0 30px rgba(99,102,241,0.7), 0 0 60px rgba(59,130,246,0.4)" }}
+                                whileTap={{ scale: 0.95 }}
+                                href="/labs"
+                                className="group relative px-8 py-4 bg-gradient-to-r from-blue-600 to-indigo-600 text-white font-bold rounded-md flex items-center gap-3 overflow-hidden transition-all shadow-[0_0_20px_rgba(99,102,241,0.4),0_0_40px_rgba(59,130,246,0.2)]"
+                            >
+                                <div className="absolute inset-0 bg-gradient-to-r from-blue-500 to-indigo-500 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                                <Rocket className="relative z-10 w-5 h-5 transition-transform group-hover:-rotate-12" />
+                                <span className="relative z-10">LAUNCH LABS</span>
+                            </motion.a>
+
+                            <motion.a
+                                whileHover={{ scale: 1.05, boxShadow: "0 0 25px rgba(99,102,241,0.4), 0 0 50px rgba(59,130,246,0.2)" }}
+                                whileTap={{ scale: 0.95 }}
+                                href="#contact"
+                                className="px-8 py-4 border border-blue-500/30 text-white font-bold rounded-md hover:border-blue-400/60 hover:bg-blue-500/10 transition-all flex items-center gap-3 backdrop-blur-sm shadow-[0_0_15px_rgba(99,102,241,0.15)]"
+                            >
+                                <Briefcase className="w-4 h-4" />
+                                INITIATE CONTACT
+                            </motion.a>
+                        </div>
+                    </motion.div>
+
+                    {/* Enhanced Social Sidebar */}
+                    <div className="hidden lg:flex flex-col items-end gap-5 pointer-events-auto">
                         {[
-                            { title: "React & Next.js", desc: "Modern Web Apps", icon: "fab fa-react", color: "text-sky-400" },
-                            { title: "React Native", desc: "Mobile Solutions", icon: "fas fa-mobile-alt", color: "text-indigo-400" },
-                            { title: "AI Integration", desc: "Smart Automation", icon: "fas fa-robot", color: "text-amber-400" },
-                            { title: "Custom Software", desc: "Tailored Solutions", icon: "fas fa-code", color: "text-emerald-400" },
-                        ].map((s, i) => (
-                            <div key={i} className="flex items-center gap-3 sm:gap-4 p-3 sm:p-4 rounded-2xl bg-white/5 border border-white/5 hover:bg-white/10 hover:-translate-y-1 transition-all duration-300">
-                                <div className={`w-8 h-8 sm:w-10 sm:h-10 rounded-full bg-white/5 flex items-center justify-center text-base sm:text-lg ${s.color}`}>
-                                    <i className={s.icon}></i>
-                                </div>
-                                <div>
-                                    <h3 className="font-bold text-sm text-slate-200">{s.title}</h3>
-                                    <p className="text-xs text-slate-500">{s.desc}</p>
-                                </div>
-                            </div>
-                        ))}
-                    </div>
-
-                    {/* CTA Buttons */}
-                    <div className="flex flex-wrap justify-center lg:justify-start gap-4 pt-4">
-                        <button onClick={() => scrollToSection("projects")} className="px-6 sm:px-8 py-3 sm:py-4 rounded-full bg-gradient-to-r from-blue-600 to-indigo-600 text-white font-bold text-xs sm:text-sm uppercase tracking-wider hover:shadow-[0_0_25px_rgba(37,99,235,0.4)] hover:-translate-y-1 transition-all duration-300 flex items-center gap-2 sm:gap-3">
-                            <i className="fas fa-rocket"></i> Explore My Work
-                        </button>
-                        <button onClick={() => scrollToSection("contact")} className="px-6 sm:px-8 py-3 sm:py-4 rounded-full bg-transparent border border-white/20 text-white font-bold text-xs sm:text-sm uppercase tracking-wider hover:bg-white/5 hover:border-white/40 hover:-translate-y-1 transition-all duration-300 flex items-center gap-2 sm:gap-3">
-                            <i className="fas fa-handshake"></i> Hire Me
-                        </button>
-                    </div>
-
-                    {/* Social Links */}
-                    <div className="flex justify-center lg:justify-start gap-4 pt-6">
-                        {[
-                            { icon: "fab fa-linkedin-in", href: "https://www.linkedin.com/in/mohamedrashard", color: "hover:bg-[#0077b5]" },
-                            { icon: "fab fa-github", href: "https://github.com/mohrashard/", color: "hover:bg-[#333]" },
-                            { icon: "fab fa-twitter", href: "https://x.com/mrr_labs", color: "hover:bg-black" },
-                            { icon: "fab fa-instagram", href: "https://www.instagram.com/mrr_labs/", color: "hover:bg-pink-600" },
-                            { icon: "fab fa-facebook-f", href: "https://web.facebook.com/profile.php?id=61575921543570", color: "hover:bg-[#1877f2]" },
+                            { icon: <Linkedin size={20} />, link: "https://www.linkedin.com/in/mohamedrashard", label: "LinkedIn" },
+                            { icon: <Github size={20} />, link: "https://github.com/mohrashard/", label: "Github" },
+                            { icon: <Twitter size={20} />, link: "https://x.com/mrr_labs", label: "Twitter" },
+                            { icon: <Instagram size={20} />, link: "https://www.instagram.com/mrr_labs/", label: "Instagram" }
                         ].map((social, i) => (
-                            <a key={i} href={social.href} target="_blank" rel="noopener noreferrer" className={`w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-white/5 border border-white/10 flex items-center justify-center text-slate-300 transition-all duration-300 hover:text-white hover:-translate-y-2 hover:shadow-lg ${social.color}`}>
-                                <i className={social.icon}></i>
-                            </a>
+                            <motion.a
+                                key={i}
+                                href={social.link}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                initial={{ opacity: 0, x: 20 }}
+                                animate={{ opacity: 1, x: 0 }}
+                                transition={{ delay: 0.5 + (i * 0.1) }}
+                                whileHover={{ x: -10, backgroundColor: "rgba(255,255,255,0.1)" }}
+                                className="group flex items-center gap-4 text-white/40 hover:text-blue-400 transition-all"
+                            >
+                                <span className="text-[10px] font-bold tracking-widest opacity-0 group-hover:opacity-100 transition-opacity uppercase">
+                                    {social.label}
+                                </span>
+                                <div className="w-12 h-12 border border-white/5 flex items-center justify-center rounded-full bg-white/5 backdrop-blur-md group-hover:border-blue-500/50">
+                                    {social.icon}
+                                </div>
+                            </motion.a>
                         ))}
-                    </div>
-                </motion.div>
-
-                {/* Hero Graphic / Animation */}
-                <div className="hidden lg:flex justify-center items-center h-full relative">
-                    <div className="relative w-[400px] h-[400px] flex items-center justify-center">
-                        {/* Tech Orbit Container - Icons INSIDE to rotate with it */}
-                        <div className="tech-orbit absolute m-auto w-[350px] h-[350px] border border-white/10 rounded-full">
-                            <div className="tech-icon-orbit absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 shadow-[0_0_20px_rgba(97,218,251,0.3)]">
-                                <i className="fab fa-react text-2xl text-[#61DAFB]"></i>
-                            </div>
-                            <div className="tech-icon-orbit absolute top-1/2 right-0 translate-x-1/2 -translate-y-1/2 shadow-[0_0_20px_rgba(247,223,30,0.3)]">
-                                <i className="fab fa-js text-2xl text-[#F7DF1E]"></i>
-                            </div>
-                            <div className="tech-icon-orbit absolute bottom-0 left-1/2 -translate-x-1/2 translate-y-1/2 shadow-[0_0_20px_rgba(55,118,171,0.3)]">
-                                <i className="fab fa-python text-2xl text-[#3776AB]"></i>
-                            </div>
-                            <div className="tech-icon-orbit absolute top-1/2 left-0 -translate-x-1/2 -translate-y-1/2 shadow-[0_0_20px_rgba(104,160,99,0.3)]">
-                                <i className="fab fa-node text-2xl text-[#68A063]"></i>
-                            </div>
-                        </div>
-
-                        {/* Central Code Block - Static in center */}
-                        <div className="relative w-64 bg-black/80 backdrop-blur-md rounded-xl border border-white/15 p-6 shadow-2xl z-20">
-                            <div className="flex gap-2 mb-4">
-                                <div className="w-3 h-3 rounded-full bg-red-500"></div>
-                                <div className="w-3 h-3 rounded-full bg-yellow-500"></div>
-                                <div className="w-3 h-3 rounded-full bg-green-500"></div>
-                            </div>
-                            <code className="font-mono text-sm space-y-2 block">
-                                <div className="flex gap-2"><span className="text-purple-400">const</span> <span className="text-blue-400">dev</span> <span className="text-white">=</span></div>
-                                <div className="pl-4 text-green-400">'Rashard';</div>
-                                <div className="flex gap-2"><span className="text-purple-400">while</span><span className="text-yellow-400">(alive)</span> <span className="text-white">{"{"}</span></div>
-                                <div className="pl-4 flex gap-2"><span className="text-blue-400">code</span><span className="text-white">();</span></div>
-                                <div className="pl-4 flex gap-2"><span className="text-blue-400">eat</span><span className="text-white">();</span></div>
-                                <div className="pl-4 flex gap-2"><span className="text-blue-400">sleep</span><span className="text-white">();</span></div>
-                                <div className="text-white">{"}"}</div>
-                            </code>
-                        </div>
                     </div>
                 </div>
             </div>
+
+            {/* Bottom Section: Scroll Indicator */}
+            <motion.div
+                animate={{ y: [0, 10, 0] }}
+                transition={{ repeat: Infinity, duration: 2 }}
+                className="absolute bottom-10 left-1/2 -translate-x-1/2 z-20 flex flex-col items-center gap-2 opacity-30"
+            >
+                <span className="text-[10px] font-bold tracking-[0.4em] text-white uppercase">Scroll</span>
+                <ChevronDown className="text-white w-4 h-4" />
+            </motion.div>
+
+            {/* Aesthetic Scanline Effect */}
+            <div className="absolute inset-0 pointer-events-none bg-[linear-gradient(rgba(18,16,16,0)_50%,rgba(0,0,0,0.25)_50%),linear-gradient(90deg,rgba(255,0,0,0.06),rgba(0,255,0,0.02),rgba(0,0,255,0.06))] bg-[length:100%_4px,3px_100%] z-50 opacity-10" />
+
+            <div className="absolute bottom-0 left-0 w-full h-40 bg-gradient-to-t from-[#020202] to-transparent z-20" />
         </section>
     );
 }
