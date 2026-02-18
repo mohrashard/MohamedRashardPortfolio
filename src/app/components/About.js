@@ -13,7 +13,7 @@ export default function About() {
                     {/* Bio Text */}
                     <div className="space-y-6 text-slate-400 leading-relaxed text-lg" itemScope itemType="https://schema.org/Person">
                         <p>
-                            Software Engineer with a robust foundation in <strong className="text-white">Artificial Intelligence</strong> and <strong className="text-white">Data Analytics</strong>. Currently a final-year undergraduate (First Class Honors track) in Software Engineering at Cardiff Metropolitan University. Based in <span itemProp="address" itemScope itemType="https://schema.org/PostalAddress"><strong className="text-white" itemProp="addressLocality">Colombo</strong>, <strong className="text-white" itemProp="addressCountry">Sri Lanka</strong></span>, I combine strong algorithmic thinking with practical full-stack expertise to build scalable, innovative software solutions.
+                            Software Engineer with a robust foundation in <strong className="text-white">Artificial Intelligence</strong> and <strong className="text-white">Data Analytics</strong>. I am a <strong className="text-white">First Class Honors graduate</strong> in Software Engineering from Cardiff Metropolitan University. Based in <span itemProp="address" itemScope itemType="https://schema.org/PostalAddress"><strong className="text-white" itemProp="addressLocality">Colombo</strong>, <strong className="text-white" itemProp="addressCountry">Sri Lanka</strong></span>, I combine strong algorithmic thinking with practical full-stack expertise to build scalable, innovative software solutions.
                         </p>
                         <p>
                             My technical arsenal includes <strong className="text-white">C++, Java, Python, and JavaScript</strong>, with specialized proficiency in the <strong className="text-white">React ecosystem, Node.js, and ASP.NET</strong>. I excel in architecting enterprise-grade applications, bridging the gap between responsive, intuitive front-end interfaces and secure, high-performance back-end infrastructure deployed on the cloud.
@@ -43,7 +43,7 @@ export default function About() {
                     <div className="space-y-6">
                         <h3 className="text-2xl font-bold mb-6">Education</h3>
                         {[
-                            { title: "B.Sc. (Hons) in Software Engineering", school: "Cardiff Metropolitan University", year: "Mar 2023 - Nov 2026", gpa: "GPA 3.1", icon: "fas fa-graduation-cap", highlight: true },
+                            { title: "B.Sc. (Hons) in Software Engineering", school: "Cardiff Metropolitan University", year: "Graduated Feb 2026", gpa: "First Class Honors", icon: "fas fa-graduation-cap", highlight: true },
                             { title: "Diploma in Computing", school: "ICBT Campus, Colombo", year: "Dec 2022", icon: "fas fa-certificate", highlight: false },
                             { title: "G.C.E. Advanced Level", school: "Private Candidate", year: "Dec 2024", icon: "fas fa-school", highlight: false },
                             { title: "G.C.E. Ordinary Level", school: "Zahira College, Colombo", year: "Jun 2022", icon: "fas fa-school", highlight: false },

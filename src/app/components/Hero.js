@@ -195,10 +195,18 @@ export default function Hero() {
 
                         <div className="flex flex-wrap gap-6 pt-4">
                             <motion.a
-                                whileHover={{ scale: 1.05, boxShadow: "0 0 30px rgba(99,102,241,0.7), 0 0 60px rgba(59,130,246,0.4)" }}
+                                whileHover={{ scale: 1.05, boxShadow: "0 0 50px rgba(99,102,241,0.8), 0 0 80px rgba(59,130,246,0.6)" }}
                                 whileTap={{ scale: 0.95 }}
+                                animate={{
+                                    boxShadow: ["0px 0px 30px rgba(99,102,241,0.5), 0px 0px 50px rgba(59,130,246,0.3)", "0px 0px 60px rgba(99,102,241,0.8), 0px 0px 100px rgba(59,130,246,0.5)", "0px 0px 30px rgba(99,102,241,0.5), 0px 0px 50px rgba(59,130,246,0.3)"]
+                                }}
+                                transition={{
+                                    default: { duration: 2.5, repeat: Infinity, ease: "easeInOut" },
+                                    scale: { duration: 0.2 },
+                                    boxShadow: { duration: 0.2 } // Fast transition for hover overrides
+                                }}
                                 href="/labs"
-                                className="group relative px-8 py-4 bg-gradient-to-r from-blue-600 to-indigo-600 text-white font-bold rounded-md flex items-center gap-3 overflow-hidden transition-all shadow-[0_0_20px_rgba(99,102,241,0.4),0_0_40px_rgba(59,130,246,0.2)]"
+                                className="group relative px-8 py-4 bg-gradient-to-r from-blue-600 to-indigo-600 text-white font-bold rounded-md flex items-center gap-3 overflow-hidden"
                             >
                                 <div className="absolute inset-0 bg-gradient-to-r from-blue-500 to-indigo-500 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                                 <Rocket className="relative z-10 w-5 h-5 transition-transform group-hover:-rotate-12" />
@@ -206,10 +214,18 @@ export default function Hero() {
                             </motion.a>
 
                             <motion.a
-                                whileHover={{ scale: 1.05, boxShadow: "0 0 25px rgba(99,102,241,0.4), 0 0 50px rgba(59,130,246,0.2)" }}
+                                whileHover={{ scale: 1.05, boxShadow: "0 0 30px rgba(99,102,241,0.5), 0 0 60px rgba(59,130,246,0.3)", borderColor: "rgba(59,130,246,0.8)" }}
                                 whileTap={{ scale: 0.95 }}
+                                animate={{
+                                    boxShadow: ["0px 0px 15px rgba(99,102,241,0.3)", "0px 0px 35px rgba(99,102,241,0.6)", "0px 0px 15px rgba(99,102,241,0.3)"],
+                                    borderColor: ["rgba(59,130,246,0.3)", "rgba(59,130,246,0.6)", "rgba(59,130,246,0.3)"]
+                                }}
+                                transition={{
+                                    default: { duration: 2.5, repeat: Infinity, ease: "easeInOut" },
+                                    scale: { duration: 0.2 }
+                                }}
                                 href="#contact"
-                                className="px-8 py-4 border border-blue-500/30 text-white font-bold rounded-md hover:border-blue-400/60 hover:bg-blue-500/10 transition-all flex items-center gap-3 backdrop-blur-sm shadow-[0_0_15px_rgba(99,102,241,0.15)]"
+                                className="px-8 py-4 border text-white font-bold rounded-md hover:bg-blue-500/10 transition-all flex items-center gap-3 backdrop-blur-sm"
                             >
                                 <Briefcase className="w-4 h-4" />
                                 INITIATE CONTACT
@@ -252,7 +268,7 @@ export default function Hero() {
             <motion.div
                 animate={{ y: [0, 10, 0] }}
                 transition={{ repeat: Infinity, duration: 2 }}
-                className="absolute bottom-10 left-1/2 -translate-x-1/2 z-20 flex flex-col items-center gap-2 opacity-30"
+                className="absolute bottom-10 left-1/2 -translate-x-1/2 z-20 flex flex-col items-center gap-2 opacity-30 pointer-events-none"
             >
                 <span className="text-[10px] font-bold tracking-[0.4em] text-white uppercase">Scroll</span>
                 <ChevronDown className="text-white w-4 h-4" />
@@ -261,7 +277,7 @@ export default function Hero() {
             {/* Aesthetic Scanline Effect */}
             <div className="absolute inset-0 pointer-events-none bg-[linear-gradient(rgba(18,16,16,0)_50%,rgba(0,0,0,0.25)_50%),linear-gradient(90deg,rgba(255,0,0,0.06),rgba(0,255,0,0.02),rgba(0,0,255,0.06))] bg-[length:100%_4px,3px_100%] z-50 opacity-10" />
 
-            <div className="absolute bottom-0 left-0 w-full h-40 bg-gradient-to-t from-[#020202] to-transparent z-20" />
+            <div className="absolute bottom-0 left-0 w-full h-40 bg-gradient-to-t from-[#020202] to-transparent z-20 pointer-events-none" />
         </section>
     );
 }
