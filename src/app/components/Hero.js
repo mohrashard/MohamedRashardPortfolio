@@ -14,6 +14,11 @@ import {
 import { motion, AnimatePresence } from "framer-motion";
 import { Github, Linkedin, Twitter, Instagram, Rocket, Briefcase, ChevronDown } from "lucide-react";
 import * as THREE from "three";
+import TimezoneWidget from "./TimezoneWidget";
+import AvailabilityBadge from "./AvailabilityBadge";
+import Link from "next/link";
+
+const MotionLink = motion.create(Link);
 
 // --- 3D Components ---
 
@@ -85,44 +90,7 @@ function FloatingCore() {
 
 // --- UI Components ---
 
-const TypingEffect = () => {
-    const titles = ["Software Engineer", "AI/ML Expert", "Web Architect", "Full-Stack Dev"];
-    const [index, setIndex] = useState(0);
-    const [displayText, setDisplayText] = useState("");
-    const [isDeleting, setIsDeleting] = useState(false);
 
-    React.useEffect(() => {
-        const timeout = setTimeout(() => {
-            const currentTitle = titles[index % titles.length];
-            if (!isDeleting) {
-                setDisplayText(currentTitle.substring(0, displayText.length + 1));
-                if (displayText === currentTitle) {
-                    setTimeout(() => setIsDeleting(true), 2500);
-                }
-            } else {
-                setDisplayText(currentTitle.substring(0, displayText.length - 1));
-                if (displayText === "") {
-                    setIsDeleting(false);
-                    setIndex(index + 1);
-                }
-            }
-        }, isDeleting ? 40 : 80);
-        return () => clearTimeout(timeout);
-    }, [displayText, isDeleting, index]);
-
-    return (
-        <div className="h-8 flex items-center">
-            <span className="text-blue-400 font-mono tracking-wider">
-                {"> "} {displayText}
-                <motion.span
-                    animate={{ opacity: [1, 0] }}
-                    transition={{ repeat: Infinity, duration: 0.8 }}
-                    className="inline-block w-2 h-5 bg-blue-400 ml-1 align-middle"
-                />
-            </span>
-        </div>
-    );
-};
 
 export default function Hero() {
     return (
@@ -136,7 +104,7 @@ export default function Hero() {
 
             {/* 3D Engine Layer */}
             <div className="absolute inset-0 z-0">
-                <Canvas dpr={[1, 2]}>
+                <Canvas dpr={[1, 1.5]} performance={{ min: 0.5 }}>
                     <PerspectiveCamera makeDefault position={[0, 0, 10]} />
                     <ambientLight intensity={0.2} />
                     <spotLight position={[10, 10, 10]} angle={0.15} penumbra={1} intensity={2} color="#6366f1" />
@@ -155,25 +123,25 @@ export default function Hero() {
             </div>
 
             {/* Content Layer */}
-            <div className="relative z-10 w-full h-full flex items-center px-6 md:px-16 pt-20 pointer-events-none">
+            <div className="absolute inset-0 z-30 flex items-center px-6 md:px-16 pointer-events-none pt-[96px] pb-[64px]">
                 <div className="max-w-7xl mx-auto w-full grid lg:grid-cols-2 gap-8 items-center">
 
                     <motion.div
                         initial={{ opacity: 0, y: 20 }}
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ duration: 0.8 }}
-                        className="space-y-8 pointer-events-auto"
+                        className="space-y-5 pointer-events-auto"
                     >
-                        <div className="space-y-4">
+                        <div className="space-y-3">
+                            <AvailabilityBadge />
 
-
-                            <h1 className="text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-black text-white leading-[0.95] tracking-tighter">
+                            <h1 className="text-5xl md:text-6xl lg:text-7xl xl:text-7xl font-black text-white leading-[1.1] tracking-tighter">
                                 <motion.span
                                     initial={{ filter: "blur(10px)", opacity: 0 }}
                                     animate={{ filter: "blur(0px)", opacity: 1 }}
                                     transition={{ duration: 1 }}
                                 >
-                                    MOHAMED
+                                    I Ship Your MVP
                                 </motion.span>
                                 <br />
                                 <motion.span
@@ -182,19 +150,27 @@ export default function Hero() {
                                     transition={{ delay: 0.3, duration: 1 }}
                                     className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 via-indigo-400 to-cyan-400"
                                 >
-                                    RASHARD RIZMI.
+                                    in 48 Hours.
                                 </motion.span>
                             </h1>
 
-                            <TypingEffect />
+                            <motion.h2
+                                initial={{ opacity: 0, y: 10 }}
+                                animate={{ opacity: 1, y: 0 }}
+                                transition={{ delay: 0.5, duration: 0.8 }}
+                                className="text-xl md:text-2xl font-medium text-slate-300"
+                            >
+                                <span className="text-blue-400 font-semibold">Next.js Web Developer</span> & Systems Architect in Sri Lanka
+                            </motion.h2>
                         </div>
 
-                        <p className="text-slate-400 max-w-md text-lg leading-relaxed font-light">
-                            Crafting <span className="text-white font-medium">digital intelligence</span> through high-performance code and neural architectures.
+                        <p className="text-slate-400 max-w-lg text-lg leading-relaxed font-light">
+                            High-performance AI tools, SaaS platforms, and tailored web apps for founders who are done waiting. Trusted by global startups to deliver scalable revenue ecosystems.
                         </p>
 
-                        <div className="flex flex-wrap gap-6 pt-4">
-                            <motion.a
+                        <div className="flex flex-wrap gap-4">
+                            <MotionLink
+                                href="/services#audit-form"
                                 whileHover={{ scale: 1.05, boxShadow: "0 0 50px rgba(99,102,241,0.8), 0 0 80px rgba(59,130,246,0.6)" }}
                                 whileTap={{ scale: 0.95 }}
                                 animate={{
@@ -205,15 +181,15 @@ export default function Hero() {
                                     scale: { duration: 0.2 },
                                     boxShadow: { duration: 0.2 } // Fast transition for hover overrides
                                 }}
-                                href="/labs"
                                 className="group relative px-8 py-4 bg-gradient-to-r from-blue-600 to-indigo-600 text-white font-bold rounded-md flex items-center gap-3 overflow-hidden"
                             >
                                 <div className="absolute inset-0 bg-gradient-to-r from-blue-500 to-indigo-500 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                                 <Rocket className="relative z-10 w-5 h-5 transition-transform group-hover:-rotate-12" />
-                                <span className="relative z-10">LAUNCH LABS</span>
-                            </motion.a>
+                                <span className="relative z-10">Claim Free AI Audit</span>
+                            </MotionLink>
 
-                            <motion.a
+                            <MotionLink
+                                href="#projects"
                                 whileHover={{ scale: 1.05, boxShadow: "0 0 30px rgba(99,102,241,0.5), 0 0 60px rgba(59,130,246,0.3)", borderColor: "rgba(59,130,246,0.8)" }}
                                 whileTap={{ scale: 0.95 }}
                                 animate={{
@@ -224,13 +200,13 @@ export default function Hero() {
                                     default: { duration: 2.5, repeat: Infinity, ease: "easeInOut" },
                                     scale: { duration: 0.2 }
                                 }}
-                                href="#contact"
                                 className="px-8 py-4 border text-white font-bold rounded-md hover:bg-blue-500/10 transition-all flex items-center gap-3 backdrop-blur-sm"
                             >
                                 <Briefcase className="w-4 h-4" />
-                                INITIATE CONTACT
-                            </motion.a>
+                                See My Work
+                            </MotionLink>
                         </div>
+                        <TimezoneWidget />
                     </motion.div>
 
                     {/* Enhanced Social Sidebar */}
@@ -263,6 +239,8 @@ export default function Hero() {
                     </div>
                 </div>
             </div>
+
+
 
             {/* Bottom Section: Scroll Indicator */}
             <motion.div

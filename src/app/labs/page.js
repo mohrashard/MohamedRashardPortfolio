@@ -2,6 +2,8 @@ import React from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import SpaceBackground from './components/SpaceBackground';
+import TrustBar from '../components/TrustBar';
+import LeadMagnetBanner from './components/LeadMagnetBanner';
 
 export const metadata = {
     title: "Labs - Innovation Hub",
@@ -98,6 +100,10 @@ export default function Labs() {
                     </p>
                 </header>
 
+                <div className="mb-16 -mt-8">
+                    <TrustBar />
+                </div>
+
                 {/* Cards Grid */}
                 <div className="grid md:grid-cols-2 gap-8 lg:gap-12">
                     {/* Services Box */}
@@ -188,6 +194,9 @@ export default function Labs() {
                         </div>
                     </Link>
                 </div>
+
+                {/* Lead Magnet */}
+                <LeadMagnetBanner />
             </div>
         </div>
     );

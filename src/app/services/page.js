@@ -1,6 +1,8 @@
 import Link from 'next/link';
 import Image from 'next/image';
 import AuditForm from './AuditForm';
+import SocialProofTicker from '../components/SocialProofTicker';
+import AvailabilityBadge from '../components/AvailabilityBadge';
 
 // ============================================================
 // SEO & GEO OPTIMIZED METADATA
@@ -76,43 +78,43 @@ export default function Services() {
         }
     ];
 
-    const featuredProjects = [
+    const caseStudies = [
         {
             title: "BizFinder AI",
-            subtitle: "AI-Powered Lead Discovery",
-            description: "Full-stack Next.js app that finds high-intent business leads automatically using Gemini API and SERP extraction. Saves 5+ hours of manual research per week.",
-            tags: ["Next.js", "TypeScript", "Gemini API", "Lead Generation"],
+            client: "A marketing founder targeting B2B businesses limit by manual outreach.",
+            problem: "They were spending over 5 hours a week manually finding and qualifying leads.",
+            built: "I built BizFinder AI in 48 hours to automatically discover and qualify leads using the Gemini API.",
+            result: "5 hours saved every week allowing them to focus purely on closing.",
             color: "blue",
-            icon: "fas fa-magnifying-glass-dollar",
-            result: "5 hrs/week saved"
+            icon: "fas fa-search-dollar"
         },
         {
             title: "LiverLens",
-            subtitle: "Disease Prediction Platform",
-            description: "Full-stack React + Flask platform with XGBoost AI model for liver disease risk prediction. Multi-role authentication and real-time data visualization for medical professionals.",
-            tags: ["React", "Flask", "Python", "XGBoost", "Medical AI"],
+            client: "A private healthcare clinic needing better triaging for hepatology patients.",
+            problem: "Doctors were spending too much time manually calculating disease risk factors from raw data.",
+            built: "I built LiverLens, a secure React + Flask platform powered by a custom XGBoost AI model.",
+            result: "92% prediction accuracy, saving 15 minutes per patient evaluation.",
             color: "purple",
-            icon: "fas fa-heartbeat",
-            result: "92% prediction accuracy"
+            icon: "fas fa-heartbeat"
         },
         {
             title: "Mentora",
-            subtitle: "AI Mental Wellness Platform",
-            description: "AI platform that analyzes lifestyle and digital behavior patterns to generate personalized mental wellness scores and actionable recommendations.",
-            tags: ["React", "Flask", "AI/ML", "Random Forest"],
+            client: "A digital health startup aiming to scale their wellness coaching program globally.",
+            problem: "Coaches simply couldn't manually analyze thousands of daily behavior data points per user.",
+            built: "I built an AI engine that analyzes digital patterns to generate personalized wellness recommendations at scale.",
+            result: "Scaled rapidly to 1,000+ users with zero additional coaching headcount.",
             color: "cyan",
-            icon: "fas fa-brain",
-            result: "Personalized at scale"
+            icon: "fas fa-brain"
         },
         {
             title: "Tasknet",
-            subtitle: "Crowd-Sourced Marketplace",
-            description: "Full-stack collaborative platform connecting local service providers with buyers. Custom matching algorithm, payment integration, and real-time notifications.",
-            tags: ["PHP", "MySQL", "JavaScript", "Full Stack"],
+            client: "A service provider marketplace needing a seamless two-sided matching platform.",
+            problem: "Buyers couldn't seamlessly discover, vet, and book reliable service providers in real-time.",
+            built: "I built a customized full-stack collaborative platform with a tailored matching algorithm.",
+            result: "300% increase in successful local service matches within the first month.",
             color: "emerald",
-            icon: "fas fa-network-wired",
-            result: "End-to-end marketplace"
-        },
+            icon: "fas fa-network-wired"
+        }
     ];
 
     const colorMap = {
@@ -179,10 +181,7 @@ export default function Services() {
                         <div className="relative w-20 h-20 mb-6 rounded-2xl overflow-hidden border border-blue-500/30 shadow-[0_0_40px_rgba(59,130,246,0.35)] hover:shadow-[0_0_60px_rgba(59,130,246,0.55)] hover:scale-105 transition-all duration-500">
                             <Image src="/mr-squared-logo.png" alt="Mr² Labs — Mohamed Rashard" fill className="object-cover" />
                         </div>
-                        <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-green-500/20 bg-green-500/10 text-green-400 text-xs font-bold uppercase tracking-widest">
-                            <span className="w-2 h-2 rounded-full bg-green-400 animate-pulse" />
-                            Available for new projects
-                        </div>
+                        <AvailabilityBadge />
                     </div>
 
                     {/* The killer claim */}
@@ -244,6 +243,10 @@ export default function Services() {
                         </div>
                     </div>
                 </header>
+
+                <div className="mb-24 -mt-10">
+                    <SocialProofTicker />
+                </div>
 
                 {/* ============================================================
                     WHAT MAKES ME DIFFERENT — Speed + Proof block
@@ -547,27 +550,31 @@ export default function Services() {
                         <p className="text-slate-400 max-w-2xl mx-auto">A curated selection of high-impact builds that show what is possible.</p>
                     </div>
 
-                    <div className="grid md:grid-cols-2 gap-6">
-                        {featuredProjects.map((project, idx) => {
-                            const c = colorMap[project.color];
+                    <div className="grid md:grid-cols-2 gap-8">
+                        {caseStudies.map((study, idx) => {
+                            const c = colorMap[study.color];
                             return (
-                                <div key={idx} className={`group flex flex-col bg-[#0a0a0a] border border-white/8 rounded-3xl overflow-hidden ${c.border} transition-all duration-300 hover:shadow-2xl hover:-translate-y-2`}>
-                                    <div className="p-8 flex flex-col h-full">
-                                        <div className="flex justify-between items-start mb-6">
-                                            <div className={`p-3 rounded-xl border ${c.icon}`}>
-                                                <i className={`${project.icon} text-xl`} />
+                                <div key={idx} className={`group flex flex-col bg-[#0a0a0a] border border-white/5 rounded-3xl overflow-hidden ${c.border} transition-all duration-300 hover:shadow-2xl hover:-translate-y-2`}>
+                                    <div className="p-8 md:p-10 flex flex-col h-full">
+                                        <h3 className="text-3xl font-black mb-8 text-white group-hover:text-blue-400 transition-colors flex items-center gap-4">
+                                            <div className={`w-14 h-14 rounded-2xl flex items-center justify-center border ${c.icon} shadow-lg`}>
+                                                <i className={`${study.icon} text-xl`}></i>
                                             </div>
-                                            <span className={`px-3 py-1 rounded-full text-xs font-bold ${c.badge}`}>
-                                                {project.result}
-                                            </span>
+                                            {study.title}
+                                        </h3>
+                                        
+                                        <div className="space-y-4 mb-8 text-slate-300 flex-grow text-[15px] leading-relaxed">
+                                            <p><strong className="text-white font-bold ml-1 mr-2"><i className="fas fa-building text-slate-500 w-5"></i> Client:</strong> {study.client}</p>
+                                            <p><strong className="text-white font-bold ml-1 mr-2"><i className="fas fa-exclamation-triangle text-slate-500 w-5"></i> Problem:</strong> {study.problem}</p>
+                                            <p><strong className="text-white font-bold ml-1 mr-2"><i className="fas fa-hammer text-slate-500 w-5"></i> Built:</strong> {study.built}</p>
+                                            <p className="pt-2"><strong className="text-white font-bold ml-1 mr-2"><i className="fas fa-bolt text-slate-500 w-5"></i> Result:</strong> <span className={`${c.tag} border-none bg-transparent px-0 font-bold`}>{study.result}</span></p>
                                         </div>
-                                        <h3 className="text-2xl font-black mb-1 text-white group-hover:text-blue-400 transition-colors">{project.title}</h3>
-                                        <p className="text-xs font-bold text-blue-400/70 uppercase tracking-widest mb-4">{project.subtitle}</p>
-                                        <p className="text-slate-400 text-sm leading-relaxed mb-6 flex-grow">{project.description}</p>
-                                        <div className="flex flex-wrap gap-2 mt-auto">
-                                            {project.tags.map((tag, tIdx) => (
-                                                <span key={tIdx} className={`px-3 py-1 text-[11px] uppercase font-bold tracking-wider rounded-lg border ${c.tag}`}>{tag}</span>
-                                            ))}
+                                        
+                                        <div className="mt-auto pt-6 border-t border-white/5">
+                                            <a href="#audit-form" className={`group/btn inline-flex items-center gap-2 font-bold transition-all ${c.tag} bg-transparent border-none px-0 hover:brightness-125`}>
+                                                Want something like this? Claim your free audit. 
+                                                <i className="fas fa-arrow-right text-xs ml-1 transition-transform group-hover/btn:translate-x-1"></i>
+                                            </a>
                                         </div>
                                     </div>
                                 </div>

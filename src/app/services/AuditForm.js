@@ -172,7 +172,7 @@ export default function AuditForm() {
                                         Next Steps
                                     </div>
                                     <h3 className="text-3xl md:text-4xl font-black text-white mb-3">Free AI Opportunity Audit</h3>
-                                    <p className="text-sm md:text-base text-slate-400">Takes 2 minutes. Mohamed will personally review your answers and send you a Loom video within 48 hours showing exactly where AI can help your business.</p>
+                                    <p className="text-sm md:text-base text-slate-400">Takes 2 minutes. Every audit request gets a personal Loom video response within 48 hours. Not a template. Not an assistant. Me.</p>
                                 </div>
 
                                 <form onSubmit={handleSubmit} className="space-y-6 text-left">

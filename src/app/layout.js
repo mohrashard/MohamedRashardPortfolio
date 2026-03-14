@@ -2,6 +2,7 @@ import "./globals.css"; // Import your main CSS here
 import { Poppins } from "next/font/google"; // Using Poppins as requested
 import Script from "next/script";
 import Footer from "./components/Footer";
+import ExitIntentPopup from "./components/ExitIntentPopup";
 
 const poppins = Poppins({
     subsets: ["latin"],
@@ -180,6 +181,7 @@ export default function RootLayout({ children }) {
                 <noscript>You need to enable JavaScript to run this app.</noscript>
                 {children}
                 <Footer />
+                <ExitIntentPopup />
 
                 {/* Google Analytics Script */}
                 <Script

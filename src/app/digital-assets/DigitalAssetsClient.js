@@ -4,6 +4,7 @@ import React, { useState } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import { assets } from './data';
+import TrustBar from '../components/TrustBar';
 
 export default function DigitalAssetsClient() {
     const [activeFilter, setActiveFilter] = useState('All Assets');
@@ -86,6 +87,10 @@ export default function DigitalAssetsClient() {
                         High-quality <strong className="text-white">Source Code</strong>, <strong className="text-white">Templates</strong>, and <strong className="text-white">AI Tools</strong> engineered to save you time and help you build faster.
                     </p>
                 </header>
+
+                <div className="mb-16 -mt-8">
+                    <TrustBar />
+                </div>
 
                 {/* Filters */}
                 <div className="flex flex-wrap justify-center gap-3 mb-16">

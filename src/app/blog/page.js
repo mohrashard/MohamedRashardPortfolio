@@ -1,6 +1,7 @@
 import Link from 'next/link';
 import Image from 'next/image';
 import { getSortedPostsData } from '../../lib/posts';
+import TrustBar from '../components/TrustBar';
 
 export const metadata = {
     title: "Tech Blog & Software Insights",
@@ -139,10 +140,14 @@ export default function Blog() {
                         Insights on <br />
                         <span className="bg-gradient-to-r from-blue-400 via-indigo-500 to-purple-500 bg-clip-text text-transparent">Tech & Innovation</span>
                     </h1>
-                    <p className="text-lg md:text-xl text-slate-400 max-w-2xl leading-relaxed font-light">
+                    <p className="text-lg md:text-xl text-slate-400 max-w-2xl mx-auto leading-relaxed font-light">
                         Deep dives into software architecture, AI integration, and the future of web development.
                     </p>
                 </header>
+
+                <div className="mb-16 -mt-8 flex justify-center w-full">
+                    <TrustBar />
+                </div>
 
                 {/* All Posts Grid */}
                 <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
