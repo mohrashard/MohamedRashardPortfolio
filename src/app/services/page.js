@@ -209,17 +209,17 @@ export default function Services() {
                         </p>
 
                         {/* Speed stats bar */}
-                        <div className="inline-flex items-center gap-0 mb-12 rounded-2xl border border-white/8 bg-white/[0.03] overflow-hidden divide-x divide-white/8">
+                        <div className="grid grid-cols-2 md:inline-grid md:grid-cols-4 mx-auto w-full md:w-auto mb-12 rounded-2xl border border-white/8 bg-white/[0.03] overflow-hidden">
                             {[
-                                { value: "48-72hr", label: "MVP Launch", icon: "fas fa-bolt", color: "text-yellow-400" },
-                                { value: "Weeks", label: "Full Product", icon: "fas fa-rocket", color: "text-cyan-400" },
-                                { value: "10+", label: "AI Builds Shipped", icon: "fas fa-microchip", color: "text-blue-400" },
-                                { value: "100%", label: "Client Satisfaction", icon: "fas fa-check-circle", color: "text-emerald-400" },
+                                { value: "48-72hr", label: "MVP Launch", icon: "fas fa-bolt", color: "text-yellow-400", borders: "border-b border-r md:border-b-0 border-white/8" },
+                                { value: "Weeks", label: "Full Product", icon: "fas fa-rocket", color: "text-cyan-400", borders: "border-b md:border-r md:border-b-0 border-white/8" },
+                                { value: "10+", label: "AI Builds Shipped", icon: "fas fa-microchip", color: "text-blue-400", borders: "border-r border-white/8" },
+                                { value: "100%", label: "Client Satisfaction", icon: "fas fa-check-circle", color: "text-emerald-400", borders: "" },
                             ].map((s, i) => (
-                                <div key={i} className="px-6 py-4 text-center hover:bg-white/[0.04] transition-colors">
+                                <div key={i} className={`px-3 sm:px-6 py-4 text-center hover:bg-white/[0.04] transition-colors ${s.borders}`}>
                                     <i className={`${s.icon} ${s.color} text-lg mb-1 block`} />
-                                    <div className={`text-xl font-black ${s.color}`}>{s.value}</div>
-                                    <div className="text-xs text-slate-600 font-semibold uppercase tracking-wider mt-0.5">{s.label}</div>
+                                    <div className={`text-lg sm:text-xl font-black ${s.color}`}>{s.value}</div>
+                                    <div className="text-[10px] sm:text-xs text-slate-600 font-semibold uppercase tracking-tight sm:tracking-wider mt-0.5">{s.label}</div>
                                 </div>
                             ))}
                         </div>
