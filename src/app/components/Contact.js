@@ -20,7 +20,7 @@ export default function Contact() {
                 </h2>
 
                 <p className="text-lg md:text-xl text-slate-400 mb-4 max-w-2xl mx-auto font-light leading-relaxed">
-                    Start with a free AI Audit. I will personally review your business and show you exactly where AI can save you time and money — specific to how you work, delivered within 48 hours.
+                    Start with a free AI Audit. I will personally review your business and show you exactly where AI can save you time and money, specific to how you work, delivered within 48 hours.
                 </p>
 
                 <p className="text-sm text-slate-600 mb-12 font-light">

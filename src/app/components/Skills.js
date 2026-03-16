@@ -3,63 +3,65 @@ import React, { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 
 export default function Skills() {
-    const [activeTab, setActiveTab] = useState("Programming Languages");
+    const [activeTab, setActiveTab] = useState("AI & Machine Learning");
 
     const skillsData = {
-        "Programming Languages": [
-            { name: "C++", icon: "devicon-cplusplus-plain", color: "#00599C" },
-            { name: "Java", icon: "devicon-java-plain", color: "#007396" },
-            { name: "Python", icon: "devicon-python-plain", color: "#3776AB" },
-            { name: "C#", icon: "devicon-csharp-plain", color: "#239120" },
-            { name: "PHP", icon: "devicon-php-plain", color: "#777BB4" },
-        ],
-        "Web Development": [
-            { name: "HTML", icon: "devicon-html5-plain colored", color: "#E34F26" },
-            { name: "CSS", icon: "devicon-css3-plain colored", color: "#1572B6" },
-            { name: "JavaScript", icon: "devicon-javascript-plain colored", color: "#F7DF1E" },
-        ],
-        "Frameworks": [
-            { name: "ASP.NET", icon: "devicon-dot-net-plain colored", color: "#512BD4" },
-            { name: "Java Servlet", icon: "devicon-java-plain colored", color: "#28A1C5" },
-            { name: "React", icon: "devicon-react-original colored", color: "#61DAFB" },
-            { name: "Flask", icon: "devicon-flask-plain", color: "#FFFFFF" },
-            { name: "Express", icon: "devicon-express-original", color: "#FFFFFF" },
-            { name: "Node.js", icon: "devicon-nodejs-plain colored", color: "#339933" },
-            { name: "Next.js", icon: "devicon-nextjs-plain", color: "#FFFFFF" },
-        ],
-        "Databases": [
-            { name: "MySQL", icon: "devicon-mysql-plain colored", color: "#4479A1" },
-            { name: "MSSQL", icon: "devicon-microsoftsqlserver-plain colored", color: "#CC2927" },
-            { name: "MongoDB", icon: "devicon-mongodb-plain colored", color: "#47A248" },
-            { name: "PostgreSQL", icon: "devicon-postgresql-plain colored", color: "#336791" },
-        ],
-        "Tools & Technologies": [
-            { name: "VS Code", icon: "devicon-vscode-plain colored", color: "#007ACC" },
-            { name: "Visual Studio", icon: "devicon-visualstudio-plain colored", color: "#CF9EFF" },
-            { name: "Android Studio", icon: "devicon-android-plain colored", color: "#3DDC84" },
-            { name: "NetBeans", icon: "devicon-apache-plain colored", color: "#D455AB" },
-            { name: "IntelliJ IDEA", icon: "devicon-intellij-plain colored", color: "#FA2C5A" },
-            { name: "Python IDLE", icon: "devicon-python-plain", color: "#3776AB" },
-            { name: "SSMS", icon: "devicon-microsoftsqlserver-plain colored", color: "#CC2927" },
-            { name: "Git", icon: "devicon-git-plain colored", color: "#F05032" },
-            { name: "GitHub", icon: "devicon-github-original", color: "#FFFFFF" },
-            { name: "Jupyter", icon: "devicon-jupyter-plain colored", color: "#F37626" },
-            { name: "Google Colab", icon: "devicon-google-plain colored", color: "#F9AB00" },
-            { name: "Hugging Face", icon: "fas fa-robot", color: "#FFD21E" },
-            { name: "Kaggle", icon: "fab fa-kaggle", color: "#20BEFF" },
-        ],
-        "AI/ML": [
-            { name: "Random Forest", icon: "fas fa-tree", color: "#228B22" },
-            { name: "XGBoost", icon: "fas fa-wind", color: "#11A347" },
-            { name: "Neural Networks", icon: "fas fa-project-diagram", color: "#9932CC" },
+        // ── Tab order: AI first because it is your #1 commercial differentiator ──
+        "AI & Machine Learning": [
+            { name: "OpenAI API", icon: "fas fa-robot", color: "#10a37f" },
+            { name: "LangChain", icon: "fas fa-link", color: "#1c6ef3" },
+            { name: "Gemini API", icon: "fas fa-star", color: "#4285F4" },
+            { name: "Claude API", icon: "fas fa-brain", color: "#D97757" },
+            { name: "OpenClaw", icon: "fas fa-hand-back-fist", color: "#FF4500" },
             { name: "TensorFlow", icon: "devicon-tensorflow-original colored", color: "#FF6F00" },
             { name: "Scikit-learn", icon: "devicon-scikitlearn-plain colored", color: "#F7931E" },
-            { name: "SVM", icon: "fas fa-bezier-curve", color: "#E377C2" },
-            { name: "Linear Regression", icon: "fas fa-chart-line", color: "#1F77B4" },
+            { name: "XGBoost", icon: "fas fa-chart-bar", color: "#11A347" },
+            { name: "Hugging Face", icon: "fas fa-smile", color: "#FFD21E" },
+            { name: "Python", icon: "devicon-python-plain", color: "#3776AB" },
         ],
-        "Cloud": [
+        "Frontend": [
+            { name: "Next.js", icon: "devicon-nextjs-plain", color: "#FFFFFF" },
+            { name: "React", icon: "devicon-react-original colored", color: "#61DAFB" },
+            { name: "TypeScript", icon: "devicon-typescript-plain colored", color: "#3178C6" },
+            { name: "JavaScript", icon: "devicon-javascript-plain colored", color: "#F7DF1E" },
+            { name: "Tailwind CSS", icon: "devicon-tailwindcss-plain colored", color: "#06B6D4" },
+            { name: "Framer Motion", icon: "fas fa-magic", color: "#BB4FE8" },
+            { name: "HTML", icon: "devicon-html5-plain colored", color: "#E34F26" },
+            { name: "CSS", icon: "devicon-css3-plain colored", color: "#1572B6" },
+        ],
+        "Backend": [
+            { name: "Node.js", icon: "devicon-nodejs-plain colored", color: "#339933" },
+            { name: "Express", icon: "devicon-express-original", color: "#FFFFFF" },
+            { name: "Flask", icon: "devicon-flask-plain", color: "#FFFFFF" },
+            { name: "FastAPI", icon: "fas fa-bolt", color: "#009688" },
+            { name: "REST APIs", icon: "fas fa-exchange-alt", color: "#FF6B6B" },
+            { name: "Resend", icon: "fas fa-envelope", color: "#FFFFFF" },
+        ],
+        "Databases": [
+            { name: "Supabase", icon: "devicon-supabase-plain", color: "#3ECF8E" },
+            { name: "PostgreSQL", icon: "devicon-postgresql-plain colored", color: "#336791" },
+            { name: "MongoDB", icon: "devicon-mongodb-plain colored", color: "#47A248" },
+            { name: "MySQL", icon: "devicon-mysql-plain colored", color: "#4479A1" },
+        ],
+        "Mobile": [
+            { name: "React Native", icon: "devicon-react-original colored", color: "#61DAFB" },
+            { name: "Expo", icon: "fas fa-mobile-screen", color: "#FFFFFF" },
+            { name: "Firebase", icon: "devicon-firebase-plain colored", color: "#FFCA28" },
+        ],
+        "DevOps & Cloud": [
+            { name: "Vercel", icon: "devicon-vercel-original", color: "#FFFFFF" },
+            { name: "Railway", icon: "devicon-railway-original", color: "#B835FF" },
             { name: "AWS", icon: "devicon-amazonwebservices-plain-wordmark", color: "#FF9900" },
-        ]
+            { name: "Git", icon: "devicon-git-plain colored", color: "#F05032" },
+            { name: "GitHub", icon: "devicon-github-original", color: "#FFFFFF" },
+            { name: "VS Code", icon: "devicon-vscode-plain colored", color: "#007ACC" },
+        ],
+        "Payments & Auth": [
+            { name: "Stripe", icon: "fab fa-stripe-s", color: "#635BFF" },
+            { name: "Supabase Auth", icon: "fas fa-lock", color: "#3ECF8E" },
+            { name: "JWT", icon: "fas fa-key", color: "#FB015B" },
+            { name: "OAuth 2.0", icon: "fas fa-shield-halved", color: "#4285F4" },
+        ],
     };
 
     return (
