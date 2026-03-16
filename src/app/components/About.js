@@ -67,7 +67,7 @@ export default function About() {
     return (
         <section
             id="about"
-            className="relative py-24 px-6 md:px-12 overflow-hidden bg-[#050505] border-t border-white/5"
+            className="relative py-16 md:py-24 px-5 sm:px-8 md:px-12 overflow-hidden bg-[#050505] border-t border-white/5"
             itemScope
             itemType="https://schema.org/Person"
         >
@@ -82,12 +82,12 @@ export default function About() {
                         <i className="fas fa-user-astronaut"></i> About
                     </div>
                     
-                    <h2 className="text-4xl md:text-5xl lg:text-6xl font-black mb-6 text-white tracking-tight leading-[1.1]">
+                    <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black mb-6 text-white tracking-tight leading-[1.1]">
                         Not just a developer.<br />
                         <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-cyan-400">An engineer who ships.</span>
                     </h2>
                     
-                    <p className="text-slate-400 text-lg md:text-xl leading-relaxed max-w-2xl font-light">
+                    <p className="text-slate-400 text-base sm:text-lg md:text-xl leading-relaxed max-w-2xl font-normal">
                         I am <strong className="text-white font-semibold" itemProp="name">Mohamed Rashard</strong> - a full-stack AI engineer based in <strong className="text-white font-semibold" itemProp="addressLocality">Colombo, Sri Lanka</strong>,
                         building intelligent products for startups and businesses across the US, UK, Canada, and Australia.
                         I hold a <strong className="text-white font-semibold">First Class Honours degree in Software Engineering</strong> and I specialize at the intersection of AI and product velocity - shipping MVPs in 48 hours and production-grade products in weeks.
@@ -95,9 +95,9 @@ export default function About() {
                 </div>
 
                 {/* ── STAT WALL ── */}
-                <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-20">
+                <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4 mb-20">
                     {stats.map((s, i) => (
-                        <div key={i} className={`p-6 rounded-2xl border ${s.bg} hover:-translate-y-1 transition-transform cursor-default`}>
+                        <div key={i} className={`p-5 sm:p-6 rounded-2xl border ${s.bg} hover:-translate-y-1 transition-transform cursor-default`}>
                             <i className={`${s.icon} text-2xl ${s.color} mb-4 block`}></i>
                             <div className={`text-3xl md:text-4xl font-black ${s.color} mb-1 tracking-tight`}>
                                 {s.value}
@@ -110,14 +110,14 @@ export default function About() {
                 </div>
 
                 {/* ── MAIN GRID: narrative + credentials ── */}
-                <div className="grid lg:grid-cols-5 gap-12 mb-20">
+                <div className="grid lg:grid-cols-5 gap-10 lg:gap-12 mb-20">
                     {/* LEFT - expertise narrative (3 cols) */}
                     <div className="lg:col-span-3 space-y-8">
                         <div>
                             <h3 className="text-white font-bold text-2xl mb-6 flex items-center gap-3">
                                 <i className="fas fa-crosshairs text-blue-500"></i> What makes me different
                             </h3>
-                            <div className="space-y-4 text-slate-400 leading-relaxed font-light text-lg">
+                            <div className="space-y-4 text-slate-400 leading-relaxed font-normal text-base sm:text-lg">
                                 <p>
                                     Most developers are cautious. They over-architect, over-estimate, and under-deliver on time.
                                     I operate differently. My obsession is <strong className="text-white font-medium">speed without cutting corners</strong> -
@@ -185,7 +185,7 @@ export default function About() {
                         </h3>
                         {credentials.map((c, i) => (
                             <div key={i}
-                                className={`relative p-6 rounded-2xl border transition-all hover:-translate-y-1 ${c.featured
+                                className={`relative p-5 sm:p-6 rounded-2xl border transition-all hover:-translate-y-1 ${c.featured
                                     ? 'border-cyan-500/30 bg-gradient-to-br from-[#0a192f] to-[#050505] shadow-[0_0_30px_rgba(6,182,212,0.1)]'
                                     : 'border-white/5 bg-[#0a0a0a] hover:border-white/10'
                                     }`}>
@@ -196,7 +196,7 @@ export default function About() {
                                         </span>
                                     </div>
                                 )}
-                                <div className="flex gap-4 items-start">
+                                <div className="flex flex-col sm:flex-row gap-4 items-start">
                                     <div className={`w-12 h-12 rounded-xl flex items-center justify-center flex-shrink-0 ${c.featured
                                         ? 'bg-cyan-500/20 text-cyan-400 border border-cyan-500/30'
                                         : 'bg-white/5 text-slate-500 border border-white/5'
@@ -224,7 +224,7 @@ export default function About() {
                         ))}
 
                         {/* CTA card */}
-                        <div className="mt-8 p-8 rounded-2xl border border-blue-500/30 bg-gradient-to-br from-blue-900/20 to-[#050505]">
+                        <div className="mt-8 p-6 sm:p-8 rounded-2xl border border-blue-500/30 bg-gradient-to-br from-blue-900/20 to-[#050505]">
                             <p className="text-white font-bold text-lg mb-3 flex items-center gap-2">
                                 <i className="fas fa-magnifying-glass text-blue-400"></i> Not sure if it's a fit?
                             </p>
@@ -250,7 +250,7 @@ export default function About() {
                     <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
                         {expertiseAreas.map((area, i) => (
                             <div key={i}
-                                className={`p-6 rounded-2xl border bg-[#0a0a0a] hover:-translate-y-1 transition-all ${area.color.split(' ').slice(1).join(' ')}`}>
+                                className={`p-5 sm:p-6 rounded-2xl border bg-[#0a0a0a] hover:-translate-y-1 transition-all ${area.color.split(' ').slice(1).join(' ')}`}>
                                 <div className={`w-12 h-12 rounded-xl flex items-center justify-center mb-5 border ${area.color}`}>
                                     <i className={`${area.icon} text-xl`}></i>
                                 </div>
