@@ -4,19 +4,18 @@ import { assets } from './digital-assets/data';
 export default function sitemap() {
     const baseUrl = 'https://www.mohamedrashard.dev';
 
-    // 1. Static Routes
-    // 1. Static Routes
-    const routes = [
-        '',
-        '/services',
-        '/labs',
-        '/digital-assets',
-        '/blog',
-    ].map((route) => ({
-        url: `${baseUrl}${route}`,
+    // 1. Static Routes — priority and changeFrequency tuned per page importance
+    const staticRoutes = [
+        { path: '',                 changeFrequency: 'weekly',  priority: 1.0 },
+        { path: '/services',        changeFrequency: 'weekly',  priority: 0.9 },
+        { path: '/digital-assets',  changeFrequency: 'weekly',  priority: 0.85 },
+        { path: '/blog',            changeFrequency: 'weekly',  priority: 0.8 },
+        { path: '/labs',            changeFrequency: 'monthly', priority: 0.7 },
+    ].map(({ path, changeFrequency, priority }) => ({
+        url: `${baseUrl}${path}`,
         lastModified: new Date(),
-        changeFrequency: 'monthly',
-        priority: route === '' ? 1 : 0.8,
+        changeFrequency,
+        priority,
     }));
 
     // 2. Dynamic Blog Posts
@@ -27,7 +26,7 @@ export default function sitemap() {
         priority: 0.7,
     }));
 
-    // 3. Dynamic Digital Assets
+    // 3. Dynamic Digital Asset detail pages
     const digitalAssets = assets.map((asset) => ({
         url: `${baseUrl}/digital-assets/${asset.slug}`,
         lastModified: new Date(),
@@ -35,5 +34,5 @@ export default function sitemap() {
         priority: 0.8,
     }));
 
-    return [...routes, ...posts, ...digitalAssets];
+    return [...staticRoutes, ...posts, ...digitalAssets];
 }
