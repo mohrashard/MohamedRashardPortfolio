@@ -151,18 +151,18 @@ export default async function ProductPage({ params }) {
                     </div>
 
                     {/* Right Column: Key Info & CTA */}
-                    <div className="lg:pl-8">
+                    <div className="lg:pl-8 flex flex-col justify-center">
                         <div className="flex items-center gap-3 mb-6">
-                            <span className="px-4 py-1.5 rounded-full border border-purple-500/30 bg-purple-500/10 text-purple-400 text-xs font-bold uppercase tracking-widest shadow-[0_0_15px_rgba(168,85,247,0.2)]">
+                            <span className="px-4 py-1.5 rounded-full border border-purple-500/30 bg-purple-500/10 text-purple-400 text-[10px] md:text-xs font-bold uppercase tracking-widest shadow-[0_0_15px_rgba(168,85,247,0.2)]">
                                 {asset.category}
                             </span>
-                            <span className="flex items-center gap-1 text-xs font-bold text-green-400">
+                            <span className="flex items-center gap-1 text-[10px] md:text-xs font-bold text-green-400">
                                 <i className="fas fa-check-circle"></i> Instant Download
                             </span>
                         </div>
 
-                        <h1 className="text-4xl md:text-6xl font-black text-white mb-6 leading-[1.1]">{asset.title}</h1>
-                        <p className="text-xl text-slate-300 mb-8 leading-relaxed font-light border-l-4 border-purple-500/20 pl-6">
+                        <h1 className="text-3xl md:text-5xl lg:text-6xl font-black text-white mb-6 leading-[1.05] tracking-tight">{asset.title}</h1>
+                        <p className="text-base md:text-lg text-slate-400 mb-8 leading-relaxed font-light border-l-4 border-purple-500/20 pl-6 max-w-xl">
                             {asset.description}
                         </p>
 
@@ -178,11 +178,20 @@ export default async function ProductPage({ params }) {
 
                             </div>
 
-                            <Link href={asset.buyLink || "#"} target="_blank" className="relative group w-full flex items-center justify-center gap-3 py-4 rounded-2xl bg-white text-black font-black text-lg overflow-hidden shadow-[0_0_40px_rgba(255,255,255,0.3)] hover:shadow-[0_0_60px_rgba(255,255,255,0.5)] transition-all transform hover:-translate-y-1">
-                                <div className="absolute inset-0 bg-gradient-to-r from-purple-500 via-pink-500 to-red-500 opacity-0 group-hover:opacity-10 transition-opacity"></div>
-                                <i className="fas fa-download"></i>
-                                <span>Get Instant Access</span>
-                            </Link>
+                            <div className="flex flex-col gap-3">
+                                <Link href={asset.buyLink || "#"} target="_blank" className="relative group w-full flex items-center justify-center gap-3 py-4 rounded-2xl bg-white text-black font-black text-lg overflow-hidden shadow-[0_0_40px_rgba(255,255,255,0.2)] hover:shadow-[0_0_60px_rgba(255,255,255,0.4)] transition-all transform hover:-translate-y-1">
+                                    <div className="absolute inset-0 bg-gradient-to-r from-purple-500 via-pink-500 to-red-500 opacity-0 group-hover:opacity-10 transition-opacity"></div>
+                                    <i className="fas fa-credit-card"></i>
+                                    <span>Secure Checkout</span>
+                                </Link>
+
+                                {asset.productLink && (
+                                    <Link href={asset.productLink} target="_blank" className="w-full flex items-center justify-center gap-2 py-3 rounded-xl border border-white/10 text-slate-400 hover:text-white hover:bg-white/5 transition-all text-sm font-bold">
+                                        <i className="fas fa-shopping-cart text-xs"></i>
+                                        <span>Learn More on Whop</span>
+                                    </Link>
+                                )}
+                            </div>
                             <p className="text-center text-[10px] text-slate-500 mt-4 flex items-center justify-center gap-4 uppercase font-bold tracking-wider">
                                 <span><i className="fas fa-shield-alt text-green-500 mr-1"></i> Secure Checkout</span>
                                 <span><i className="fas fa-clock text-blue-500 mr-1"></i> Lifetime Access</span>
@@ -228,10 +237,10 @@ export default async function ProductPage({ params }) {
                         <div className="p-8 rounded-3xl bg-[#0a0a0a] border border-white/10 sticky top-32">
                             <h3 className="text-xl font-bold text-white mb-6">What You Get</h3>
                             <ul className="space-y-4">
-                                {[
-                                    { text: "Nexus Animator Gem Link", icon: "fas fa-gem" },
-                                    { text: "Step-by-Step Usage Guide", icon: "fas fa-book-open" }
-                                ].map((item, i) => (
+                                {(asset.whatYouGet || [
+                                    { text: "Product Source Code", icon: "fas fa-code" },
+                                    { text: "Deployment Guide", icon: "fas fa-book-open" }
+                                ]).map((item, i) => (
                                     <li key={i} className="flex items-center gap-4 text-slate-300 p-3 rounded-xl bg-white/5 border border-white/5 hover:bg-white/10 transition-colors">
                                         <div className="w-8 h-8 rounded-full bg-black flex items-center justify-center text-purple-400">
                                             <i className={item.icon}></i>

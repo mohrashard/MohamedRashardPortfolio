@@ -1,5 +1,65 @@
 export const assets = [
     {
+        id: "aeropulse",
+        slug: "aeropulse",
+        title: "AeroPulse – Ultra-Premium SaaS Template",
+        category: "Website Templates",
+        price: "$49",
+        image: "/aeropulse.png",
+        tech: ["Next.js 14", "Spline 3D", "Framer Motion", "Tailwind CSS"],
+        description: "The $15,000 Agency Website, Deployed in 24 Hours. A God-tier, ultra-premium 1-page landing template engineered specifically for high-growth SaaS, AI startups, and elite digital agencies in Colombo and beyond.",
+        longDescription: `<h2>🚀 AeroPulse – The $15,000 Agency Website, Deployed in 24 Hours.</h2>
+
+<p><strong>Live Demo:</strong> <a href="https://aeropulse-tau.vercel.app/" target="_blank" class="text-blue-400 underline italic">aeropulse-tau.vercel.app</a></p>
+
+<p>First impressions dictate your valuation. When users, investors, or early adopters land on your site, it needs to look like a heavily funded startup from day one. </p>
+
+<p><strong>AeroPulse</strong> is a God-tier, ultra-premium <strong>1-page Next.js landing page template</strong> engineered specifically for high-growth SaaS companies, tech agencies, and AI startups. Built by <strong>Mr² Labs</strong>, this architecture doesn't just look incredible—it is optimized for zero-latency performance, perfect Core Web Vitals, and seamless conversion.</p>
+
+<p>We did the heavy lifting so you can focus on building your actual product, not tweaking CSS.</p>
+
+<hr class="my-8 border-white/10" />
+
+<h3><strong>⚡ The Architecture & Tech Stack</strong></h3>
+<ul class="space-y-3">
+    <li><strong><i class="fas fa-bolt text-blue-400 mr-2"></i> Next.js App Router:</strong> Built on the bleeding edge of React for infinite scalability and instant load times.</li>
+    <li><strong><i class="fas fa-cube text-purple-400 mr-2"></i> Spline 3D Integration:</strong> A fully interactive, scroll-hijacked 3D engine that runs buttery-smooth in the browser.</li>
+    <li><strong><i class="fas fa-wind text-cyan-400 mr-2"></i> Framer Motion:</strong> Cinematic, scroll-triggered text reveals, asymmetric grid assemblies, and glassmorphic hover states.</li>
+    <li><strong><i class="fab fa-css3-alt text-sky-400 mr-2"></i> Tailwind CSS:</strong> Fully responsive, dark-mode-first aesthetic with pixel-perfect utility classes.</li>
+</ul>
+
+<hr class="my-8 border-white/10" />
+
+<h3><strong>🚀 Conversion-Engineered Layout</strong></h3>
+<ul class="space-y-3">
+    <li><strong>Cinematic Hero Section:</strong> A massive floating 3D asset sweeping behind high-contrast, typography-driven messaging.</li>
+    <li><strong>Asymmetric "Bento Box" Grid:</strong> Highlight your core features with Apple-tier glassmorphism and subtle glow effects.</li>
+    <li><strong>Scroll-Hijacked Metrics:</strong> Prove your performance with dynamic, counting stats locked into the user's scroll.</li>
+    <li><strong>Terminal Command Center CTA:</strong> A unique, developer-focused contact section designed like a sleek MacOS terminal window.</li>
+</ul>
+
+<hr class="my-8 border-white/10" />
+
+<h3><strong>💎 What’s Included?</strong></h3>
+<ul class="space-y-4">
+    <li class="bg-white/5 p-4 rounded-xl border border-white/10"><strong><i class="fas fa-file-archive text-yellow-400 mb-2 block text-xl"></i> Complete Source Code (.ZIP)</strong><br/><span class="text-sm text-slate-400">A clean, modular, and highly organized Next.js codebase.</span></li>
+    <li class="bg-white/5 p-4 rounded-xl border border-white/10"><strong><i class="fas fa-cogs text-blue-400 mb-2 block text-xl"></i> Centralized Configuration</strong><br/><span class="text-sm text-slate-400">Swap out links, text, and metadata in one single <code>config/site.ts</code> file in seconds.</span></li>
+    <li class="bg-white/5 p-4 rounded-xl border border-white/10"><strong><i class="fas fa-book text-purple-400 mb-2 block text-xl"></i> The AeroPulse Blueprint</strong><br/><span class="text-sm text-slate-400">A premium, step-by-step documentation guide for instant deployment.</span></li>
+</ul>
+
+<p class="mt-8 text-center bg-blue-500/10 p-6 rounded-2xl border border-blue-500/20">
+    <strong class="text-blue-400">Limited-Time Offer:</strong> Save 45% today. This 1-page ultra-premium architecture is yours for just <strong>$49</strong> (was $89).
+</p>`,
+        buyLink: "https://whop.com/checkout/plan_xYorgh3jAuutc",
+        productLink: "https://whop.com/mr2-labs/aeropulse-premium-next-js-saas-template/",
+        delivery: "ZIP (Source Code) + Deployment Guide",
+        originalPrice: "$89",
+        whatYouGet: [
+            { text: "Complete ZIP Source Code", icon: "fas fa-file-archive" },
+            { text: "AeroPulse Deployment Blueprint", icon: "fas fa-map" }
+        ]
+    },
+    {
         id: "nexus-animator",
         slug: "nexus-animator",
         title: "Nexus Animator",
@@ -129,7 +189,11 @@ export const assets = [
 </div>`,
         buyLink: "https://mrrlabs.gumroad.com/l/nexusanimator",
         delivery: "PDF (Gem Link)",
-        originalPrice: "$50"
+        originalPrice: "$50",
+        whatYouGet: [
+            { text: "Nexus Animator Gem Link", icon: "fas fa-gem" },
+            { text: "Step-by-Step Usage Guide", icon: "fas fa-book-open" }
+        ]
     }
 ];
 
