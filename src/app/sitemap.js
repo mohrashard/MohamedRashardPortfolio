@@ -23,7 +23,7 @@ export default function sitemap() {
         url: `${baseUrl}/blog/${post.id}`,
         lastModified: new Date(post.date),
         changeFrequency: 'weekly',
-        priority: 0.7,
+        priority: 0.8,
     }));
 
     // 3. Dynamic Digital Asset detail pages

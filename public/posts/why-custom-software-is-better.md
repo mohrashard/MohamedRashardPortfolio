@@ -68,3 +68,15 @@ In most custom development contracts, the client owns the source code and intell
 *   **Cost Efficiency:** Despite higher upfront costs, custom software eliminates perpetual subscription fees and per-user costs.
 *   **Ownership:** You own the intellectual property, granting full control over security, maintenance, and future modifications.
 *   **Integration:** Tailored software bridges gaps between disjointed systems, creating a unified and efficient workflow.
+
+---
+
+## Ready to Ship Your MVP in 48 Hours?
+
+If this was useful, imagine what we could build together. I ship working AI products and MVPs in 48 to 72 hours — not weeks, not months.
+
+**Claim your free AI Opportunity Audit** — I will personally review your business and send you a Loom video within 48 hours showing exactly where AI can save you time and money. No pitch. No obligation.
+
+[Claim Your Free AI Audit →](https://www.mohamedrashard.dev/services#audit-form)
+
+*Mr² Labs — AI-powered products shipped at startup speed.*

@@ -100,3 +100,14 @@ If your business needs a custom web or AI solution, this is exactly the type of 
 
 ---
 
+---
+
+## Ready to Ship Your MVP in 48 Hours?
+
+If this was useful, imagine what we could build together. I ship working AI products and MVPs in 48 to 72 hours — not weeks, not months.
+
+**Claim your free AI Opportunity Audit** — I will personally review your business and send you a Loom video within 48 hours showing exactly where AI can save you time and money. No pitch. No obligation.
+
+[Claim Your Free AI Audit →](https://www.mohamedrashard.dev/services#audit-form)
+
+*Mr² Labs — AI-powered products shipped at startup speed.*

@@ -46,3 +46,15 @@ If you are planning to build a new AI-powered SaaS product, stop thinking in ter
 Whether you are a booming local startup here in Sri Lanka or a scaling enterprise across the globe, the rules of the tech game have fundamentally changed. The winners will not be those with the most perfectly engineered initial release—they will be the visionary founders who launch the fastest, learn the quickest, and iterate the most relentlessly. 
 
 Are you ready to turn your concept into a reality in record time? Stop waiting. Let's talk about how we can accelerate your SaaS development journey and launch your product this week.
+
+---
+
+## Ready to Ship Your MVP in 48 Hours?
+
+If this was useful, imagine what we could build together. I ship working AI products and MVPs in 48 to 72 hours — not weeks, not months.
+
+**Claim your free AI Opportunity Audit** — I will personally review your business and send you a Loom video within 48 hours showing exactly where AI can save you time and money. No pitch. No obligation.
+
+[Claim Your Free AI Audit →](https://www.mohamedrashard.dev/services#audit-form)
+
+*Mr² Labs — AI-powered products shipped at startup speed.*

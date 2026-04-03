@@ -103,3 +103,15 @@ Building these sophisticated architectures is a deeply complex engineering feat�
 It is time to stop conceptualizing and start executing. Stop allowing unstructured data to dictate your clinical inefficiency. The future of healthcare relies on algorithmic clarity, and the technology to achieve it is readily available right now.
 
 **Want to build the next LiverLens? Claim your audit at Mr² Labs today.**
+
+---
+
+## Ready to Ship Your MVP in 48 Hours?
+
+If this was useful, imagine what we could build together. I ship working AI products and MVPs in 48 to 72 hours — not weeks, not months.
+
+**Claim your free AI Opportunity Audit** — I will personally review your business and send you a Loom video within 48 hours showing exactly where AI can save you time and money. No pitch. No obligation.
+
+[Claim Your Free AI Audit →](https://www.mohamedrashard.dev/services#audit-form)
+
+*Mr² Labs — AI-powered products shipped at startup speed.*

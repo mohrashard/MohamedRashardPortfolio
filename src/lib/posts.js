@@ -7,29 +7,39 @@ const postsDirectory = path.join(process.cwd(), 'public/posts');
 export function getSortedPostsData() {
     // Get file names under /public/posts
     const fileNames = fs.readdirSync(postsDirectory);
-    const allPostsData = fileNames.filter(fileName => fileName.endsWith('.md')).map((fileName) => {
-        // Remove ".md" from file name to get id
-        const id = fileName.replace(/\.md$/, '');
+    // Get data from each file
+    const allPostsData = fileNames
+        .filter(fileName => /\.md$/i.test(fileName))
+        .map((fileName) => {
+            // Remove ".md" from file name to get id
+            const id = fileName.replace(/\.md$/i, '');
 
-        // Read markdown file as string
-        const fullPath = path.join(postsDirectory, fileName);
-        const fileContents = fs.readFileSync(fullPath, 'utf8');
+            // Read markdown file as string
+            const fullPath = path.join(postsDirectory, fileName);
+            const fileContents = fs.readFileSync(fullPath, 'utf8');
 
-        // Use gray-matter to parse the post metadata section
-        const matterResult = matter(fileContents);
+            // Use gray-matter to parse the post metadata section
+            const matterResult = matter(fileContents);
 
-        // Combine the data with the id
-        return {
-            id,
-            ...matterResult.data,
-        };
-    });
+            // Normalize Date: gray-matter might parse it as a Date object or string
+            // We want to ensure it's a string for consistent handling if needed,
+            // or just ensure we can sort it.
+            let date = matterResult.data.date;
+            if (date instanceof Date) {
+                date = date.toISOString();
+            }
+
+            // Combine the data with the id
+            return {
+                id,
+                ...matterResult.data,
+                date: date || '2000-01-01', // Fallback for sorting
+            };
+        });
 
     // Sort posts by date
     return allPostsData.sort((a, b) => {
-        const dateA = new Date(a.date);
-        const dateB = new Date(b.date);
-        if (dateA < dateB) {
+        if (new Date(a.date) < new Date(b.date)) {
             return 1;
         } else {
             return -1;

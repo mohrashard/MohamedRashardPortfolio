@@ -115,3 +115,15 @@ At **Mr² Labs**, stationed in the tech hub of Colombo, Sri Lanka, we specialize
 Don't let slow development kill your startup's potential. If you have an AI concept that needs to be brought precisely into reality, let's inject velocity into your timeline.
 
 **Book your Free AI Opportunity Audit with Mr² Labs today, and let's discuss how we can engineer your product this week.**
+
+---
+
+## Ready to Ship Your MVP in 48 Hours?
+
+If this was useful, imagine what we could build together. I ship working AI products and MVPs in 48 to 72 hours — not weeks, not months.
+
+**Claim your free AI Opportunity Audit** — I will personally review your business and send you a Loom video within 48 hours showing exactly where AI can save you time and money. No pitch. No obligation.
+
+[Claim Your Free AI Audit →](https://www.mohamedrashard.dev/services#audit-form)
+
+*Mr² Labs — AI-powered products shipped at startup speed.*

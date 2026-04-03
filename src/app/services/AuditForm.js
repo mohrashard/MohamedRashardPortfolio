@@ -119,7 +119,7 @@ export default function AuditForm() {
     };
 
     return (
-        <div id="audit-form" ref={formRef}>
+        <div ref={formRef}>
             {/* Animated wrapper — always in DOM when isOpen, fades + slides in/out */}
             <div
                 style={{

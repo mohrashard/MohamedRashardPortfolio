@@ -642,7 +642,7 @@ export default function Services() {
                 {/* ============================================================
                     AUDIT FORM
                 ============================================================ */}
-                <section className="mb-24 max-w-5xl mx-auto relative z-20">
+                <section id="audit-form" className="mb-24 max-w-5xl mx-auto relative z-20 scroll-mt-24">
                     <AuditForm />
                 </section>
 
