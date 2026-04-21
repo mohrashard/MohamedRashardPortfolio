@@ -22,13 +22,39 @@ export default function EstimatorForm({ appTitle, baseFeatures, slug }: Estimato
     const [stage, setStage] = useState(1);
     const [idea, setIdea] = useState('');
     const [isAnalyzing, setIsAnalyzing] = useState(false);
+    const [progress, setProgress] = useState(0);
+    const [statusIndex, setStatusIndex] = useState(0);
     const [estimateData, setEstimateData] = useState<EstimateData | null>(null);
     const [email, setEmail] = useState('');
     const [isUnlocking, setIsUnlocking] = useState(false);
 
+    const statusMessages = [
+        "Analyzing your idea...",
+        "Identifying technical requirements...",
+        "Calculating API dependencies...",
+        "Comparing agency market rates...",
+        "Building your cost breakdown..."
+    ];
+
     const handleAnalyze = async (e: React.FormEvent) => {
         e.preventDefault();
         setIsAnalyzing(true);
+        setProgress(30);
+        setStatusIndex(0);
+
+        // Slow climb to 85%
+        const climbInterval = setInterval(() => {
+            setProgress(prev => {
+                if (prev >= 85) return 85;
+                return prev + 1.83;
+            });
+        }, 100);
+
+        // Rotate messages
+        const statusInterval = setInterval(() => {
+            setStatusIndex(prev => (prev + 1) % statusMessages.length);
+        }, 800);
+
         try {
             const res = await fetch('/api/generate-estimate', {
                 method: 'POST',
@@ -37,49 +63,63 @@ export default function EstimatorForm({ appTitle, baseFeatures, slug }: Estimato
             });
             if (!res.ok) throw new Error('API error');
             const data: EstimateData = await res.json();
-            setEstimateData(data);
-            setStage(2);
+            
+            clearInterval(climbInterval);
+            clearInterval(statusInterval);
+            setProgress(100);
+            
+            // Short delay to show 100%
+            setTimeout(() => {
+                setEstimateData(data);
+                setStage(2);
+            }, 400);
         } catch {
-            // Fallback mock so UI never breaks during development
-            setEstimateData({
-                appName: 'SmartApp Pro',
-                summary: 'An AI-powered application based on your described idea, built for rapid market validation.',
-                isSimpleBuild: false,
-                features: [
-                    { name: 'AI Core Engine', description: 'Custom LLM pipeline for intelligent processing', complexity: 'High' },
-                    { name: 'User Authentication', description: 'OAuth2 + magic link flow with RLS', complexity: 'Low' },
-                    { name: 'Real-time Dashboard', description: 'Live data visualization with websockets', complexity: 'Medium' },
-                    { name: 'API Integrations', description: 'Third-party data source connectors', complexity: 'Medium' },
-                    { name: 'Admin Panel', description: 'Internal management and analytics interface', complexity: 'High' },
-                ],
-                techStack: [
-                    'Next.js 15', 
-                    'Tailwind CSS', 
-                    'Supabase Edge Functions', 
-                    'PostgreSQL (Supabase)', 
-                    'OpenAI API'
-                ],
-                agencyCostMin: 22000,
-                agencyCostMax: 48000,
-                timelineMinWeeks: 8,
-                timelineMaxWeeks: 18,
-                engineersMin: 2,
-                engineersMax: 4,
-                agencyPhases: [
-                    { phase: 'Discovery & Architecture', duration: '1–2 weeks', cost: '$3,000–$8,000' },
-                    { phase: 'UI/UX Design', duration: '2–3 weeks', cost: '$4,000–$10,000' },
-                    { phase: 'Core Development', duration: '4–10 weeks', cost: '$10,000–$24,000' },
-                    { phase: 'QA & Testing', duration: '1–2 weeks', cost: '$3,000–$5,000' },
-                    { phase: 'Deployment & Handoff', duration: '1 week', cost: '$2,000–$4,000' },
-                ],
-                mr2Labs: {
-                    sprintTime: '72 hours',
-                    approach: 'I strip away everything that isn\'t core user value. Instead of spending weeks on design systems, I use battle-tested component libraries and ship a working, authenticated, AI-powered product in 3 days.',
-                    coreFeatures: ['AI analysis engine with real user input', 'Authentication + user dashboard', 'Core data processing loop'],
-                    skippedForMVP: ['Advanced admin panel', 'Custom analytics reporting', 'White-label features'],
-                },
-            });
-            setStage(2);
+            clearInterval(climbInterval);
+            clearInterval(statusInterval);
+            setProgress(100);
+            
+            setTimeout(() => {
+                // Fallback mock so UI never breaks during development
+                setEstimateData({
+                    appName: 'SmartApp Pro',
+                    summary: 'An AI-powered application based on your described idea, built for rapid market validation.',
+                    isSimpleBuild: false,
+                    features: [
+                        { name: 'AI Core Engine', description: 'Custom LLM pipeline for intelligent processing', complexity: 'High' },
+                        { name: 'User Authentication', description: 'OAuth2 + magic link flow with RLS', complexity: 'Low' },
+                        { name: 'Real-time Dashboard', description: 'Live data visualization with websockets', complexity: 'Medium' },
+                        { name: 'API Integrations', description: 'Third-party data source connectors', complexity: 'Medium' },
+                        { name: 'Admin Panel', description: 'Internal management and analytics interface', complexity: 'High' },
+                    ],
+                    techStack: [
+                        'Next.js 15', 
+                        'Tailwind CSS', 
+                        'Supabase Edge Functions', 
+                        'PostgreSQL (Supabase)', 
+                        'OpenAI API'
+                    ],
+                    agencyCostMin: 22000,
+                    agencyCostMax: 48000,
+                    timelineMinWeeks: 8,
+                    timelineMaxWeeks: 18,
+                    engineersMin: 2,
+                    engineersMax: 4,
+                    agencyPhases: [
+                        { phase: 'Discovery & Architecture', duration: '1–2 weeks', cost: '$3,000–$8,000' },
+                        { phase: 'UI/UX Design', duration: '2–3 weeks', cost: '$4,000–$10,000' },
+                        { phase: 'Core Development', duration: '4–10 weeks', cost: '$10,000–$24,000' },
+                        { phase: 'QA & Testing', duration: '1–2 weeks', cost: '$3,000–$5,000' },
+                        { phase: 'Deployment & Handoff', duration: '1 week', cost: '$2,000–$4,000' },
+                    ],
+                    mr2Labs: {
+                        sprintTime: '72 hours',
+                        approach: 'I strip away everything that isn\'t core user value. Instead of spending weeks on design systems, I use battle-tested component libraries and ship a working, authenticated, AI-powered product in 3 days.',
+                        coreFeatures: ['AI analysis engine with real user input', 'Authentication + user dashboard', 'Core data processing loop'],
+                        skippedForMVP: ['Advanced admin panel', 'Custom analytics reporting', 'White-label features'],
+                    },
+                });
+                setStage(2);
+            }, 400);
         } finally {
             setIsAnalyzing(false);
         }
@@ -112,7 +152,26 @@ export default function EstimatorForm({ appTitle, baseFeatures, slug }: Estimato
                             <h3 className="text-2xl font-black text-white mb-2 tracking-tight">Describe Your App</h3>
                             <p className="text-sm text-slate-400">Plain English. Our AI will reverse-engineer the full architecture, costs, and a rapid build plan.</p>
                         </div>
-                        <form onSubmit={handleAnalyze} className="flex flex-col gap-5">
+
+                        {/* Analysis Progress UI */}
+                        {isAnalyzing && (
+                            <div className="mb-8 animate-in fade-in slide-in-from-top-4 duration-500">
+                                <div className="flex justify-between items-end mb-2">
+                                    <p className="text-[10px] font-black text-blue-400 uppercase tracking-widest animate-pulse">
+                                        {statusMessages[statusIndex]}
+                                    </p>
+                                    <p className="text-[10px] font-mono text-slate-500">{Math.round(progress)}%</p>
+                                </div>
+                                <div className="h-1.5 w-full bg-white/5 rounded-full overflow-hidden border border-white/5">
+                                    <div 
+                                        className="h-full bg-gradient-to-r from-blue-600 to-cyan-400 transition-all duration-300 ease-out"
+                                        style={{ width: `${progress}%` }}
+                                    />
+                                </div>
+                            </div>
+                        )}
+
+                        <form onSubmit={handleAnalyze} className={`flex flex-col gap-5 transition-opacity duration-500 ${isAnalyzing ? 'opacity-40 pointer-events-none' : 'opacity-100'}`}>
                             <div className="flex flex-col gap-2">
                                 <label className="text-[10px] font-black text-blue-500 uppercase tracking-[0.15em]">Your idea</label>
                                 <textarea
@@ -130,7 +189,7 @@ export default function EstimatorForm({ appTitle, baseFeatures, slug }: Estimato
                                 className="group w-full flex items-center justify-center gap-3 py-4 rounded-2xl bg-blue-600 text-white font-black text-xs uppercase tracking-[0.2em] shadow-xl disabled:opacity-40 transition-all transform hover:-translate-y-0.5 hover:shadow-blue-500/40"
                             >
                                 {isAnalyzing ? (
-                                    <><div className="w-4 h-4 border-2 border-white/30 border-t-white rounded-full animate-spin" /><span>Building Your Report...</span></>
+                                    <><div className="w-4 h-4 border-2 border-white/30 border-t-white rounded-full animate-spin" /><span>Processing Architecture...</span></>
                                 ) : (
                                     <><span>Analyze My App</span><i className="fas fa-bolt text-yellow-400 group-hover:scale-125 transition-transform" /></>
                                 )}
@@ -398,6 +457,17 @@ export default function EstimatorForm({ appTitle, baseFeatures, slug }: Estimato
                             <span>Book Free 15-Min Strategy Call</span>
                             <i className="fas fa-calendar-check opacity-60" />
                         </button>
+
+                        <div className="text-center">
+                            <p className="text-[10px] text-slate-600 mb-3 font-light">Not ready to chat? Take the blueprint with you.</p>
+                            <button
+                                onClick={() => window.open('/72-Hour-MVP-Blueprint.pdf', '_blank')}
+                                className="w-full flex items-center justify-center gap-2 py-3.5 rounded-2xl bg-transparent border border-white/10 text-slate-300 font-bold text-xs uppercase tracking-[0.15em] transition-all hover:border-blue-500/40 hover:text-blue-300 hover:bg-blue-500/5"
+                            >
+                                <i className="fas fa-file-arrow-down text-blue-400" />
+                                <span>Download Sample Blueprint PDF</span>
+                            </button>
+                        </div>
 
                     </div>
                     );

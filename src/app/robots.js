@@ -5,6 +5,6 @@ export default function robots() {
             allow: '/',
             disallow: ['/private/'],
         },
-        sitemap: 'https://www.mohamedrashard.dev/sitemap.xml',
+        sitemap: `${process.env.NEXT_PUBLIC_SITE_URL}/sitemap.xml`,
     }
 }

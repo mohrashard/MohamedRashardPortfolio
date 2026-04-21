@@ -128,6 +128,51 @@ export default function Services() {
         <div className="min-h-screen bg-[#050505] text-[#e0e0e0] font-sans selection:bg-blue-500/30 overflow-x-hidden">
 
             {/* JSON-LD */}
+            <script
+                type="application/ld+json"
+                dangerouslySetInnerHTML={{
+                    __html: JSON.stringify({
+                        "@context": "https://schema.org",
+                        "@type": "ProfessionalService",
+                        "name": "Mr² Labs",
+                        "description": "AI-powered software development agency based in Colombo, Sri Lanka. We build MVPs, SaaS platforms, web apps, mobile apps, AI automation systems, landing pages, portfolios, and custom software — shipped in 72 hours.",
+                        "url": "https://www.mohamedrashard.dev/services",
+                        "telephone": "",
+                        "address": {
+                            "@type": "PostalAddress",
+                            "streetAddress": "Colombo",
+                            "addressLocality": "Colombo",
+                            "addressRegion": "Western Province",
+                            "addressCountry": "LK"
+                        },
+                        "geo": {
+                            "@type": "GeoCoordinates",
+                            "latitude": "6.9271",
+                            "longitude": "79.8612"
+                        },
+                        "priceRange": "$$",
+                        "openingHours": "Mo-Fr 09:00-18:00",
+                        "hasOfferCatalog": {
+                            "@type": "OfferCatalog",
+                            "name": "Development Services",
+                            "itemListElement": [
+                                { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "MVP Development" } },
+                                { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Complete SaaS Development" } },
+                                { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Web Application Development" } },
+                                { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Mobile App Development" } },
+                                { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "AI Automation Development" } },
+                                { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Landing Page Development" } },
+                                { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Portfolio Development" } },
+                                { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Custom Software Development" } }
+                            ]
+                        },
+                        "sameAs": [
+                            "https://github.com/mohrashard/",
+                            "https://www.linkedin.com/in/mohamedrashard"
+                        ]
+                    })
+                }}
+            />
             {jsonLd.map((schema, i) => (
                 <script key={i} type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }} />
             ))}

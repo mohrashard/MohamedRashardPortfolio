@@ -1,5 +1,6 @@
 import { getSortedPostsData } from '../lib/posts';
 import { assets } from './digital-assets/data';
+import pseoData from '../data/pseo-slugs.json';
 
 export default function sitemap() {
     const baseUrl = 'https://www.mohamedrashard.dev';
@@ -34,5 +35,13 @@ export default function sitemap() {
         priority: 0.8,
     }));
 
-    return [...staticRoutes, ...posts, ...digitalAssets];
+    // 4. Dynamic pSEO Cost-to-Build pages
+    const costToBuildPages = pseoData.map((project) => ({
+        url: `${process.env.NEXT_PUBLIC_SITE_URL}/cost-to-build/${project.slug}`,
+        lastModified: new Date().toISOString(),
+        changeFrequency: 'monthly',
+        priority: 0.9,
+    }));
+
+    return [...staticRoutes, ...posts, ...digitalAssets, ...costToBuildPages];
 }
