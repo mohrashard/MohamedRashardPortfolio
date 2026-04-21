@@ -15,7 +15,7 @@ I don’t care how brilliant you think your SaaS concept is. I don't care how ma
 
 I’m Mohamed, a Full-Stack AI Engineer, and at **Mr² Labs**—a leading AI engineering and tech agency based out of Colombo, Sri Lanka—I see this exact mistake every single day. Founders from across the globe fall in love with their code instead of their customers. They build bloated, overly complex monuments to their own egos, launch to absolute crickets, and wonder why the world didn't recognize their genius.
 
-Here is the brutal truth you need to internalize right now: An MVP is not a broken product; it is a **validation engine**.
+Here is the brutal truth you need to internalize right now: An MVP ([see what it costs to build](/cost-to-build)) is not a broken product; it is a **validation engine**.
 
 ## The Trap of Over-Engineering
 

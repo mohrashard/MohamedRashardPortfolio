@@ -91,6 +91,20 @@ export default async function Post({ params }) {
         }
     };
 
+    // FAQ Schema — dynamic from post frontmatter
+    const jsonLdFaq = postData.faqs && Array.isArray(postData.faqs) ? {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": postData.faqs.map(faq => ({
+            "@type": "Question",
+            "name": faq.question,
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": faq.answer
+            }
+        }))
+    } : null;
+
     return (
         <div className="min-h-screen bg-[#050505] text-[#e0e0e0] font-sans selection:bg-blue-500/30 overflow-x-hidden">
 
@@ -99,6 +113,14 @@ export default async function Post({ params }) {
                 type="application/ld+json"
                 dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLdArticle) }}
             />
+
+            {/* FAQ Schema — Dynamic from postData.faqs */}
+            {jsonLdFaq && (
+                <script
+                    type="application/ld+json"
+                    dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLdFaq) }}
+                />
+            )}
 
             {/* Background Decoration - Optimized */}
             <div className="fixed inset-0 z-0 pointer-events-none bg-[#050505]">
@@ -184,6 +206,37 @@ export default async function Post({ params }) {
                     <ReactMarkdown
                         remarkPlugins={[remarkGfm]}
                         rehypePlugins={[rehypeRaw]}
+                        components={{
+                            div: ({ node, className, children, ...props }) => {
+                                if (className === 'cta-banner') {
+                                    return (
+                                        <div className="not-prose my-12 relative overflow-hidden rounded-3xl border border-blue-500/30 bg-gradient-to-br from-blue-950/60 via-[#0a0f1e]/80 to-purple-950/40 p-10 text-center shadow-[0_0_60px_-10px_rgba(59,130,246,0.35)] backdrop-blur-sm" {...props}>
+                                            {/* Glow accents */}
+                                            <div className="pointer-events-none absolute -top-16 left-1/2 h-40 w-96 -translate-x-1/2 rounded-full bg-blue-500/20 blur-3xl" />
+                                            <div className="pointer-events-none absolute -bottom-12 right-0 h-32 w-64 rounded-full bg-purple-600/15 blur-2xl" />
+
+                                            <p className="relative mb-2 text-xs font-bold uppercase tracking-widest text-blue-400">Free Consultation</p>
+                                            <h2 className="relative mb-4 text-3xl font-black text-white md:text-4xl">
+                                                Building an AI Product with Next.js?
+                                            </h2>
+                                            <p className="relative mx-auto mb-8 max-w-lg text-base text-slate-300 leading-relaxed">
+                                                Get a free technical estimate and 72-hour build plan for your idea.
+                                            </p>
+                                            <a
+                                                href="/cost-to-build"
+                                                className="relative inline-flex items-center gap-2 rounded-full bg-blue-600 px-8 py-4 text-base font-bold text-white shadow-[0_0_30px_rgba(59,130,246,0.5)] transition-all duration-300 hover:bg-blue-500 hover:shadow-[0_0_45px_rgba(59,130,246,0.7)] hover:-translate-y-0.5"
+                                            >
+                                                Get Free Estimate
+                                                <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
+                                                    <path strokeLinecap="round" strokeLinejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                                                </svg>
+                                            </a>
+                                        </div>
+                                    );
+                                }
+                                return <div className={className} {...props}>{children}</div>;
+                            }
+                        }}
                     >
                         {postData.contentHtml}
                     </ReactMarkdown>
@@ -201,6 +254,63 @@ export default async function Post({ params }) {
                         </p>
                     </div>
                 </div>
+
+                {/* Visible FAQ Section */}
+                {postData.faqs && postData.faqs.length > 0 && (
+                    <section className="mt-20">
+                        <div className="flex items-center gap-4 mb-10">
+                            <h2 className="text-3xl md:text-4xl font-black text-white">Frequently Asked <span className="text-blue-400">Questions</span></h2>
+                            <div className="flex-grow h-px bg-gradient-to-r from-blue-500/50 to-transparent"></div>
+                        </div>
+                        <div className="space-y-4">
+                            {postData.faqs.map((faq, index) => (
+                                <details key={index} className="group rounded-2xl bg-white/5 border border-white/10 overflow-hidden transition-all duration-300 hover:border-blue-500/30">
+                                    <summary className="flex items-center justify-between p-6 cursor-pointer list-none text-lg font-bold text-slate-200 group-open:text-blue-400">
+                                        <span className="pr-6">{faq.question}</span>
+                                        <span className="flex-shrink-0 w-8 h-8 rounded-full border border-white/10 flex items-center justify-center transition-transform duration-300 group-open:rotate-180 group-hover:bg-blue-600/20">
+                                            <i className="fas fa-chevron-down text-xs"></i>
+                                        </span>
+                                    </summary>
+                                    <div className="px-6 pb-6 text-slate-400 leading-relaxed text-base border-t border-white/5 pt-4">
+                                        {faq.answer}
+                                    </div>
+                                </details>
+                            ))}
+                        </div>
+                    </section>
+                )}
+
+                {/* Global Lead Capture CTA */}
+                <section className="mt-20 p-8 md:p-16 rounded-[2.5rem] bg-gradient-to-br from-[#0a0a0a] to-[#050505] border border-white/5 relative overflow-hidden group">
+                    <div className="absolute top-0 right-0 w-96 h-96 bg-blue-600/5 rounded-full blur-[120px] -mr-48 -mt-48 transition-colors group-hover:bg-blue-600/10"></div>
+                    <div className="absolute bottom-0 left-0 w-64 h-64 bg-purple-600/5 rounded-full blur-[100px] -ml-32 -mb-32"></div>
+                    
+                    <div className="relative z-10 text-center max-w-2xl mx-auto">
+                        <h2 className="text-3xl md:text-5xl font-black text-white mb-6 leading-tight">
+                            Got an app idea you want to build fast?
+                        </h2>
+                        <p className="text-slate-400 text-lg md:text-xl mb-10 leading-relaxed">
+                            See what it costs to build vs what Mr² Labs charges for a 72-hour sprint. 
+                            <span className="block mt-2 text-blue-400 font-bold">Free estimate, no call needed.</span>
+                        </p>
+                        <div className="flex flex-col items-center gap-6">
+                            <Link 
+                                href="/cost-to-build" 
+                                className="w-full sm:w-auto px-12 py-5 rounded-full bg-blue-600 text-white font-extrabold text-xl hover:bg-blue-500 transition-all duration-300 shadow-[0_15px_35px_-10px_rgba(37,99,235,0.5)] hover:shadow-[0_20px_45px_-10px_rgba(37,99,235,0.6)] transform hover:-translate-y-1"
+                            >
+                                Get My Free Estimate →
+                            </Link>
+                            <a 
+                                href="https://calendly.com/mohrashard/30min" 
+                                target="_blank" 
+                                rel="noopener noreferrer"
+                                className="text-slate-500 hover:text-white transition-all text-sm font-bold uppercase tracking-widest border-b border-white/10 hover:border-blue-500 pb-1"
+                            >
+                                Or book a free 15-min strategy call
+                            </a>
+                        </div>
+                    </div>
+                </section>
 
             </main>
         </div>

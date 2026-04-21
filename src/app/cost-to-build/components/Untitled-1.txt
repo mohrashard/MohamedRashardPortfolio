@@ -1,0 +1,123 @@
+[Labs](https://www.mohamedrashard.dev/labs)
+[Blog](https://www.mohamedrashard.dev/blog)
+[Labs](https://www.mohamedrashard.dev/labs)
+[Blog](https://www.mohamedrashard.dev/blog)
+
+## Next.js Web Developer & Systems Architect in Sri Lanka
+High-performance AI tools, SaaS platforms, and tailored web apps for founders who are done waiting. Trusted by global startups to deliver scalable revenue ecosystems.
+[Claim Free AI Audit](https://www.mohamedrashard.dev/services#audit-form)
+[See My Work](https://www.mohamedrashard.dev/#projects)
+[LinkedIn](https://www.linkedin.com/in/mohamedrashard)
+[Github](https://github.com/mohrashard/)
+[Twitter](https://x.com/mrr_labs)
+[Instagram](https://www.instagram.com/mrr_labs/)
+
+## Not just a developer.An engineer who ships.
+I am Mohamed Rashard - a full-stack AI engineer based in Colombo, Sri Lanka, building intelligent products for startups and businesses across the US, UK, Canada, and Australia. I hold a First Class Honours degree in Software Engineering and I specialize at the intersection of AI and product velocity - shipping MVPs in 48 hours and production-grade products in weeks.
+
+### What makes me different
+Most developers are cautious. They over-architect, over-estimate, and under-deliver on time. I operate differently. My obsession is speed without cutting corners - shipping a working, testable product fast so founders can validate with real users before investing in the full build.
+I graduated with First Class Honours in Software Engineering from Cardiff Metropolitan University in 2026. But my real education has been building AI tools from scratch - lead discovery engines, disease prediction platforms, mental wellness systems - and learning exactly where theory meets the messiness of production.
+I work with clients in the US, UK, Canada, and Australia who are tired of agencies that take months and developers who ghost after deposits. I am async-friendly, transparent on scope, and personally involved in every project from first message to post-launch.
+
+#### Languages
+Globally available. Async-first.
+Based in Colombo, Sri Lanka (UTC+5:30). I respond within 4 hours during my working day and within 12 hours globally. Every project gets direct communication - no account managers, no middlemen.
+
+### Credentials
+#### B.Sc. (Hons) Software Engineering
+Cardiff Metropolitan University
+
+#### Diploma in Computing
+ICBT Campus, Colombo
+
+#### G.C.E. Advanced Level
+Private Candidate
+Not sure if it's a fit?
+Claim a free AI Opportunity Audit. I will personally review your business and send you a Loom video within 48 hours showing exactly where AI can help. No pitch. No obligation.
+[Get My Free Audit](https://www.mohamedrashard.dev/services#audit-form)
+
+### Core Expertise
+#### AI Integration
+I embed intelligence into products - chatbots trained on your data, prediction engines, NLP pipelines, and automation that runs while you sleep.
+
+#### Full-Stack Engineering
+End-to-end product ownership. From database architecture to pixel-perfect UI. Next.js, React, Node.js, Python - whatever the job needs.
+
+#### Speed to Market
+I ship MVPs in 48 to 72 hours. Not as a gimmick - as a discipline. Tight scope, fast execution, real users in days instead of months.
+
+#### Systems Thinking
+I architect for scale from day one. The difference between an app that breaks at 100 users and one that handles 100,000 is decisions made in hour one.
+
+## Case Studies
+
+Real business problems solved with engineering and AI.
+
+### BizFinder AI
+Client: A marketing founder targeting B2B businesses limit by manual outreach.
+Problem: They were spending over 5 hours a week manually finding and qualifying leads.
+Built: I built BizFinder AI in 48 hours to automatically discover and qualify leads using the Gemini API.
+Result: 5 hours saved every week allowing them to focus purely on closing.
+[Want something like this? Claim your free audit.](https://www.mohamedrashard.dev/services#audit-form)
+
+### LiverLens
+Client: A private healthcare clinic needing better triaging for hepatology patients.
+Problem: Doctors were spending too much time manually calculating disease risk factors from raw data.
+Built: I built LiverLens, a secure React + Flask platform powered by a custom XGBoost AI model.
+Result: 92% prediction accuracy, saving 15 minutes per patient evaluation.
+[Want something like this? Claim your free audit.](https://www.mohamedrashard.dev/services#audit-form)
+
+### Mentora
+Client: A digital health startup aiming to scale their wellness coaching program globally.
+Problem: Coaches simply couldn't manually analyze thousands of daily behavior data points per user.
+Built: I built an AI engine that analyzes digital patterns to generate personalized wellness recommendations at scale.
+Result: Scaled rapidly to 1,000+ users with zero additional coaching headcount.
+[Want something like this? Claim your free audit.](https://www.mohamedrashard.dev/services#audit-form)
+
+### Tasknet
+Client: A service provider marketplace needing a seamless two-sided matching platform.
+Problem: Buyers couldn't seamlessly discover, vet, and book reliable service providers in real-time.
+Built: I built a customized full-stack collaborative platform with a tailored matching algorithm.
+Result: 300% increase in successful local service matches within the first month.
+[Want something like this? Claim your free audit.](https://www.mohamedrashard.dev/services#audit-form)
+
+## Results speak.Numbers do not lie.
+Verified outcomes from shipped projects. Every metric is real and traceable to a live build.
+Replaced manual lead research with an AI pipeline that finds and qualifies high-intent business leads automatically using Gemini API.
+XGBoost ML model trained and integrated into a full-stack React and Flask platform for liver disease risk prediction with real-time visualization.
+Every MVP I take on ships as a live, testable product within 48 to 72 hours. Not a prototype. Not a mockup. A working app with a real URL.
+"Mohamed demonstrated exceptional ability in architecting full-stack systems with AI integration - well beyond standard expectations for the program."
+Paraphrased from academic feedback. Available on request.
+Be the first client to leave a review.
+I am actively taking on new projects and building my client track record. Claim a free AI Audit - if I deliver value, I will ask for one honest sentence in return. That is the deal.
+[Claim your free audit](https://www.mohamedrashard.dev/services#audit-form)
+All metrics are sourced from real project builds. No paid testimonials. No fabricated reviews.
+
+## Your idea deserves to be live this week.
+Start with a free AI Audit. I will personally review your business and show you exactly where AI can save you time and money, specific to how you work, delivered within 48 hours.
+No pitch. No obligation. No templates. Just a real, personal audit from me.
+[Claim Free AI Audit](https://www.mohamedrashard.dev/services#audit-form)
+[Email Me Directly](https://www.mohamedrashard.dev/cdn-cgi/l/email-protection#0e6361667c6f7d666f7c6a4e69636f6762206d6163)
+Based in Colombo, Sri Lanka (UTC+5:30) — responding within 4 hours during working hours, within 12 hours globally.
+[Connect on LinkedIn](https://www.linkedin.com/in/mohamedrashard)
+[View GitHub](https://github.com/mohrashard/)
+[Mr2 Labs](https://www.mohamedrashard.dev/)
+Mr² Labs – The innovation hub of Mohamed Rashard Rizmi. Pioneering AI solutions, custom software ecosystems, and futuristic digital experiences from Colombo to the world.
+
+#### Shortcuts
+- [Home](https://www.mohamedrashard.dev/)
+- [Services](https://www.mohamedrashard.dev/services)
+- [Labs](https://www.mohamedrashard.dev/labs)
+- [Digital Assets](https://www.mohamedrashard.dev/digital-assets)
+- [Blog](https://www.mohamedrashard.dev/blog)
+[Home](https://www.mohamedrashard.dev/)
+[Services](https://www.mohamedrashard.dev/services)
+[Labs](https://www.mohamedrashard.dev/labs)
+[Digital Assets](https://www.mohamedrashard.dev/digital-assets)
+[Blog](https://www.mohamedrashard.dev/blog)
+
+#### Contact & Legal
+- Colombo, Sri Lanka
+© 2026 Mr² Labs. All rights reserved.
+Designed & Built with by MRR

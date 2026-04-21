@@ -15,7 +15,7 @@ The reality is that traditional dev agencies love to build massive, scalable, "e
 
 **You don't need a Ferrari to drive to the end of the driveway. You need a skateboard today**. 
 
-If you want to protect your runway and validate your idea, you must stop building full products and start building a validation engine. Here is the exact, step-by-step framework I use at Mr² Labs to help founders cut 80% of their "nice-to-have" features so we can ship a working product in 48 to 72 hours.
+If you want to protect your runway and validate your idea, you must stop building full products and start building a validation engine. Here is the exact, step-by-step framework I use at Mr² Labs to help founders cut 80% of their "nice-to-have" features so we can ship a working product in 48 to 72 hours ([estimate the cost of your idea](/cost-to-build)).
 
 ### Step 1: Isolate the "Bleeding Neck" Metric
 The biggest fear in startup development is spending six months and $50,000 building a bloated product, only to realize you misunderstood what the market actually wants. To prevent this, you must ruthlessly isolate the single core problem your software solves. 

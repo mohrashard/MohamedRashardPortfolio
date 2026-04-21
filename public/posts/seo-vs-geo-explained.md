@@ -38,7 +38,7 @@ My portfolio and labs are built with a dual-optimization approach:
 If you only focus on SEO, you miss the millions of users moving to Perplexity and ChatGPT for their information. If you only focus on GEO, you lose the massive volume of organic traffic still coming through Google.
 
 ### How I Optimize Client Websites:
-When I build or consult on a website, I implement a comprehensive strategy:
+When I [build or consult on a website](/cost-to-build) (see what it costs to build), I implement a comprehensive strategy:
 - **SEO Audit & Fixes:** Correcting technical debt, improving speed, and targeting high-conversion keywords.
 - **GEO Integration:** Re-structuring content to be "Generative-Friendly." I ensure your business is categorized correctly so AI models recommend you as the top solution.
 - **AI-Driven Personalization:** Implementing tools that make your site interact naturally with users, further boosting its GEO score.

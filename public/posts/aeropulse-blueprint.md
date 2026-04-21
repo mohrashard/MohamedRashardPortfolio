@@ -10,7 +10,7 @@ category: "SaaS Development"
 
 In the startup world, there is a brutal "Time vs. Quality" trap. 
 
-When you are trying to launch an MVP or secure your next round of funding, your landing page is your digital handshake. If it looks like a generic, free template, users bounce, and investors hesitate. But hiring a top-tier design agency to build an Awwwards-level, 3D-integrated site costs upwards of $15,000 and takes six weeks of development time. 
+When you are trying to launch an MVP ([see what it costs to build](/cost-to-build)) or secure your next round of funding, your landing page is your digital handshake. If it looks like a generic, free template, users bounce, and investors hesitate. But hiring a top-tier design agency to build an Awwwards-level, 3D-integrated site costs upwards of $15,000 and takes six weeks of development time. 
 
 Founders end up burning precious runway writing boilerplate frontend code instead of building their actual backend product. 
 

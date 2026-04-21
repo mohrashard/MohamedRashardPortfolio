@@ -10,7 +10,7 @@ category: "Web Development"
 
 If you are running a premium service business on WordPress in 2026, your website is working against you every single day. Not because WordPress looks bad. Because of what it signals to a high-value client before they read a single word on your page.
 
-This is not a post telling you WordPress is dead. It is not. It powers 43% of the internet and it is fine for blogs, hobby sites, and small local businesses. But if you are selling premium services to founders, businesses, or clients who have options — WordPress is quietly costing you deals you never knew you lost.
+This is not a post telling you WordPress is dead. It is not. It powers 43% of the internet and it is fine for blogs, hobby sites, and small local businesses. But if you are selling premium services to founders, businesses, or clients who have options — WordPress is quietly costing you ([estimate the cost of your idea](/cost-to-build)) deals you never knew you lost.
 
 As a **Full-Stack AI Engineer** at **Mr² Labs** in **Colombo, Sri Lanka**, I have seen this first-hand. I have helped global founders transition from legacy WordPress architectures to high-performance Next.js ecosystems, and the results are night and day.
 

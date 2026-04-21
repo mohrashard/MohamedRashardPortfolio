@@ -4,6 +4,7 @@ date: 2025-09-19
 description: >- 
     Learn how to use AI effectively in software development to speed up your workflow without losing control. A practical guide to combining human expertise with AI tools for backend, frontend, and beyond.
 image: "/posts/ai-in-software-dev.png"
+category: "AI Development"
 ---
 
 # Smarter Software Development with AI: A Practical Guide for Developers
@@ -16,7 +17,7 @@ This guide breaks down how to use AI in a **practical, smarter way** not as a ma
 
 ## The Reality: AI Can't Build Your App Alone
 
-Many students and junior developers believe AI can write an entire app with a single prompt. That's simply not true. Software development is complex it involves architecture decisions, tech stack choices, debugging, API integration, and testing.  
+Many students and junior developers believe AI can [build an entire app](/cost-to-build) (see what it costs) with a single prompt. That's simply not true. Software development is complex it involves architecture decisions, tech stack choices, debugging, API integration, and testing.  
 
 AI is great at **generating code snippets, fixing errors, and speeding up routine tasks**. But you, the developer, remain the architect. The one in charge.  
 

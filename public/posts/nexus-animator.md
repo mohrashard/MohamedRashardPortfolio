@@ -84,7 +84,7 @@ When you purchase, you get instant access to the **Gemini Brain** trained on:
 
 ## 📢 Ready to Upgrade Your Visuals?
 
-This tool is proudly engineered to bridge the gap between high-end creative coding and everyday content creation. Whether you are building a startup in Sri Lanka or scaling a global agency, Nexus Animator gives you the competitive edge.
+This tool is proudly engineered to bridge the gap between high-end creative coding and everyday content creation. Whether you are [building a startup](/cost-to-build) (estimate the cost of your idea) in Sri Lanka or scaling a global agency, Nexus Animator gives you the competitive edge.
 
 [**Get Nexus Animator Now on Gumroad**](https://mrrlabs.gumroad.com/l/nexusanimator)
 
