@@ -93,6 +93,16 @@ export default function Navbar() {
                     <Link href="/blog" className="px-5 py-2 rounded-full text-sm font-medium text-slate-300 hover:text-white hover:bg-white/5 transition-all">
                         Blog
                     </Link>
+                    <div className="w-px h-6 bg-white/10 mx-2"></div>
+                    <Link href="/services" className="px-5 py-2 rounded-full text-sm font-semibold text-white bg-gradient-to-br from-blue-500/30 to-indigo-500/30 border border-blue-500/40 hover:border-blue-400/70 hover:shadow-[0_0_15px_rgba(33,150,243,0.3)] transition-all duration-300">
+                        Hire Me
+                    </Link>
+                    <Link href="/cost-to-build" className="px-5 py-2 rounded-full text-sm font-semibold text-green-400 bg-green-500/10 border border-green-500/30 hover:bg-green-500/20 hover:text-green-300 transition-all duration-300 flex items-center gap-2">
+                        <i className="fas fa-calculator text-[10px]"></i> App Cost
+                    </Link>
+                    <Link href="/digital-assets" className="px-5 py-2 rounded-full text-sm font-medium text-slate-300 hover:text-white hover:bg-white/5 transition-all">
+                        Assets
+                    </Link>
                 </nav>
 
                 {/* Mobile Menu Button */}
@@ -109,6 +119,14 @@ export default function Navbar() {
             {/* Mobile Nav Overlay */}
             <div className={`md:hidden absolute top-[100%] left-0 right-0 bg-black/95 backdrop-blur-3xl border-b border-white/10 overflow-hidden transition-all duration-500 ${isMenuOpen ? 'max-h-[500px] opacity-100 shadow-2xl' : 'max-h-0 opacity-0'}`}>
                 <div className="flex flex-col p-6 gap-2">
+                    <div className="flex gap-2 mb-2">
+                        <Link href="/services" className="flex-1 text-left p-4 rounded-xl text-sm font-semibold text-blue-400 bg-gradient-to-r from-blue-500/10 to-transparent border-l-4 border-blue-500 transition-all">
+                            → Hire Me
+                        </Link>
+                        <Link href="/cost-to-build" className="flex-1 text-left p-4 rounded-xl text-sm font-semibold text-green-400 bg-gradient-to-r from-green-500/10 to-transparent border-l-4 border-green-500 transition-all flex items-center gap-2">
+                            <i className="fas fa-calculator"></i> App Cost
+                        </Link>
+                    </div>
                     {["home", "about", "skills", "projects", "contact"].map((item) => (
                         <button
                             key={item}
@@ -127,6 +145,9 @@ export default function Navbar() {
                     </Link>
                     <Link href="/blog" className="text-left p-4 rounded-xl text-sm font-medium text-slate-400 hover:bg-white/5 hover:text-white hover:translate-x-2 transition-all">
                         Blog
+                    </Link>
+                    <Link href="/digital-assets" className="text-left p-4 rounded-xl text-sm font-medium text-slate-400 hover:bg-white/5 hover:text-white hover:translate-x-2 transition-all">
+                        Assets
                     </Link>
                 </div>
             </div>

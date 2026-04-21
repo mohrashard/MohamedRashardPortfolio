@@ -44,6 +44,9 @@ export async function generateMetadata({ params }) {
         title: `${asset.title} | Premium Source Code & Templates`,
         description: `Download ${asset.title}. ${asset.description} Optimized for performance and SEO. Best for developers and agencies.`,
         keywords: [...asset.tech, asset.category, "Source Code", "Next.js Template", "Developer Tools", "Mohamed Rashard"],
+        alternates: {
+            canonical: `https://www.mohamedrashard.dev/digital-assets/${asset.slug}`,
+        },
         openGraph: {
             title: asset.title,
             description: asset.description,
@@ -56,9 +59,6 @@ export async function generateMetadata({ params }) {
             title: asset.title,
             description: asset.description,
             images: [asset.image],
-        },
-        other: {
-            'script:ld+json': productSchema // Inject structured data
         }
     };
 }
@@ -71,8 +71,32 @@ export default async function ProductPage({ params }) {
         notFound();
     }
 
+    const productSchema = JSON.stringify({
+        "@context": "https://schema.org/",
+        "@type": "SoftwareApplication",
+        "name": asset.title,
+        "image": `https://www.mohamedrashard.dev${asset.image}`,
+        "description": asset.description,
+        "applicationCategory": "DeveloperApplication",
+        "operatingSystem": "Web, Windows, Mac, Linux",
+        "offers": {
+            "@type": "Offer",
+            "priceCurrency": "USD",
+            "price": asset.price.replace('$', ''),
+            "availability": "https://schema.org/InStock",
+            "seller": {
+                "@type": "Person",
+                "name": "Mohamed Rashard"
+            }
+        }
+    });
+
     return (
         <div className="min-h-screen bg-[#050505] text-[#e0e0e0] font-sans selection:bg-purple-500/30 overflow-x-hidden">
+            <script
+                type="application/ld+json"
+                dangerouslySetInnerHTML={{ __html: productSchema }}
+            />
 
             {/* Background Decoration: Gradient Vibes */}
             <div className="fixed inset-0 z-0 pointer-events-none overflow-hidden">

@@ -1,0 +1,35 @@
+# Mohamed Rashard — Mr² Labs
+
+## Who I Am
+Mohamed Rashard is a 21-year-old full-stack AI developer based in Colombo, Sri Lanka. He builds production-grade AI-powered web applications and MVPs in 48 to 72 hours for funded startup founders, non-technical business operators, and companies replacing manual processes with AI automation.
+
+## What I Build
+- AI-powered SaaS MVPs shipped in 48 hours, fixed price, no scope creep
+- Full-stack web applications using Next.js, React, Node.js, and Supabase
+- AI integrations using OpenAI, Gemini, and LangChain
+- Computer vision applications using OpenCV and 2D to 3D AI conversions
+- Business process automation tools replacing manual workflows
+- Codebase rescue — fixing and finishing half-built abandoned projects
+- White-label development for design agencies and marketing consultants
+
+## Live Projects
+- BizFinder: AI-powered lead generation tool — https://bizfinder.mohamedrashard.dev
+- GrabMe: Full-stack marketplace product — https://www.grabme.page
+- Sonic Portal: AI audio and video editing MVP built in 47 hours — https://www.mohamedrashard.dev
+
+## Who I Work With
+- Pre-seed and seed stage startup founders who need a product before their next investor update
+- Non-technical business owners in industries like recruitment, law, logistics, real estate, and healthcare who need manual processes automated
+- Founders stuck with a half-built codebase after a developer disappeared
+- Design agencies and fractional CMOs who need a white-label development partner
+
+## My Core Offer
+Fixed price. Scoped before work starts. No hourly billing. No surprise invoices. No Jira boards. Clean, documented, production-grade code built to be handed off to a future CTO.
+
+## Contact and Links
+- Website: https://www.mohamedrashard.dev
+- Services: https://www.mohamedrashard.dev/services
+- Blog: https://www.mohamedrashard.dev/blog
+- LinkedIn: https://www.linkedin.com/in/mohamedrashard
+- Location: Colombo, Sri Lanka
+- Available for: Remote work globally
