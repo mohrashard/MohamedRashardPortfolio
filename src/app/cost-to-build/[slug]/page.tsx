@@ -42,6 +42,86 @@ export default async function CostToBuildSlugPage({ params }: { params: Promise<
 
     return (
         <div className="min-h-screen bg-[#050505] text-[#e0e0e0] font-sans overflow-x-hidden pt-36 pb-24">
+            <script
+                type="application/ld+json"
+                dangerouslySetInnerHTML={{
+                    __html: JSON.stringify({
+                        "@context": "https://schema.org",
+                        "@graph": [
+                            {
+                                "@type": "Service",
+                                "name": project.h1Title,
+                                "description": project.seoDescription,
+                                "provider": {
+                                    "@type": "Person",
+                                    "name": "Mohamed Rashard",
+                                    "url": process.env.NEXT_PUBLIC_SITE_URL
+                                },
+                                "areaServed": "Worldwide",
+                                "offers": {
+                                    "@type": "Offer",
+                                    "description": project.mr2LabsHook,
+                                    "url": `${process.env.NEXT_PUBLIC_SITE_URL}/cost-to-build/${project.slug}`
+                                }
+                            },
+                            {
+                                "@type": "FAQPage",
+                                "mainEntity": [
+                                    {
+                                        "@type": "Question",
+                                        "name": `How much does it cost to build a ${project.h1Title}?`,
+                                        "acceptedAnswer": {
+                                            "@type": "Answer",
+                                            "text": `${project.seoDescription} Building this with a traditional agency typically costs around ${project.traditionalAgencyEstimate.costRange}.`
+                                        }
+                                    },
+                                    {
+                                        "@type": "Question",
+                                        "name": `How long does it take to build a ${project.h1Title}?`,
+                                        "acceptedAnswer": {
+                                            "@type": "Answer",
+                                            "text": "Traditional agencies take 2-6 months. Mr² Labs ships a production-ready MVP in under 72 hours using an AI-accelerated development sprint."
+                                        }
+                                    },
+                                    {
+                                        "@type": "Question",
+                                        "name": `What technology is used to build a ${project.h1Title}?`,
+                                        "acceptedAnswer": {
+                                            "@type": "Answer",
+                                            "text": project.technicalArchitecture && project.technicalArchitecture.length > 0
+                                                ? `Built using ${project.technicalArchitecture.join(', ')}.`
+                                                : "Next.js 15, Supabase, TypeScript, and Tailwind CSS — the fastest modern stack for production-grade MVPs."
+                                        }
+                                    }
+                                ]
+                            },
+                            {
+                                "@type": "BreadcrumbList",
+                                "itemListElement": [
+                                    {
+                                        "@type": "ListItem",
+                                        "position": 1,
+                                        "name": "Home",
+                                        "item": process.env.NEXT_PUBLIC_SITE_URL
+                                    },
+                                    {
+                                        "@type": "ListItem",
+                                        "position": 2,
+                                        "name": "Cost to Build",
+                                        "item": `${process.env.NEXT_PUBLIC_SITE_URL}/cost-to-build`
+                                    },
+                                    {
+                                        "@type": "ListItem",
+                                        "position": 3,
+                                        "name": project.h1Title,
+                                        "item": `${process.env.NEXT_PUBLIC_SITE_URL}/cost-to-build/${project.slug}`
+                                    }
+                                ]
+                            }
+                        ]
+                    })
+                }}
+            />
             <Navbar />
             
             <div className="fixed inset-0 z-0 pointer-events-none overflow-hidden">

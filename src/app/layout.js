@@ -94,9 +94,9 @@ export default function RootLayout({ children }) {
         "@type": "Person",
         name: "Mohamed Rashad Rizmi",
         alternateName: "Mohamed Rashard",
-        jobTitle: "Systems Architect & AI Engineer",
+        jobTitle: "Founder & AI Engineer",
         worksFor: {
-            "@type": "ProfessionalService",
+            "@type": "Organization",
             name: "Mr² Labs",
         },
         url: "https://www.mohamedrashard.dev/",
@@ -105,17 +105,18 @@ export default function RootLayout({ children }) {
         address: {
             "@type": "PostalAddress",
             addressLocality: "Colombo",
-            "addressCountry": "Sri Lanka",
+            addressRegion: "Western Province",
+            addressCountry: "LK",
         },
         email: "mohrashard@gmail.com",
         sameAs: [
+            "https://www.linkedin.com/in/mohamedrashard",
+            "https://github.com/mohrashard/",
             "https://x.com/mrr_labs",
             "https://web.facebook.com/profile.php?id=61575921543570",
             "https://www.instagram.com/mrr_labs/",
-            "https://www.linkedin.com/in/mohamedrashard",
             "https://medium.com/@mohrashard",
             "https://dev.to/mohrashard",
-            "https://github.com/mohrashard/",
             "https://www.mohamedrashard.dev/"
         ],
         alumniOf: {
@@ -123,9 +124,16 @@ export default function RootLayout({ children }) {
             name: "Cardiff Metropolitan University",
         },
         knowsAbout: [
-            "Software Engineering", "Web Development", "Full-Stack Development",
-            "Artificial Intelligence", "Custom Web Development", "E-commerce Development",
-            "React", "Next.js", "Python", "Java", "Mobile App Development", "SaaS Development"
+            "Next.js Development",
+            "AI-Powered MVP Development", 
+            "SaaS Architecture",
+            "Python & Flask",
+            "Machine Learning",
+            "Business Automation",
+            "Supabase",
+            "React",
+            "TypeScript",
+            "Full Stack Development"
         ],
     };
 
@@ -164,7 +172,18 @@ export default function RootLayout({ children }) {
         <html lang="en" className="scroll-smooth" suppressHydrationWarning>
             <head>
                 {/* External CSS Links */}
-                <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+                {/* Font Awesome - Optimized Non-Blocking Load */}
+                <link
+                    rel="preload"
+                    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+                    as="style"
+                />
+                <link
+                    rel="stylesheet"
+                    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+                    media="print"
+                    onLoad="this.media='all'"
+                />
                 <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css" />
 
                 {/* JSON-LD Structured Data */}

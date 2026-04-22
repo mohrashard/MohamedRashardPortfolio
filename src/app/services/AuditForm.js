@@ -209,11 +209,12 @@ export default function AuditForm() {
                                             <div className="relative h-[52px]">
                                                 <select required name="budget" defaultValue="" className="w-full h-full bg-black/40 border border-white/10 rounded-xl px-5 text-white appearance-none focus:outline-none focus:border-cyan-500/50 focus:ring-1 focus:ring-cyan-500/50 transition-all font-medium cursor-pointer">
                                                     <option value="" disabled className="text-slate-500">Select an option</option>
-                                                    <option value="Under $500" className="bg-[#0f172a] text-white py-2">Under $500</option>
-                                                    <option value="$500 to $1,500" className="bg-[#0f172a] text-white py-2">$500 to $1,500</option>
-                                                    <option value="$1,500 to $5,000" className="bg-[#0f172a] text-white py-2">$1,500 to $5,000</option>
-                                                    <option value="$5,000 and above" className="bg-[#0f172a] text-white py-2">$5,000 and above</option>
-                                                    <option value="Not sure yet, open to discussion" className="bg-[#0f172a] text-white py-2">Not sure yet, open to discussion</option>
+                                                    <option value="Under $1,000" className="bg-[#0f172a] text-white py-2">Under $1,000</option>
+                                                    <option value="$1,000 – $5,000" className="bg-[#0f172a] text-white py-2">$1,000 – $5,000</option>
+                                                    <option value="$5,000 – $10,000" className="bg-[#0f172a] text-white py-2">$5,000 – $10,000</option>
+                                                    <option value="$10,000 – $25,000" className="bg-[#0f172a] text-white py-2">$10,000 – $25,000</option>
+                                                    <option value="$25,000 – $50,000" className="bg-[#0f172a] text-white py-2">$25,000 – $50,000</option>
+                                                    <option value="$50,000+" className="bg-[#0f172a] text-white py-2">$50,000+</option>
                                                 </select>
                                                 <i className="fas fa-chevron-down absolute right-5 top-1/2 -translate-y-1/2 text-slate-500 pointer-events-none text-xs" />
                                             </div>

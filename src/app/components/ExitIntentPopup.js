@@ -12,9 +12,18 @@ export default function ExitIntentPopup() {
     const active = useRef(false); // becomes true after initial delay
 
     useEffect(() => {
+        // Persistence Guard: Only show once every 24 hours
+        const lastShown = localStorage.getItem("exitIntentLastShown");
+        const oneDayAgo = Date.now() - 24 * 60 * 60 * 1000;
+        if (lastShown && parseInt(lastShown) > oneDayAgo) return;
+
+        // Session Guard: Only once per browser session
+        if (sessionStorage.getItem("exitIntentShownSession")) return;
+
         const trigger = () => {
             if (hasTriggered.current) return;
             hasTriggered.current = true;
+            sessionStorage.setItem("exitIntentShownSession", "true");
             setIsVisible(true);
         };
 
@@ -59,6 +68,7 @@ export default function ExitIntentPopup() {
                 body: JSON.stringify({ email }),
             });
             if (!res.ok) throw new Error();
+            localStorage.setItem("exitIntentLastShown", Date.now().toString());
             setStatus('success');
             setTimeout(() => setIsVisible(false), 4000);
         } catch {
@@ -75,7 +85,10 @@ export default function ExitIntentPopup() {
                         initial={{ opacity: 0 }}
                         animate={{ opacity: 1 }}
                         exit={{ opacity: 0 }}
-                        onClick={() => setIsVisible(false)}
+                        onClick={() => {
+                            setIsVisible(false);
+                            localStorage.setItem("exitIntentLastShown", Date.now().toString());
+                        }}
                         className="fixed inset-0 bg-[#020202]/85 backdrop-blur-md"
                     />
 
@@ -89,7 +102,10 @@ export default function ExitIntentPopup() {
                     >
                         {/* Close button */}
                         <button
-                            onClick={() => setIsVisible(false)}
+                            onClick={() => {
+                                setIsVisible(false);
+                                localStorage.setItem("exitIntentLastShown", Date.now().toString());
+                            }}
                             className="absolute top-5 right-5 w-9 h-9 rounded-full flex items-center justify-center bg-white/5 hover:bg-white/10 text-slate-500 hover:text-white transition-all border border-white/5 hover:border-white/10 z-20"
                         >
                             <i className="fas fa-times text-sm"></i>
