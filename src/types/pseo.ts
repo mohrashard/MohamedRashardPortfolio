@@ -10,6 +10,14 @@ export interface PSEOSlug {
     teamRequired: string;
   };
   mr2LabsHook: string;
+  location?: {
+    type: "country" | "city" | "region";
+    country: string;
+    countryCode: string;
+    city?: string;
+    region?: string;
+    localKeyword?: string;
+  };
 }
 
 // --- AI Estimator Types ---

@@ -148,9 +148,21 @@ export default async function CostToBuildSlugPage({ params }: { params: Promise<
                             <h1 className="text-4xl sm:text-5xl lg:text-5xl font-black text-white mb-6 leading-[1.1] tracking-tight">
                                 {project.h1Title}
                             </h1>
+                            {project.location && (
+                                <div className="mb-6">
+                                    <span className="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-white/10 bg-white/5 text-slate-300 text-xs font-semibold">
+                                        📍 Serving founders in {project.location.type === 'city' ? project.location.city : project.location.country}
+                                    </span>
+                                </div>
+                            )}
                             <p className="text-xl text-slate-400 font-light leading-relaxed border-l-4 border-blue-500/50 pl-5">
                                 {project.seoDescription}
                             </p>
+                            {project.location && (
+                                <p className="mt-4 text-sm text-slate-500 font-medium italic pl-5">
+                                    Remote-first agency serving {project.location.country} startups — same quality as a local agency, fraction of the {project.location.country} rate.
+                                </p>
+                            )}
                         </header>
 
                         <section className="p-8 rounded-3xl bg-red-950/20 border border-red-500/20 relative overflow-hidden">
