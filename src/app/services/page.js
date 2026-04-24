@@ -127,6 +127,50 @@ export default function Services() {
     return (
         <div className="min-h-screen bg-[#050505] text-[#e0e0e0] font-sans selection:bg-blue-500/30 overflow-x-hidden">
 
+            {/* Visually Hidden SEO Content for SSR/Crawlers */}
+            <section style={{
+                position: 'absolute',
+                width: '1px',
+                height: '1px',
+                padding: 0,
+                margin: '-1px',
+                overflow: 'hidden',
+                clip: 'rect(0,0,0,0)',
+                whiteSpace: 'nowrap',
+                border: 0
+            }}>
+                <h1>AI-Powered MVP Development — Ship in 48 Hours</h1>
+                <p>
+                    Mohamed Rashard builds AI-powered web applications, SaaS platforms,
+                    and MVPs in 48 to 72 hours for funded startup founders and growing
+                    businesses. Based in Colombo, Sri Lanka. Fixed price, no scope creep,
+                    production-grade Next.js code.
+                </p>
+                <h2>Services</h2>
+                <ul>
+                    <li>AI SaaS MVP Development — full-stack AI products shipped in 48 hours</li>
+                    <li>Web Application Development — Next.js, React, Node.js, Supabase</li>
+                    <li>AI Integration — OpenAI, Gemini, LangChain, custom AI pipelines</li>
+                    <li>Business Process Automation — replace manual workflows with AI tools</li>
+                    <li>Codebase Rescue — fix and finish half-built abandoned projects</li>
+                    <li>Landing Pages and Portfolio Sites — high-converting, SEO-optimised</li>
+                    <li>Mobile App Development — React Native for iOS and Android</li>
+                </ul>
+                <h2>Why Mr² Labs?</h2>
+                <p>
+                    Traditional agencies take 3 to 6 months and charge $30,000 to $150,000.
+                    Mr² Labs ships a working, testable MVP on a live URL in under 72 hours
+                    at a fixed price. Clean, documented code built to hand off to your
+                    future CTO. No hourly billing, no surprise invoices, no Jira boards.
+                </p>
+                <h2>How it works</h2>
+                <p>
+                    Book a free 15-minute scoping call. Receive a fixed price proposal within
+                    24 hours. Approve the scope and the sprint begins. Your product is live
+                    within 72 hours with full code ownership transferred to you.
+                </p>
+            </section>
+
             {/* JSON-LD */}
             <script
                 type="application/ld+json"
@@ -607,17 +651,17 @@ export default function Services() {
                                             </div>
                                             {study.title}
                                         </h3>
-                                        
+
                                         <div className="space-y-4 mb-8 text-slate-300 flex-grow text-[15px] leading-relaxed">
                                             <p><strong className="text-white font-bold ml-1 mr-2"><i className="fas fa-building text-slate-500 w-5"></i> Client:</strong> {study.client}</p>
                                             <p><strong className="text-white font-bold ml-1 mr-2"><i className="fas fa-exclamation-triangle text-slate-500 w-5"></i> Problem:</strong> {study.problem}</p>
                                             <p><strong className="text-white font-bold ml-1 mr-2"><i className="fas fa-hammer text-slate-500 w-5"></i> Built:</strong> {study.built}</p>
                                             <p className="pt-2"><strong className="text-white font-bold ml-1 mr-2"><i className="fas fa-bolt text-slate-500 w-5"></i> Result:</strong> <span className={`${c.tag} border-none bg-transparent px-0 font-bold`}>{study.result}</span></p>
                                         </div>
-                                        
+
                                         <div className="mt-auto pt-6 border-t border-white/5">
                                             <a href="#audit-form" className={`group/btn inline-flex items-center gap-2 font-bold transition-all ${c.tag} bg-transparent border-none px-0 hover:brightness-125`}>
-                                                Want something like this? Claim your free audit. 
+                                                Want something like this? Claim your free audit.
                                                 <i className="fas fa-arrow-right text-xs ml-1 transition-transform group-hover/btn:translate-x-1"></i>
                                             </a>
                                         </div>

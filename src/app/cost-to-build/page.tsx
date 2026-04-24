@@ -19,6 +19,47 @@ export default function CostToBuildPage() {
 
     return (
         <div className="min-h-screen bg-[#050505] text-[#e0e0e0] font-sans selection:bg-blue-500/30 overflow-x-hidden pt-32 pb-24">
+            {/* Visually Hidden SEO Content for SSR/Crawlers */}
+            <section style={{
+                position: 'absolute',
+                width: '1px',
+                height: '1px',
+                padding: 0,
+                margin: '-1px',
+                overflow: 'hidden',
+                clip: 'rect(0,0,0,0)',
+                whiteSpace: 'nowrap',
+                border: 0
+            }}>
+                <h1>How Much Does It Cost to Build an App in 2026?</h1>
+                <p>
+                    Free AI-powered MVP cost estimator for startup founders.
+                    See what traditional agencies charge for your app idea versus
+                    what Mr² Labs builds in 72 hours. No signup required to see
+                    the agency estimate.
+                </p>
+                <h2>App types we estimate</h2>
+                <ul>
+                    <li>Custom SaaS web and mobile applications</li>
+                    <li>AI agents and automation tools</li>
+                    <li>Enterprise AI utilities and dashboards</li>
+                    <li>Growth and marketing automation platforms</li>
+                    <li>Business process automation systems</li>
+                    <li>Fintech and data processing applications</li>
+                    <li>Healthcare and medtech platforms</li>
+                    <li>Logistics and supply chain software</li>
+                    <li>EdTech and consumer AI applications</li>
+                    <li>LegalTech and compliance tools</li>
+                </ul>
+                <h2>Why traditional agencies charge so much</h2>
+                <p>
+                    Traditional software agencies bill by the hour with teams of 3 to 6
+                    engineers, project managers, account managers, and QA specialists.
+                    A simple SaaS MVP becomes a 3-month, $40,000 project when filtered
+                    through agency overhead. Mr² Labs removes that overhead entirely and
+                    ships your MVP in 72 hours at a fixed price.
+                </p>
+            </section>
             <script
                 type="application/ld+json"
                 dangerouslySetInnerHTML={{
@@ -81,7 +122,7 @@ export default function CostToBuildPage() {
                 }}
             />
             <Navbar />
-            
+
             {/* Background Decoration */}
             <div className="fixed inset-0 z-0 pointer-events-none overflow-hidden bg-[#050505]">
                 <div className="absolute top-[-20%] right-[-10%] w-[600px] h-[600px] bg-gradient-to-b from-blue-600/10 via-indigo-600/10 to-purple-600/10 rounded-full blur-[80px] mix-blend-screen opacity-50"></div>
@@ -107,7 +148,7 @@ export default function CostToBuildPage() {
 
             {/* Client Component Island */}
             <CostToBuildClient data={typedData} />
-            
+
         </div>
     );
 }

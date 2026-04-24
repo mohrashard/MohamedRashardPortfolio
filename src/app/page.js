@@ -36,6 +36,49 @@ export async function generateMetadata() {
 export default function Home() {
     return (
         <main className="relative min-h-screen bg-[#050505] text-[#e0e0e0] font-sans selection:bg-blue-500/30 overflow-x-hidden">
+            {/* Visually Hidden SEO Content for SSR/Crawlers */}
+            <section style={{
+                position: 'absolute',
+                width: '1px',
+                height: '1px',
+                padding: 0,
+                margin: '-1px',
+                overflow: 'hidden',
+                clip: 'rect(0,0,0,0)',
+                whiteSpace: 'nowrap',
+                border: 0
+            }}>
+                <h1>Mohamed Rashard — Full Stack AI Developer in Sri Lanka</h1>
+                <p>
+                    I am Mohamed Rashard, a 21-year-old full-stack AI developer based in
+                    Colombo, Sri Lanka. I build AI-powered MVPs in 48 hours for funded
+                    startup founders and non-technical business owners worldwide.
+                    First Class Honours in Software Engineering from Cardiff Metropolitan
+                    University 2026.
+                </p>
+                <h2>What I build</h2>
+                <ul>
+                    <li>AI-powered SaaS platforms shipped in 48 hours</li>
+                    <li>Full-stack web applications using Next.js and React</li>
+                    <li>AI integrations with OpenAI, Gemini, and LangChain</li>
+                    <li>Computer vision applications using OpenCV</li>
+                    <li>Business automation tools replacing manual processes</li>
+                    <li>Codebase rescue for half-built abandoned projects</li>
+                </ul>
+                <h2>Proven results</h2>
+                <ul>
+                    <li>BizFinder AI — lead generation tool shipped in 47 hours</li>
+                    <li>LiverLens — liver disease prediction platform, 92% accuracy</li>
+                    <li>Mentora — AI wellness platform serving 3000 users</li>
+                    <li>GrabMe — full-stack marketplace product, live</li>
+                </ul>
+                <h2>Working with clients in US, UK, Canada, Australia, and Middle East</h2>
+                <p>
+                    Async-friendly. Responding within 4 hours during Colombo working hours
+                    and within 12 hours globally. Fixed price projects only.
+                    No hourly billing.
+                </p>
+            </section>
             <Navbar />
             <Hero />
             <TrustBar />
