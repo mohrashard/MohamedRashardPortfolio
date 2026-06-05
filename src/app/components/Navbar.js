@@ -1,153 +1,119 @@
 "use client";
+
 import React, { useState, useEffect } from "react";
 import Link from "next/link";
-import Image from "next/image";
-import { usePathname, useRouter } from "next/navigation";
+import { usePathname } from "next/navigation";
 
-export default function Navbar() {
+// ── Shared font tokens ──────────────────────────────────────
+const fontHeadline = { fontFamily: "'Plus Jakarta Sans', sans-serif" };
+const fontBody = { fontFamily: "'Inter', sans-serif" };
+const fontLabel = { fontFamily: "'Geist Mono', 'Geist', monospace" };
+
+export default function Navbar({ position = "fixed" }) {
     const pathname = usePathname();
-    const router = useRouter();
     const [isScrolled, setIsScrolled] = useState(false);
     const [isMenuOpen, setIsMenuOpen] = useState(false);
-    const [activeSection, setActiveSection] = useState("home");
 
     useEffect(() => {
         const handleScroll = () => {
-            setIsScrolled(window.scrollY > 50);
-
-            // Scroll Spy Logic
-            const sections = ["home", "about", "skills", "projects", "contact"];
-            const scrollPos = window.scrollY + 100;
-
-            let current = "";
-            for (let i = sections.length - 1; i >= 0; i--) {
-                const section = document.getElementById(sections[i]);
-                if (section && section.offsetTop <= scrollPos) {
-                    current = sections[i];
-                    break;
-                }
-            }
-            if (current && current !== activeSection) {
-                setActiveSection(current);
-            }
+            setIsScrolled(window.scrollY > 20);
         };
-
         window.addEventListener("scroll", handleScroll);
         return () => window.removeEventListener("scroll", handleScroll);
-    }, [activeSection]);
+    }, []);
 
-    const scrollToSection = (id) => {
-        setIsMenuOpen(false);
-        if (pathname !== "/") {
-            router.push("/");
-            return;
-        }
-        const element = document.getElementById(id);
-        if (element) {
-            const headerOffset = 80;
-            const elementPosition = element.getBoundingClientRect().top;
-            const offsetPosition = elementPosition + window.scrollY - headerOffset;
-
-            window.scrollTo({
-                top: offsetPosition,
-                behavior: "smooth"
-            });
-            setActiveSection(id);
-        }
-    };
+    const navLinks = [
+        { name: "Home", href: "/" },
+        { name: "Services", href: "/services" },
+        { name: "Labs", href: "/labs" },
+        { name: "Digital Assets", href: "/digital-assets" },
+        { name: "Blog", href: "/blog" },
+    ];
 
     return (
-        <header className={`fixed top-0 left-0 right-0 z-[1000] px-6 md:px-12 transition-all duration-300 ${isScrolled ? 'h-[70px] bg-black/90 backdrop-blur-xl border-b border-white/5 shadow-2xl' : 'h-[90px] bg-transparent'}`}>
-            <div className="max-w-7xl mx-auto h-full flex justify-between items-center">
-                {/* Logo */}
-                <div
-                    onClick={() => scrollToSection("home")}
-                    className="cursor-pointer group flex items-center"
-                >
+        <header className={`${position} top-0 left-0 right-0 z-[1000] px-4 sm:px-6 pt-4 sm:pt-6 transition-all duration-500 flex justify-center pointer-events-none`}>
+            {/* The wrapper allows the header to be pointer-events-none so users can click 'through' the empty space around the floating nav, while the inner div has pointer-events-auto */}
+            <div className={`w-full max-w-7xl rounded-2xl sm:rounded-full flex justify-between items-center px-5 sm:px-8 transition-all duration-500 pointer-events-auto ${isScrolled ? 'h-[64px] bg-[#0A0A0A]/80 backdrop-blur-xl border border-white/[0.08] shadow-[0_20px_40px_rgba(0,0,0,0.6)]' : 'h-[80px] bg-transparent border border-transparent'}`}>
 
-                    <span className="text-2xl md:text-3xl font-bold bg-gradient-to-r from-blue-400 to-indigo-600 bg-clip-text text-transparent transition-all">
-                        Mr²
+                {/* Logo */}
+                <Link href="/" className="group flex items-center gap-1.5" onClick={() => setIsMenuOpen(false)}>
+                    <span className="text-2xl font-black text-white tracking-tighter group-hover:text-[var(--primary)] transition-colors" style={fontHeadline}>
+                        Mr² Labs
                     </span>
-                </div>
+                </Link>
 
                 {/* Desktop Nav */}
                 <nav className="hidden md:flex items-center gap-1">
-                    {["home", "about", "skills", "projects", "contact"].map((item) => (
-                        <button
-                            key={item}
-                            onClick={() => scrollToSection(item)}
-                            className={`px-5 py-2 rounded-full text-sm font-medium transition-all duration-300 relative
-                                ${activeSection === item
-                                    ? 'text-white bg-gradient-to-br from-blue-500/20 to-indigo-500/20 border border-blue-500/30 shadow-[0_0_15px_rgba(33,150,243,0.2)]'
-                                    : 'text-slate-300 hover:text-white hover:bg-white/5'
-                                }`}
-                        >
-                            {item.charAt(0).toUpperCase() + item.slice(1)}
-                        </button>
-                    ))}
-                    <div className="w-px h-6 bg-white/10 mx-2"></div>
-
-                    <Link href="/labs" className="px-5 py-2 rounded-full text-sm font-medium text-slate-300 hover:text-white hover:bg-white/5 transition-all">
-                        Labs
-                    </Link>
-                    <Link href="/blog" className="px-5 py-2 rounded-full text-sm font-medium text-slate-300 hover:text-white hover:bg-white/5 transition-all">
-                        Blog
-                    </Link>
-                    <div className="w-px h-6 bg-white/10 mx-2"></div>
-                    <Link href="/services" className="px-5 py-2 rounded-full text-sm font-semibold text-white bg-gradient-to-br from-blue-500/30 to-indigo-500/30 border border-blue-500/40 hover:border-blue-400/70 hover:shadow-[0_0_15px_rgba(33,150,243,0.3)] transition-all duration-300">
-                        Hire Me
-                    </Link>
-                    <Link href="/cost-to-build" className="px-5 py-2 rounded-full text-sm font-semibold text-green-400 bg-green-500/10 border border-green-500/30 hover:bg-green-500/20 hover:text-green-300 transition-all duration-300 flex items-center gap-2">
-                        <i className="fas fa-calculator text-[10px]"></i> App Cost
-                    </Link>
-                    <Link href="/digital-assets" className="px-5 py-2 rounded-full text-sm font-medium text-slate-300 hover:text-white hover:bg-white/5 transition-all">
-                        Assets
-                    </Link>
+                    {navLinks.map((link) => {
+                        const isActive = pathname === link.href;
+                        return (
+                            <Link
+                                key={link.name}
+                                href={link.href}
+                                className={`px-5 py-2.5 rounded-full text-[13px] font-bold transition-all duration-300 relative
+                                    ${isActive
+                                        ? 'text-white bg-white/[0.06] shadow-[inset_0_0_0_1px_rgba(255,255,255,0.05)]'
+                                        : 'text-zinc-400 hover:text-white hover:bg-white/[0.03]'
+                                    }`}
+                                style={fontBody}
+                            >
+                                {link.name}
+                            </Link>
+                        );
+                    })}
                 </nav>
 
+                {/* Desktop Right CTA */}
+                <div className="hidden md:flex items-center">
+                    <Link
+                        href="/services#audit-form"
+                        className="px-6 py-2.5 rounded-full text-[13px] font-extrabold text-white bg-[#0055FF] hover:bg-[#0044CC] transition-all duration-300 shadow-[0_0_25px_rgba(0,85,255,0.5)] hover:shadow-[0_0_40px_rgba(0,85,255,0.8)] hover:-translate-y-0.5 active:translate-y-0"
+                        style={fontHeadline}
+                    >
+                        Request Audit
+                    </Link>
+                </div>
+
                 {/* Mobile Menu Button */}
-                <div
-                    className="md:hidden w-10 h-10 flex flex-col justify-center items-center gap-1.5 cursor-pointer z-[1001] bg-white/5 rounded-full hover:bg-white/10 transition-colors"
+                <button
+                    className="md:hidden w-11 h-11 flex flex-col justify-center items-center gap-[5px] z-[1001] bg-white/[0.03] rounded-full hover:bg-white/[0.06] transition-colors border border-white/[0.08]"
                     onClick={() => setIsMenuOpen(!isMenuOpen)}
                 >
-                    <div className={`w-5 h-0.5 bg-current transition-all duration-300 ${isMenuOpen ? 'rotate-45 translate-y-2 bg-blue-400' : 'text-slate-200'}`}></div>
-                    <div className={`w-5 h-0.5 bg-current transition-all duration-300 ${isMenuOpen ? 'opacity-0' : 'text-slate-200'}`}></div>
-                    <div className={`w-5 h-0.5 bg-current transition-all duration-300 ${isMenuOpen ? '-rotate-45 -translate-y-2 bg-blue-400' : 'text-slate-200'}`}></div>
-                </div>
+                    <div className={`h-0.5 bg-white transition-all duration-300 ${isMenuOpen ? 'w-5 rotate-45 translate-y-[7px]' : 'w-5'}`}></div>
+                    <div className={`h-0.5 bg-white transition-all duration-300 ${isMenuOpen ? 'opacity-0 w-5' : 'w-4'}`}></div>
+                    <div className={`h-0.5 bg-white transition-all duration-300 ${isMenuOpen ? 'w-5 -rotate-45 -translate-y-[7px]' : 'w-3'}`}></div>
+                </button>
             </div>
 
             {/* Mobile Nav Overlay */}
-            <div className={`md:hidden absolute top-[100%] left-0 right-0 bg-black/95 backdrop-blur-3xl border-b border-white/10 overflow-hidden transition-all duration-500 ${isMenuOpen ? 'max-h-[500px] opacity-100 shadow-2xl' : 'max-h-0 opacity-0'}`}>
-                <div className="flex flex-col p-6 gap-2">
-                    <div className="flex gap-2 mb-2">
-                        <Link href="/services" className="flex-1 text-left p-4 rounded-xl text-sm font-semibold text-blue-400 bg-gradient-to-r from-blue-500/10 to-transparent border-l-4 border-blue-500 transition-all">
-                            → Hire Me
-                        </Link>
-                        <Link href="/cost-to-build" className="flex-1 text-left p-4 rounded-xl text-sm font-semibold text-green-400 bg-gradient-to-r from-green-500/10 to-transparent border-l-4 border-green-500 transition-all flex items-center gap-2">
-                            <i className="fas fa-calculator"></i> App Cost
-                        </Link>
-                    </div>
-                    {["home", "about", "skills", "projects", "contact"].map((item) => (
-                        <button
-                            key={item}
-                            onClick={() => scrollToSection(item)}
-                            className={`text-left p-4 rounded-xl text-sm font-medium transition-all
-                                ${activeSection === item
-                                    ? 'bg-gradient-to-r from-blue-500/20 to-transparent border-l-4 border-blue-500 text-blue-400'
-                                    : 'text-slate-400 hover:bg-white/5 hover:text-white hover:translate-x-2'
-                                }`}
-                        >
-                            {item.charAt(0).toUpperCase() + item.slice(1)}
-                        </button>
-                    ))}
-                    <Link href="/labs" className="text-left p-4 rounded-xl text-sm font-medium text-slate-400 hover:bg-white/5 hover:text-white hover:translate-x-2 transition-all">
-                        Labs
-                    </Link>
-                    <Link href="/blog" className="text-left p-4 rounded-xl text-sm font-medium text-slate-400 hover:bg-white/5 hover:text-white hover:translate-x-2 transition-all">
-                        Blog
-                    </Link>
-                    <Link href="/digital-assets" className="text-left p-4 rounded-xl text-sm font-medium text-slate-400 hover:bg-white/5 hover:text-white hover:translate-x-2 transition-all">
-                        Assets
+            <div className={`md:hidden absolute top-[110%] left-4 right-4 rounded-3xl bg-[#0A0A0A]/95 backdrop-blur-3xl border border-white/[0.08] overflow-hidden transition-all duration-500 origin-top pointer-events-auto ${isMenuOpen ? 'scale-y-100 opacity-100 shadow-[0_30px_60px_rgba(0,0,0,0.6)]' : 'scale-y-0 opacity-0'}`}>
+                <div className="flex flex-col p-4 gap-2">
+                    {navLinks.map((link) => {
+                        const isActive = pathname === link.href;
+                        return (
+                            <Link
+                                key={link.name}
+                                href={link.href}
+                                onClick={() => setIsMenuOpen(false)}
+                                className={`text-left p-4 rounded-2xl text-sm font-bold transition-all
+                                    ${isActive
+                                        ? 'bg-[var(--primary)]/10 text-[var(--primary)] border border-[var(--primary)]/20'
+                                        : 'text-zinc-400 hover:bg-white/[0.03] hover:text-white border border-transparent'
+                                    }`}
+                                style={fontBody}
+                            >
+                                {link.name}
+                            </Link>
+                        );
+                    })}
+                    <div className="w-full h-px bg-white/[0.05] my-2"></div>
+                    <Link
+                        href="/services#audit-form"
+                        onClick={() => setIsMenuOpen(false)}
+                        className="text-center p-4 rounded-2xl text-sm font-extrabold text-white bg-[#0055FF] shadow-[0_0_25px_rgba(0,85,255,0.5)]"
+                        style={fontHeadline}
+                    >
+                        Request Audit
                     </Link>
                 </div>
             </div>

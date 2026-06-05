@@ -1,12 +1,12 @@
-[Labs](https://www.mohamedrashard.dev/labs)
-[Blog](https://www.mohamedrashard.dev/blog)
-[Labs](https://www.mohamedrashard.dev/labs)
-[Blog](https://www.mohamedrashard.dev/blog)
+[Labs](https://mr2labs.com/labs)
+[Blog](https://mr2labs.com/blog)
+[Labs](https://mr2labs.com/labs)
+[Blog](https://mr2labs.com/blog)
 
 ## Next.js Web Developer & Systems Architect in Sri Lanka
 High-performance AI tools, SaaS platforms, and tailored web apps for founders who are done waiting. Trusted by global startups to deliver scalable revenue ecosystems.
-[Claim Free AI Audit](https://www.mohamedrashard.dev/services#audit-form)
-[See My Work](https://www.mohamedrashard.dev/#projects)
+[Claim Free AI Audit](https://mr2labs.com/services#audit-form)
+[See My Work](https://mr2labs.com/#projects)
 [LinkedIn](https://www.linkedin.com/in/mohamedrashard)
 [Github](https://github.com/mohrashard/)
 [Twitter](https://x.com/mrr_labs)
@@ -35,7 +35,7 @@ ICBT Campus, Colombo
 Private Candidate
 Not sure if it's a fit?
 Claim a free AI Opportunity Audit. I will personally review your business and send you a Loom video within 48 hours showing exactly where AI can help. No pitch. No obligation.
-[Get My Free Audit](https://www.mohamedrashard.dev/services#audit-form)
+[Get My Free Audit](https://mr2labs.com/services#audit-form)
 
 ### Core Expertise
 #### AI Integration
@@ -59,28 +59,28 @@ Client: A marketing founder targeting B2B businesses limit by manual outreach.
 Problem: They were spending over 5 hours a week manually finding and qualifying leads.
 Built: I built BizFinder AI in 48 hours to automatically discover and qualify leads using the Gemini API.
 Result: 5 hours saved every week allowing them to focus purely on closing.
-[Want something like this? Claim your free audit.](https://www.mohamedrashard.dev/services#audit-form)
+[Want something like this? Claim your free audit.](https://mr2labs.com/services#audit-form)
 
 ### LiverLens
 Client: A private healthcare clinic needing better triaging for hepatology patients.
 Problem: Doctors were spending too much time manually calculating disease risk factors from raw data.
 Built: I built LiverLens, a secure React + Flask platform powered by a custom XGBoost AI model.
 Result: 92% prediction accuracy, saving 15 minutes per patient evaluation.
-[Want something like this? Claim your free audit.](https://www.mohamedrashard.dev/services#audit-form)
+[Want something like this? Claim your free audit.](https://mr2labs.com/services#audit-form)
 
 ### Mentora
 Client: A digital health startup aiming to scale their wellness coaching program globally.
 Problem: Coaches simply couldn't manually analyze thousands of daily behavior data points per user.
 Built: I built an AI engine that analyzes digital patterns to generate personalized wellness recommendations at scale.
 Result: Scaled rapidly to 1,000+ users with zero additional coaching headcount.
-[Want something like this? Claim your free audit.](https://www.mohamedrashard.dev/services#audit-form)
+[Want something like this? Claim your free audit.](https://mr2labs.com/services#audit-form)
 
 ### Tasknet
 Client: A service provider marketplace needing a seamless two-sided matching platform.
 Problem: Buyers couldn't seamlessly discover, vet, and book reliable service providers in real-time.
 Built: I built a customized full-stack collaborative platform with a tailored matching algorithm.
 Result: 300% increase in successful local service matches within the first month.
-[Want something like this? Claim your free audit.](https://www.mohamedrashard.dev/services#audit-form)
+[Want something like this? Claim your free audit.](https://mr2labs.com/services#audit-form)
 
 ## Results speak.Numbers do not lie.
 Verified outcomes from shipped projects. Every metric is real and traceable to a live build.
@@ -91,31 +91,31 @@ Every MVP I take on ships as a live, testable product within 48 to 72 hours. Not
 Paraphrased from academic feedback. Available on request.
 Be the first client to leave a review.
 I am actively taking on new projects and building my client track record. Claim a free AI Audit - if I deliver value, I will ask for one honest sentence in return. That is the deal.
-[Claim your free audit](https://www.mohamedrashard.dev/services#audit-form)
+[Claim your free audit](https://mr2labs.com/services#audit-form)
 All metrics are sourced from real project builds. No paid testimonials. No fabricated reviews.
 
 ## Your idea deserves to be live this week.
 Start with a free AI Audit. I will personally review your business and show you exactly where AI can save you time and money, specific to how you work, delivered within 48 hours.
 No pitch. No obligation. No templates. Just a real, personal audit from me.
-[Claim Free AI Audit](https://www.mohamedrashard.dev/services#audit-form)
-[Email Me Directly](https://www.mohamedrashard.dev/cdn-cgi/l/email-protection#0e6361667c6f7d666f7c6a4e69636f6762206d6163)
+[Claim Free AI Audit](https://mr2labs.com/services#audit-form)
+[Email Me Directly](https://mr2labs.com/cdn-cgi/l/email-protection#0e6361667c6f7d666f7c6a4e69636f6762206d6163)
 Based in Colombo, Sri Lanka (UTC+5:30) — responding within 4 hours during working hours, within 12 hours globally.
 [Connect on LinkedIn](https://www.linkedin.com/in/mohamedrashard)
 [View GitHub](https://github.com/mohrashard/)
-[Mr2 Labs](https://www.mohamedrashard.dev/)
+[Mr2 Labs](https://mr2labs.com/)
 Mr² Labs – The innovation hub of Mohamed Rashard Rizmi. Pioneering AI solutions, custom software ecosystems, and futuristic digital experiences from Colombo to the world.
 
 #### Shortcuts
-- [Home](https://www.mohamedrashard.dev/)
-- [Services](https://www.mohamedrashard.dev/services)
-- [Labs](https://www.mohamedrashard.dev/labs)
-- [Digital Assets](https://www.mohamedrashard.dev/digital-assets)
-- [Blog](https://www.mohamedrashard.dev/blog)
-[Home](https://www.mohamedrashard.dev/)
-[Services](https://www.mohamedrashard.dev/services)
-[Labs](https://www.mohamedrashard.dev/labs)
-[Digital Assets](https://www.mohamedrashard.dev/digital-assets)
-[Blog](https://www.mohamedrashard.dev/blog)
+- [Home](https://mr2labs.com/)
+- [Services](https://mr2labs.com/services)
+- [Labs](https://mr2labs.com/labs)
+- [Digital Assets](https://mr2labs.com/digital-assets)
+- [Blog](https://mr2labs.com/blog)
+[Home](https://mr2labs.com/)
+[Services](https://mr2labs.com/services)
+[Labs](https://mr2labs.com/labs)
+[Digital Assets](https://mr2labs.com/digital-assets)
+[Blog](https://mr2labs.com/blog)
 
 #### Contact & Legal
 - Colombo, Sri Lanka

@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useEffect, useRef } from 'react';
+import { Terminal } from 'lucide-react';
 
 export default function AuditForm() {
     const [status, setStatus] = useState('idle'); // idle, loading, success, error
@@ -136,15 +137,15 @@ export default function AuditForm() {
                 {isOpen && (
                     status === 'success' ? (
                         /* ── SUCCESS STATE ── */
-                        <div className="w-full max-w-2xl mx-auto rounded-3xl bg-white/5 border border-cyan-500/30 backdrop-blur-md p-12 md:p-16 text-center mt-12">
-                            <div className="w-24 h-24 bg-cyan-500/20 border border-cyan-500/40 rounded-full flex items-center justify-center mx-auto mb-8 animate-bounce">
-                                <i className="fas fa-check text-4xl text-cyan-400 drop-shadow-[0_0_15px_rgba(34,211,238,0.8)]" />
+                        <div className="w-full max-w-2xl mx-auto rounded-3xl bg-white/5 border border-[var(--primary)]/30 backdrop-blur-md p-12 md:p-16 text-center mt-12">
+                            <div className="w-24 h-24 bg-[var(--primary)]/20 border border-[var(--primary)]/40 rounded-full flex items-center justify-center mx-auto mb-8 animate-bounce">
+                                <i className="fas fa-check text-4xl text-[var(--primary)] drop-shadow-[0_0_15px_rgba(34,211,238,0.8)]" />
                             </div>
-                            <h3 className="text-4xl md:text-5xl font-black text-white mb-6">BOOM!</h3>
-                            <p className="text-xl text-slate-300">Audit request received. Check your inbox!</p>
+                            <h3 className="text-4xl md:text-5xl font-extrabold text-zinc-50 mb-6">BOOM!</h3>
+                            <p className="text-xl text-zinc-300">Audit request received. Check your inbox!</p>
                             <button
                                 onClick={closeForm}
-                                className="mt-10 px-8 py-3 rounded-full bg-white/5 border border-white/10 text-white font-bold hover:bg-white/10 transition-colors"
+                                className="mt-10 px-8 py-3 rounded-full bg-white/5 border border-white/10 text-zinc-50 font-bold hover:bg-white/10 transition-colors"
                             >
                                 Close
                             </button>
@@ -155,7 +156,7 @@ export default function AuditForm() {
                             {/* Close button */}
                             <button
                                 onClick={closeForm}
-                                className="absolute top-6 right-6 w-10 h-10 rounded-full bg-white/5 border border-white/10 flex items-center justify-center text-slate-400 hover:text-white hover:bg-white/10 transition-all z-50"
+                                className="absolute top-6 right-6 w-10 h-10 rounded-full bg-white/5 border border-white/10 flex items-center justify-center text-zinc-400 hover:text-zinc-50 hover:bg-white/10 transition-all z-50"
                                 aria-label="Close audit form"
                             >
                                 <i className="fas fa-times" />
@@ -167,71 +168,71 @@ export default function AuditForm() {
 
                             <div className="relative z-10">
                                 <div className="text-center mb-10">
-                                    <div className="inline-block mb-3 px-4 py-1.5 rounded-full border border-cyan-500/20 bg-cyan-500/10 text-cyan-400 text-xs font-bold uppercase tracking-widest">
-                                        <i className="fas fa-bolt mr-2" />
-                                        Next Steps
+                                    <div className="inline-flex items-center gap-2 px-3 py-1.5 mb-6 rounded border border-white/[0.08] bg-white/[0.02] text-zinc-400 text-[10px] font-bold uppercase tracking-[0.2em]" style={{ fontFamily: "'Geist Mono', 'Geist', monospace" }}>
+                                        <Terminal size={14} className="text-[var(--primary)]" />
+                                        <span>[ ] Next Steps</span>
                                     </div>
-                                    <h3 className="text-3xl md:text-4xl font-black text-white mb-3">Free AI Opportunity Audit</h3>
-                                    <p className="text-sm md:text-base text-slate-400">Takes 2 minutes. Every audit request gets a personal Loom video response within 48 hours. Not a template. Not an assistant. Me.</p>
+                                    <h3 className="text-3xl md:text-4xl font-extrabold text-zinc-50 mb-3">Free AI Opportunity Audit</h3>
+                                    <p className="text-sm md:text-base text-zinc-400">Takes 2 minutes. Every audit request gets a personal Loom video response within 48 hours. Not a template. Not an assistant. Me.</p>
                                 </div>
 
                                 <form onSubmit={handleSubmit} className="space-y-6 text-left">
                                     <div className="space-y-2">
-                                        <label className="text-sm font-bold text-slate-300 ml-1">What is your name and what does your business do? <span className="text-red-400">*</span></label>
-                                        <input required name="nameAndBusiness" type="text" placeholder="John Doe — I run a local lead gen agency..." className="w-full bg-black/40 border border-white/10 rounded-xl px-5 py-3.5 text-white placeholder:text-slate-600 focus:outline-none focus:border-cyan-500/50 focus:ring-1 focus:ring-cyan-500/50 transition-all font-medium" />
+                                        <label className="text-sm font-bold text-zinc-300 ml-1">What is your name and what does your business do? <span className="text-red-400">*</span></label>
+                                        <input required name="nameAndBusiness" type="text" placeholder="John Doe — I run a local lead gen agency..." className="w-full bg-black/40 border border-white/10 rounded-xl px-5 py-3.5 text-zinc-50 placeholder:text-zinc-600 focus:outline-none focus:border-[var(--primary)]/50 focus:ring-1 focus:ring-[var(--primary)]/50 transition-all font-medium" />
                                     </div>
 
                                     <div className="space-y-2">
-                                        <label className="text-sm font-bold text-slate-300 ml-1">Best email address to send the audit to? <span className="text-red-400">*</span></label>
-                                        <input required name="email" type="email" placeholder="john@company.com" className="w-full bg-black/40 border border-white/10 rounded-xl px-5 py-3.5 text-white placeholder:text-slate-600 focus:outline-none focus:border-cyan-500/50 focus:ring-1 focus:ring-cyan-500/50 transition-all font-medium" />
+                                        <label className="text-sm font-bold text-zinc-300 ml-1">Best email address to send the audit to? <span className="text-red-400">*</span></label>
+                                        <input required name="email" type="email" placeholder="john@company.com" className="w-full bg-black/40 border border-white/10 rounded-xl px-5 py-3.5 text-zinc-50 placeholder:text-zinc-600 focus:outline-none focus:border-[var(--primary)]/50 focus:ring-1 focus:ring-[var(--primary)]/50 transition-all font-medium" />
                                     </div>
 
                                     <div className="space-y-2">
-                                        <label className="text-sm font-bold text-slate-300 ml-1">What is the most time-consuming or repetitive task in your business right now? <span className="text-red-400">*</span></label>
-                                        <textarea required name="painPoint" rows={3} placeholder="I spend 10 hours a week doing..." className="w-full bg-black/40 border border-white/10 rounded-xl px-5 py-3.5 text-white placeholder:text-slate-600 focus:outline-none focus:border-cyan-500/50 focus:ring-1 focus:ring-cyan-500/50 transition-all font-medium resize-none" />
+                                        <label className="text-sm font-bold text-zinc-300 ml-1">What is the most time-consuming or repetitive task in your business right now? <span className="text-red-400">*</span></label>
+                                        <textarea required name="painPoint" rows={3} placeholder="I spend 10 hours a week doing..." className="w-full bg-black/40 border border-white/10 rounded-xl px-5 py-3.5 text-zinc-50 placeholder:text-zinc-600 focus:outline-none focus:border-[var(--primary)]/50 focus:ring-1 focus:ring-[var(--primary)]/50 transition-all font-medium resize-none" />
                                     </div>
 
                                     <div className="grid md:grid-cols-2 gap-6">
                                         <div className="space-y-2">
-                                            <label className="text-sm font-bold text-slate-300 ml-1">Are you actively looking to solve this in the next 30 days, or still exploring options? <span className="text-red-400">*</span></label>
+                                            <label className="text-sm font-bold text-zinc-300 ml-1">Are you actively looking to solve this in the next 30 days, or still exploring options? <span className="text-red-400">*</span></label>
                                             <div className="relative h-[52px]">
-                                                <select required name="urgency" defaultValue="" className="w-full h-full bg-black/40 border border-white/10 rounded-xl px-5 text-white appearance-none focus:outline-none focus:border-cyan-500/50 focus:ring-1 focus:ring-cyan-500/50 transition-all font-medium cursor-pointer">
-                                                    <option value="" disabled className="text-slate-500">Select an option</option>
-                                                    <option value="Ready to move forward in the next 30 days" className="bg-[#0f172a] text-white py-2">Ready to move forward in the next 30 days</option>
-                                                    <option value="Exploring options, no rush" className="bg-[#0f172a] text-white py-2">Exploring options, no rush</option>
-                                                    <option value="Just curious for now" className="bg-[#0f172a] text-white py-2">Just curious for now</option>
+                                                <select required name="urgency" defaultValue="" className="w-full h-full bg-black/40 border border-white/10 rounded-xl px-5 text-zinc-50 appearance-none focus:outline-none focus:border-[var(--primary)]/50 focus:ring-1 focus:ring-[var(--primary)]/50 transition-all font-medium cursor-pointer">
+                                                    <option value="" disabled className="text-zinc-500">Select an option</option>
+                                                    <option value="Ready to move forward in the next 30 days" className="bg-[#0f172a] text-zinc-50 py-2">Ready to move forward in the next 30 days</option>
+                                                    <option value="Exploring options, no rush" className="bg-[#0f172a] text-zinc-50 py-2">Exploring options, no rush</option>
+                                                    <option value="Just curious for now" className="bg-[#0f172a] text-zinc-50 py-2">Just curious for now</option>
                                                 </select>
-                                                <i className="fas fa-chevron-down absolute right-5 top-1/2 -translate-y-1/2 text-slate-500 pointer-events-none text-xs" />
+                                                <i className="fas fa-chevron-down absolute right-5 top-1/2 -translate-y-1/2 text-zinc-500 pointer-events-none text-xs" />
                                             </div>
                                         </div>
                                         <div className="space-y-2">
-                                            <label className="text-sm font-bold text-slate-300 ml-1">What is your rough budget range for this project? <span className="text-red-400">*</span></label>
+                                            <label className="text-sm font-bold text-zinc-300 ml-1">What is your rough budget range for this project? <span className="text-red-400">*</span></label>
                                             <div className="relative h-[52px]">
-                                                <select required name="budget" defaultValue="" className="w-full h-full bg-black/40 border border-white/10 rounded-xl px-5 text-white appearance-none focus:outline-none focus:border-cyan-500/50 focus:ring-1 focus:ring-cyan-500/50 transition-all font-medium cursor-pointer">
-                                                    <option value="" disabled className="text-slate-500">Select an option</option>
-                                                    <option value="Under $1,000" className="bg-[#0f172a] text-white py-2">Under $1,000</option>
-                                                    <option value="$1,000 – $5,000" className="bg-[#0f172a] text-white py-2">$1,000 – $5,000</option>
-                                                    <option value="$5,000 – $10,000" className="bg-[#0f172a] text-white py-2">$5,000 – $10,000</option>
-                                                    <option value="$10,000 – $25,000" className="bg-[#0f172a] text-white py-2">$10,000 – $25,000</option>
-                                                    <option value="$25,000 – $50,000" className="bg-[#0f172a] text-white py-2">$25,000 – $50,000</option>
-                                                    <option value="$50,000+" className="bg-[#0f172a] text-white py-2">$50,000+</option>
+                                                <select required name="budget" defaultValue="" className="w-full h-full bg-black/40 border border-white/10 rounded-xl px-5 text-zinc-50 appearance-none focus:outline-none focus:border-[var(--primary)]/50 focus:ring-1 focus:ring-[var(--primary)]/50 transition-all font-medium cursor-pointer">
+                                                    <option value="" disabled className="text-zinc-500">Select an option</option>
+                                                    <option value="Under $1,000" className="bg-[#0f172a] text-zinc-50 py-2">Under $1,000</option>
+                                                    <option value="$1,000 – $5,000" className="bg-[#0f172a] text-zinc-50 py-2">$1,000 – $5,000</option>
+                                                    <option value="$5,000 – $10,000" className="bg-[#0f172a] text-zinc-50 py-2">$5,000 – $10,000</option>
+                                                    <option value="$10,000 – $25,000" className="bg-[#0f172a] text-zinc-50 py-2">$10,000 – $25,000</option>
+                                                    <option value="$25,000 – $50,000" className="bg-[#0f172a] text-zinc-50 py-2">$25,000 – $50,000</option>
+                                                    <option value="$50,000+" className="bg-[#0f172a] text-zinc-50 py-2">$50,000+</option>
                                                 </select>
-                                                <i className="fas fa-chevron-down absolute right-5 top-1/2 -translate-y-1/2 text-slate-500 pointer-events-none text-xs" />
+                                                <i className="fas fa-chevron-down absolute right-5 top-1/2 -translate-y-1/2 text-zinc-500 pointer-events-none text-xs" />
                                             </div>
                                         </div>
                                     </div>
 
                                     <div className="space-y-2">
-                                        <label className="text-sm font-bold text-slate-300 ml-1 flex flex-col gap-1">
+                                        <label className="text-sm font-bold text-zinc-300 ml-1 flex flex-col gap-1">
                                             <span>Where can I find your website or LinkedIn so I can review your business before the audit? <span className="text-red-400">*</span></span>
-                                            <span className="text-xs font-normal text-slate-500">If there is no LinkedIn or website, please send your social media links or describe your business here.</span>
+                                            <span className="text-xs font-normal text-zinc-500">If there is no LinkedIn or website, please send your social media links or describe your business here.</span>
                                         </label>
-                                        <input required name="website" type="text" placeholder="https://..." className="w-full bg-black/40 border border-white/10 rounded-xl px-5 py-3.5 text-white placeholder:text-slate-600 focus:outline-none focus:border-cyan-500/50 focus:ring-1 focus:ring-cyan-500/50 transition-all font-medium" />
+                                        <input required name="website" type="text" placeholder="https://..." className="w-full bg-black/40 border border-white/10 rounded-xl px-5 py-3.5 text-zinc-50 placeholder:text-zinc-600 focus:outline-none focus:border-[var(--primary)]/50 focus:ring-1 focus:ring-[var(--primary)]/50 transition-all font-medium" />
                                     </div>
 
                                     <div className="space-y-2">
-                                        <label className="text-sm font-bold text-slate-300 ml-1">What would it mean for your business if this problem was solved? <span className="text-slate-500 font-normal">(optional bonus)</span></label>
-                                        <textarea name="outcome" rows={3} placeholder="It would allow me to take on 5 more clients a month..." className="w-full bg-black/40 border border-white/10 rounded-xl px-5 py-3.5 text-white placeholder:text-slate-600 focus:outline-none focus:border-cyan-500/50 focus:ring-1 focus:ring-cyan-500/50 transition-all font-medium resize-none" />
+                                        <label className="text-sm font-bold text-zinc-300 ml-1">What would it mean for your business if this problem was solved? <span className="text-zinc-500 font-normal">(optional bonus)</span></label>
+                                        <textarea name="outcome" rows={3} placeholder="It would allow me to take on 5 more clients a month..." className="w-full bg-black/40 border border-white/10 rounded-xl px-5 py-3.5 text-zinc-50 placeholder:text-zinc-600 focus:outline-none focus:border-[var(--primary)]/50 focus:ring-1 focus:ring-[var(--primary)]/50 transition-all font-medium resize-none" />
                                     </div>
 
                                     {status === 'error' && (
@@ -244,7 +245,7 @@ export default function AuditForm() {
                                     <button
                                         type="submit"
                                         disabled={status === 'loading'}
-                                        className="w-full group mt-8 relative flex items-center justify-center gap-3 px-8 py-4 rounded-xl bg-gradient-to-r from-cyan-500 to-blue-600 text-white font-black text-lg hover:shadow-[0_0_40px_rgba(37,99,235,0.4)] disabled:opacity-70 disabled:hover:shadow-none hover:-translate-y-1 transition-all duration-300 overflow-hidden"
+                                        className="w-full group mt-8 relative flex items-center justify-center gap-3 px-8 py-4 rounded-xl bg-gradient-to-r from-[var(--primary)] to-[var(--accent)] text-zinc-50 font-extrabold text-lg hover:shadow-[0_0_40px_rgba(37,99,235,0.4)] disabled:opacity-70 disabled:hover:shadow-none hover:-translate-y-1 transition-all duration-300 overflow-hidden"
                                     >
                                         {status === 'loading' ? (
                                             <>
@@ -260,7 +261,7 @@ export default function AuditForm() {
                                         <div className="absolute inset-0 bg-white/10 translate-y-full group-hover:translate-y-0 transition-transform duration-300 rounded-xl pointer-events-none" />
                                     </button>
 
-                                    <p className="text-center text-xs text-slate-500 mt-4">
+                                    <p className="text-center text-xs text-zinc-500 mt-4">
                                         <i className="fas fa-lock mr-1" /> Your information is 100% secure.
                                     </p>
                                 </form>

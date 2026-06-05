@@ -5,6 +5,10 @@ import EstimatorForm from '../components/EstimatorForm';
 import { PSEOSlug } from '@/types/pseo';
 import { Metadata } from 'next';
 import Navbar from '../../components/Navbar';
+import Link from 'next/link';
+import AnimatedSection from '../../components/AnimatedSection';
+
+const fontLabel = { fontFamily: "'Geist Mono', 'Geist', monospace" };
 
 const typedData = pseoData as PSEOSlug[];
 
@@ -130,14 +134,19 @@ export default async function CostToBuildSlugPage({ params }: { params: Promise<
                 <div className="absolute inset-0 bg-[url('/grid-pattern.svg')] opacity-[0.03]"></div>
             </div>
 
-            <main className="relative z-10 max-w-7xl mx-auto px-6 md:px-12 animate-in fade-in slide-in-from-bottom-8 duration-700">
+            <main className="relative z-10 max-w-7xl mx-auto px-6 md:px-12">
+                <AnimatedSection delay={0} slideDirection="left" className="mb-8">
+                    <Link href="/cost-to-build" className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/5 border border-white/10 text-xs font-bold text-slate-400 hover:text-white hover:bg-white/10 transition-all group" style={fontLabel}>
+                        <i className="fas fa-arrow-left group-hover:-translate-x-1 transition-transform"></i> BACK TO ESTIMATOR
+                    </Link>
+                </AnimatedSection>
                 <div className="grid lg:grid-cols-12 gap-12 items-start">
                     
                     <div className="lg:col-span-7 flex flex-col gap-10">
                         
-                        <header>
+                        <AnimatedSection component="header" delay={0.1}>
                             <div className="flex flex-wrap items-center gap-3 mb-6">
-                                <span className="px-4 py-1.5 rounded-full border border-blue-500/30 bg-blue-500/10 text-blue-400 text-xs font-bold uppercase tracking-widest">
+                                <span className="px-4 py-1.5 rounded-full border border-[var(--primary)]/30 bg-[var(--primary)]/10 text-[var(--accent)] text-xs font-bold uppercase tracking-widest">
                                     {project.category}
                                 </span>
                                 <span className="flex items-center gap-2 px-3 py-1.5 rounded-full border border-white/10 bg-white/5 text-slate-300 text-xs font-semibold">
@@ -155,7 +164,7 @@ export default async function CostToBuildSlugPage({ params }: { params: Promise<
                                     </span>
                                 </div>
                             )}
-                            <p className="text-xl text-slate-400 font-light leading-relaxed border-l-4 border-blue-500/50 pl-5">
+                            <p className="text-xl text-slate-400 font-light leading-relaxed border-l-4 border-[var(--primary)]/50 pl-5">
                                 {project.seoDescription}
                             </p>
                             {project.location && (
@@ -163,9 +172,9 @@ export default async function CostToBuildSlugPage({ params }: { params: Promise<
                                     Remote-first agency serving {project.location.country} startups — same quality as a local agency, fraction of the {project.location.country} rate.
                                 </p>
                             )}
-                        </header>
+                        </AnimatedSection>
 
-                        <section className="p-8 rounded-3xl bg-red-950/20 border border-red-500/20 relative overflow-hidden">
+                        <AnimatedSection component="section" delay={0.2} className="p-8 rounded-3xl bg-red-950/20 border border-red-500/20 relative overflow-hidden">
                             <i className="fas fa-exclamation-triangle absolute -top-10 -right-10 text-9xl text-red-500/5"></i>
                             <h2 className="text-lg font-bold text-white mb-6 flex items-center gap-3">
                                 <span className="w-8 h-8 rounded-full bg-red-500/20 flex items-center justify-center text-red-500">
@@ -190,11 +199,11 @@ export default async function CostToBuildSlugPage({ params }: { params: Promise<
                             <p className="mt-6 text-center text-sm font-semibold text-white/90 bg-white/5 py-3 rounded-lg border border-white/10">
                                 {project.mr2LabsHook}
                             </p>
-                        </section>
+                        </AnimatedSection>
 
-                        <section className="mb-10 lg:mb-0">
+                        <AnimatedSection component="section" delay={0.3} className="mb-10 lg:mb-0">
                             <h2 className="text-2xl font-bold text-white mb-6 flex items-center gap-3">
-                                <i className="fas fa-server text-blue-500"></i> Under The Hood Architecture
+                                <i className="fas fa-server text-[var(--accent)]"></i> Under The Hood Architecture
                             </h2>
                             <p className="text-slate-400 mb-6 text-sm">
                                 To build this properly and securely, here are the core technical primitives and infrastructural components needed:
@@ -202,7 +211,7 @@ export default async function CostToBuildSlugPage({ params }: { params: Promise<
                             <div className="grid gap-3">
                                 {project.technicalArchitecture.map((tech, idx) => (
                                     <div key={idx} className="flex items-start gap-4 p-4 rounded-xl bg-white/5 border border-white/10 hover:border-white/20 transition-all">
-                                        <div className="w-6 h-6 mt-0.5 rounded-full bg-blue-500/10 border border-blue-500/30 flex items-center justify-center flex-shrink-0 text-blue-400 text-xs shadow-[0_0_10px_rgba(59,130,246,0.2)]">
+                                        <div className="w-6 h-6 mt-0.5 rounded-full bg-[var(--primary)]/10 border border-[var(--primary)]/30 flex items-center justify-center flex-shrink-0 text-[var(--accent)] text-xs shadow-[0_0_10px_rgba(0,102,255,0.2)]">
                                             <i className="fas fa-code-branch"></i>
                                         </div>
                                         <div className="text-slate-200 font-medium">
@@ -211,18 +220,18 @@ export default async function CostToBuildSlugPage({ params }: { params: Promise<
                                     </div>
                                 ))}
                             </div>
-                        </section>
+                        </AnimatedSection>
 
                     </div>
 
                     <div className="lg:col-span-5 relative">
-                        <div className="sticky top-32">
+                        <AnimatedSection delay={0.4} className="sticky top-32">
                             <EstimatorForm 
                                 appTitle={project.h1Title} 
                                 baseFeatures={project.technicalArchitecture} 
                                 slug={project.slug}
                             />
-                        </div>
+                        </AnimatedSection>
                     </div>
                     
                 </div>

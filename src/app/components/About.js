@@ -1,271 +1,467 @@
-import React from 'react';
-import Link from 'next/link';
+"use client";
+import React, { useRef } from "react";
+import Image from "next/image";
+import Link from "next/link";
+import { motion, useInView } from "framer-motion";
+import {
+    ArrowUpRight,
+    Award,
+    Globe,
+    Zap,
+    Layers,
+    BrainCircuit,
+    BarChart2,
+    Terminal,
+} from "lucide-react";
 
+// ── Font tokens ───────────────────────────────────────────────
+const fontHeadline = { fontFamily: "'Plus Jakarta Sans', sans-serif" };
+const fontBody = { fontFamily: "'Inter', sans-serif" };
+const fontLabel = { fontFamily: "'Geist Mono', 'Geist', monospace" };
+
+// ── Animation variants (stagger via parent) ───────────────────
+const containerVariants = {
+    hidden: {},
+    visible: {
+        transition: { staggerChildren: 0.09, delayChildren: 0.05 },
+    },
+};
+
+const itemVariants = {
+    hidden: { opacity: 0, y: 28, willChange: "opacity, transform" },
+    visible: {
+        opacity: 1,
+        y: 0,
+        transition: { duration: 0.52, ease: [0.22, 1, 0.36, 1] },
+    },
+};
+
+const itemLeft = {
+    hidden: { opacity: 0, x: -20, willChange: "opacity, transform" },
+    visible: {
+        opacity: 1,
+        x: 0,
+        transition: { duration: 0.48, ease: [0.22, 1, 0.36, 1] },
+    },
+};
+
+// ── Lightweight scroll-reveal wrapper ────────────────────────
+// One IntersectionObserver per visible section — far cheaper than per-element.
+function ScrollReveal({ children, className = "", delay = 0, direction = "up" }) {
+    const ref = useRef(null);
+    // margin tuned for mobile: trigger 40px before entering viewport
+    const inView = useInView(ref, { once: true, margin: "-40px" });
+    const from = direction === "left" ? { opacity: 0, x: -20 } : { opacity: 0, y: 24 };
+    return (
+        <motion.div
+            ref={ref}
+            className={className}
+            initial={from}
+            animate={inView ? { opacity: 1, x: 0, y: 0 } : from}
+            transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1], delay }}
+            style={{ willChange: "opacity, transform" }}
+        >
+            {children}
+        </motion.div>
+    );
+}
+
+// ── Staggered container — one observer for the whole group ───
+function StaggerGroup({ children, className = "" }) {
+    const ref = useRef(null);
+    const inView = useInView(ref, { once: true, margin: "-40px" });
+    return (
+        <motion.div
+            ref={ref}
+            className={className}
+            variants={containerVariants}
+            initial="hidden"
+            animate={inView ? "visible" : "hidden"}
+        >
+            {children}
+        </motion.div>
+    );
+}
+
+// ── Data ──────────────────────────────────────────────────────
+const stats = [
+    { value: "< 72h", label: "Sprint Velocity" },
+    { value: "10+", label: "Systems Deployed" },
+    { value: "100%", label: "Client IP Ownership" },
+    { value: "3", label: "Core Stacks" },
+];
+
+const milestones = [
+    {
+        date: "2026 →",
+        badge: "Active Operations",
+        title: "Global Systems Deployment",
+        body: "Architecting high-ticket AI tools, SaaS platforms, and intelligent automation for enterprises across the US, UK, Canada, and Australia.",
+        accent: true,
+    },
+    {
+        date: "2026",
+        badge: "Genesis",
+        title: "Mr² Labs Founded",
+        body: "Established as a rapid AI & software labs with a singular focus: shipping production-ready systems in 72 hours with zero corporate bloat.",
+        accent: false,
+    },
+    {
+        date: "2026",
+        badge: "Engineering Standard",
+        title: "Academic Rigor Meets Agile Execution",
+        body: "Studio leadership secured First Class Honours in Software Engineering (B.Sc. Cardiff Metropolitan), embedding strict architectural standards into our rapid delivery pipelines.",
+        accent: false,
+    },
+    {
+        date: "Core",
+        badge: "Philosophy",
+        title: "Local-First Architecture",
+        body: "Pioneered a strict engineering thesis focusing on $0-subscription AI, deploying localized database models, and ensuring 100% client code ownership.",
+        accent: false,
+    },
+];
+
+const expertise = [
+    {
+        Icon: BrainCircuit,
+        title: "AI Integration",
+        desc: "Custom models trained on your data, local-first video pipelines, prediction engines, and background worker automation.",
+        accent: "#0066ff",
+    },
+    {
+        Icon: Layers,
+        title: "Systems Architecture",
+        desc: "End-to-end infrastructure ownership. Heavy-duty backend logic engineered in Python, Rust, and Next.js.",
+        accent: "#38BDF8",
+    },
+    {
+        Icon: Zap,
+        title: "72-Hour Sprints",
+        desc: "Tight scope, hyper-fast execution. Real users testing your product in days instead of months.",
+        accent: "#f59e0b",
+    },
+    {
+        Icon: BarChart2,
+        title: "Revenue Operations",
+        desc: "Architecting for scale from day one — automated systems designed to process high-ticket volumes securely.",
+        accent: "#10b981",
+    },
+];
+
+// ── Milestone Card ────────────────────────────────────────────
+function MilestoneItem({ m, last }) {
+    return (
+        <motion.div
+            variants={itemLeft}
+            className={`relative flex gap-4 sm:gap-6 group ${last ? "" : "pb-8 sm:pb-10"}`}
+        >
+            {/* Timeline spine */}
+            {!last && (
+                <div className="absolute left-[22px] sm:left-[26px] top-8 bottom-0 w-px bg-gradient-to-b from-white/[0.08] to-transparent" />
+            )}
+
+            {/* Node dot */}
+            <div className="flex-shrink-0 w-11 sm:w-13 flex flex-col items-center pt-1">
+                <span
+                    className={`w-3 h-3 rounded-full border flex-shrink-0 transition-all duration-500 ${m.accent
+                        ? "bg-[var(--primary)] border-[var(--primary)] shadow-[0_0_14px_rgba(0,102,255,0.55)]"
+                        : "bg-zinc-800 border-zinc-700 group-hover:border-[var(--primary)]/50"
+                        }`}
+                />
+                <span
+                    className="text-[10px] text-zinc-600 font-semibold tracking-wider mt-2 hidden sm:block"
+                    style={fontLabel}
+                >
+                    {m.date}
+                </span>
+            </div>
+
+            {/* Card */}
+            <div
+                className={`flex-1 rounded-xl border p-5 sm:p-6 transition-all duration-400 group-hover:-translate-y-0.5 ${m.accent
+                    ? "border-[var(--primary)]/25 bg-gradient-to-br from-[var(--primary)]/[0.07] via-white/[0.015] to-transparent shadow-[0_6px_32px_rgba(0,102,255,0.10)]"
+                    : "border-white/[0.07] bg-white/[0.025] group-hover:border-white/[0.12]"
+                    }`}
+            >
+                {/* Mobile date */}
+                <span className="text-[10px] text-zinc-600 font-semibold tracking-wider sm:hidden block mb-1" style={fontLabel}>
+                    {m.date}
+                </span>
+                <span
+                    className={`inline-block text-[9px] tracking-[0.2em] uppercase font-bold px-2.5 py-0.5 rounded-full mb-2.5 border ${m.accent
+                        ? "text-[var(--primary)] bg-[var(--primary)]/10 border-[var(--primary)]/20"
+                        : "text-zinc-500 bg-white/[0.04] border-white/[0.07]"
+                        }`}
+                    style={fontLabel}
+                >
+                    {m.badge}
+                </span>
+                <h3
+                    className={`text-base sm:text-lg font-bold tracking-tight mb-1.5 leading-snug ${m.accent ? "text-zinc-50" : "text-zinc-200"}`}
+                    style={fontHeadline}
+                >
+                    {m.title}
+                </h3>
+                <p className="text-[13px] text-zinc-500 leading-relaxed" style={fontBody}>
+                    {m.body}
+                </p>
+            </div>
+        </motion.div>
+    );
+}
+
+// ═══════════════════════════════════════════════════════════════
 export default function About() {
-    const stats = [
-        { value: "48hrs", label: "MVP Launch", icon: "fas fa-bolt", color: "text-amber-400", bg: "bg-amber-500/10 border-amber-500/20" },
-        { value: "10+", label: "AI Projects", icon: "fas fa-robot", color: "text-blue-400", bg: "bg-blue-500/10 border-blue-500/20" },
-        { value: "1st", label: "Class Honours", icon: "fas fa-graduation-cap", color: "text-cyan-400", bg: "bg-cyan-500/10 border-cyan-500/20" },
-        { value: "3", label: "Languages", icon: "fas fa-earth-asia", color: "text-emerald-400", bg: "bg-emerald-500/10 border-emerald-500/20" },
-    ];
-
-    const expertiseAreas = [
-        {
-            icon: "fas fa-robot",
-            title: "AI Integration",
-            desc: "I embed intelligence into products - chatbots trained on your data, prediction engines, NLP pipelines, and automation that runs while you sleep.",
-            color: "text-blue-400 bg-blue-500/10 border-blue-500/20",
-        },
-        {
-            icon: "fas fa-layer-group",
-            title: "Full-Stack Engineering",
-            desc: "End-to-end product ownership. From database architecture to pixel-perfect UI. Next.js, React, Node.js, Python - whatever the job needs.",
-            color: "text-cyan-400 bg-cyan-500/10 border-cyan-500/20",
-        },
-        {
-            icon: "fas fa-bolt",
-            title: "Speed to Market",
-            desc: "I ship MVPs in 48 to 72 hours. Not as a gimmick - as a discipline. Tight scope, fast execution, real users in days instead of months.",
-            color: "text-amber-400 bg-amber-500/10 border-amber-500/20",
-        },
-        {
-            icon: "fas fa-chart-line",
-            title: "Systems Thinking",
-            desc: "I architect for scale from day one. The difference between an app that breaks at 100 users and one that handles 100,000 is decisions made in hour one.",
-            color: "text-emerald-400 bg-emerald-500/10 border-emerald-500/20",
-        },
-    ];
-
-    const credentials = [
-        {
-            icon: "fas fa-graduation-cap",
-            title: "B.Sc. (Hons) Software Engineering",
-            sub: "Cardiff Metropolitan University",
-            badge: "First Class Honours",
-            badgeColor: "text-cyan-400 bg-cyan-500/10 border-cyan-500/20",
-            year: "2026",
-            featured: true,
-        },
-        {
-            icon: "fas fa-certificate",
-            title: "Diploma in Computing",
-            sub: "ICBT Campus, Colombo",
-            badge: null,
-            year: "2022",
-            featured: false,
-        },
-        {
-            icon: "fas fa-school",
-            title: "G.C.E. Advanced Level",
-            sub: "Private Candidate",
-            badge: null,
-            year: "2024",
-            featured: false,
-        },
-    ];
-
     return (
         <section
             id="about"
-            className="relative py-16 md:py-24 px-5 sm:px-8 md:px-12 overflow-hidden bg-[#050505] border-t border-white/5"
-            itemScope
-            itemType="https://schema.org/Person"
+            className="relative w-full overflow-hidden bg-[#050505] border-t border-white/[0.04]"
+            // CSS containment: reduces browser repaint scope
+            style={{ contain: "paint" }}
         >
-            {/* Ambient Background Glows */}
-            <div className="absolute top-0 right-0 w-96 h-96 bg-blue-600/5 rounded-full blur-[100px] pointer-events-none"></div>
-            <div className="absolute bottom-0 left-0 w-96 h-96 bg-cyan-600/5 rounded-full blur-[100px] pointer-events-none"></div>
+            {/* ── Background image (lazy, low-priority) ── */}
+            <div className="absolute inset-0 z-0 pointer-events-none">
+                <Image
+                    src="/about-bg.png"
+                    alt=""
+                    fill
+                    quality={75}
+                    priority={false}
+                    className="object-cover object-center opacity-50"
+                    aria-hidden="true"
+                    sizes="100vw"
+                />
+                <div className="absolute inset-0 bg-gradient-to-b from-[#050505]/30 via-transparent to-[#050505]/60" />
+                <div className="absolute inset-0 bg-gradient-to-r from-[#050505]/50 via-transparent to-[#050505]/50" />
+            </div>
 
-            <div className="max-w-7xl mx-auto relative z-10">
-                {/* ── SECTION LABEL + HEADLINE ── */}
-                <div className="mb-16 max-w-3xl">
-                    <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-blue-500/20 bg-blue-500/10 text-blue-400 text-xs font-bold uppercase tracking-widest mb-6">
-                        <i className="fas fa-user-astronaut"></i> About
+            {/* Subtle grid overlay */}
+            <div
+                className="absolute inset-0 pointer-events-none z-[1]"
+                style={{
+                    backgroundImage: `linear-gradient(to right, rgba(255,255,255,0.012) 1px, transparent 1px),
+                                      linear-gradient(to bottom, rgba(255,255,255,0.012) 1px, transparent 1px)`,
+                    backgroundSize: "5rem 5rem",
+                    maskImage: "radial-gradient(ellipse 70% 60% at 50% 30%, #000 50%, transparent 100%)",
+                    WebkitMaskImage: "radial-gradient(ellipse 70% 60% at 50% 30%, #000 50%, transparent 100%)",
+                }}
+            />
+
+            {/* ════════════════════════════════════════════
+                  HERO COPY
+                ════════════════════════════════════════════ */}
+            <div className="relative z-10 max-w-4xl mx-auto w-full px-5 sm:px-8 md:px-12 pt-20 sm:pt-24 pb-16 sm:pb-20 text-center flex flex-col items-center gap-5 sm:gap-6">
+
+                <ScrollReveal>
+                    <div
+                        className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-white/10 bg-white/[0.04] text-[10px] tracking-[0.25em] uppercase font-semibold text-zinc-400"
+                        style={fontLabel}
+                    >
+                        <Terminal size={10} className="text-[var(--accent)]" />
+                        Our Thesis
                     </div>
-                    
-                    <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black mb-6 text-white tracking-tight leading-[1.1]">
-                        Not just a developer.<br />
-                        <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-cyan-400">An engineer who ships.</span>
+                </ScrollReveal>
+
+                <ScrollReveal delay={0.06}>
+                    <h2
+                        className="text-[clamp(2rem,6vw,3.75rem)] font-extrabold text-zinc-50 tracking-tight leading-[1.05]"
+                        style={fontHeadline}
+                    >
+                        We engineer{" "}
+                        <em className="not-italic text-transparent bg-clip-text bg-gradient-to-r from-[var(--primary)] via-[var(--accent)] to-zinc-200">
+                            intelligent infrastructure
+                        </em>{" "}
+                        for founders who scale.
                     </h2>
-                    
-                    <p className="text-slate-400 text-base sm:text-lg md:text-xl leading-relaxed max-w-2xl font-normal">
-                        I am <strong className="text-white font-semibold" itemProp="name">Mohamed Rashard</strong> - a full-stack AI engineer based in <strong className="text-white font-semibold" itemProp="addressLocality">Colombo, Sri Lanka</strong>,
-                        building intelligent products for startups and businesses across the US, UK, Canada, and Australia.
-                        I hold a <strong className="text-white font-semibold">First Class Honours degree in Software Engineering</strong> and I specialize at the intersection of AI and product velocity - shipping MVPs in 48 hours and production-grade products in weeks.
+                </ScrollReveal>
+
+                <ScrollReveal delay={0.1}>
+                    <p
+                        className="text-zinc-400 text-sm sm:text-base md:text-lg leading-relaxed max-w-2xl"
+                        style={fontBody}
+                    >
+                        <strong className="text-zinc-200 font-semibold">Mr² Labs</strong> is an elite systems
+                        architecture firm based in{" "}
+                        <strong className="text-zinc-200 font-semibold">Colombo, Sri Lanka</strong>. Founded by
+                        Mohamed Rashard, we bypass corporate bloat to deliver production-ready software and AI
+                        ecosystems at 72-hour sprint velocity.
                     </p>
-                </div>
+                </ScrollReveal>
 
-                {/* ── STAT WALL ── */}
-                <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4 mb-20">
+                {/* Stats row — stagger as group */}
+                <StaggerGroup className="flex flex-wrap justify-center gap-6 sm:gap-10 pt-4">
                     {stats.map((s, i) => (
-                        <div key={i} className={`p-5 sm:p-6 rounded-2xl border ${s.bg} hover:-translate-y-1 transition-transform cursor-default`}>
-                            <i className={`${s.icon} text-2xl ${s.color} mb-4 block`}></i>
-                            <div className={`text-3xl md:text-4xl font-black ${s.color} mb-1 tracking-tight`}>
+                        <motion.div key={i} variants={itemVariants} className="flex flex-col items-center gap-1">
+                            <span className="text-2xl sm:text-3xl font-black text-zinc-50" style={fontHeadline}>
                                 {s.value}
-                            </div>
-                            <div className="text-slate-400 text-xs font-bold uppercase tracking-widest">
+                            </span>
+                            <span className="text-[10px] tracking-[0.2em] uppercase text-zinc-500 font-semibold" style={fontLabel}>
                                 {s.label}
-                            </div>
-                        </div>
+                            </span>
+                        </motion.div>
                     ))}
-                </div>
+                </StaggerGroup>
+            </div>
 
-                {/* ── MAIN GRID: narrative + credentials ── */}
-                <div className="grid lg:grid-cols-5 gap-10 lg:gap-12 mb-20">
-                    {/* LEFT - expertise narrative (3 cols) */}
-                    <div className="lg:col-span-3 space-y-8">
-                        <div>
-                            <h3 className="text-white font-bold text-2xl mb-6 flex items-center gap-3">
-                                <i className="fas fa-crosshairs text-blue-500"></i> What makes me different
-                            </h3>
-                            <div className="space-y-4 text-slate-400 leading-relaxed font-normal text-base sm:text-lg">
-                                <p>
-                                    Most developers are cautious. They over-architect, over-estimate, and under-deliver on time.
-                                    I operate differently. My obsession is <strong className="text-white font-medium">speed without cutting corners</strong> -
-                                    shipping a working, testable product fast so founders can validate with real users before investing in the full build.
-                                </p>
-                                <p>
-                                    I graduated with <strong className="text-white font-medium">First Class Honours in Software Engineering</strong> from
-                                    Cardiff Metropolitan University in 2026. But my real education has been building AI tools
-                                    from scratch - lead discovery engines, disease prediction platforms, mental wellness systems -
-                                    and learning exactly where theory meets the messiness of production.
-                                </p>
-                                <p>
-                                    I work with clients in the <strong className="text-white font-medium">US, UK, Canada, and Australia</strong> who
-                                    are tired of agencies that take months and developers who ghost after deposits.
-                                    I am async-friendly, transparent on scope, and personally involved in every project from
-                                    first message to post-launch.
+            <Divider />
+
+            {/* ════════════════════════════════════════════
+                  TIMELINE
+                ════════════════════════════════════════════ */}
+            <div className="relative z-10 max-w-3xl mx-auto w-full px-5 sm:px-8 md:px-12 py-14 sm:py-20">
+
+                <ScrollReveal className="text-center mb-10 sm:mb-12">
+                    <p className="text-[10px] tracking-[0.3em] uppercase text-zinc-600 font-semibold" style={fontLabel}>
+                        Firm Chronicle
+                    </p>
+                </ScrollReveal>
+
+                {/* Each milestone triggers itself */}
+                <StaggerGroup className="space-y-0">
+                    {milestones.map((m, i) => (
+                        <MilestoneItem key={i} m={m} last={i === milestones.length - 1} />
+                    ))}
+                </StaggerGroup>
+            </div>
+
+            <Divider />
+
+            {/* ════════════════════════════════════════════
+                  EXPERTISE GRID
+                ════════════════════════════════════════════ */}
+            <div className="relative z-10 max-w-6xl mx-auto w-full px-5 sm:px-8 md:px-12 py-14 sm:py-20">
+
+                <ScrollReveal className="text-center mb-10 sm:mb-12">
+                    <p className="text-[10px] tracking-[0.3em] uppercase text-zinc-600 font-semibold mb-3" style={fontLabel}>
+                        Firm Capabilities
+                    </p>
+                    <h3 className="text-2xl sm:text-3xl font-extrabold text-zinc-100 tracking-tight" style={fontHeadline}>
+                        Engineering pillars we bring to every build
+                    </h3>
+                </ScrollReveal>
+
+                <StaggerGroup className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-5">
+                    {expertise.map(({ Icon, title, desc, accent }, i) => (
+                        <motion.div
+                            key={i}
+                            variants={itemVariants}
+                            className="relative overflow-hidden rounded-xl border p-5 sm:p-6 transition-all duration-400 hover:-translate-y-1 group"
+                            style={{
+                                borderColor: `${accent}25`,
+                                background: `linear-gradient(135deg, ${accent}12, transparent)`,
+                            }}
+                        >
+                            {/* Hover glow */}
+                            <div
+                                className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-400 pointer-events-none rounded-xl"
+                                style={{ background: `radial-gradient(circle at 30% 20%, ${accent}14, transparent 65%)` }}
+                            />
+                            <div className="relative z-10">
+                                <div
+                                    className="w-10 h-10 rounded-lg border border-white/[0.07] flex items-center justify-center mb-4"
+                                    style={{ background: `${accent}18`, color: accent }}
+                                >
+                                    <Icon size={18} />
+                                </div>
+                                <h4 className="text-sm font-bold text-zinc-100 mb-2 tracking-tight" style={fontHeadline}>
+                                    {title}
+                                </h4>
+                                <p className="text-[12px] sm:text-[13px] text-zinc-500 leading-relaxed" style={fontBody}>
+                                    {desc}
                                 </p>
                             </div>
-                        </div>
+                        </motion.div>
+                    ))}
+                </StaggerGroup>
+            </div>
 
-                        {/* Language fluency */}
-                        <div className="pt-8 border-t border-white/5">
-                            <h4 className="text-sm font-bold text-slate-500 uppercase tracking-widest mb-6 flex items-center gap-2">
-                                <i className="fas fa-comments text-slate-600"></i> Languages
-                            </h4>
-                            <div className="space-y-5">
+            <Divider />
+
+            {/* ════════════════════════════════════════════
+                  GLOBAL REACH + CTA
+                ════════════════════════════════════════════ */}
+            <div className="relative z-10 max-w-6xl mx-auto w-full px-5 sm:px-8 md:px-12 py-14 sm:py-20 grid grid-cols-1 md:grid-cols-2 gap-5 sm:gap-6">
+
+                {/* Global card */}
+                <ScrollReveal>
+                    <div className="relative overflow-hidden rounded-xl border border-white/[0.07] bg-white/[0.025] p-6 sm:p-8 h-full">
+                        <div className="space-y-5">
+                            <div className="flex items-center gap-3">
+                                <Globe size={15} className="text-[var(--primary)] shrink-0" />
+                                <span className="text-xs font-bold text-zinc-300 tracking-wider uppercase" style={fontLabel}>
+                                    Global Infrastructure.
+                                </span>
+                            </div>
+                            <p className="text-zinc-400 text-sm leading-relaxed" style={fontBody}>
+                                Headquartered in{" "}
+                                <strong className="text-zinc-200">Colombo, Sri Lanka (UTC+5:30)</strong>. Our systems
+                                architecture team responds to technical issues within 4 hours locally and within 12 hours
+                                globally. Every partner gets direct engineer-to-client communication.
+                            </p>
+                            <div className="space-y-3.5 pt-2 border-t border-white/[0.05]">
+                                <p className="text-[10px] tracking-[0.2em] uppercase text-zinc-600 font-semibold" style={fontLabel}>
+                                    Global Communication Standards
+                                </p>
                                 {[
-                                    { lang: "English", note: "Professional working proficiency" },
+                                    { lang: "English", note: "Primary Engineering Language" },
                                     { lang: "Tamil", note: "Native" },
                                     { lang: "Sinhala", note: "Native" },
                                 ].map((l, i) => (
                                     <div key={i}>
-                                        <div className="flex justify-between items-center mb-2">
-                                            <span className="text-sm font-bold text-slate-300">{l.lang}</span>
-                                            <span className="text-xs text-blue-400 font-medium">{l.note}</span>
+                                        <div className="flex justify-between items-center mb-1.5">
+                                            <span className="text-xs font-semibold text-zinc-300" style={fontBody}>{l.lang}</span>
+                                            <span className="text-[10px] text-[var(--primary)] font-medium" style={fontLabel}>{l.note}</span>
                                         </div>
-                                        <div className="h-1 bg-white/5 w-full rounded-full overflow-hidden">
-                                            <div className="h-full bg-gradient-to-r from-blue-500 to-cyan-500 w-full"></div>
-                                        </div>
+                                        <div className="h-px bg-gradient-to-r from-[var(--primary)] to-[var(--accent)] w-full rounded-full opacity-60" />
                                     </div>
                                 ))}
                             </div>
                         </div>
+                    </div>
+                </ScrollReveal>
 
-                        {/* Global availability note */}
-                        <div className="p-6 rounded-2xl border border-blue-500/20 bg-blue-500/5 flex flex-col sm:flex-row items-start gap-5">
-                            <div className="w-12 h-12 rounded-xl bg-blue-500/20 border border-blue-500/30 flex items-center justify-center flex-shrink-0">
-                                <i className="fas fa-earth-americas text-blue-400 text-xl"></i>
-                            </div>
-                            <div>
-                                <p className="text-base font-bold text-white mb-2">Globally available. Async-first.</p>
-                                <p className="text-sm text-slate-400 leading-relaxed font-light">
-                                    Based in Colombo, Sri Lanka (UTC+5:30). I respond within 4 hours during my working day
-                                    and within 12 hours globally. Every project gets direct communication - no account managers,
-                                    no middlemen.
+                {/* CTA card */}
+                <ScrollReveal delay={0.08}>
+                    <div className="relative overflow-hidden rounded-xl border border-[var(--primary)]/20 bg-gradient-to-br from-[var(--primary)]/[0.07] via-white/[0.015] to-transparent p-6 sm:p-8 h-full shadow-[0_8px_40px_rgba(0,102,255,0.10)] group hover:shadow-[0_12px_50px_rgba(0,102,255,0.18)] transition-shadow duration-500">
+                        <div className="h-full flex flex-col justify-between gap-6 sm:gap-8">
+                            <div className="space-y-4">
+                                <div className="flex items-center gap-2">
+                                    <Award size={15} className="text-[var(--accent)] shrink-0" />
+                                    <span className="text-xs font-bold text-zinc-300 tracking-wider uppercase" style={fontLabel}>
+                                        Engineering Diagnostics
+                                    </span>
+                                </div>
+                                <p className="text-zinc-400 text-sm leading-relaxed" style={fontBody}>
+                                    Unsure if your infrastructure is scalable? Our architects will run a full diagnostic on
+                                    your current software and deliver a technical teardown video within 48 hours.{" "}
+                                    <strong className="text-zinc-200">Zero cost. Zero obligations.</strong>
                                 </p>
                             </div>
-                        </div>
-                    </div>
-
-                    {/* RIGHT - credentials (2 cols) */}
-                    <div className="lg:col-span-2 space-y-4">
-                        <h3 className="text-white font-bold text-2xl mb-6 flex items-center gap-3">
-                            <i className="fas fa-medal text-cyan-500"></i> Credentials
-                        </h3>
-                        {credentials.map((c, i) => (
-                            <div key={i}
-                                className={`relative p-5 sm:p-6 rounded-2xl border transition-all hover:-translate-y-1 ${c.featured
-                                    ? 'border-cyan-500/30 bg-gradient-to-br from-[#0a192f] to-[#050505] shadow-[0_0_30px_rgba(6,182,212,0.1)]'
-                                    : 'border-white/5 bg-[#0a0a0a] hover:border-white/10'
-                                    }`}>
-                                {c.featured && (
-                                    <div className="absolute top-4 right-4">
-                                        <span className="text-[10px] font-bold px-3 py-1 rounded-full bg-cyan-500/20 text-cyan-400 border border-cyan-500/30 uppercase tracking-wider">
-                                            <i className="fas fa-trophy mr-1.5"></i>Top Result
-                                        </span>
-                                    </div>
-                                )}
-                                <div className="flex flex-col sm:flex-row gap-4 items-start">
-                                    <div className={`w-12 h-12 rounded-xl flex items-center justify-center flex-shrink-0 ${c.featured
-                                        ? 'bg-cyan-500/20 text-cyan-400 border border-cyan-500/30'
-                                        : 'bg-white/5 text-slate-500 border border-white/5'
-                                        }`}>
-                                        <i className={`${c.icon} text-xl`}></i>
-                                    </div>
-                                    <div className="flex-1 min-w-0 pt-1">
-                                        <h4 className={`font-bold text-base leading-snug mb-1.5 ${c.featured ? 'text-white' : 'text-slate-300'}`}>
-                                            {c.title}
-                                        </h4>
-                                        <p className="text-sm text-slate-500 mb-4">{c.sub}</p>
-                                        <div className="flex flex-wrap gap-2">
-                                            <span className="text-[10px] font-bold px-3 py-1 rounded-full bg-white/5 text-slate-400 border border-white/10">
-                                                {c.year}
-                                            </span>
-                                            {c.badge && (
-                                                <span className={`text-[10px] font-bold px-3 py-1 rounded-full border ${c.badgeColor}`}>
-                                                    {c.badge}
-                                                </span>
-                                            )}
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        ))}
-
-                        {/* CTA card */}
-                        <div className="mt-8 p-6 sm:p-8 rounded-2xl border border-blue-500/30 bg-gradient-to-br from-blue-900/20 to-[#050505]">
-                            <p className="text-white font-bold text-lg mb-3 flex items-center gap-2">
-                                <i className="fas fa-magnifying-glass text-blue-400"></i> Not sure if it's a fit?
-                            </p>
-                            <p className="text-sm text-slate-400 leading-relaxed font-light mb-6">
-                                Claim a free AI Opportunity Audit. I will personally review your business
-                                and send you a Loom video within 48 hours showing exactly where AI can help.
-                                No pitch. No obligation.
-                            </p>
-                            <Link href="/services#audit-form"
-                                className="inline-flex items-center justify-center w-full px-6 py-3 bg-blue-600 rounded-xl text-white font-bold hover:shadow-[0_0_20px_rgba(37,99,235,0.4)] hover:-translate-y-0.5 transition-all group">
-                                Get My Free Audit
-                                <i className="fas fa-arrow-right ml-2 group-hover:translate-x-1 transition-transform"></i>
+                            <Link
+                                href="/services#audit-form"
+                                className="inline-flex items-center justify-center gap-2 w-full px-7 py-3.5 bg-[var(--primary)] hover:bg-[#0055d4] active:scale-[0.98] text-white text-[11px] font-bold tracking-[0.15em] uppercase rounded-xl transition-all duration-300 shadow-[0_0_28px_rgba(0,102,255,0.4)] hover:shadow-[0_0_48px_rgba(0,102,255,0.6)]"
+                                style={fontLabel}
+                            >
+                                <span>Initiate System Audit</span>
+                                <ArrowUpRight size={14} />
                             </Link>
                         </div>
                     </div>
-                </div>
-
-                {/* ── EXPERTISE GRID ── */}
-                <div className="border-t border-white/5 pt-16">
-                    <h3 className="text-white font-bold text-2xl mb-8 flex items-center gap-3">
-                        <i className="fas fa-cube text-slate-600"></i> Core Expertise
-                    </h3>
-                    <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
-                        {expertiseAreas.map((area, i) => (
-                            <div key={i}
-                                className={`p-5 sm:p-6 rounded-2xl border bg-[#0a0a0a] hover:-translate-y-1 transition-all ${area.color.split(' ').slice(1).join(' ')}`}>
-                                <div className={`w-12 h-12 rounded-xl flex items-center justify-center mb-5 border ${area.color}`}>
-                                    <i className={`${area.icon} text-xl`}></i>
-                                </div>
-                                <h4 className="text-white font-bold text-lg mb-3 tracking-tight">
-                                    {area.title}
-                                </h4>
-                                <p className="text-slate-400 text-sm leading-relaxed font-light">
-                                    {area.desc}
-                                </p>
-                            </div>
-                        ))}
-                    </div>
-                </div>
-
+                </ScrollReveal>
             </div>
+
+            {/* Bottom fade */}
+            <div className="absolute bottom-0 left-0 w-full h-16 bg-gradient-to-t from-[#050505] to-transparent z-10 pointer-events-none" />
         </section>
+    );
+}
+
+// ── Section divider ───────────────────────────────────────────
+function Divider() {
+    return (
+        <div className="relative z-10 max-w-6xl mx-auto px-5 sm:px-8 md:px-12">
+            <div className="h-px bg-gradient-to-r from-transparent via-white/[0.08] to-transparent" />
+        </div>
     );
 }

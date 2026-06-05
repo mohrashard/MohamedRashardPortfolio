@@ -1,43 +1,45 @@
 import Link from 'next/link';
 import Image from 'next/image';
+import Navbar from '../components/Navbar';
 import { getSortedPostsData } from '../../lib/posts';
-import TrustBar from '../components/TrustBar';
-
+import ScrollReveal from './components/ScrollReveal';
+import AvailabilityBadge from '../components/AvailabilityBadge';
+import { Terminal } from 'lucide-react';
 export const metadata = {
-    title: "Tech Blog & Software Insights",
-    description: "Expert articles on Web Development, AI, and SaaS Architecture by Mr² Labs (Colombo, Sri Lanka). Insights from Mohamed Rashad Rizmi.",
+    title: "Engineering Insights | Mr² Labs",
+    description: "Expert insights on High-Velocity Software Engineering, AI architectures, and SaaS MVP deployment by the lead engineers at Mr² Labs.",
     keywords: [
-        "Mr² Labs Blog",
-        "Software Development Blog Sri Lanka",
-        "AI Tech Insights Colombo",
-        "Next.js Tutorials",
-        "Mohamed Rashard Tech Blog",
-        "SaaS Development Guide",
-        "React Trends 2026",
-        "Freelance Developer Insights"
+        "High-Velocity Software Engineering",
+        "SaaS MVP Deployment",
+        "Custom AI Architecture",
+        "Next.js 15 Infrastructure",
+        "Codebase Rescue",
+        "Mr² Labs Engineering",
+        "B2B SaaS Development",
+        "White-label engineering"
     ],
     openGraph: {
-        title: "Tech Blog | Mr² Labs",
-        description: "Expert articles on Web Development, AI, and SaaS Architecture from Mr² Labs in Colombo.",
-        url: "https://www.mohamedrashard.dev/blog",
+        title: "Engineering Insights | Mr² Labs",
+        description: "Expert insights on High-Velocity Software Engineering, AI architectures, and SaaS MVP deployment from Mr² Labs.",
+        url: "https://mr2labs.com/blog",
         type: "website",
         images: [
             {
                 url: "/mr-squared-logo.png",
                 width: 1200,
                 height: 630,
-                alt: "Mr² Labs Blog",
+                alt: "Mr² Labs Engineering Blog",
             },
         ],
     },
     twitter: {
         card: "summary_large_image",
-        title: "Tech Blog | Mr² Labs",
-        description: "Engineering insights from Sri Lanka.",
+        title: "Engineering Insights | Mr² Labs",
+        description: "High-velocity engineering insights and AI architecture.",
         images: ["/mr-squared-logo.png"],
     },
     alternates: {
-        canonical: "https://www.mohamedrashard.dev/blog",
+        canonical: "https://www.mr2labs.com/blog",
     },
 };
 
@@ -54,12 +56,16 @@ export default function Blog() {
     const jsonLdBlog = {
         "@context": "https://schema.org",
         "@type": "Blog",
-        "name": "Mr² Labs Tech Blog",
-        "description": "Insights on Web Development, AI, and Innovation.",
-        "url": "https://www.mohamedrashard.dev/blog",
-        "author": {
-            "@type": "Person",
-            "name": "Mohamed Rashard Rizmi"
+        "name": "Mr² Labs Engineering Insights",
+        "description": "Insights on High-Velocity Software Engineering, AI architecture, and SaaS deployment.",
+        "url": "https://mr2labs.com/blog",
+        "publisher": {
+            "@type": "Organization",
+            "name": "Mr² Labs",
+            "logo": {
+                "@type": "ImageObject",
+                "url": "https://mr2labs.com/mr-squared-logo.png"
+            }
         }
     };
 
@@ -72,112 +78,112 @@ export default function Blog() {
                 dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLdBlog) }}
             />
 
-            {/* Space Background Decoration - Optimized */}
-            <div className="fixed inset-0 z-0 pointer-events-none overflow-hidden bg-[#020205]">
-                {/* Stars (CSS Pattern) */}
-                <div className="absolute inset-0" style={{
-                    backgroundImage: 'radial-gradient(white 1px, transparent 1px), radial-gradient(white 1px, transparent 1px)',
-                    backgroundSize: '50px 50px',
-                    backgroundPosition: '0 0, 25px 25px',
-                    opacity: 0.1
-                }}></div>
-                <div className="absolute inset-0" style={{
-                    backgroundImage: 'radial-gradient(rgba(255,255,255,0.8) 1.5px, transparent 1.5px), radial-gradient(rgba(255,255,255,0.8) 1.5px, transparent 1.5px)',
-                    backgroundSize: '120px 120px',
-                    backgroundPosition: '0 0, 60px 60px',
-                    opacity: 0.15,
-                }}></div>
+            {/* Background Decoration - Matched to Home Page */}
+            <div className="fixed inset-0 z-0 pointer-events-none bg-[#050505]">
+                <Image
+                    src="/blog-hero-bg-v2.png"
+                    alt=""
+                    fill
+                    priority
+                    quality={90}
+                    className="object-cover object-center opacity-60"
+                    aria-hidden="true"
+                />
+                {/* Darken the edges so content stays readable */}
+                <div className="absolute inset-0 bg-gradient-to-b from-[#050505]/60 via-transparent to-[#050505]/80" />
+                <div className="absolute inset-0 bg-gradient-to-r from-[#050505]/60 via-transparent to-[#050505]/60" />
 
-                {/* Nebula Glows - GPU Accelerated */}
-                <div className="absolute top-[-10%] right-[-10%] w-[800px] h-[800px] bg-blue-600/20 rounded-full blur-[100px] mix-blend-screen animate-pulse duration-[5000ms] transform-gpu will-change-transform"></div>
-                <div className="absolute bottom-[-10%] left-[-5%] w-[600px] h-[600px] bg-purple-600/20 rounded-full blur-[100px] mix-blend-screen animate-pulse duration-[7000ms] transform-gpu will-change-transform"></div>
-                <div className="absolute top-[40%] left-[30%] w-[500px] h-[500px] bg-cyan-500/10 rounded-full blur-[120px] mix-blend-screen animate-pulse duration-[6000ms] transform-gpu will-change-transform"></div>
+                {/* Structural Engineering Blueprint Grid Lines */}
+                <div className="absolute inset-0 pointer-events-none z-10 bg-[linear-gradient(to_right,rgba(255,255,255,0.015)_1px,transparent_1px),linear-gradient(to_bottom,rgba(255,255,255,0.015)_1px,transparent_1px)] bg-[size:5rem_5rem] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_40%,#000_60%,transparent_100%)]" />
+
+                {/* Concentric Ring Accents */}
+                <div className="absolute top-[35%] left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] border border-white/[0.025] rounded-full pointer-events-none z-0" />
+                <div className="absolute top-[35%] left-1/2 -translate-x-1/2 -translate-y-1/2 w-[300px] h-[300px] border border-white/[0.035] border-dashed rounded-full pointer-events-none z-0" />
             </div>
 
-            {/* Navigation */}
-            <nav className="absolute top-0 left-0 right-0 z-50 p-6 md:p-8 flex justify-between items-center max-w-7xl mx-auto w-full">
-                <Link href="/" className="group flex items-center gap-2 px-5 py-2.5 rounded-full bg-white/5 border border-white/10 backdrop-blur-md hover:bg-white/10 hover:border-white/20 hover:shadow-[0_0_15px_rgba(255,255,255,0.1)] transition-all duration-300">
-                    <i className="fas fa-arrow-left text-slate-400 group-hover:text-white group-hover:-translate-x-1 transition-all"></i>
-                    <span className="text-sm font-semibold text-slate-300 group-hover:text-white">Home</span>
-                </Link>
-
-                <div className="flex items-center gap-4">
-                    <Link href="/labs" className="group flex items-center gap-2 px-5 py-2.5 rounded-full bg-white/5 border border-white/10 backdrop-blur-md hover:bg-white/10 hover:border-white/20 hover:shadow-[0_0_15px_rgba(56,189,248,0.2)] transition-all duration-300">
-                        <span className="text-sm font-semibold text-slate-300 group-hover:text-white">Visit Labs</span>
-                        <i className="fas fa-flask text-slate-400 group-hover:text-white group-hover:translate-x-1 transition-all"></i>
-                    </Link>
-
-                    {/* Hire Button */}
-                    <div className="relative group">
-                        <Link href="/services" className="group flex items-center gap-2 px-5 py-2.5 rounded-full bg-white/5 border border-white/10 backdrop-blur-md hover:bg-white/10 hover:border-white/20 transition-all duration-300">
-                            <span className="text-sm font-semibold text-slate-300 group-hover:text-white">Hire Me</span>
-                        </Link>
-                        {/* Tooltip */}
-                        <div className="absolute top-full right-0 mt-4 w-64 p-4 rounded-2xl bg-[#0f0f0f] border border-white/10 shadow-[0_10px_40px_-10px_rgba(0,0,0,0.5)] opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 transform group-hover:translate-y-0 translate-y-2 z-50 pointer-events-none">
-                            <div className="absolute -top-2 right-8 w-4 h-4 bg-[#0f0f0f] border-t border-l border-white/10 transform rotate-45"></div>
-                            <div className="relative z-10 text-center">
-                                <p className="text-xs font-bold text-white mb-1">Building a Product?</p>
-                                <p className="text-[11px] text-slate-400 leading-relaxed">
-                                    Need a <span className="text-blue-400">Custom Solution</span>? I can help you architect and build your next big idea.
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </nav>
+            <Navbar />
 
             <main className="relative z-10 pt-32 pb-20 px-6 md:px-12 max-w-7xl mx-auto animate-in fade-in slide-in-from-bottom-4 duration-700 ease-out">
 
                 {/* Header */}
-                <header className="mb-20">
-                    <div className="relative w-24 h-24 mb-6 opacity-90 hover:opacity-100 transition-opacity rounded-3xl overflow-hidden border border-blue-500/30 shadow-[0_0_35px_rgba(59,130,246,0.4)] hover:shadow-[0_0_50px_rgba(59,130,246,0.6)]">
-                        <Image src="/mr-squared-logo.png" alt="Mr² Labs" fill className="object-cover" />
-                    </div>
-                    <div className="inline-block mb-4 px-4 py-1.5 rounded-full border border-blue-500/20 bg-blue-500/10 text-blue-400 text-xs font-bold uppercase tracking-widest">
-                        Knowledge Hub
-                    </div>
-                    <h1 className="text-5xl md:text-7xl font-black mb-6 tracking-tight leading-tight">
-                        Insights on <br />
-                        <span className="bg-gradient-to-r from-blue-400 via-indigo-500 to-purple-500 bg-clip-text text-transparent">Tech & Innovation</span>
-                    </h1>
-                    <p className="text-lg md:text-xl text-slate-400 max-w-2xl mx-auto leading-relaxed font-light">
-                        Deep dives into software architecture, AI integration, and the future of web development.
-                    </p>
+                <header className="pt-8 pb-16 md:pt-16 md:pb-44 flex flex-col items-center justify-center text-center">
+
+                    <ScrollReveal delay={0}>
+                        <div className="flex flex-wrap justify-center items-center gap-2 sm:gap-3 mb-8">
+                            <AvailabilityBadge />
+                            <span className="hidden sm:block w-1 h-1 bg-zinc-700 rounded-full" />
+                            <div className="hidden sm:flex items-center gap-1.5 text-[9px] sm:text-[10px] tracking-[0.25em] uppercase font-bold text-zinc-400">
+                                <Terminal size={10} className="text-[var(--accent)]" />
+                                ENGINEERING INSIGHTS. AI INNOVATION.
+                            </div>
+                        </div>
+                    </ScrollReveal>
+
+                    <ScrollReveal delay={0.1}>
+                        <h1 className="text-5xl md:text-7xl font-black mb-8 tracking-tighter leading-tight text-white drop-shadow-sm">
+                            Insights on <br />
+                            <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 via-cyan-300 to-emerald-300">
+                                Tech & Innovation
+                            </span>
+                        </h1>
+                    </ScrollReveal>
+
+                    <ScrollReveal delay={0.2}>
+                        <p className="text-lg md:text-xl text-slate-400 max-w-2xl mx-auto leading-relaxed font-light">
+                            Deep dives into software architecture, AI integration, and the future of high-performance web development. Discover actionable engineering strategies to build, scale, and optimize world-class SaaS products.
+                        </p>
+                    </ScrollReveal>
                 </header>
 
-                <div className="mb-16 -mt-8 flex justify-center w-full">
-                    <TrustBar />
-                </div>
-
                 {/* All Posts Grid */}
-                <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-                    {allPostsData.map((post) => (
-                        <Link href={`/blog/${post.id}`} key={post.id} className="group flex flex-col bg-[#0a0a0a] border border-white/10 rounded-3xl overflow-hidden hover:border-blue-500/40 hover:shadow-2xl transition-all duration-300">
-                            <div className="relative h-56 w-full overflow-hidden">
-                                <Image
-                                    src={post.image || '/services-tech.png'}
-                                    alt={post.title || "Blog Post Image"}
-                                    fill
-                                    className="object-cover group-hover:scale-110 transition-transform duration-700"
-                                    sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-                                />
-                                <div className="absolute top-4 left-4 px-3 py-1 rounded-full bg-black/60 backdrop-blur-md border border-white/10 text-xs font-bold text-white">
-                                    {post.category || "Article"}
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8 relative z-10">
+                    {allPostsData.map((post, index) => (
+                        <ScrollReveal key={post.id} delay={(index % 3) * 0.15} className="h-full">
+                            <Link
+                                href={`/blog/${post.id}`}
+                                className={`group relative flex flex-col h-full bg-[#050505]/80 backdrop-blur-xl border border-white/[0.08] rounded-[2rem] overflow-hidden hover:border-[var(--primary)]/50 hover:-translate-y-1 hover:shadow-[0_20px_40px_rgba(0,102,255,0.15)] transition-all duration-500`}
+                            >
+                                {/* Glowing ambient hover effect inside card */}
+                                <div className="absolute inset-0 bg-gradient-to-br from-[var(--primary)]/10 via-transparent to-[var(--accent)]/10 opacity-0 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none" />
+
+                                <div className={`relative w-full aspect-video overflow-hidden`}>
+                                    <Image
+                                        src={post.image || '/services-tech.png'}
+                                        alt={post.title || "Blog Post Image"}
+                                        fill
+                                        className="object-cover group-hover:scale-105 transition-transform duration-1000 ease-out"
+                                        sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                                    />
+                                    <div className="absolute inset-0 bg-gradient-to-t from-[#050505] via-transparent to-transparent opacity-60" />
+                                    {/* Glassmorphic internal border for depth */}
+                                    <div className="absolute inset-0 ring-1 ring-inset ring-white/10 rounded-t-[2rem]" />
                                 </div>
-                            </div>
-                            <div className="p-8 flex flex-col flex-grow">
-                                <span className="text-xs font-bold text-slate-500 mb-3 block">{formatDate(post.date)}</span>
-                                <h3 className="text-xl font-bold text-white mb-3 group-hover:text-blue-400 transition-colors line-clamp-2">
-                                    {post.title}
-                                </h3>
-                                <p className="text-slate-400 text-sm line-clamp-3 mb-6">
-                                    {post.excerpt || post.description}
-                                </p>
-                                <div className="mt-auto pt-6 border-t border-white/5 flex text-sm font-bold text-slate-300 group-hover:text-white transition-colors">
-                                    Read more <span className="ml-2 group-hover:translate-x-1 transition-transform">→</span>
+
+                                <div className={`p-8 md:p-10 flex flex-col flex-grow z-10 bg-gradient-to-t from-[#050505] to-transparent`}>
+                                    <div className="flex flex-wrap items-center gap-3 mb-5">
+                                        <span className="px-3.5 py-1.5 rounded-full bg-white/[0.03] border border-white/[0.08] text-[10px] font-bold text-white uppercase tracking-widest backdrop-blur-md shadow-sm">
+                                            {post.category || "Article"}
+                                        </span>
+                                        <span className="text-[11px] font-bold text-slate-500 uppercase tracking-widest flex items-center gap-1.5">
+                                            <svg className="w-3.5 h-3.5 text-slate-600" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" /></svg>
+                                            {formatDate(post.date)}
+                                        </span>
+                                    </div>
+                                    <h3 className={`font-black text-white mb-4 group-hover:text-[var(--accent)] transition-colors leading-tight tracking-tight text-2xl line-clamp-2`}>
+                                        {post.title}
+                                    </h3>
+                                    <p className={`text-slate-400 text-sm md:text-base font-light leading-relaxed mb-8 line-clamp-3`}>
+                                        {post.excerpt || post.description}
+                                    </p>
+                                    <div className="mt-auto pt-6 border-t border-white/[0.05] flex items-center text-xs uppercase tracking-widest font-bold text-slate-400 group-hover:text-white transition-colors w-full">
+                                        Read Article
+                                        <svg className="w-4 h-4 ml-3 group-hover:translate-x-2 transition-transform duration-500 text-[var(--primary)] group-hover:text-[var(--accent)]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                                        </svg>
+                                    </div>
                                 </div>
-                            </div>
-                        </Link>
+                            </Link>
+                        </ScrollReveal>
                     ))}
                 </div>
 

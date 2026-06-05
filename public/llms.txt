@@ -1,35 +1,57 @@
-# Mohamed Rashard — Mr² Labs
+# Mr² Labs
 
-## Who I Am
-Mohamed Rashard is a 21-year-old full-stack AI developer based in Colombo, Sri Lanka. He builds production-grade AI-powered web applications and MVPs in 48 to 72 hours for funded startup founders, non-technical business operators, and companies replacing manual processes with AI automation.
+## Who We Are
+Mr² Labs is an elite software engineering and digital systems firm based in Colombo, Sri Lanka, founded by Full Stack Software Engineer Mohamed Rashard Rizmi. We specialize in architecting and deploying production-grade AI applications and SaaS MVPs in rapid 48 to 72-hour sprints. We bypass the traditional, bloated agency model to build high-velocity infrastructure for funded startup founders, non-technical business operators, and scaling enterprises.
 
-## What I Build
-- AI-powered SaaS MVPs shipped in 48 hours, fixed price, no scope creep
-- Full-stack web applications using Next.js, React, Node.js, and Supabase
-- AI integrations using OpenAI, Gemini, and LangChain
-- Computer vision applications using OpenCV and 2D to 3D AI conversions
-- Business process automation tools replacing manual workflows
-- Codebase rescue — fixing and finishing half-built abandoned projects
-- White-label development for design agencies and marketing consultants
+## What We Build
+- AI-powered SaaS MVPs deployed in 48-72 hours with fixed pricing and zero scope creep.
+- Modern, high-performance web architectures utilizing Next.js 15, React, Tailwind CSS, and Supabase.
+- AI integrations and local LLM workflows utilizing Claude, Gemini, LangChain, and custom local models.
+- Database-free, high-speed lead generation and automation systems.
+- Computer vision applications (OpenCV) and 2D-to-3D AI conversions.
+- Codebase rescue and recovery operations—auditing, fixing, and deploying half-built abandoned projects.
+- White-label engineering and technical partnerships for design agencies and fractional CMOs.
 
 ## Live Projects
-- BizFinder: AI-powered lead generation tool — https://bizfinder.mohamedrashard.dev
-- GrabMe: Full-stack marketplace product — https://www.grabme.page
-- Sonic Portal: AI audio and video editing MVP built in 47 hours — https://www.mohamedrashard.dev
+- BizFinder AI: An intelligent, database-free lead generation system 
+- GrabMe: A full-stack marketplace PWA architected and deployed live in under 72 hours — https://www.grabme.page
+- Sonic Portal: An offline, local AI audio and video production studio built in 47 hours.
+- Ignite Ed: Trilingual AI education ecosystem (React Native, Next.js, Gemini API) for Sri Lankan students.
+- Bypass: Open-source local AI video editing automation for system marketing.
+- Alt Cut: An AI-native video timeline editor designed as the 'Cursor' for video editors.
+- LiverLens: A private healthcare liver disease prediction platform with 92% ML prediction accuracy.
+- Mentora: An AI wellness platform scaling wellness coaching for 3000+ active users.
 
-## Who I Work With
-- Pre-seed and seed stage startup founders who need a product before their next investor update
-- Non-technical business owners in industries like recruitment, law, logistics, real estate, and healthcare who need manual processes automated
-- Founders stuck with a half-built codebase after a developer disappeared
-- Design agencies and fractional CMOs who need a white-label development partner
+## Micro-SaaS & Diagnostic Tools Suite
+To demonstrate our high-velocity engineering capabilities, Mr² Labs maintains a live suite of free, production-grade tools designed for founders and operators:
+- Tech Stack Recommender: An architectural diagnostic tool evaluating MVP requirements.
+- Process Automation Calculator: Quantifies capital burn from manual data entry and generates AI automation solutions.
+- Startup Idea Validator: AI-driven scoring engine evaluating market size, feasibility, and competitive threats.
+- Runway Calculator: Calculates capital gained by replacing agency overhead with agile development sprints.
+- Startup Name & Domain Checker: Generates brands and performs real-time DNS registry checks for .com/.dev/.io availability.
+- Cold Email Generator: Outputs direct, high-converting outbound variants utilizing B2B sales frameworks.
+- API Response Time Tester: Acts as a secure server-side proxy to ping endpoints and analyze latency and payload efficiency.
+- Competitor Research Tool: Identifies direct market threats, pricing models, and specific vulnerabilities to exploit.
+- SaaS Pricing Page Generator: Outputs conversion-optimized pricing tiers and copy based on product value propositions.
+- Tech Job Description Generator: Generates highly specific, stack-aware JDs to attract senior engineering talent.
+- LinkedIn Headline Generator: A search-optimized profile engine for founders and consultants.
+- AI Prompt Library: A curated, searchable vault of 50+ production-tested prompt frameworks for technical operators.
+- Fundraising Readiness Scorecard: A deterministic, logic-based diagnostic evaluating VC and Angel investment readiness out of 100.
+- GitHub Developer Profile Analyzer: Connects to the GitHub REST API to calculate code consistency, language diversity, and technical hiring readiness.
 
-## My Core Offer
-Fixed price. Scoped before work starts. No hourly billing. No surprise invoices. No Jira boards. Clean, documented, production-grade code built to be handed off to a future CTO.
+## Who We Work With
+- Pre-seed and Seed stage founders who require a live, functional product before their next investor meeting.
+- Non-technical executives (in law, logistics, healthcare, and real estate) needing bespoke AI automation to eliminate manual workflows.
+- Founders trapped with incomplete codebases seeking immediate technical rescue and deployment.
+- Design agencies and marketing consultants requiring a reliable, silent white-label engineering partner.
 
-## Contact and Links
-- Website: https://www.mohamedrashard.dev
-- Services: https://www.mohamedrashard.dev/services
-- Blog: https://www.mohamedrashard.dev/blog
-- LinkedIn: https://www.linkedin.com/in/mohamedrashard
-- Location: Colombo, Sri Lanka
-- Available for: Remote work globally
+## Our Core Offer
+Fixed price. Scoped before execution begins. Zero hourly billing. No surprise invoices. No bloated Jira boards. We deliver clean, documented, production-grade architecture designed to scale and be seamlessly handed off to a future internal CTO.
+
+## Contact & Infrastructure
+- Website: https://www.mr2labs.com
+- Engineering Services: https://www.mr2labs.com/services
+- Technical Blog: https://www.mr2labs.com/blog
+- Founder LinkedIn: https://www.linkedin.com/in/mohamedrashard
+- Direct Contact: rashard@mr2labs.com
+- Location: Colombo, Sri Lanka (Available for remote global deployment)

@@ -1,261 +1,241 @@
 "use client";
-import React, { useRef, useState, useMemo } from "react";
-import { Canvas, useFrame, useThree } from "@react-three/fiber";
+import React from "react";
+import Image from "next/image";
+import { motion } from "framer-motion";
 import {
-    Float,
-    MeshDistortMaterial,
-    GradientTexture,
-    PerspectiveCamera,
-    OrbitControls,
-    Points,
-    PointMaterial,
-    MeshWobbleMaterial
-} from "@react-three/drei";
-import { motion, AnimatePresence } from "framer-motion";
-import { Github, Linkedin, Twitter, Instagram, Rocket, Briefcase, ChevronDown } from "lucide-react";
-import * as THREE from "three";
-import TimezoneWidget from "./TimezoneWidget";
+    Cpu,
+    Layers,
+    Network,
+    LineChart,
+    ArrowUpRight,
+    Activity,
+    Terminal,
+    Workflow
+} from "lucide-react";
 import AvailabilityBadge from "./AvailabilityBadge";
 import Link from "next/link";
 
 const MotionLink = motion.create(Link);
 
-// --- 3D Components ---
-
-function ParticleField({ count = 2000 }) {
-    const pointsRef = useRef(null);
-    const [mouse] = useState(() => new THREE.Vector2());
-
-    // Create a distribution that feels like a nebula
-    const points = useMemo(() => {
-        const p = new Float32Array(count * 3);
-        for (let i = 0; i < count; i++) {
-            p[i * 3] = (Math.random() - 0.5) * 20;
-            p[i * 3 + 1] = (Math.random() - 0.5) * 20;
-            p[i * 3 + 2] = (Math.random() - 0.5) * 20;
-        }
-        return p;
-    }, [count]);
-
-    useFrame((state) => {
-        if (!pointsRef.current) return;
-        // Subtle drift based on mouse
-        const x = (state.mouse.x * 0.2);
-        const y = (state.mouse.y * 0.2);
-        pointsRef.current.rotation.y += 0.001 + (x * 0.005);
-        pointsRef.current.rotation.x += 0.0005 + (y * 0.005);
-    });
-
-    return (
-        <Points ref={pointsRef} positions={points} stride={3} frustumCulled={false}>
-            <PointMaterial
-                transparent
-                color="#818cf8"
-                size={0.015}
-                sizeAttenuation={true}
-                depthWrite={false}
-                blending={THREE.AdditiveBlending}
-            />
-        </Points>
-    );
-}
-
-function FloatingCore() {
-    return (
-        <Float speed={2} rotationIntensity={2} floatIntensity={2}>
-            <mesh>
-                <icosahedronGeometry args={[2.2, 20]} />
-                <MeshDistortMaterial
-                    distort={0.45}
-                    speed={5}
-                    roughness={0}
-                    metalness={1}
-                    emissive="#1e1b4b"
-                    emissiveIntensity={0.5}
-                >
-                    <GradientTexture
-                        stops={[0, 0.4, 0.8, 1]}
-                        colors={['#0ea5e9', '#6366f1', '#4338ca', '#1e3a8a']}
-                    />
-                </MeshDistortMaterial>
-            </mesh>
-            {/* Outer wireframe shell for technical feel */}
-            <mesh scale={1.1}>
-                <icosahedronGeometry args={[2.2, 2]} />
-                <meshBasicMaterial color="#6366f1" wireframe transparent opacity={0.1} />
-            </mesh>
-        </Float>
-    );
-}
-
-// --- UI Components ---
-
-
+// Global Font Inline Fallbacks to map your requested typography perfectly
+const fontHeadline = { fontFamily: "'Plus Jakarta Sans', sans-serif" };
+const fontBody = { fontFamily: "'Inter', sans-serif" };
+const fontLabel = { fontFamily: "'Geist Mono', 'Geist', monospace" };
 
 export default function Hero() {
     return (
-        <section id="home" className="relative w-full h-screen bg-[#020202] overflow-hidden">
+        <section id="home" className="relative w-full min-h-screen bg-[#050505] overflow-hidden flex flex-col justify-between pt-24 border-b border-white/[0.04]">
 
-            {/* Background Mesh Gradient */}
-            <div className="absolute inset-0 opacity-30 pointer-events-none">
-                <div className="absolute top-[-10%] left-[-10%] w-[50%] h-[50%] bg-blue-600/20 blur-[120px] rounded-full" />
-                <div className="absolute bottom-[-10%] right-[-10%] w-[50%] h-[50%] bg-indigo-600/20 blur-[120px] rounded-full" />
-            </div>
-
-            {/* 3D Engine Layer */}
+            {/* ── Premium Background Image ── */}
             <div className="absolute inset-0 z-0">
-                <Canvas dpr={[1, 1.5]} performance={{ min: 0.5 }}>
-                    <PerspectiveCamera makeDefault position={[0, 0, 10]} />
-                    <ambientLight intensity={0.2} />
-                    <spotLight position={[10, 10, 10]} angle={0.15} penumbra={1} intensity={2} color="#6366f1" />
-                    <pointLight position={[-10, -10, -10]} intensity={1} color="#0ea5e9" />
-
-                    <FloatingCore />
-                    <ParticleField />
-
-                    <OrbitControls
-                        enableZoom={false}
-                        enablePan={false}
-                        autoRotate
-                        autoRotateSpeed={0.3}
-                    />
-                </Canvas>
+                <Image
+                    src="/hero-bg.png"
+                    alt=""
+                    fill
+                    priority
+                    quality={90}
+                    className="object-cover object-center opacity-60"
+                    aria-hidden="true"
+                />
+                {/* Darken the edges so content stays readable */}
+                <div className="absolute inset-0 bg-gradient-to-b from-[#050505]/40 via-transparent to-[#050505]/80" />
+                <div className="absolute inset-0 bg-gradient-to-r from-[#050505]/60 via-transparent to-[#050505]/60" />
             </div>
 
-            {/* Content Layer */}
-            <div className="absolute inset-0 z-30 flex items-center px-6 md:px-16 pointer-events-none pt-[96px] pb-[64px]">
-                <div className="max-w-7xl mx-auto w-full grid lg:grid-cols-2 gap-8 items-center">
+            {/* Structural Engineering Blueprint Grid Lines */}
+            <div className="absolute inset-0 pointer-events-none z-10 bg-[linear-gradient(to_right,rgba(255,255,255,0.015)_1px,transparent_1px),linear-gradient(to_bottom,rgba(255,255,255,0.015)_1px,transparent_1px)] bg-[size:5rem_5rem] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_40%,#000_60%,transparent_100%)]" />
 
-                    <motion.div
-                        initial={{ opacity: 0, y: 20 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        transition={{ duration: 0.8 }}
-                        className="space-y-5 pointer-events-auto"
+            {/* Concentric Ring Accents */}
+            <div className="absolute top-[35%] left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] border border-white/[0.025] rounded-full pointer-events-none z-0" />
+            <div className="absolute top-[35%] left-1/2 -translate-x-1/2 -translate-y-1/2 w-[300px] h-[300px] border border-white/[0.035] border-dashed rounded-full pointer-events-none z-0" />
+
+            {/* Core Brand & Typography Header Section */}
+            <div className="relative z-20 max-w-7xl mx-auto w-full px-6 md:px-12 text-center flex flex-col items-center space-y-6 pt-24">
+
+                {/* Tactical Status Pill */}
+                <motion.div
+                    initial={{ opacity: 0, y: -10 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.6 }}
+                    className="flex flex-wrap justify-center items-center gap-2 sm:gap-3"
+                >
+                    <AvailabilityBadge />
+                    <span className="hidden sm:block w-1 h-1 bg-zinc-700 rounded-full" />
+                    <div className="hidden sm:flex items-center gap-1.5 text-[9px] sm:text-[10px] tracking-[0.25em] uppercase font-bold text-zinc-400" style={fontLabel}>
+                        <Terminal size={10} className="text-[var(--accent)]" /> AI Systems. Real Outcomes.
+                    </div>
+                </motion.div>
+
+                {/* Main Command Headline */}
+                <motion.h1
+                    initial={{ opacity: 0, y: 16 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.7, delay: 0.1 }}
+                    className="text-4xl sm:text-5xl md:text-6xl lg:text-[68px] font-extrabold text-zinc-50 tracking-tight leading-[1.1] sm:leading-[1.02] max-w-4xl"
+                    style={fontHeadline}
+                >
+                    We Ship Your MVP <br className="hidden sm:block" />
+                    <span className="text-transparent bg-clip-text bg-gradient-to-r from-[var(--primary)] via-[var(--accent)] to-zinc-50">
+                        in 48 Hours.
+                    </span>
+                </motion.h1>
+
+                {/* Subtitle */}
+                <motion.h2
+                    initial={{ opacity: 0, y: 14 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.7, delay: 0.15 }}
+                    className="text-lg sm:text-xl md:text-2xl font-medium text-zinc-300"
+                >
+                    <span className="text-[var(--primary)] font-semibold">Rapid Software & AI Labs.</span> <span className="block sm:inline">Architecting systems from Sri Lanka.</span>
+                </motion.h2>
+
+                {/* Sub-description */}
+                <motion.p
+                    initial={{ opacity: 0, y: 12 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.7, delay: 0.2 }}
+                    className="text-zinc-400 max-w-xl text-xs sm:text-sm md:text-base leading-relaxed font-normal opacity-90 mx-auto px-2 sm:px-0"
+                    style={fontBody}
+                >
+                    High-performance AI tools, SaaS platforms, and tailored web apps for founders who are done waiting. Trusted by global startups to deliver scalable revenue ecosystems.
+                </motion.p>
+
+                {/* Primary Action Row */}
+                <motion.div
+                    initial={{ opacity: 0, y: 12 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.6, delay: 0.3 }}
+                    className="flex flex-col sm:flex-row items-center gap-3 sm:gap-4 pt-4 w-full sm:w-auto"
+                >
+                    <MotionLink
+                        href="/services#audit-form"
+                        whileHover={{ scale: 1.02 }}
+                        whileTap={{ scale: 0.98 }}
+                        className="w-full sm:w-auto px-6 py-3 sm:px-8 sm:py-3.5 bg-[var(--primary)] hover:bg-[#0055d4] text-white text-[10px] sm:text-[11px] md:text-xs font-bold tracking-[0.15em] uppercase rounded-full sm:rounded-lg transition-all duration-300 flex items-center justify-center gap-2 shadow-[0_0_40px_rgba(0,102,255,0.5)] hover:shadow-[0_0_60px_rgba(0,102,255,0.7)]"
+                        style={fontLabel}
                     >
-                        <div className="space-y-3">
-                            <AvailabilityBadge />
+                        <span>Build Your AI System</span>
+                        <ArrowUpRight size={14} />
+                    </MotionLink>
 
-                            <h1 className="text-5xl md:text-6xl lg:text-7xl xl:text-7xl font-black text-white leading-[1.1] tracking-tighter">
-                                <motion.span
-                                    initial={{ filter: "blur(10px)", opacity: 0 }}
-                                    animate={{ filter: "blur(0px)", opacity: 1 }}
-                                    transition={{ duration: 1 }}
-                                >
-                                    I Ship Your MVP
-                                </motion.span>
-                                <br />
-                                <motion.span
-                                    initial={{ x: -20, opacity: 0 }}
-                                    animate={{ x: 0, opacity: 1 }}
-                                    transition={{ delay: 0.3, duration: 1 }}
-                                    className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 via-indigo-400 to-cyan-400"
-                                >
-                                    in 48 Hours.
-                                </motion.span>
-                            </h1>
+                    <MotionLink
+                        href="#work"
+                        whileHover={{ scale: 1.02 }}
+                        whileTap={{ scale: 0.98 }}
+                        className="w-full sm:w-auto px-6 py-3 sm:px-8 sm:py-3.5 border border-white/10 bg-gradient-to-br from-white/[0.05] to-transparent hover:from-white/[0.08] hover:to-white/[0.02] text-zinc-400 hover:text-white text-[10px] sm:text-[11px] md:text-xs font-bold tracking-[0.15em] uppercase rounded-full sm:rounded-lg backdrop-blur-2xl transition-all duration-300 flex items-center justify-center gap-2 shadow-[0_8px_32px_rgba(0,0,0,0.2)] hover:shadow-[0_8px_32px_rgba(0,0,0,0.3)]"
+                        style={fontLabel}
+                    >
+                        <span>Explore Solutions</span>
+                    </MotionLink>
+                </motion.div>
+            </div>
 
-                            <motion.h2
-                                initial={{ opacity: 0, y: 10 }}
-                                animate={{ opacity: 1, y: 0 }}
-                                transition={{ delay: 0.5, duration: 0.8 }}
-                                className="text-xl md:text-2xl font-medium text-slate-300"
-                            >
-                                <span className="text-blue-400 font-semibold">Next.js Web Developer</span> & Systems Architect in Sri Lanka
-                            </motion.h2>
+            {/* Central Interactive Neural Topology Diagram Area */}
+            <div className="relative z-20 max-w-6xl mx-auto w-full px-6 mt-12 md:mt-20 h-[380px] hidden md:flex items-center justify-center">
+
+                {/* SVG Vector Connection Circuit Paths */}
+                <svg className="absolute inset-0 w-full h-full pointer-events-none" xmlns="http://www.w3.org/2000/svg">
+                    {/* Static connection lines */}
+                    <motion.path
+                        d="M 150 90 Q 300 90, 320 190 M 150 290 Q 300 290, 320 190"
+                        fill="none" stroke="rgba(0, 102, 255, 0.15)" strokeWidth="1.5"
+                    />
+                    <motion.path
+                        d="M 950 90 Q 800 90, 800 190 M 950 290 Q 800 290, 800 190"
+                        fill="none" stroke="rgba(0, 102, 255, 0.15)" strokeWidth="1.5"
+                    />
+                    {/* Animated Data Pulses */}
+                    <motion.path
+                        d="M 150 90 Q 300 90, 320 190" fill="none" stroke="var(--accent)" strokeWidth="1.5" opacity="0.6"
+                        strokeDasharray="20 100" animate={{ strokeDashoffset: [120, 0] }} transition={{ repeat: Infinity, duration: 4, ease: "linear" }}
+                    />
+                    <motion.path
+                        d="M 950 290 Q 800 290, 800 190" fill="none" stroke="var(--accent)" strokeWidth="1.5" opacity="0.6"
+                        strokeDasharray="20 100" animate={{ strokeDashoffset: [0, 120] }} transition={{ repeat: Infinity, duration: 3.5, ease: "linear" }}
+                    />
+                </svg>
+
+                {/* Left Tier: Inputs & Workers */}
+                <div className="absolute left-0 flex flex-col gap-12">
+                    {/* Node A: 72-Hour MVP Engine */}
+                    <div className="relative overflow-hidden border border-white/[0.08] bg-gradient-to-br from-white/[0.04] to-transparent backdrop-blur-2xl shadow-[0_8px_32px_rgba(0,0,0,0.4)] p-5 rounded-2xl w-56 space-y-2 transition-all duration-500 hover:border-[var(--primary)]/40 hover:-translate-y-1 hover:shadow-[0_12px_40px_rgba(0,102,255,0.15)] group">
+                        <div className="absolute inset-0 bg-gradient-to-b from-white/[0.02] to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none" />
+                        <div className="relative z-10 flex items-center gap-2 text-xs font-semibold text-zinc-100" style={fontHeadline}>
+                            <Network size={14} className="text-[var(--primary)]" /> 72-Hour MVP Engine
                         </div>
-
-                        <p className="text-slate-400 max-w-lg text-lg leading-relaxed font-light">
-                            High-performance AI tools, SaaS platforms, and tailored web apps for founders who are done waiting. Trusted by global startups to deliver scalable revenue ecosystems.
-                        </p>
-
-                        <div className="flex flex-wrap gap-4">
-                            <MotionLink
-                                href="/services#audit-form"
-                                whileHover={{ scale: 1.05, boxShadow: "0 0 50px rgba(99,102,241,0.8), 0 0 80px rgba(59,130,246,0.6)" }}
-                                whileTap={{ scale: 0.95 }}
-                                animate={{
-                                    boxShadow: ["0px 0px 30px rgba(99,102,241,0.5), 0px 0px 50px rgba(59,130,246,0.3)", "0px 0px 60px rgba(99,102,241,0.8), 0px 0px 100px rgba(59,130,246,0.5)", "0px 0px 30px rgba(99,102,241,0.5), 0px 0px 50px rgba(59,130,246,0.3)"]
-                                }}
-                                transition={{
-                                    default: { duration: 2.5, repeat: Infinity, ease: "easeInOut" },
-                                    scale: { duration: 0.2 },
-                                    boxShadow: { duration: 0.2 } // Fast transition for hover overrides
-                                }}
-                                className="group relative px-8 py-4 bg-gradient-to-r from-blue-600 to-indigo-600 text-white font-bold rounded-md flex items-center gap-3 overflow-hidden"
-                            >
-                                <div className="absolute inset-0 bg-gradient-to-r from-blue-500 to-indigo-500 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-                                <Rocket className="relative z-10 w-5 h-5 transition-transform group-hover:-rotate-12" />
-                                <span className="relative z-10">Claim Free AI Audit</span>
-                            </MotionLink>
-
-                            <MotionLink
-                                href="#projects"
-                                whileHover={{ scale: 1.05, boxShadow: "0 0 30px rgba(99,102,241,0.5), 0 0 60px rgba(59,130,246,0.3)", borderColor: "rgba(59,130,246,0.8)" }}
-                                whileTap={{ scale: 0.95 }}
-                                animate={{
-                                    boxShadow: ["0px 0px 15px rgba(99,102,241,0.3)", "0px 0px 35px rgba(99,102,241,0.6)", "0px 0px 15px rgba(99,102,241,0.3)"],
-                                    borderColor: ["rgba(59,130,246,0.3)", "rgba(59,130,246,0.6)", "rgba(59,130,246,0.3)"]
-                                }}
-                                transition={{
-                                    default: { duration: 2.5, repeat: Infinity, ease: "easeInOut" },
-                                    scale: { duration: 0.2 }
-                                }}
-                                className="px-8 py-4 border text-white font-bold rounded-md hover:bg-blue-500/10 transition-all flex items-center gap-3 backdrop-blur-sm"
-                            >
-                                <Briefcase className="w-4 h-4" />
-                                See My Work
-                            </MotionLink>
+                        <p className="relative z-10 text-[11px] text-zinc-400 font-light" style={fontBody}>Deploying minimal software products and automated revenue systems in rapid engineering sprint cycles.</p>
+                        <div className="relative z-10 flex items-center gap-1 text-[9px] text-emerald-400 font-medium uppercase tracking-wider mt-2" style={fontLabel}>
+                            <span className="w-1 h-1 rounded-full bg-emerald-500 animate-ping" /> ACTIVE SPRINTS
                         </div>
-                        <TimezoneWidget />
+                    </div>
+
+                    {/* Node B: Local-First AI Architecture */}
+                    <div className="relative overflow-hidden border border-white/[0.08] bg-gradient-to-br from-white/[0.04] to-transparent backdrop-blur-2xl shadow-[0_8px_32px_rgba(0,0,0,0.4)] p-5 rounded-2xl w-56 space-y-2 transition-all duration-500 hover:border-[var(--primary)]/40 hover:-translate-y-1 hover:shadow-[0_12px_40px_rgba(0,102,255,0.15)] group">
+                        <div className="absolute inset-0 bg-gradient-to-b from-white/[0.02] to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none" />
+                        <div className="relative z-10 flex items-center gap-2 text-xs font-semibold text-zinc-100" style={fontHeadline}>
+                            <LineChart size={14} className="text-[var(--primary)]" /> Local-First AI Architecture
+                        </div>
+                        <p className="relative z-10 text-[11px] text-zinc-400 font-light" style={fontBody}>Engineering $0-subscription, localized AI pipelines for complex media, video, and data processing.</p>
+                        <div className="relative z-10 flex items-center gap-1 text-[9px] text-emerald-400 font-medium uppercase tracking-wider mt-2" style={fontLabel}>
+                            <span className="w-1 h-1 rounded-full bg-emerald-500 animate-ping" /> MODELS DEPLOYED
+                        </div>
+                    </div>
+                </div>
+
+                {/* Center Absolute Core: Orchestrator Node */}
+                <div className="absolute z-30 flex flex-col items-center">
+                    <motion.div
+                        whileHover={{ scale: 1.04 }}
+                        className="w-20 h-20 border border-[var(--primary)]/50 bg-[var(--primary)]/[0.05] backdrop-blur-2xl shadow-[0_0_40px_rgba(0,102,255,0.3)] rounded-2xl flex items-center justify-center cursor-pointer group relative overflow-hidden"
+                    >
+                        <div className="absolute inset-0 bg-gradient-to-br from-[var(--primary)]/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none" />
+                        <div className="absolute inset-0 bg-[var(--accent)]/10 opacity-0 group-hover:opacity-100 blur-xl transition-opacity duration-300 pointer-events-none" />
+                        <Cpu size={32} className="relative z-10 text-zinc-100 group-hover:text-[var(--accent)] transition-colors" />
                     </motion.div>
+                    <div className="text-center mt-3 space-y-0.5">
+                        <span className="text-xs font-bold text-zinc-100 uppercase tracking-widest block" style={fontHeadline}>Orchestrator</span>
+                        <span className="text-[10px] text-zinc-500 uppercase tracking-widest font-semibold" style={fontLabel}>Core Architecture</span>
+                    </div>
+                </div>
 
-                    {/* Enhanced Social Sidebar */}
-                    <div className="hidden lg:flex flex-col items-end gap-5 pointer-events-auto">
-                        {[
-                            { icon: <Linkedin size={20} />, link: "https://www.linkedin.com/in/mohamedrashard", label: "LinkedIn" },
-                            { icon: <Github size={20} />, link: "https://github.com/mohrashard/", label: "Github" },
-                            { icon: <Twitter size={20} />, link: "https://x.com/mrr_labs", label: "Twitter" },
-                            { icon: <Instagram size={20} />, link: "https://www.instagram.com/mrr_labs/", label: "Instagram" }
-                        ].map((social, i) => (
-                            <motion.a
-                                key={i}
-                                href={social.link}
-                                target="_blank"
-                                rel="noopener noreferrer"
-                                initial={{ opacity: 0, x: 20 }}
-                                animate={{ opacity: 1, x: 0 }}
-                                transition={{ delay: 0.5 + (i * 0.1) }}
-                                whileHover={{ x: -10, backgroundColor: "rgba(255,255,255,0.1)" }}
-                                className="group flex items-center gap-4 text-white/40 hover:text-blue-400 transition-all"
-                            >
-                                <span className="text-[10px] font-bold tracking-widest opacity-0 group-hover:opacity-100 transition-opacity uppercase">
-                                    {social.label}
-                                </span>
-                                <div className="w-12 h-12 border border-white/5 flex items-center justify-center rounded-full bg-white/5 backdrop-blur-md group-hover:border-blue-500/50">
-                                    {social.icon}
-                                </div>
-                            </motion.a>
-                        ))}
+                {/* Right Tier: Functional Infrastructure */}
+                <div className="absolute right-0 flex flex-col gap-12 items-end">
+                    {/* Node C: Scalable Platform Infrastructure */}
+                    <div className="relative overflow-hidden border border-white/[0.08] bg-gradient-to-br from-white/[0.04] to-transparent backdrop-blur-2xl shadow-[0_8px_32px_rgba(0,0,0,0.4)] p-5 rounded-2xl w-56 space-y-2 transition-all duration-500 hover:border-[var(--primary)]/40 hover:-translate-y-1 hover:shadow-[0_12px_40px_rgba(0,102,255,0.15)] group">
+                        <div className="absolute inset-0 bg-gradient-to-b from-white/[0.02] to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none" />
+                        <div className="relative z-10 flex items-center gap-2 text-xs font-semibold text-zinc-100" style={fontHeadline}>
+                            <Workflow size={14} className="text-[var(--primary)]" /> Scalable Platform Infrastructure
+                        </div>
+                        <p className="relative z-10 text-[11px] text-zinc-400 font-light" style={fontBody}>Architecting secure directories, robust relational databases, and automated web platforms.</p>
+                        <div className="relative z-10 flex items-center gap-1 text-[9px] text-emerald-400 font-medium uppercase tracking-wider mt-2" style={fontLabel}>
+                            <span className="w-1 h-1 rounded-full bg-emerald-500" /> OPERATIONAL
+                        </div>
+                    </div>
+
+                    {/* Node D: Studio Metrics */}
+                    <div className="relative overflow-hidden border border-white/[0.08] bg-gradient-to-br from-white/[0.04] to-transparent backdrop-blur-2xl shadow-[0_8px_32px_rgba(0,0,0,0.4)] p-5 rounded-2xl w-56 space-y-3 transition-all duration-500 hover:border-[var(--primary)]/40 hover:-translate-y-1 hover:shadow-[0_12px_40px_rgba(0,102,255,0.15)] group">
+                        <div className="absolute inset-0 bg-gradient-to-b from-white/[0.02] to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none" />
+                        <div className="relative z-10 flex justify-between items-center border-b border-white/[0.08] pb-2">
+                            <span className="text-[9px] tracking-[0.2em] font-bold text-zinc-400 uppercase" style={fontLabel}>STUDIO VELOCITY</span>
+                            <span className="w-1.5 h-1.5 rounded-full bg-[var(--accent)] animate-pulse" />
+                        </div>
+                        <div className="relative z-10 grid grid-cols-2 gap-2 text-left pt-1">
+                            <div>
+                                <div className="text-xs font-bold text-zinc-100" style={fontHeadline}>&lt; 72h</div>
+                                <div className="text-[9px] text-zinc-400 font-medium" style={fontBody}>Sprint Cycles</div>
+                            </div>
+                            <div>
+                                <div className="text-xs font-bold text-zinc-100" style={fontHeadline}>100%</div>
+                                <div className="text-[9px] text-zinc-400 font-medium" style={fontBody}>Local & Owned</div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
 
-
-
-            {/* Bottom Section: Scroll Indicator */}
-            <motion.div
-                animate={{ y: [0, 10, 0] }}
-                transition={{ repeat: Infinity, duration: 2 }}
-                className="absolute bottom-10 left-1/2 -translate-x-1/2 z-20 flex flex-col items-center gap-2 opacity-30 pointer-events-none"
-            >
-                <span className="text-[10px] font-bold tracking-[0.4em] text-white uppercase">Scroll</span>
-                <ChevronDown className="text-white w-4 h-4" />
-            </motion.div>
-
-            {/* Aesthetic Scanline Effect */}
-            <div className="absolute inset-0 pointer-events-none bg-[linear-gradient(rgba(18,16,16,0)_50%,rgba(0,0,0,0.25)_50%),linear-gradient(90deg,rgba(255,0,0,0.06),rgba(0,255,0,0.02),rgba(0,0,255,0.06))] bg-[length:100%_4px,3px_100%] z-50 opacity-10" />
-
-            <div className="absolute bottom-0 left-0 w-full h-40 bg-gradient-to-t from-[#020202] to-transparent z-20 pointer-events-none" />
+            {/* Bottom fade into next section */}
+            <div className="absolute bottom-0 left-0 w-full h-24 bg-gradient-to-t from-[#050505] to-transparent z-20 pointer-events-none" />
         </section>
     );
 }

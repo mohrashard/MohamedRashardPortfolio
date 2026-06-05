@@ -37,8 +37,8 @@ export async function POST(request) {
 
     // 3. Send PREMIUM automated email via Resend to the Client
     const { error: emailError } = await resend.emails.send({
-      from: 'Mohamed | Mr² Labs <labs@mohamedrashard.dev>',
-      reply_to: 'mohrashard@gmail.com',
+      from: process.env.RESEND_FROM_EMAIL,
+      reply_to: process.env.NEXT_PUBLIC_REPLY_TO_EMAIL,
       to: email,
       subject: '⚡ Audit Request Received - Mr² Labs',
       html: `
@@ -84,7 +84,7 @@ export async function POST(request) {
                           <td>
                             <p style="margin: 0 0 4px 0; color: #0f172a; font-size: 16px; font-weight: 700;">Mohamed Rashard Rizmi</p>
                             <p style="margin: 0 0 16px 0; color: #64748b; font-size: 14px;">Software Engineer & Founder</p>
-                            <a href="https://www.mohamedrashard.dev" style="color: #2563eb; text-decoration: none; font-size: 14px; font-weight: 500;">mohamedrashard.dev</a>
+                            <a href="https://mr2labs.com" style="color: #2563eb; text-decoration: none; font-size: 14px; font-weight: 500;">mr2labs.com</a>
                           </td>
                         </tr>
                       </table>
@@ -109,8 +109,8 @@ export async function POST(request) {
 
     // 4. Internal Notification to YOU
     const { error: notifyError } = await resend.emails.send({
-      from: 'Mr² Labs Bot <labs@mohamedrashard.dev>',
-      to: 'mohrashard@gmail.com',
+      from: process.env.RESEND_FROM_EMAIL,
+      to: process.env.NEXT_PUBLIC_REPLY_TO_EMAIL,
       subject: `🚨 NEW LEAD: ${nameAndBusiness}`,
       html: `
         <div style="font-family: sans-serif; line-height: 1.6; color: #111;">

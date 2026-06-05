@@ -4,6 +4,8 @@ import { Resend } from 'resend';
 import { EstimateData } from '@/types/pseo';
 import fs from 'fs';
 import path from 'path';
+import { GoogleGenerativeAI } from '@google/generative-ai';
+import Groq from 'groq-sdk';
 
 // Initialize clients
 const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL!;
@@ -237,7 +239,7 @@ export async function POST(req: NextRequest) {
     <hr style="border:0;border-top:1px solid #e2e8f0;margin:28px 0;">
     <p style="margin:0 0 4px;color:#0f172a;font-size:14px;font-weight:700;">Mohamed Rashard</p>
     <p style="margin:0 0 10px;color:#64748b;font-size:12px;">Founder, Mr² Labs · Software Engineer</p>
-    <a href="${process.env.NEXT_PUBLIC_SITE_URL}" style="color:#2563eb;font-size:12px;text-decoration:none;">mohamedrashard.dev</a>
+    <a href="${process.env.NEXT_PUBLIC_SITE_URL}" style="color:#2563eb;font-size:12px;text-decoration:none;">mr2labs.com</a>
   </td></tr>
 
   <!-- FOOTER -->
@@ -401,70 +403,33 @@ Rules:
 
         let aiContent = '';
 
-        // 1️⃣ Try Gemini with fallback options
+        // 1️⃣ Try Gemini with official SDK
         if (geminiApiKey) {
-            // Models to try in order of preference. 2.5 is latest, 2.0 and 1.5-latest are fallbacks.
-            const models = ['gemini-2.5-flash', 'gemini-2.0-flash', 'gemini-1.5-flash-latest'];
-            
-            for (const model of models) {
-                try {
-                    const geminiUrl = `https://generativelanguage.googleapis.com/v1beta/models/${model}:generateContent?key=${geminiApiKey}`;
-                    const geminiResponse = await fetch(geminiUrl, {
-                        method: 'POST',
-                        headers: { 'Content-Type': 'application/json' },
-                        body: JSON.stringify({
-                            contents: [{ parts: [{ text: prompt }] }],
-                            generationConfig: { temperature: 0.2, responseMimeType: 'application/json' }
-                        })
-                    });
-
-                    if (geminiResponse.ok) {
-                        const geminiData = await geminiResponse.json();
-                        aiContent = geminiData.candidates[0].content.parts[0].text;
-                        console.log(`✅ Gemini ${model} responded`);
-                        break; 
-                    } else {
-                        const errStatus = geminiResponse.status;
-                        const errText = await geminiResponse.text();
-                        console.warn(`⚠️ Gemini ${model} unavailable (${errStatus})`, errText);
-                        
-                        // Continue if it's Busy (503), Rate Limited (429), or Not Found (404 - wrong name/version)
-                        if (errStatus === 503 || errStatus === 429 || errStatus === 404) {
-                            continue;
-                        } else {
-                            break; 
-                        }
-                    }
-                } catch (err) {
-                    console.error(`❌ Gemini ${model} fetch crash:`, err);
-                }
+            try {
+                const genAI = new GoogleGenerativeAI(geminiApiKey);
+                const model = genAI.getGenerativeModel({ model: "gemini-2.5-flash" });
+                const result = await model.generateContent(prompt);
+                aiContent = result.response.text();
+                console.log(`✅ Gemini responded successfully`);
+            } catch (err) {
+                console.error(`❌ Gemini fetch crash:`, err);
             }
         }
 
-        // 2️⃣ Fallback: Groq Llama 3.3 70B (Preserved as requested)
+        // 2️⃣ Fallback: Groq Llama 3.1 8B with official SDK
         if (!aiContent && groqApiKey) {
             console.log('🔄 Using Groq fallback...');
-            const groqResponse = await fetch('https://api.groq.com/openai/v1/chat/completions', {
-                method: 'POST',
-                headers: {
-                    'Authorization': `Bearer ${groqApiKey}`,
-                    'Content-Type': 'application/json'
-                },
-                body: JSON.stringify({
-                    model: 'llama-3.3-70b-versatile',
+            try {
+                const groq = new Groq({ apiKey: groqApiKey });
+                const completion = await groq.chat.completions.create({
                     messages: [{ role: 'user', content: prompt }],
+                    model: 'llama-3.1-8b-instant',
                     temperature: 0.2,
-                    stream: false
-                })
-            });
-
-            if (groqResponse.ok) {
-                const groqData = await groqResponse.json();
-                aiContent = groqData.choices[0].message.content;
+                });
+                aiContent = completion.choices[0]?.message?.content || "";
                 console.log('✅ Groq fallback responded');
-            } else {
-                const errText = await groqResponse.text();
-                console.error('❌ Groq fallback also failed:', errText);
+            } catch (err) {
+                console.error('❌ Groq fallback also failed:', err);
             }
         }
 

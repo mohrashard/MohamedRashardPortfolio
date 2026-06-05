@@ -8,7 +8,7 @@ export const assets = [
         image: "/aeropulse.png",
         tech: ["Next.js 14", "Spline 3D", "Framer Motion", "Tailwind CSS"],
         description: "The $15,000 Agency Website, Deployed in 24 Hours. A God-tier, ultra-premium 1-page landing template engineered specifically for high-growth SaaS, AI startups, and elite digital agencies in Colombo and beyond.",
-        longDescription: `<h2>🚀 AeroPulse – The $15,000 Agency Website, Deployed in 24 Hours.</h2>
+        longDescription: `<h2 class="flex items-center"><i class="fas fa-rocket text-[var(--primary)] mr-3"></i> AeroPulse – The $15,000 Agency Website, Deployed in 24 Hours.</h2>
 
 <p><strong>Live Demo:</strong> <a href="https://aeropulse-tau.vercel.app/" target="_blank" class="text-blue-400 underline italic">aeropulse-tau.vercel.app</a></p>
 
@@ -20,7 +20,7 @@ export const assets = [
 
 <hr class="my-8 border-white/10" />
 
-<h3><strong>⚡ The Architecture & Tech Stack</strong></h3>
+<h3 class="flex items-center"><strong><i class="fas fa-bolt text-[var(--accent)] mr-3"></i> The Architecture & Tech Stack</strong></h3>
 <ul class="space-y-3">
     <li><strong><i class="fas fa-bolt text-blue-400 mr-2"></i> Next.js App Router:</strong> Built on the bleeding edge of React for infinite scalability and instant load times.</li>
     <li><strong><i class="fas fa-cube text-purple-400 mr-2"></i> Spline 3D Integration:</strong> A fully interactive, scroll-hijacked 3D engine that runs buttery-smooth in the browser.</li>
@@ -30,7 +30,7 @@ export const assets = [
 
 <hr class="my-8 border-white/10" />
 
-<h3><strong>🚀 Conversion-Engineered Layout</strong></h3>
+<h3 class="flex items-center"><strong><i class="fas fa-rocket text-[var(--primary)] mr-3"></i> Conversion-Engineered Layout</strong></h3>
 <ul class="space-y-3">
     <li><strong>Cinematic Hero Section:</strong> A massive floating 3D asset sweeping behind high-contrast, typography-driven messaging.</li>
     <li><strong>Asymmetric "Bento Box" Grid:</strong> Highlight your core features with Apple-tier glassmorphism and subtle glow effects.</li>
@@ -40,7 +40,7 @@ export const assets = [
 
 <hr class="my-8 border-white/10" />
 
-<h3><strong>💎 What’s Included?</strong></h3>
+<h3 class="flex items-center"><strong><i class="fas fa-gem text-blue-400 mr-3"></i> What’s Included?</strong></h3>
 <ul class="space-y-4">
     <li class="bg-white/5 p-4 rounded-xl border border-white/10"><strong><i class="fas fa-file-archive text-yellow-400 mb-2 block text-xl"></i> Complete Source Code (.ZIP)</strong><br/><span class="text-sm text-slate-400">A clean, modular, and highly organized Next.js codebase.</span></li>
     <li class="bg-white/5 p-4 rounded-xl border border-white/10"><strong><i class="fas fa-cogs text-blue-400 mb-2 block text-xl"></i> Centralized Configuration</strong><br/><span class="text-sm text-slate-400">Swap out links, text, and metadata in one single <code>config/site.ts</code> file in seconds.</span></li>
@@ -68,12 +68,12 @@ export const assets = [
         image: "/nexus-animator.png",
         tech: ["Gemini AI", "No-Code", "Generative Art"],
         description: "The Ultimate \"Code-to-Content\" Engine. Generate professional animations with simple text commands using the Gemini Brain.",
-        longDescription: `<h2>🚀 Nexus Animator: The Ultimate "Code-to-Content" Engine</h2>
+        longDescription: `<h2 class="flex items-center"><i class="fas fa-rocket text-[var(--primary)] mr-3"></i> Nexus Animator: The Ultimate "Code-to-Content" Engine</h2>
 
 <h3><strong>Why Choose Nexus Animator?</strong></h3>
 <p>Recently, <strong>Claude Code</strong> went viral for creating stunning programmatic animations. Nexus Animator is your <strong>free, unlimited replacement</strong> for that exact workflow. Stop searching for the perfect background—create it.</p>
 
-<h3><strong>✨ Core Benefits</strong></h3>
+<h3 class="flex items-center"><strong><i class="fas fa-magic text-[var(--accent)] mr-3"></i> Core Benefits</strong></h3>
 
 <h4><strong>1. Zero Coding Required</strong></h4>
 <ul class="space-y-2">
@@ -102,7 +102,7 @@ export const assets = [
 
 <hr class="my-8 border-white/10" />
 
-<h3><strong>🆚 The "Code vs. Video" Advantage</strong></h3>
+<h3 class="flex items-center"><strong><i class="fas fa-exchange-alt text-slate-400 mr-3"></i> The "Code vs. Video" Advantage</strong></h3>
 
 <div class="overflow-x-auto">
 <table class="w-full text-left border-collapse my-4 text-sm md:text-base">
@@ -145,7 +145,7 @@ export const assets = [
 
 <hr class="my-8 border-white/10" />
 
-<h3><strong>🛠️ What Can You Build?</strong></h3>
+<h3 class="flex items-center"><strong><i class="fas fa-tools text-slate-400 mr-3"></i> What Can You Build?</strong></h3>
 <ul class="space-y-2">
     <li><i class="fab fa-tiktok text-pink-500 mr-2"></i><strong>For Content Creators:</strong> Generate unlimited, royalty-free <strong>b-roll</strong> and "Oddly Satisfying" backgrounds for TikTok/Reels/Shorts.</li>
     <li><i class="fab fa-twitch text-purple-500 mr-2"></i><strong>For Streamers:</strong> Interactive "Starting Soon" screens that react to your mouse.</li>
@@ -155,7 +155,7 @@ export const assets = [
 
 <hr class="my-8 border-white/10" />
 
-<h3><strong>📦 What's Inside the System?</strong></h3>
+<h3 class="flex items-center"><strong><i class="fas fa-box text-slate-400 mr-3"></i> What's Inside the System?</strong></h3>
 <p>When you purchase, you get instant access to the <strong>Gemini Brain</strong> trained on:</p>
 <ul class="grid md:grid-cols-2 gap-4">
     <li class="bg-white/5 p-4 rounded-xl border border-white/10"><strong><i class="fas fa-layer-group text-purple-400 mb-2 block text-xl"></i> 19+ Design Frameworks</strong><br/><span class="text-sm text-slate-400">From "Cyberpunk Glitch" to "Zen Flow" aesthetics.</span></li>
@@ -165,7 +165,7 @@ export const assets = [
 
 <hr class="my-8 border-white/10" />
 
-<h3><strong>💡 How It Works (3 Steps)</strong></h3>
+<h3 class="flex items-center"><strong><i class="fas fa-lightbulb text-yellow-400 mr-3"></i> How It Works (3 Steps)</strong></h3>
 <ol class="space-y-4">
     <li class="flex gap-4 items-start">
         <span class="flex-shrink-0 w-8 h-8 rounded-full bg-purple-500 flex items-center justify-center font-bold text-white">1</span>
@@ -184,7 +184,7 @@ export const assets = [
 <hr class="my-8 border-white/10" />
 
 <div class="text-center flex flex-col items-center">
-    <h3 class="text-center"><strong>📢 Ready to Upgrade Your Visuals?</strong></h3>
+    <h3 class="text-center flex items-center justify-center"><strong><i class="fas fa-bullhorn text-[var(--primary)] mr-3"></i> Ready to Upgrade Your Visuals?</strong></h3>
     <p class="text-xl mb-6 text-center">Stop searching for the perfect background. <strong class="text-purple-400">Create it.</strong></p>
 </div>`,
         buyLink: "https://mrrlabs.gumroad.com/l/nexusanimator",

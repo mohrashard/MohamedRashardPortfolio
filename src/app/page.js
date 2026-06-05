@@ -11,83 +11,99 @@ import Contact from "./components/Contact";
 
 export async function generateMetadata() {
     return {
-        title: "Mr² Labs: Ship Your MVP in 72 Hours | Mohamed Rashard",
-        description: "AI-powered software development agency in Colombo, Sri Lanka. We build MVPs, SaaS platforms, and AI automation tools for founders — shipped in 72 hours at a fraction of agency cost.",
-        keywords: ["MVP development", "AI developer Sri Lanka", "SaaS development Colombo", "Next.js developer", "AI automation agency", "72 hour MVP", "Mr2 Labs", "Mohamed Rashard"],
+        title: "Mr² Labs | High-Velocity Software Engineering & AI Deployment",
+        description: "Mr² Labs is an elite software engineering firm based in Colombo. We architect, secure, and ship production-grade AI applications and SaaS MVPs in 48-72 hours.",
+        keywords: [
+            "Mr2 Labs",
+            "mr2 labs",
+            "Mr² Labs",
+            "mr² labs",
+            "MVP deployment",
+            "AI software firm",
+            "SaaS development agency",
+            "Next.js 15 architecture",
+            "Mohamed Rashard Rizmi",
+            "72 hour MVP sprint",
+            "Codebase rescue",
+            "B2B software engineering",
+            "AI automation agency"
+        ],
         alternates: {
-            canonical: process.env.NEXT_PUBLIC_SITE_URL,
+            canonical: "https://www.mr2labs.com",
         },
         openGraph: {
-            title: "Mr² Labs: Ship Your MVP in 72 Hours",
-            description: "We build production-grade MVPs for founders in 72 hours. AI-powered development from Colombo, Sri Lanka.",
-            url: process.env.NEXT_PUBLIC_SITE_URL,
+            title: "Mr² Labs | High-Velocity Software Engineering",
+            description: "We bypass the bloated agency model to build production-grade MVPs for funded founders in 72 hours.",
+            url: "https://www.mr2labs.com",
+            siteName: "Mr² Labs",
             type: "website",
+            locale: "en_US",
         },
         twitter: {
             card: "summary_large_image",
-            title: "Mr² Labs: Ship Your MVP in 72 Hours",
-            description: "Production-grade MVPs shipped in 72 hours. AI development agency — Colombo, Sri Lanka.",
+            title: "Mr² Labs | High-Velocity Software Engineering",
+            description: "Production-grade MVPs shipped in 48-72 hours. Elite AI development and deployment.",
         }
     };
 }
 
-
-
 export default function Home() {
+    // Upgraded from WebSite to Organization for better B2B SEO and LLM entity recognition
+    const jsonLdOrganization = {
+        "@context": "https://schema.org",
+        "@type": "Organization",
+        "name": "Mr² Labs",
+        "url": "https://www.mr2labs.com",
+        "logo": "https://www.mr2labs.com/mr-squared-logo.png",
+        "founder": {
+            "@type": "Person",
+            "name": "Mohamed Rashard Rizmi",
+            "jobTitle": "Full Stack Software Engineer"
+        },
+        "contactPoint": {
+            "@type": "ContactPoint",
+            "email": "rashard@mr2labs.com",
+            "contactType": "technical support and sales"
+        },
+        "sameAs": [
+            "https://www.linkedin.com/in/mohamedrashard"
+        ],
+        "description": "An elite software engineering and digital systems firm specializing in rapid 48 to 72-hour MVP deployment, AI architecture, and codebase rescue."
+    };
+
     return (
-        <main className="relative min-h-screen bg-[#050505] text-[#e0e0e0] font-sans selection:bg-blue-500/30 overflow-x-hidden">
-            {/* Visually Hidden SEO Content for SSR/Crawlers */}
-            <section style={{
-                position: 'absolute',
-                width: '1px',
-                height: '1px',
-                padding: 0,
-                margin: '-1px',
-                overflow: 'hidden',
-                clip: 'rect(0,0,0,0)',
-                whiteSpace: 'nowrap',
-                border: 0
-            }}>
-                <h1>Mohamed Rashard — Full Stack AI Developer in Sri Lanka</h1>
-                <p>
-                    I am Mohamed Rashard, a 21-year-old full-stack AI developer based in
-                    Colombo, Sri Lanka. I build AI-powered MVPs in 48 hours for funded
-                    startup founders and non-technical business owners worldwide.
-                    First Class Honours in Software Engineering from Cardiff Metropolitan
-                    University 2026.
-                </p>
-                <h2>What I build</h2>
-                <ul>
-                    <li>AI-powered SaaS platforms shipped in 48 hours</li>
-                    <li>Full-stack web applications using Next.js and React</li>
-                    <li>AI integrations with OpenAI, Gemini, and LangChain</li>
-                    <li>Computer vision applications using OpenCV</li>
-                    <li>Business automation tools replacing manual processes</li>
-                    <li>Codebase rescue for half-built abandoned projects</li>
-                </ul>
-                <h2>Proven results</h2>
-                <ul>
-                    <li>BizFinder AI — lead generation tool shipped in 47 hours</li>
-                    <li>LiverLens — liver disease prediction platform, 92% accuracy</li>
-                    <li>Mentora — AI wellness platform serving 3000 users</li>
-                    <li>GrabMe — full-stack marketplace product, live</li>
-                </ul>
-                <h2>Working with clients in US, UK, Canada, Australia, and Middle East</h2>
-                <p>
-                    Async-friendly. Responding within 4 hours during Colombo working hours
-                    and within 12 hours globally. Fixed price projects only.
-                    No hourly billing.
-                </p>
-            </section>
+        <main className="relative min-h-screen bg-[#050505] text-[#e0e0e0] font-sans selection:bg-[#0066FF]/30 overflow-x-hidden">
+            <script
+                type="application/ld+json"
+                dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLdOrganization) }}
+            />
+
+
+
             <Navbar />
+
+            {/* 1. The Hook */}
             <Hero />
+
+            {/* 2. Immediate Validation — Tech & Telemetry Ribbon */}
             <TrustBar />
             <SocialProofTicker />
-            <About />
-            <Skills />
+
+            {/* 3. The Proof — Deployed Architectures */}
             <Projects />
+
+            {/* 4. The Engine — Infrastructure Capabilities */}
+            <Skills />
+
+            {/* 5. The Firm Thesis — Studio Overview */}
+            <About />
+
+            {/* 6. Market Validation */}
             <Testimonials />
+
+            {/* 7. The Close — Deployment Terminal */}
             <Contact />
+
         </main>
     );
 }

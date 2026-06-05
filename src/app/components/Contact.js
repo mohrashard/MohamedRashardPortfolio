@@ -1,69 +1,127 @@
+"use client";
 import React from "react";
-import Link from "next/link";
+import { motion } from "framer-motion";
+import TimezoneWidget from "./TimezoneWidget";
+
+// ── Shared font tokens ──────────────────────────────────────
+const fontHeadline = { fontFamily: "'Plus Jakarta Sans', sans-serif" };
+const fontBody = { fontFamily: "'Inter', sans-serif" };
+const fontLabel = { fontFamily: "'Geist Mono', 'Geist', monospace" };
 
 export default function Contact() {
     return (
-        <section id="contact" className="py-24 px-6 md:px-12 relative overflow-hidden bg-[#020202] border-t border-white/5">
-            {/* Background Glows */}
-            <div className="absolute top-0 right-0 w-96 h-96 bg-blue-600/10 rounded-full blur-[100px] pointer-events-none"></div>
-            <div className="absolute bottom-0 left-0 w-96 h-96 bg-cyan-600/10 rounded-full blur-[100px] pointer-events-none"></div>
+        <section id="contact" className="relative w-full bg-[#030303] overflow-hidden py-32 flex flex-col items-center justify-center min-h-[90vh]">
+            
+            {/* ── CSS Planet Horizon Background ── */}
+            {/* Dark void at the top, planet horizon starts down a bit */}
+            <div className="absolute top-[15%] left-1/2 -translate-x-1/2 w-[250vw] sm:w-[150vw] lg:w-[120vw] h-[1500px] rounded-[100%] bg-gradient-to-b from-[#0044ff]/10 via-[#001144]/5 to-transparent border-t border-[var(--primary)]/30 shadow-[inset_0_80px_120px_rgba(0,102,255,0.15)] pointer-events-none" />
+            
+            {/* Central core glow */}
+            <div className="absolute top-[15%] left-1/2 -translate-x-1/2 w-[60vw] h-[300px] bg-[var(--primary)]/20 blur-[120px] rounded-[100%] pointer-events-none" />
+            
+            {/* Subtle grid on the planet surface */}
+            <div 
+                className="absolute inset-0 pointer-events-none" 
+                style={{
+                    backgroundImage: `
+                        linear-gradient(to right, rgba(255,255,255,0.015) 1px, transparent 1px),
+                        linear-gradient(to bottom, rgba(255,255,255,0.015) 1px, transparent 1px)
+                    `,
+                    backgroundSize: "4rem 4rem",
+                    maskImage: "radial-gradient(ellipse 60% 60% at 50% 50%, #000 30%, transparent 100%)",
+                    WebkitMaskImage: "radial-gradient(ellipse 60% 60% at 50% 50%, #000 30%, transparent 100%)",
+                }}
+            />
 
-            <div className="max-w-4xl mx-auto relative z-10 text-center">
-                <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-blue-500/20 bg-blue-500/10 text-blue-400 text-xs font-bold uppercase tracking-widest mb-6">
-                    <span className="w-2 h-2 rounded-full bg-green-400 animate-pulse" />
-                    Available for new projects
-                </div>
-
-                <h2 className="text-4xl md:text-5xl lg:text-6xl font-black mb-6 text-white tracking-tight">
-                    Your idea deserves to be <br className="md:hidden" />
-                    <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-cyan-400">live this week.</span>
-                </h2>
-
-                <p className="text-lg md:text-xl text-slate-400 mb-4 max-w-2xl mx-auto font-light leading-relaxed">
-                    Start with a free AI Audit. I will personally review your business and show you exactly where AI can save you time and money, specific to how you work, delivered within 48 hours.
-                </p>
-
-                <p className="text-sm text-slate-600 mb-12 font-light">
-                    No pitch. No obligation. No templates. Just a real, personal audit from me.
-                </p>
-
-                <div className="flex flex-col sm:flex-row items-center justify-center gap-6 mb-10">
-                    <Link
-                        href="/services#audit-form"
-                        className="w-full sm:w-auto px-10 py-5 bg-gradient-to-r from-blue-600 to-cyan-600 rounded-xl text-white font-black text-lg hover:shadow-[0_0_40px_rgba(37,99,235,0.4)] hover:-translate-y-1 transition-all flex items-center justify-center gap-3 group"
-                    >
-                        <i className="fas fa-magnifying-glass group-hover:-translate-y-1 transition-transform"></i>
-                        Claim Free AI Audit
-                    </Link>
-
-                    <a
-                        href="mailto:mohrashard@gmail.com"
-                        className="w-full sm:w-auto px-10 py-5 bg-white/5 border border-white/10 rounded-xl text-white font-bold text-lg hover:bg-white/10 transition-all flex items-center justify-center gap-3 backdrop-blur-sm"
-                    >
-                        <i className="far fa-envelope"></i> Email Me Directly
-                    </a>
-                </div>
-
-                {/* Timezone trust signal — critical for US/UK/CA/AU clients */}
-                <p className="text-xs text-slate-600 mb-10 font-light">
-                    <i className="fas fa-clock mr-1.5"></i>
-                    Based in Colombo, Sri Lanka (UTC+5:30) — responding within 4 hours during working hours, within 12 hours globally.
-                </p>
-
-                <div className="grid sm:grid-cols-2 gap-4 max-w-2xl mx-auto">
-                    <div className="flex items-center justify-center gap-3 p-4 bg-gradient-to-b from-[#0a0a0a] to-[#050505] border border-white/5 rounded-2xl">
-                        <i className="fab fa-linkedin text-blue-500 text-xl"></i>
-                        <a href="https://www.linkedin.com/in/mohamedrashard" target="_blank" rel="noopener noreferrer" className="text-slate-300 font-medium hover:text-white transition-colors">
-                            Connect on LinkedIn
-                        </a>
+            <div className="relative z-10 w-full max-w-3xl mx-auto px-5 sm:px-8">
+                
+                {/* ── Header ── */}
+                <motion.div 
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true, margin: "-40px" }}
+                    transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
+                    className="text-center mb-10"
+                >
+                    <div className="text-[10px] sm:text-[11px] uppercase tracking-[0.25em] font-bold text-[var(--primary)] mb-5" style={fontLabel}>
+                        INITIATE PROTOCOL
                     </div>
-                    <div className="flex items-center justify-center gap-3 p-4 bg-gradient-to-b from-[#0a0a0a] to-[#050505] border border-white/5 rounded-2xl">
-                        <i className="fab fa-github text-white text-xl"></i>
-                        <a href="https://github.com/mohrashard/" target="_blank" rel="noopener noreferrer" className="text-slate-300 font-medium hover:text-white transition-colors">
-                            View GitHub
+                    
+                    <h2 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-white tracking-tight mb-5" style={fontHeadline}>
+                        Let's build your system.
+                    </h2>
+                    
+                    <p className="text-sm sm:text-base text-zinc-400 max-w-xl mx-auto leading-relaxed" style={fontBody}>
+                        Whether you need a full technical audit, a custom engineering build, or just want to connect—reach out directly.
+                    </p>
+                </motion.div>
+
+                {/* ── Contact Options Container ── */}
+                <motion.div
+                    initial={{ opacity: 0, y: 30 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true, margin: "-40px" }}
+                    transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1], delay: 0.1 }}
+                    className="relative bg-[#0A0A0A]/60 backdrop-blur-xl border border-white/[0.06] rounded-[24px] p-6 sm:p-10 shadow-2xl max-w-4xl mx-auto"
+                >
+                    {/* Inner subtle glow border */}
+                    <div className="absolute inset-0 rounded-[24px] pointer-events-none" style={{ boxShadow: "inset 0 0 0 1px rgba(255,255,255,0.02)" }} />
+
+                    <div className="relative z-10 grid grid-cols-1 md:grid-cols-3 gap-6">
+                        
+                        {/* Audit Card */}
+                        <a 
+                            href="/services#audit-form"
+                            className="flex flex-col items-center justify-center gap-4 bg-[var(--primary)]/10 hover:bg-[var(--primary)]/20 border border-[var(--primary)]/30 hover:border-[var(--primary)]/60 rounded-xl px-6 py-10 transition-all duration-300 group relative overflow-hidden"
+                        >
+                            <div className="absolute inset-0 bg-gradient-to-br from-[var(--primary)]/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                            <div className="relative z-10 w-14 h-14 rounded-2xl bg-[var(--primary)]/20 text-[var(--primary)] flex items-center justify-center text-2xl group-hover:scale-110 group-hover:shadow-[0_0_30px_rgba(0,102,255,0.4)] transition-all duration-300">
+                                <i className="fas fa-magnifying-glass"></i>
+                            </div>
+                            <div className="relative z-10 text-center mt-2">
+                                <h4 className="text-[15px] font-bold text-white mb-1 tracking-tight" style={fontHeadline}>System Audit</h4>
+                                <p className="text-[13px] text-[var(--primary)] font-medium" style={fontBody}>Free technical teardown</p>
+                            </div>
                         </a>
+
+                        {/* Email Card */}
+                        <a 
+                            href={`mailto:${process.env.NEXT_PUBLIC_REPLY_TO_EMAIL}`}
+                            className="flex flex-col items-center justify-center gap-4 bg-white/[0.02] hover:bg-white/[0.04] border border-white/[0.06] hover:border-[var(--primary)]/50 rounded-xl px-6 py-10 transition-all duration-300 group"
+                        >
+                            <div className="w-14 h-14 rounded-2xl bg-white/[0.05] text-zinc-300 group-hover:bg-[var(--primary)]/10 group-hover:text-[var(--primary)] flex items-center justify-center text-2xl group-hover:scale-110 group-hover:shadow-[0_0_20px_rgba(0,102,255,0.2)] transition-all duration-300">
+                                <i className="far fa-envelope"></i>
+                            </div>
+                            <div className="text-center mt-2">
+                                <h4 className="text-[15px] font-bold text-zinc-100 mb-1 tracking-tight" style={fontHeadline}>Email Directly</h4>
+                                <p className="text-[13px] text-zinc-500" style={fontBody}>{process.env.NEXT_PUBLIC_REPLY_TO_EMAIL}</p>
+                            </div>
+                        </a>
+
+                        {/* LinkedIn Card */}
+                        <a 
+                            href="https://www.linkedin.com/in/mohamedrashard" 
+                            target="_blank" 
+                            rel="noopener noreferrer"
+                            className="flex flex-col items-center justify-center gap-4 bg-white/[0.02] hover:bg-white/[0.04] border border-white/[0.06] hover:border-[#0077b5]/50 rounded-xl px-6 py-10 transition-all duration-300 group"
+                        >
+                            <div className="w-14 h-14 rounded-2xl bg-[#0077b5]/10 text-[#0077b5] flex items-center justify-center text-2xl group-hover:scale-110 group-hover:shadow-[0_0_20px_rgba(0,119,181,0.2)] transition-all duration-300">
+                                <i className="fab fa-linkedin-in"></i>
+                            </div>
+                            <div className="text-center mt-2">
+                                <h4 className="text-[15px] font-bold text-zinc-100 mb-1 tracking-tight" style={fontHeadline}>LinkedIn</h4>
+                                <p className="text-[13px] text-zinc-500" style={fontBody}>Connect and message</p>
+                            </div>
+                        </a>
+                        
                     </div>
-                </div>
+
+                    {/* Live Timezone Widget */}
+                    <div className="relative z-10 mt-10 pt-8 border-t border-white/[0.06] flex justify-center">
+                        <TimezoneWidget />
+                    </div>
+                </motion.div>
+                
             </div>
         </section>
     );

@@ -1,151 +1,336 @@
 "use client";
-import React, { useState } from "react";
+import React, { useRef } from "react";
 import Link from "next/link";
+import { motion, useInView } from "framer-motion";
+import {
+    Activity,
+    Zap,
+    Cpu,
+    ShieldCheck,
+    Terminal,
+    Layers,
+    ArrowUpRight,
+    Clock,
+    Code2,
+} from "lucide-react";
 
-export default function SocialProof() {
+// ── Font tokens ───────────────────────────────────────────────
+const fontHeadline = { fontFamily: "'Plus Jakarta Sans', sans-serif" };
+const fontBody     = { fontFamily: "'Inter', sans-serif" };
+const fontLabel    = { fontFamily: "'Geist Mono', 'Geist', monospace" };
 
-    const [hovered, setHovered] = useState(null);
+// ── Animation variants ────────────────────────────────────────
+const containerVariants = {
+    hidden: {},
+    visible: { transition: { staggerChildren: 0.08, delayChildren: 0.04 } },
+};
+const cardVariants = {
+    hidden:  { opacity: 0, y: 28, willChange: "opacity, transform" },
+    visible: {
+        opacity: 1,
+        y: 0,
+        transition: { duration: 0.48, ease: [0.22, 1, 0.36, 1] },
+    },
+};
 
-    const stats = [
-        {
-            icon: "fas fa-graduation-cap",
-            headline: "First Class Honours",
-            subtitle: "Cardiff Metropolitan University",
-            detail: "B.Sc. Software Engineering with highest distinction in full-stack architecture and AI systems.",
-            color: "text-blue-400 bg-blue-500/10 border-blue-500/20",
-            glow: "rgba(59,130,246,0.1)",
-        },
-        {
-            icon: "fas fa-bolt",
-            headline: "72 Hours",
-            subtitle: "Average MVP Delivery Time",
-            detail: "From initial scope lock to a live, working product on a real URL. Fast-track execution without quality compromise.",
-            color: "text-amber-400 bg-amber-500/10 border-amber-500/20",
-            glow: "rgba(245,158,11,0.1)",
-        },
-        {
-            icon: "fas fa-robot",
-            headline: "10+",
-            subtitle: "AI Platforms Shipped",
-            detail: "Intelligent systems integrating LLMs (Gemini/GPT), vector databases (Pinecone), and automated RAG pipelines.",
-            color: "text-cyan-400 bg-cyan-500/10 border-cyan-500/20",
-            glow: "rgba(6,182,212,0.1)",
-        },
-        {
-            icon: "fas fa-tools",
-            headline: "15+ Technologies",
-            subtitle: "Battle-Tested Tech Stack",
-            detail: "Next.js, React, Python, Flask, JavaScript, AI/ML, TypeScript, SQL, Supabase, Tailwind, REST APIs, and more.",
-            color: "text-purple-400 bg-purple-500/10 border-purple-500/20",
-            glow: "rgba(168,85,247,0.1)",
-        },
-        {
-            icon: "fas fa-check-circle",
-            headline: "100%",
-            subtitle: "On-Time Delivery Rate",
-            detail: "A zero-latency commitment to client deadlines through streamlined development and direct-to-expert communication.",
-            color: "text-emerald-400 bg-emerald-500/10 border-emerald-500/20",
-            glow: "rgba(16,185,129,0.1)",
-        },
-        {
-            icon: "fas fa-globe-americas",
-            headline: "3 Continents",
-            subtitle: "Clients Served Globally",
-            detail: "Active partnerships and live software solutions deployed across the UK, Asia, and the Middle East.",
-            color: "text-rose-400 bg-rose-500/10 border-rose-500/20",
-            glow: "rgba(244,63,94,0.1)",
-        },
-    ];
+// ── Data ──────────────────────────────────────────────────────
+// Hero row — 3 big punchy numbers
+const heroMetrics = [
+    { value: "48–72h", label: "Scope to Live URL",        accent: "#0066ff" },
+    { value: "100%",   label: "Builder-Led Execution",    accent: "#38BDF8" },
+    { value: "~0h",    label: "Useless Meetings",         accent: "#f59e0b" },
+];
 
+// Detail grid — 6 operational facts
+const facts = [
+    {
+        Icon: Zap,
+        accent: "#38BDF8",
+        title: "Ruthless Sprint Velocity",
+        body: "Core, functional MVPs from architecture lock to a live production URL. No scope bloat, no enterprise theatre.",
+    },
+    {
+        Icon: Layers,
+        accent: "#0066ff",
+        title: "Scope-Driven Architecture",
+        body: "We deploy the most dominant, high-performance tech stack tailored precisely to your product's requirements and scaling needs.",
+    },
+    {
+        Icon: Activity,
+        accent: "#a78bfa",
+        title: "Async-First Workflow",
+        body: "Daily staging links and Loom updates instead of 2-hour Zoom calls. You see progress every single day.",
+    },
+    {
+        Icon: Cpu,
+        accent: "#38BDF8",
+        title: "Practical AI Integration",
+        body: "Claude, Gemini, and local models wired into real business logic. No AI hype — just measurable automation leverage.",
+    },
+    {
+        Icon: ShieldCheck,
+        accent: "#10b981",
+        title: "Direct Founder Access",
+        body: "No project managers or account executives in the loop. You communicate directly with the engineer building your system.",
+    },
+    {
+        Icon: Code2,
+        accent: "#0066ff",
+        title: "Beyond the MVP",
+        body: "We don't just ship MVPs and vanish. When you're ready for full product scaling, we architect and develop the complete system in weeks, not months.",
+    },
+];
+
+// ── Reusable fade wrapper ─────────────────────────────────────
+function FadeUp({ children, className = "", delay = 0 }) {
+    const ref = useRef(null);
+    const inView = useInView(ref, { once: true, margin: "-40px" });
     return (
-        <section className="py-24 px-6 md:px-12 bg-[#050505] border-t border-white/5 relative overflow-hidden">
+        <motion.div
+            ref={ref}
+            className={className}
+            initial={{ opacity: 0, y: 22 }}
+            animate={inView ? { opacity: 1, y: 0 } : {}}
+            transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1], delay }}
+            style={{ willChange: "opacity, transform" }}
+        >
+            {children}
+        </motion.div>
+    );
+}
 
-            {/* Ambient Background Glows */}
-            <div className="absolute top-0 right-10 w-96 h-96 bg-blue-600/5 rounded-full blur-[100px] pointer-events-none"></div>
-            <div className="absolute bottom-0 left-10 w-96 h-96 bg-cyan-600/5 rounded-full blur-[100px] pointer-events-none"></div>
+// ── Stagger group wrapper ─────────────────────────────────────
+function StaggerGroup({ children, className = "" }) {
+    const ref = useRef(null);
+    const inView = useInView(ref, { once: true, margin: "-40px" });
+    return (
+        <motion.div
+            ref={ref}
+            className={className}
+            variants={containerVariants}
+            initial="hidden"
+            animate={inView ? "visible" : "hidden"}
+        >
+            {children}
+        </motion.div>
+    );
+}
 
-            <div className="max-w-7xl mx-auto relative z-10">
+// ═══════════════════════════════════════════════════════════════
+export default function SystemTelemetry() {
+    return (
+        <section
+            id="telemetry"
+            className="relative w-full bg-[#050505] border-t border-white/[0.04] overflow-hidden"
+            style={{ contain: "paint" }}
+        >
+            {/* ── Background decoration ── */}
+            {/* Fine grid */}
+            <div
+                className="absolute inset-0 pointer-events-none z-0"
+                style={{
+                    backgroundImage: `
+                        linear-gradient(to right, rgba(255,255,255,0.014) 1px, transparent 1px),
+                        linear-gradient(to bottom, rgba(255,255,255,0.014) 1px, transparent 1px)
+                    `,
+                    backgroundSize: "4rem 4rem",
+                    maskImage: "radial-gradient(ellipse 75% 65% at 50% 50%, #000 55%, transparent 100%)",
+                    WebkitMaskImage: "radial-gradient(ellipse 75% 65% at 50% 50%, #000 55%, transparent 100%)",
+                }}
+            />
+            {/* Ambient glows */}
+            <div className="absolute top-0 right-0 w-[40vw] h-[40vw] max-w-[600px] max-h-[600px] bg-[var(--primary)]/8 rounded-full blur-[130px] pointer-events-none z-0" />
+            <div className="absolute bottom-0 left-0 w-[35vw] h-[35vw] max-w-[500px] max-h-[500px] bg-[var(--accent)]/5 rounded-full blur-[110px] pointer-events-none z-0" />
 
-                {/* ── HEADER ── */}
-                <div className="text-center mb-16">
-                    <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-blue-500/20 bg-blue-500/10 text-blue-400 text-xs font-bold uppercase tracking-widest mb-6">
-                        <i className="fas fa-shield-check"></i> Proof Over Promises
+            <div className="relative z-10 max-w-6xl mx-auto px-5 sm:px-8 md:px-12 py-20 sm:py-28">
+
+                {/* ════════════════════════════════════════
+                      HEADER
+                    ════════════════════════════════════════ */}
+                <FadeUp className="text-center flex flex-col items-center mb-14 sm:mb-16">
+                    <div
+                        className="inline-flex items-center gap-2 px-3 py-1 mb-5 rounded border border-white/[0.06] bg-[#0A0A0A]/80 text-[10px] uppercase tracking-[0.2em] font-semibold text-zinc-400"
+                        style={fontLabel}
+                    >
+                        <Terminal size={11} className="text-[var(--accent)]" />
+                        <span>[ ] Studio Telemetry</span>
                     </div>
-                    <h2 className="text-4xl md:text-5xl lg:text-6xl font-black mb-6 text-white tracking-tight leading-[1.1]">
-                        Why Founders Trust<br />
-                        <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-cyan-400">Mr² Labs</span>
+
+                    <h2
+                        className="text-[clamp(2rem,5.5vw,3.5rem)] font-extrabold text-zinc-50 tracking-tight leading-[1.08] mb-4"
+                        style={fontHeadline}
+                    >
+                        Operational reality.{" "}
+                        <span className="text-transparent bg-clip-text bg-gradient-to-r from-[var(--primary)] to-[var(--accent)]">
+                            No fluff. Just the facts.
+                        </span>
                     </h2>
-                    <p className="text-slate-400 text-lg md:text-xl max-w-2xl mx-auto font-light leading-relaxed">
-                        The metrics that define our speed, expertise, and commitment to shipping high-impact software.
+
+                    <p
+                        className="text-zinc-400 text-sm sm:text-base md:text-lg max-w-xl mx-auto leading-relaxed"
+                        style={fontBody}
+                    >
+                        We don't sell bloated agency timelines. Here's exactly how we operate, build, and ship.
                     </p>
-                </div>
+                </FadeUp>
 
-                {/* ── METRICS BOARD GRID ── */}
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-12">
-                    {stats.map((s, i) => (
-                        <div key={i}
-                            onMouseEnter={() => setHovered(i)}
-                            onMouseLeave={() => setHovered(null)}
-                            className={`relative bg-[#0a0a0a] rounded-2xl p-8 border ${s.color.split(' ').slice(1).join(' ')} overflow-hidden cursor-default transition-all duration-300 hover:-translate-y-1 hover:bg-white/[0.02]`}>
-
-                            {/* glow on hover */}
-                            <div className="absolute inset-0 pointer-events-none rounded-2xl transition-opacity duration-500"
+                {/* ════════════════════════════════════════
+                      HERO METRICS ROW
+                    ════════════════════════════════════════ */}
+                <StaggerGroup className="grid grid-cols-1 sm:grid-cols-3 gap-3 mb-4">
+                    {heroMetrics.map((m, i) => (
+                        <motion.div
+                            key={i}
+                            variants={cardVariants}
+                            className="relative overflow-hidden rounded-xl border border-white/[0.06] bg-white/[0.025] p-5 sm:p-8 flex flex-col justify-between group"
+                            style={{ minHeight: "120px" }}
+                        >
+                            {/* CSS-only hover glow — no JS state needed */}
+                            <div
+                                className="absolute inset-0 rounded-xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none"
                                 style={{
-                                    background: `radial-gradient(ellipse 80% 60% at 50% 0%, ${s.glow} 0%, transparent 70%)`,
-                                    opacity: hovered === i ? 1 : 0
-                                }}></div>
+                                    background: `radial-gradient(ellipse 80% 70% at 50% 0%, ${m.accent}18, transparent 70%)`,
+                                    boxShadow: `inset 0 0 0 1px ${m.accent}22`,
+                                }}
+                            />
+                            {/* Top accent line */}
+                            <div
+                                className="absolute top-0 left-8 right-8 h-px opacity-40 group-hover:opacity-100 transition-opacity duration-500"
+                                style={{ background: `linear-gradient(to right, transparent, ${m.accent}, transparent)` }}
+                            />
 
                             <div className="relative z-10">
-                                <div className="flex items-start justify-between mb-8">
-                                    <div className={`w-12 h-12 rounded-xl border flex items-center justify-center ${s.color}`}>
-                                        <i className={`${s.icon} text-xl`}></i>
+                                <div
+                                    className="text-[clamp(2.4rem,5vw,3.5rem)] font-black tracking-tighter leading-none mb-2"
+                                    style={{ ...fontHeadline, color: m.accent }}
+                                >
+                                    {m.value}
+                                </div>
+                                <div
+                                    className="text-[10px] font-bold uppercase tracking-[0.2em] text-zinc-500"
+                                    style={fontLabel}
+                                >
+                                    {m.label}
+                                </div>
+                            </div>
+
+                            {/* Corner pulse dot */}
+                            <span
+                                className="absolute bottom-4 right-4 w-1.5 h-1.5 rounded-full opacity-30 group-hover:opacity-100 group-hover:animate-pulse transition-opacity duration-300"
+                                style={{ background: m.accent }}
+                            />
+                        </motion.div>
+                    ))}
+                </StaggerGroup>
+
+                {/* ════════════════════════════════════════
+                      FACTS GRID
+                    ════════════════════════════════════════ */}
+                <StaggerGroup className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-4 mb-12 sm:mb-16">
+                    {facts.map(({ Icon, accent, title, body }, i) => (
+                        <motion.div
+                            key={i}
+                            variants={cardVariants}
+                            className="relative overflow-hidden rounded-xl border border-white/[0.06] bg-white/[0.02] p-4 sm:p-6 group transition-all duration-400 hover:-translate-y-0.5"
+                        >
+                            {/* CSS hover glow */}
+                            <div
+                                className="absolute inset-0 rounded-xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none"
+                                style={{ background: `radial-gradient(circle at 25% 0%, ${accent}14, transparent 60%)` }}
+                            />
+                            {/* Left accent bar */}
+                            <div
+                                className="absolute left-0 top-5 bottom-5 w-px opacity-0 group-hover:opacity-60 transition-opacity duration-500"
+                                style={{ background: `linear-gradient(to bottom, transparent, ${accent}, transparent)` }}
+                            />
+
+                            <div className="relative z-10">
+                                {/* Icon row */}
+                                <div className="flex items-center justify-between mb-4">
+                                    <div
+                                        className="w-9 h-9 rounded-lg border border-white/[0.07] flex items-center justify-center"
+                                        style={{ background: `${accent}16`, color: accent }}
+                                    >
+                                        <Icon size={17} />
                                     </div>
+                                    <span
+                                        className="text-[10px] text-zinc-600 font-bold tabular-nums"
+                                        style={fontLabel}
+                                    >
+                                        {String(i + 1).padStart(2, "0")}
+                                    </span>
                                 </div>
 
-                                <div className={`font-black tracking-tighter mb-1 ${s.color.split(' ')[0]}`}
-                                    style={{ fontSize: '2.5rem', lineHeight: 1 }}>
-                                    {s.headline}
-                                </div>
-                                <div className="text-sm font-bold text-white mb-2 uppercase tracking-wide">
-                                    {s.subtitle}
-                                </div>
-                                <div className="h-px w-12 bg-white/10 mb-4"></div>
-                                <p className="text-slate-400 text-sm leading-relaxed font-light">
-                                    {s.detail}
+                                <h3
+                                    className="text-[15px] font-bold text-zinc-100 tracking-tight mb-2 leading-snug"
+                                    style={fontHeadline}
+                                >
+                                    {title}
+                                </h3>
+                                <p
+                                    className="text-[13px] text-zinc-500 leading-relaxed"
+                                    style={fontBody}
+                                >
+                                    {body}
                                 </p>
                             </div>
-                        </div>
+                        </motion.div>
                     ))}
-                </div>
+                </StaggerGroup>
 
-                {/* ── TRUST FOOTER ── */}
-                <div className="pt-8 border-t border-white/5 flex flex-col md:flex-row items-center justify-between gap-6">
-                    <p className="text-slate-500 text-sm text-center md:text-left font-light">
-                        Verified achievement based on active shipping history and academic records across 3 continents.
+                {/* ════════════════════════════════════════
+                      FOOTER ROW
+                    ════════════════════════════════════════ */}
+                <FadeUp
+                    className="pt-6 border-t border-white/[0.05] flex flex-col sm:flex-row items-center justify-between gap-5"
+                    delay={0.05}
+                >
+                    {/* Capability note */}
+                    <p
+                        className="text-zinc-600 text-[11px] text-center sm:text-left leading-relaxed max-w-xs"
+                        style={fontLabel}
+                    >
+                        [!] We partner with founders who need to validate ideas and ship fast.
                     </p>
-                    <div className="flex flex-wrap justify-center items-center gap-6">
+
+                    {/* Badges */}
+                    <div className="flex flex-wrap justify-center sm:justify-end items-center gap-4 sm:gap-6">
                         {[
-                            { icon: "fas fa-shield-halved", text: "Honest metrics only" },
-                            { icon: "fas fa-code-branch", text: "Trackable build history" },
-                            { icon: "fas fa-user-check", text: "References on request" },
-                        ].map((item, i) => (
-                            <span key={i} className="inline-flex items-center gap-2 text-xs text-slate-500 font-light uppercase tracking-widest">
-                                <i className={`${item.icon} text-slate-600`}></i>
-                                {item.text}
+                            { Icon: ShieldCheck, text: "Honest metrics only" },
+                            { Icon: Clock,       text: "Zero agency overhead" },
+                            { Icon: Layers,      text: "Production-ready output" },
+                        ].map(({ Icon, text }, i) => (
+                            <span
+                                key={i}
+                                className="inline-flex items-center gap-1.5 text-[10px] text-zinc-500 font-bold uppercase tracking-[0.14em]"
+                                style={fontLabel}
+                            >
+                                <Icon size={12} className="text-zinc-600 shrink-0" />
+                                {text}
                             </span>
                         ))}
                     </div>
-                </div>
+                </FadeUp>
 
-                {/* Secondary CTA */}
-                <div className="mt-12 text-center">
-                    <Link href="/services#audit-form" 
-                        className="inline-flex items-center gap-3 px-8 py-4 rounded-full bg-white/5 border border-white/10 text-slate-300 font-bold hover:bg-white/10 hover:border-white/20 transition-all group">
-                        <span>Build your project with these standards</span>
-                        <i className="fas fa-arrow-right text-xs group-hover:translate-x-1 transition-transform"></i>
+                {/* ════════════════════════════════════════
+                      CTA
+                    ════════════════════════════════════════ */}
+                <FadeUp className="mt-12 sm:mt-16 text-center" delay={0.08}>
+                    <Link
+                        href="/services#audit-form"
+                        className="group inline-flex items-center gap-3 px-7 sm:px-9 py-3.5 sm:py-4 rounded-xl bg-[var(--primary)] hover:bg-[#0055d4] active:scale-[0.98] text-white text-[11px] font-bold tracking-[0.15em] uppercase transition-all duration-300 shadow-[0_0_28px_rgba(0,102,255,0.35)] hover:shadow-[0_0_48px_rgba(0,102,255,0.55)]"
+                        style={fontLabel}
+                    >
+                        <span>Initiate a System Build</span>
+                        <ArrowUpRight
+                            size={15}
+                            className="group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform duration-200"
+                        />
                     </Link>
-                </div>
-
+                    <p className="mt-4 text-zinc-600 text-[11px]" style={fontLabel}>
+                        No obligation. Free diagnostic within 48h.
+                    </p>
+                </FadeUp>
             </div>
         </section>
     );
