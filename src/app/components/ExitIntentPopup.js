@@ -2,6 +2,11 @@
 
 import React, { useState, useEffect, useRef } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
+import { X, Gift, CheckCircle, Zap, AlertTriangle, Terminal } from 'lucide-react';
+
+const fontHeadline = { fontFamily: "'Plus Jakarta Sans', sans-serif" };
+const fontBody = { fontFamily: "'Inter', sans-serif" };
+const fontLabel = { fontFamily: "'Geist Mono', 'Geist', monospace" };
 
 export default function ExitIntentPopup() {
     const [isVisible, setIsVisible] = useState(false);
@@ -92,11 +97,11 @@ export default function ExitIntentPopup() {
 
                     {/* Modal */}
                     <motion.div
-                        initial={{ opacity: 0, scale: 0.92, y: 30 }}
+                        initial={{ opacity: 0, scale: 0.95, y: 20 }}
                         animate={{ opacity: 1, scale: 1, y: 0 }}
-                        exit={{ opacity: 0, scale: 0.92, y: 30 }}
+                        exit={{ opacity: 0, scale: 0.95, y: 20 }}
                         transition={{ type: "spring", damping: 25, stiffness: 300 }}
-                        className="relative w-full max-w-lg overflow-hidden rounded-[2rem] bg-gradient-to-br from-[#071a23] to-[#0c1a2e] border border-teal-500/20 shadow-[0_0_120px_rgba(20,184,166,0.2)] p-8 md:p-12 z-10"
+                        className="relative w-full max-w-lg overflow-hidden rounded-[2rem] bg-[#0A0A0A]/95 backdrop-blur-2xl border border-white/[0.08] shadow-[0_0_80px_rgba(0,102,255,0.15)] p-8 md:p-12 z-10"
                     >
                         {/* Close button */}
                         <button
@@ -106,30 +111,30 @@ export default function ExitIntentPopup() {
                             }}
                             className="absolute top-5 right-5 w-9 h-9 rounded-full flex items-center justify-center bg-white/5 hover:bg-white/10 text-slate-500 hover:text-white transition-all border border-white/5 hover:border-white/10 z-20"
                         >
-                            <i className="fas fa-times text-sm"></i>
+                            <X size={16} />
                         </button>
 
                         {/* Glow orbs */}
-                        <div className="absolute -top-32 -left-32 w-64 h-64 bg-teal-500/15 blur-[80px] rounded-full pointer-events-none"></div>
-                        <div className="absolute -bottom-32 -right-32 w-64 h-64 bg-cyan-500/15 blur-[80px] rounded-full pointer-events-none"></div>
+                        <div className="absolute -top-32 -left-32 w-64 h-64 bg-[var(--primary)]/10 blur-[80px] rounded-full pointer-events-none"></div>
+                        <div className="absolute -bottom-32 -right-32 w-64 h-64 bg-[var(--accent)]/10 blur-[80px] rounded-full pointer-events-none"></div>
 
                         <div className="relative z-10 text-center">
-                            <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-yellow-500/10 border border-yellow-500/20 text-yellow-400 text-xs font-medium uppercase tracking-[0.2em] mb-6">
-                                <i className="fas fa-gift text-[10px]"></i> Free Audit — No Forms
+                            <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-[var(--primary)]/10 border border-[var(--primary)]/20 text-[var(--accent)] text-[10px] font-bold uppercase tracking-[0.2em] mb-6" style={fontLabel}>
+                                <Terminal size={12} /> Execution Audit
                             </div>
 
-                            <h2 className="text-3xl md:text-4xl font-bold text-white mb-5 leading-tight tracking-tight">
-                                Before you go...
+                            <h2 className="text-3xl md:text-4xl font-extrabold text-white mb-5 leading-tight tracking-tight" style={fontHeadline}>
+                                Before you deploy...
                             </h2>
 
-                            <p className="text-slate-300 text-base leading-relaxed mb-8 font-normal">
-                                Get a free <strong className="text-white">AI Opportunity Audit</strong>. No lengthy forms, no calls.<br /><br />
-                                Drop your email below. We&apos;ll reply, you send your website URL, and we&apos;ll send back a custom Loom video within <strong className="text-white">48 hours</strong>.
+                            <p className="text-slate-400 text-sm md:text-base leading-relaxed mb-8 font-light" style={fontBody}>
+                                Secure a complimentary <strong className="text-white font-medium">Technical Architecture Audit</strong>. No sales calls. No bloated discovery.<br /><br />
+                                Input your email. Our lead engineers will analyze your infrastructure and deliver a definitive execution blueprint within <strong className="text-white font-medium">48 hours</strong>.
                             </p>
 
                             {status === 'success' ? (
-                                <div className="p-5 rounded-2xl bg-teal-500/10 border border-teal-500/30 text-teal-400 font-semibold text-base">
-                                    <i className="fas fa-check-circle mr-2"></i> Email sent! Check your inbox and reply with your website URL.
+                                <div className="p-5 rounded-2xl bg-[var(--primary)]/10 border border-[var(--primary)]/30 text-[var(--accent)] font-semibold text-sm flex items-center justify-center gap-2" style={fontBody}>
+                                    <CheckCircle size={18} /> Telemetry captured. Check your inbox.
                                 </div>
                             ) : (
                                 <form onSubmit={handleSubmit} className="flex flex-col gap-3">
@@ -138,28 +143,30 @@ export default function ExitIntentPopup() {
                                         required
                                         value={email}
                                         onChange={(e) => setEmail(e.target.value)}
-                                        placeholder="Enter your email to claim..."
-                                        className="w-full bg-black/50 border border-white/10 rounded-xl px-5 py-4 text-white placeholder:text-slate-500 focus:outline-none focus:border-teal-500/50 focus:ring-1 focus:ring-teal-500/50 transition-all font-medium"
+                                        placeholder="Engineering contact email..."
+                                        className="w-full bg-[#050505] border border-white/10 rounded-xl px-5 py-4 text-white placeholder:text-slate-600 focus:outline-none focus:border-[var(--primary)]/50 focus:ring-1 focus:ring-[var(--primary)]/50 transition-all font-medium text-sm"
+                                        style={fontBody}
                                     />
                                     <button
                                         type="submit"
                                         disabled={status === 'loading'}
-                                        className="w-full px-8 py-4 rounded-xl bg-gradient-to-r from-teal-500 to-cyan-600 text-white font-semibold text-base hover:shadow-[0_0_30px_rgba(20,184,166,0.4)] hover:-translate-y-0.5 transition-all disabled:opacity-70 flex justify-center items-center gap-2"
+                                        className="w-full px-8 py-4 rounded-xl bg-[var(--primary)] text-white font-bold text-[11px] uppercase tracking-widest hover:bg-[#0055d4] shadow-[0_0_20px_rgba(0,102,255,0.2)] hover:-translate-y-0.5 transition-all disabled:opacity-70 flex justify-center items-center gap-2"
+                                        style={fontLabel}
                                     >
                                         {status === 'loading' ? (
-                                            <><i className="fas fa-spinner fa-spin"></i> Sending...</>
+                                            <span className="flex items-center gap-2"><Zap className="animate-pulse" size={14} /> Initializing...</span>
                                         ) : (
-                                            <><i className="fas fa-bolt"></i> Send My Free Audit</>
+                                            <><Zap size={14} /> Request System Audit</>
                                         )}
                                     </button>
                                 </form>
                             )}
                             {status === 'error' && (
-                                <p className="text-red-400 text-sm mt-4"><i className="fas fa-exclamation-triangle mr-1"></i> Something went wrong. Please try again.</p>
+                                <p className="text-red-400 text-xs mt-4 flex items-center justify-center gap-1" style={fontLabel}><AlertTriangle size={12} /> System fault. Try again.</p>
                             )}
 
-                            <p className="text-slate-600 text-xs mt-5">
-                                No spam. Just one audit, personally from us.
+                            <p className="text-slate-600 text-[10px] uppercase tracking-widest mt-6 font-bold" style={fontLabel}>
+                                ZERO SPAM. DETERMINISTIC ENGINEERING ONLY.
                             </p>
                         </div>
                     </motion.div>
