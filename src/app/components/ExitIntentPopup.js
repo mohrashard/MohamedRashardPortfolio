@@ -2,10 +2,9 @@
 
 import React, { useState, useEffect, useRef } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { X, Gift, CheckCircle, Zap, AlertTriangle, Terminal } from 'lucide-react';
+import { X, Zap, Terminal, CheckCircle } from 'lucide-react';
 
 const fontHeadline = { fontFamily: "'Plus Jakarta Sans', sans-serif" };
-const fontBody = { fontFamily: "'Inter', sans-serif" };
 const fontLabel = { fontFamily: "'Geist Mono', 'Geist', monospace" };
 
 export default function ExitIntentPopup() {
@@ -13,16 +12,10 @@ export default function ExitIntentPopup() {
     const [email, setEmail] = useState('');
     const [status, setStatus] = useState('idle');
     const hasTriggered = useRef(false);
-    const lastY = useRef(0);
-    const active = useRef(false); // becomes true after initial delay
+    const active = useRef(false);
 
     useEffect(() => {
-        // Persistence Guard: Only show once every 24 hours
-        const lastShown = localStorage.getItem("exitIntentLastShown");
-        const oneDayAgo = Date.now() - 24 * 60 * 60 * 1000;
-        if (lastShown && parseInt(lastShown) > oneDayAgo) return;
-
-        // Session Guard: Only once per browser session
+        // Only trigger once per session
         if (sessionStorage.getItem("exitIntentShownSession")) return;
 
         const trigger = () => {
@@ -32,32 +25,15 @@ export default function ExitIntentPopup() {
             setIsVisible(true);
         };
 
-        // Strategy 1: document.mouseleave — fires when cursor exits the browser viewport entirely
         const onMouseLeave = () => trigger();
-
-        // Strategy 2: Predictive upward velocity — fires when the mouse moves quickly
-        // toward the very top of the viewport (≤ 15px from top) at speed.
-        const onMouseMove = (e) => {
-            if (!active.current) return;
-            const velocity = lastY.current - e.clientY; // positive = moving up
-            lastY.current = e.clientY;
-
-            if (e.clientY < 15 && velocity > 8) {
-                trigger();
-            }
-        };
-
-        // Safety: activate both listeners only after 3 seconds on page
         const timer = setTimeout(() => {
             active.current = true;
             document.addEventListener('mouseleave', onMouseLeave);
-            document.addEventListener('mousemove', onMouseMove);
-        }, 3000);
+        }, 5000); // 5 seconds delay is more professional than 3
 
         return () => {
             clearTimeout(timer);
             document.removeEventListener('mouseleave', onMouseLeave);
-            document.removeEventListener('mousemove', onMouseMove);
         };
     }, []);
 
@@ -71,9 +47,8 @@ export default function ExitIntentPopup() {
                 body: JSON.stringify({ email }),
             });
             if (!res.ok) throw new Error();
-            localStorage.setItem("exitIntentLastShown", Date.now().toString());
             setStatus('success');
-            setTimeout(() => setIsVisible(false), 4000);
+            setTimeout(() => setIsVisible(false), 3000);
         } catch {
             setStatus('error');
         }
@@ -83,91 +58,67 @@ export default function ExitIntentPopup() {
         <AnimatePresence>
             {isVisible && (
                 <div className="fixed inset-0 z-[9999] flex items-center justify-center p-4">
-                    {/* Backdrop */}
                     <motion.div
-                        initial={{ opacity: 0 }}
-                        animate={{ opacity: 1 }}
-                        exit={{ opacity: 0 }}
-                        onClick={() => {
-                            setIsVisible(false);
-                            localStorage.setItem("exitIntentLastShown", Date.now().toString());
-                        }}
-                        className="fixed inset-0 bg-[#030d12]/85 backdrop-blur-md"
+                        initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }}
+                        onClick={() => setIsVisible(false)}
+                        className="fixed inset-0 bg-[#050505]/90 backdrop-blur-sm"
                     />
-
-                    {/* Modal */}
                     <motion.div
-                        initial={{ opacity: 0, scale: 0.95, y: 20 }}
-                        animate={{ opacity: 1, scale: 1, y: 0 }}
-                        exit={{ opacity: 0, scale: 0.95, y: 20 }}
-                        transition={{ type: "spring", damping: 25, stiffness: 300 }}
-                        className="relative w-full max-w-lg overflow-hidden rounded-[2rem] bg-[#0A0A0A]/95 backdrop-blur-2xl border border-white/[0.08] shadow-[0_0_80px_rgba(0,102,255,0.15)] p-8 md:p-12 z-10"
+                        initial={{ opacity: 0, scale: 0.98 }} animate={{ opacity: 1, scale: 1 }} exit={{ opacity: 0, scale: 0.98 }}
+                        className="relative w-full max-w-xl overflow-hidden rounded-2xl bg-[#080808] border border-white/[0.08] shadow-2xl"
                     >
-                        {/* Close button */}
-                        <button
-                            onClick={() => {
-                                setIsVisible(false);
-                                localStorage.setItem("exitIntentLastShown", Date.now().toString());
-                            }}
-                            className="absolute top-5 right-5 w-9 h-9 rounded-full flex items-center justify-center bg-white/5 hover:bg-white/10 text-slate-500 hover:text-white transition-all border border-white/5 hover:border-white/10 z-20"
-                        >
-                            <X size={16} />
-                        </button>
-
-                        {/* Glow orbs */}
-                        <div className="absolute -top-32 -left-32 w-64 h-64 bg-[var(--primary)]/10 blur-[80px] rounded-full pointer-events-none"></div>
-                        <div className="absolute -bottom-32 -right-32 w-64 h-64 bg-[var(--accent)]/10 blur-[80px] rounded-full pointer-events-none"></div>
-
-                        <div className="relative z-10 text-center">
-                            <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-[var(--primary)]/10 border border-[var(--primary)]/20 text-[var(--accent)] text-[10px] font-bold uppercase tracking-[0.2em] mb-6" style={fontLabel}>
-                                <Terminal size={12} /> Execution Audit
+                        {/* Header */}
+                        <div className="flex items-center justify-between px-8 py-6 border-b border-white/[0.05]">
+                            <div className="flex items-center gap-3">
+                                <Terminal size={16} className="text-[var(--primary)]" />
+                                <span className="text-[10px] font-bold uppercase tracking-[0.2em] text-zinc-400" style={fontLabel}>
+                                    Mr² Labs // Diagnostic Portal
+                                </span>
                             </div>
+                            <button onClick={() => setIsVisible(false)} className="text-zinc-600 hover:text-white transition-colors">
+                                <X size={16} />
+                            </button>
+                        </div>
 
-                            <h2 className="text-3xl md:text-4xl font-extrabold text-white mb-5 leading-tight tracking-tight" style={fontHeadline}>
-                                Before you deploy...
-                            </h2>
-
-                            <p className="text-slate-400 text-sm md:text-base leading-relaxed mb-8 font-light" style={fontBody}>
-                                Secure a complimentary <strong className="text-white font-medium">Technical Architecture Audit</strong>. No sales calls. No bloated discovery.<br /><br />
-                                Input your email. Our lead engineers will analyze your infrastructure and deliver a definitive execution blueprint within <strong className="text-white font-medium">48 hours</strong>.
-                            </p>
-
+                        {/* Body */}
+                        <div className="p-8 md:p-10">
                             {status === 'success' ? (
-                                <div className="p-5 rounded-2xl bg-[var(--primary)]/10 border border-[var(--primary)]/30 text-[var(--accent)] font-semibold text-sm flex items-center justify-center gap-2" style={fontBody}>
-                                    <CheckCircle size={18} /> Telemetry captured. Check your inbox.
+                                <div className="text-center py-10">
+                                    <CheckCircle size={48} className="text-emerald-500 mx-auto mb-6" />
+                                    <h3 className="text-2xl font-bold text-white mb-2" style={fontHeadline}>Architecture Initiated</h3>
+                                    <p className="text-zinc-400 text-sm">Your technical audit request has been logged. Expect our engineering brief within 48 hours.</p>
                                 </div>
                             ) : (
-                                <form onSubmit={handleSubmit} className="flex flex-col gap-3">
-                                    <input
-                                        type="email"
-                                        required
-                                        value={email}
-                                        onChange={(e) => setEmail(e.target.value)}
-                                        placeholder="Engineering contact email..."
-                                        className="w-full bg-[#050505] border border-white/10 rounded-xl px-5 py-4 text-white placeholder:text-slate-600 focus:outline-none focus:border-[var(--primary)]/50 focus:ring-1 focus:ring-[var(--primary)]/50 transition-all font-medium text-sm"
-                                        style={fontBody}
-                                    />
-                                    <button
-                                        type="submit"
-                                        disabled={status === 'loading'}
-                                        className="w-full px-8 py-4 rounded-xl bg-[var(--primary)] text-white font-bold text-[11px] uppercase tracking-widest hover:bg-[#0055d4] shadow-[0_0_20px_rgba(0,102,255,0.2)] hover:-translate-y-0.5 transition-all disabled:opacity-70 flex justify-center items-center gap-2"
-                                        style={fontLabel}
-                                    >
-                                        {status === 'loading' ? (
-                                            <span className="flex items-center gap-2"><Zap className="animate-pulse" size={14} /> Initializing...</span>
-                                        ) : (
-                                            <><Zap size={14} /> Request System Audit</>
-                                        )}
-                                    </button>
-                                </form>
-                            )}
-                            {status === 'error' && (
-                                <p className="text-red-400 text-xs mt-4 flex items-center justify-center gap-1" style={fontLabel}><AlertTriangle size={12} /> System fault. Try again.</p>
-                            )}
+                                <>
+                                    <h3 className="text-2xl font-extrabold text-zinc-50 mb-4 tracking-tight" style={fontHeadline}>
+                                        Request Your Architecture Audit
+                                    </h3>
+                                    <p className="text-zinc-400 text-sm leading-relaxed mb-8" style={{ fontFamily: "'Inter', sans-serif" }}>
+                                        Before you finalize your stack, let us map your technical infrastructure. We’ll deliver a production-grade deployment roadmap tailored to your specific business logic.
+                                    </p>
 
-                            <p className="text-slate-600 text-[10px] uppercase tracking-widest mt-6 font-bold" style={fontLabel}>
-                                ZERO SPAM. DETERMINISTIC ENGINEERING ONLY.
-                            </p>
+                                    <form onSubmit={handleSubmit} className="flex flex-col gap-4">
+                                        <input
+                                            type="email"
+                                            required
+                                            value={email}
+                                            onChange={(e) => setEmail(e.target.value)}
+                                            placeholder="engineering@your-company.com"
+                                            className="w-full bg-[#0A0A0A] border border-white/[0.1] rounded-xl px-5 py-4 text-sm text-white focus:border-[var(--primary)] outline-none transition-all placeholder:text-zinc-700"
+                                        />
+                                        <button
+                                            type="submit"
+                                            disabled={status === 'loading'}
+                                            className="w-full py-4 rounded-xl bg-white text-black text-[11px] font-bold uppercase tracking-[0.2em] hover:bg-zinc-200 transition-all flex items-center justify-center gap-2"
+                                            style={fontLabel}
+                                        >
+                                            {status === 'loading' ? 'Processing...' : (
+                                                <> <Zap size={14} /> Initiate Technical Audit</>
+                                            )}
+                                        </button>
+                                    </form>
+                                </>
+                            )}
                         </div>
                     </motion.div>
                 </div>
