@@ -15,8 +15,8 @@ export default function ExitIntentPopup() {
     const active = useRef(false);
 
     useEffect(() => {
-        // Only trigger once per session
-        if (sessionStorage.getItem("exitIntentShownSession")) return;
+        // Only trigger once per session (Disable this line if you are testing repeatedly!)
+        // if (sessionStorage.getItem("exitIntentShownSession")) return;
 
         const trigger = () => {
             if (hasTriggered.current) return;
@@ -25,15 +25,25 @@ export default function ExitIntentPopup() {
             setIsVisible(true);
         };
 
-        const onMouseLeave = () => trigger();
+        const onMouseLeave = (e) => {
+            if (e.clientY <= 0) trigger();
+        };
+
+        // Fallback: Detect mouse moving quickly to the top of the browser (tabs area)
+        const onMouseMove = (e) => {
+            if (e.clientY <= 15) trigger();
+        };
+
         const timer = setTimeout(() => {
             active.current = true;
             document.addEventListener('mouseleave', onMouseLeave);
-        }, 5000); // 5 seconds delay is more professional than 3
+            document.addEventListener('mousemove', onMouseMove);
+        }, 3000); // Changed back to 3s. 5s is too long, users will leave before the listener attaches!
 
         return () => {
             clearTimeout(timer);
             document.removeEventListener('mouseleave', onMouseLeave);
+            document.removeEventListener('mousemove', onMouseMove);
         };
     }, []);
 
