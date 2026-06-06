@@ -26,24 +26,19 @@ export default function ExitIntentPopup() {
         };
 
         const onMouseLeave = (e) => {
-            if (e.clientY <= 0) trigger();
-        };
-
-        // Fallback: Detect mouse moving quickly to the top of the browser (tabs area)
-        const onMouseMove = (e) => {
-            if (e.clientY <= 15) trigger();
+            // Strictly require the mouse to leave from the TOP of the browser (towards tabs/close button)
+            if (e.clientY <= 10) {
+                trigger();
+            }
         };
 
         const timer = setTimeout(() => {
-            active.current = true;
             document.addEventListener('mouseleave', onMouseLeave);
-            document.addEventListener('mousemove', onMouseMove);
-        }, 3000); // Changed back to 3s. 5s is too long, users will leave before the listener attaches!
+        }, 3000); 
 
         return () => {
             clearTimeout(timer);
             document.removeEventListener('mouseleave', onMouseLeave);
-            document.removeEventListener('mousemove', onMouseMove);
         };
     }, []);
 
