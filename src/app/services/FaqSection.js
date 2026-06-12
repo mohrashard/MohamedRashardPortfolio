@@ -61,43 +61,42 @@ export default function FaqSection() {
                     {faqs.map((item, i) => {
                         const isOpen = openIndex === i;
                         return (
-                            <div
-                                key={i}
-                                className={`group relative rounded-2xl bg-[#0A0A0A]/80 backdrop-blur-md border transition-all duration-300 overflow-hidden cursor-pointer ${isOpen
-                                    ? "border-[var(--accent)]/30 shadow-[0_10px_30px_rgba(56,189,248,0.05)]"
-                                    : "border-white/[0.04] hover:border-white/[0.1] hover:bg-white/[0.02]"
-                                    }`}
-                                onClick={() => toggleOpen(i)}
-                                data-animate="slide-up"
-                                data-delay={String((i % 4) + 1)}
-                            >
-                                {/* Left Active Glow Bar */}
-                                <div className={`absolute left-0 top-0 bottom-0 w-1 bg-gradient-to-b from-[var(--primary)] to-[var(--accent)] transition-transform duration-500 origin-top ${isOpen ? "scale-y-100" : "scale-y-0"
-                                    }`} />
-
-                                {/* Question Summary */}
-                                <div className="p-6 md:p-8 flex items-center justify-between gap-6">
-                                    <h3 className={`font-extrabold text-base md:text-lg transition-colors ${isOpen ? "text-[var(--accent)]" : "text-zinc-50 group-hover:text-zinc-200"
-                                        }`} style={fontHeadline}>
-                                        {item.q}
-                                    </h3>
-                                    <div className={`flex-shrink-0 w-8 h-8 rounded-full border flex items-center justify-center transition-all duration-300 ${isOpen
-                                        ? "border-[var(--accent)]/30 bg-[var(--accent)]/10 text-[var(--accent)] rotate-180"
-                                        : "border-white/[0.08] bg-white/[0.02] text-zinc-500"
-                                        }`}>
-                                        <ChevronDown size={16} />
-                                    </div>
-                                </div>
-
-                                {/* Expandable Answer */}
+                            <div key={i} data-animate="slide-up" data-delay={String((i % 4) + 1)}>
                                 <div
-                                    className={`grid transition-all duration-300 ease-in-out ${isOpen ? "grid-rows-[1fr] opacity-100" : "grid-rows-[0fr] opacity-0"
+                                    className={`group relative rounded-2xl bg-[#0A0A0A]/80 backdrop-blur-md border transition-all duration-300 overflow-hidden cursor-pointer ${isOpen
+                                        ? "border-[#38BDF8]/30 shadow-[0_10px_30px_rgba(56,189,248,0.05)]"
+                                        : "border-white/[0.04] hover:border-white/[0.1] hover:bg-white/[0.02]"
                                         }`}
+                                    onClick={() => toggleOpen(i)}
                                 >
-                                    <div className="overflow-hidden">
-                                        <div className="px-6 md:px-8 pb-8 pt-0 text-zinc-400 text-sm md:text-base leading-relaxed" style={fontBody}>
-                                            <div className="h-px w-12 bg-white/[0.08] mb-6" />
-                                            {item.a}
+                                    {/* Left Active Glow Bar */}
+                                    <div className={`absolute left-0 top-0 bottom-0 w-1 bg-gradient-to-b from-[#0066FF] to-[#38BDF8] transition-transform duration-500 origin-top ${isOpen ? "scale-y-100" : "scale-y-0"
+                                        }`} />
+
+                                    {/* Question Summary */}
+                                    <div className="p-6 md:p-8 flex items-center justify-between gap-6">
+                                        <h3 className={`font-extrabold text-base md:text-lg transition-colors ${isOpen ? "text-[#38BDF8]" : "text-zinc-50 group-hover:text-zinc-200"
+                                            }`} style={fontHeadline}>
+                                            {item.q}
+                                        </h3>
+                                        <div className={`flex-shrink-0 w-8 h-8 rounded-full border flex items-center justify-center transition-all duration-300 ${isOpen
+                                            ? "border-[#38BDF8]/30 bg-[#38BDF8]/10 text-[#38BDF8] rotate-180"
+                                            : "border-white/[0.08] bg-white/[0.02] text-zinc-500"
+                                            }`}>
+                                            <ChevronDown size={16} />
+                                        </div>
+                                    </div>
+
+                                    {/* Expandable Answer */}
+                                    <div
+                                        className={`grid transition-all duration-300 ease-in-out ${isOpen ? "grid-rows-[1fr] opacity-100" : "grid-rows-[0fr] opacity-0"
+                                            }`}
+                                    >
+                                        <div className="overflow-hidden">
+                                            <div className="px-6 md:px-8 pb-8 pt-0 text-zinc-400 text-sm md:text-base leading-relaxed" style={fontBody}>
+                                                <div className="h-px w-12 bg-white/[0.08] mb-6" />
+                                                {item.a}
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
