@@ -1,7 +1,7 @@
 ---
 title: "I Asked 40 Founders How They Got Their First 10 Customers with $0. Here's What Actually Worked (and What's Just Cope)."
 date: 2026-07-28
-description: We analyzed the top strategies for acquiring your first 10 customers with a $0 budget. Spoiler: most of the popular advice is cope. Here is what actually works.
+description: "We analyzed the top strategies for acquiring your first 10 customers with a $0 budget. Spoiler: most of the popular advice is cope. Here is what actually works."
 category: "Startup Growth"
 ---
 
