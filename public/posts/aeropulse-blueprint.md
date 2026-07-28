@@ -40,9 +40,9 @@ If you want to stop wasting weeks on CSS and launch a landing page that commands
 
 I’m offering a special launch price for my community—get the full system for **$49** (normally $89) for a limited time.
 
-**[Get the AeroPulse Template Here](https://mohamedrashard.dev/digital-assets/aeropulse)**
+**[Get the AeroPulse Template Here](https://mr2labs.com/digital-assets/aeropulse)**
 
-*(And if you want a custom, 'Done-For-You' deployment with bespoke features, you can always reach out to the **Mr² Labs** team in Colombo or [book a strategy call with me](https://mohamedrashard.dev/services) directly).*
+*(And if you want a custom, 'Done-For-You' deployment with bespoke features, you can always reach out to the **Mr² Labs** team in Colombo or [book a strategy call with me](https://mr2labs.com/services) directly).*
 
 ---
 
@@ -56,6 +56,6 @@ If this was useful, imagine what we could build together. I ship working AI prod
 
 **Claim your free AI Opportunity Audit** — I will personally review your business and send you a Loom video within 48 hours showing exactly where AI can save you time and money. No pitch. No obligation.
 
-[Claim Your Free AI Audit →](https://www.mohamedrashard.dev/services#audit-form)
+[Claim Your Free AI Audit →](https://www.mr2labs.com/services#audit-form)
 
 *Mr² Labs — AI-powered products shipped at startup speed.*

@@ -80,7 +80,7 @@ If your website is on WordPress and you are selling premium services, the first 
 
 I offer a **Free AI Audit** where I personally review your current website and tell you exactly what it is costing you in lost conversions, lower Google rankings, and premium clients who left without contacting you. No templates. No automated report. A real assessment delivered as a Loom video within 48 hours.
 
-If you want that audit, claim it at [mohamedrashard.dev/services](https://mohamedrashard.dev/services).
+If you want that audit, claim it at [mr2labs.com/services](https://mr2labs.com/services).
 
 If you have questions about whether Next.js is the right move for your specific business, drop a comment below or reach out directly at **mohrashard@gmail.com**. I respond to every message.
 
@@ -96,6 +96,6 @@ If this was useful, imagine what we could build together. I ship working AI prod
 
 **Claim your free AI Opportunity Audit** — I will personally review your business and send you a Loom video within 48 hours showing exactly where AI can save you time and money. No pitch. No obligation.
 
-[Claim Your Free AI Audit →](https://www.mohamedrashard.dev/services#audit-form)
+[Claim Your Free AI Audit →](https://www.mr2labs.com/services#audit-form)
 
 *Mr² Labs — AI-powered products shipped at startup speed.*

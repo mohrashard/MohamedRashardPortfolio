@@ -46,4 +46,4 @@ At Mr² Labs, I operate on a strict discipline: tight scope, fast execution, and
 
 Stop letting dev agencies hold you hostage with tech jargon to inflate their timelines. At Mr² Labs, I ship AI-powered MVPs in 48 hours for a fixed price, with no surprises. I build the "skateboard" you need to get users today, using clean Next.js and React architecture that your future CTO will actually want to inherit tomorrow.
 
-If you are ready to cut the bloat and launch your validation engine, **claim your [Free AI Opportunity Audit](https://www.mohamedrashard.dev/services#audit-form) at mohamedrashard.dev today**.
+If you are ready to cut the bloat and launch your validation engine, **claim your [Free AI Opportunity Audit](https://www.mr2labs.com/services#audit-form) at mr2labs.com today**.

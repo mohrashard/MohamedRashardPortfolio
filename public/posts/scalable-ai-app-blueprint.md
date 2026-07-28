@@ -71,6 +71,6 @@ If this was useful, imagine what we could build together. I ship working AI prod
 
 **Claim your free AI Opportunity Audit** — I will personally review your business and send you a Loom video within 48 hours showing exactly where AI can save you time and money. No pitch. No obligation.
 
-[Claim Your Free AI Audit →](https://www.mohamedrashard.dev/services#audit-form)
+[Claim Your Free AI Audit →](https://www.mr2labs.com/services#audit-form)
 
 *Mr² Labs — AI-powered products shipped at startup speed.*
