@@ -13,25 +13,25 @@ const montserrat = Montserrat({
 
 // Comprehensive SEO Metadata migrated from App.js for High Ranking
 export const metadata = {
-    metadataBase: new URL("https://www.mr2labs.com"),
+    metadataBase: new URL("https://mr2labs.com"),
     title: {
-        default: "Mr² Labs | High-Velocity Software Engineering & AI Deployment",
+        default: "Mr² Labs — AI & Software Development Agency",
         template: "%s | Mr² Labs"
     },
-    description: "Mr² Labs is an elite software engineering firm. We architect, secure, and deploy production-grade AI applications and SaaS MVPs in 48-72 hour sprints.",
+    description: "We build and ship high-performance software, mobile apps, and AI products for founders. MVPs in days, not months.",
     keywords: [
-        "Mr2 Labs",
-        "Mr Squared Labs",
-        "High-Velocity Software Engineering",
-        "SaaS MVP Deployment",
-        "Custom AI Architecture",
-        "Next.js 15 Infrastructure",
-        "Codebase Rescue",
-        "B2B software engineering",
-        "White-label engineering",
-        "Database-free architecture"
+        "software development agency",
+        "AI development agency",
+        "MVP development",
+        "React Native app development",
+        "startup software agency",
+        "rapid MVP delivery",
+        "EdTech app development",
+        "PWA development",
+        "mobile app development Sri Lanka",
+        "AI integration services"
     ],
-    authors: [{ name: "Mr² Labs" }],
+    authors: [{ name: "Mr² Labs", url: "https://mr2labs.com" }],
     creator: "Mr² Labs",
     publisher: "Mr² Labs",
     robots: {
@@ -46,29 +46,29 @@ export const metadata = {
         },
     },
     alternates: {
-        canonical: "https://www.mr2labs.com",
+        canonical: "https://mr2labs.com",
     },
     openGraph: {
         type: "website",
-        title: "Mr² Labs | High-Velocity Software Engineering",
-        description: "We architect and ship production-grade MVPs for funded founders in 48-72 hours. Elite AI development and deployment.",
-        url: "https://www.mr2labs.com",
+        title: "Mr² Labs — AI & Software Development Agency",
+        description: "We build and ship high-performance software, mobile apps, and AI products for founders. MVPs in days, not months.",
+        url: "https://mr2labs.com",
         siteName: "Mr² Labs",
         images: [
             {
-                url: "https://www.mr2labs.com/assets/og-image.png",
+                url: "https://mr2labs.com/og/home.png",
                 width: 1200,
                 height: 630,
-                alt: "Mr² Labs - Elite Software Engineering Firm",
+                alt: "Mr² Labs — Home",
             },
         ],
         locale: "en_US",
     },
     twitter: {
         card: "summary_large_image",
-        title: "Mr² Labs | High-Velocity Software Engineering",
-        description: "Production-grade MVPs shipped in 48-72 hours. Fixed-scope, zero scope creep.",
-        images: ["https://www.mr2labs.com/assets/og-image.png"],
+        title: "Mr² Labs — AI & Software Development Agency",
+        description: "We build and ship high-performance software, mobile apps, and AI products for founders. MVPs in days, not months.",
+        images: ["https://mr2labs.com/og/home.png"],
         creator: "@mrr_labs",
     },
     icons: {
@@ -87,22 +87,13 @@ export default function RootLayout({ children }) {
         "@context": "https://schema.org",
         "@type": "Organization",
         "name": "Mr² Labs",
-        "alternateName": ["Mr2 Labs", "Mr 2 Labs", "Mister 2 Labs", "Mr Squared Labs"],
-        "url": "https://www.mr2labs.com",
-        "logo": "https://www.mr2labs.com/mr-squared-logo.png",
-        "image": "https://www.mr2labs.com/assets/og-image.png",
-        "description": "An elite software engineering and digital systems firm specializing in rapid 48 to 72-hour MVP deployment, AI architecture, and codebase rescue.",
-        "founder": {
-            "@type": "Person",
-            "name": "Mohamed Rashard Rizmi",
-            "jobTitle": "Lead Architect & Founder"
-        },
-        "contactPoint": {
-            "@type": "ContactPoint",
-            "email": process.env.NEXT_PUBLIC_REPLY_TO_EMAIL,
-            "contactType": "technical support and sales"
-        },
+        "url": "https://mr2labs.com",
+        "logo": "https://mr2labs.com/logo.png",
+        "description": "AI and software development agency specializing in rapid MVP delivery for founders.",
+        "email": "growth@mr2labs.com",
+        "foundingDate": "2024",
         "sameAs": [
+            "https://www.linkedin.com/company/mr2labs",
             "https://x.com/mrr_labs",
             "https://web.facebook.com/profile.php?id=61575921543570",
             "https://www.instagram.com/mrr_labs/",
@@ -111,12 +102,18 @@ export default function RootLayout({ children }) {
             "https://github.com/mohrashard/"
         ],
         "knowsAbout": [
-            "High-Velocity Software Engineering",
-            "SaaS MVP Deployment",
-            "Custom AI Architecture",
-            "Next.js 15 Infrastructure",
-            "Codebase Rescue"
+            "Software Development",
+            "AI Integration",
+            "React Native",
+            "MVP Development",
+            "EdTech",
+            "PWA Development"
         ],
+        "founder": {
+            "@type": "Person",
+            "name": "Mohamed Rashard Rizmi",
+            "jobTitle": "Lead Architect & Founder"
+        },
         "address": {
             "@type": "PostalAddress",
             "addressLocality": "Colombo",

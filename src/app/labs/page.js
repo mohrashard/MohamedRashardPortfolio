@@ -18,28 +18,32 @@ const fontBody = { fontFamily: "'Inter', sans-serif" };
 const fontLabel = { fontFamily: "'Geist Mono', 'Geist', monospace" };
 
 export const metadata = {
-    title: "Engineering Utilities & AI Tools | Mr² Labs",
-    description: "Production-grade calculators, estimators, and AI utilities engineered by Mr² Labs. Deploy scalable architectures in 48-72 hours.",
-    keywords: [
-        "Mr² Labs",
-        "High-Velocity Software Engineering",
-        "AI Automation Tools",
-        "MVP Cost Estimator",
-        "Tech Stack Recommender",
-        "SaaS MVP Deployment",
-        "Startup Execution Utilities",
-        "Codebase Rescue"
-    ],
+    title: "Labs | Mr² Labs — Products We're Building",
+    description: "Internal products and experiments by Mr² Labs. From marketplaces to AI tools, see what we're shipping next.",
     openGraph: {
-        title: "Open Source Utilities | Mr² Labs",
-        description: "Free, production-grade engineering tools for founders. Calculate MVP costs, validate ideas, and audit your tech stack.",
+        title: "Labs | Mr² Labs — Products We're Building",
+        description: "Internal products and experiments by Mr² Labs. From marketplaces to AI tools, see what we're shipping next.",
         url: "https://mr2labs.com/labs",
+        siteName: "Mr² Labs",
+        images: [
+            {
+                url: "https://mr2labs.com/og/labs.png",
+                width: 1200,
+                height: 630,
+                alt: "Mr² Labs — Labs",
+            }
+        ],
+        locale: "en_US",
         type: "website",
-        images: [{ url: "/labs-hero-bg.png", width: 1200, height: 630, alt: "Mr² Labs Engineering Tools" }],
     },
-    alternates: {
-        canonical: "https://www.mr2labs.com/labs",
+    twitter: {
+        card: "summary_large_image",
+        title: "Labs | Mr² Labs — Products We're Building",
+        description: "Internal products and experiments by Mr² Labs. From marketplaces to AI tools, see what we're shipping next.",
+        images: ["https://mr2labs.com/og/labs.png"],
+        creator: "@mr2labs",
     },
+    alternates: { canonical: "https://mr2labs.com/labs" },
 };
 
 export default function Labs() {

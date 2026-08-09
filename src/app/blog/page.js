@@ -6,41 +6,32 @@ import ScrollReveal from './components/ScrollReveal';
 import AvailabilityBadge from '../components/AvailabilityBadge';
 import { Terminal } from 'lucide-react';
 export const metadata = {
-    title: "Engineering Insights | Mr² Labs",
-    description: "Expert insights on High-Velocity Software Engineering, AI architectures, and SaaS MVP deployment by the lead engineers at Mr² Labs.",
-    keywords: [
-        "High-Velocity Software Engineering",
-        "SaaS MVP Deployment",
-        "Custom AI Architecture",
-        "Next.js 15 Infrastructure",
-        "Codebase Rescue",
-        "Mr² Labs Engineering",
-        "B2B SaaS Development",
-        "White-label engineering"
-    ],
+    title: "Blog | Mr² Labs — Tech, AI & Founder Insights",
+    description: "Insights on AI, software development, startup MVPs, and building products fast. Written by the Mr² Labs team.",
     openGraph: {
-        title: "Engineering Insights | Mr² Labs",
-        description: "Expert insights on High-Velocity Software Engineering, AI architectures, and SaaS MVP deployment from Mr² Labs.",
+        title: "Blog | Mr² Labs — Tech, AI & Founder Insights",
+        description: "Insights on AI, software development, startup MVPs, and building products fast. Written by the Mr² Labs team.",
         url: "https://mr2labs.com/blog",
-        type: "website",
+        siteName: "Mr² Labs",
         images: [
             {
-                url: "/mr-squared-logo.png",
+                url: "https://mr2labs.com/og/blog.png",
                 width: 1200,
                 height: 630,
-                alt: "Mr² Labs Engineering Blog",
-            },
+                alt: "Mr² Labs — Blog",
+            }
         ],
+        locale: "en_US",
+        type: "website",
     },
     twitter: {
         card: "summary_large_image",
-        title: "Engineering Insights | Mr² Labs",
-        description: "High-velocity engineering insights and AI architecture.",
-        images: ["/mr-squared-logo.png"],
+        title: "Blog | Mr² Labs — Tech, AI & Founder Insights",
+        description: "Insights on AI, software development, startup MVPs, and building products fast. Written by the Mr² Labs team.",
+        images: ["https://mr2labs.com/og/blog.png"],
+        creator: "@mr2labs",
     },
-    alternates: {
-        canonical: "https://www.mr2labs.com/blog",
-    },
+    alternates: { canonical: "https://mr2labs.com/blog" },
 };
 
 export default function Blog() {

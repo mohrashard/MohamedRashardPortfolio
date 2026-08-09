@@ -142,6 +142,8 @@ export default function Footer() {
                                 <Link href="/labs" className="text-zinc-500 hover:text-[var(--primary)] text-[13px] font-medium transition-colors" style={fontBody}>Labs</Link>
                                 <Link href="/digital-assets" className="text-zinc-500 hover:text-[var(--primary)] text-[13px] font-medium transition-colors" style={fontBody}>Digital Assets</Link>
                                 <Link href="/blog" className="text-zinc-500 hover:text-[var(--primary)] text-[13px] font-medium transition-colors" style={fontBody}>Blog</Link>
+                                <Link href="/case-studies" className="text-zinc-500 hover:text-[var(--primary)] text-[13px] font-medium transition-colors" style={fontBody}>Case Studies</Link>
+                                <Link href="/testimonials" className="text-zinc-500 hover:text-[var(--primary)] text-[13px] font-medium transition-colors" style={fontBody}>Testimonials</Link>
                             </div>
 
                             {/* Col 2 */}
@@ -149,8 +151,7 @@ export default function Footer() {
                                 <h4 className="text-zinc-100 font-bold text-sm mb-2" style={fontHeadline}>Support</h4>
                                 <a href={`mailto:${process.env.NEXT_PUBLIC_REPLY_TO_EMAIL}`} className="text-zinc-500 hover:text-[var(--primary)] text-[13px] font-medium transition-colors" style={fontBody}>{process.env.NEXT_PUBLIC_REPLY_TO_EMAIL}</a>
                                 <Link href="/services#audit-form" className="text-zinc-500 hover:text-[var(--primary)] text-[13px] font-medium transition-colors" style={fontBody}>Request Audit</Link>
-                                <a href="#" className="text-zinc-500 hover:text-[var(--primary)] text-[13px] font-medium transition-colors" style={fontBody}>Client Portal</a>
-                                <a href="#" className="text-zinc-500 hover:text-[var(--primary)] text-[13px] font-medium transition-colors" style={fontBody}>Privacy Policy</a>
+                                <Link href="/privacy" className="text-zinc-500 hover:text-[var(--primary)] text-[13px] font-medium transition-colors" style={fontBody}>Privacy Policy</Link>
                             </div>
 
                             {/* Col 3 */}

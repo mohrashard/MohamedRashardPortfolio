@@ -26,7 +26,8 @@ export default function Navbar({ position = "fixed" }) {
         { name: "Home", href: "/" },
         { name: "Services", href: "/services" },
         { name: "Labs", href: "/labs" },
-        { name: "Digital Assets", href: "/digital-assets" },
+        { name: "Case Studies", href: "/case-studies" },
+        { name: "Testimonials", href: "/testimonials" },
         { name: "Blog", href: "/blog" },
     ];
 

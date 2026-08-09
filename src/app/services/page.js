@@ -17,36 +17,32 @@ const fontLabel = { fontFamily: "'Geist Mono', 'Geist', monospace" };
 // SEO & GEO OPTIMIZED METADATA
 // ============================================================
 export const metadata = {
-    title: "Mr² Labs | High-Velocity Software Engineering & AI Deployment",
-    description: "Mr² Labs is an elite software engineering firm. We architect, secure, and deploy production-grade AI applications and SaaS MVPs in 48-72 hour sprints.",
-    keywords: [
-        "High-Velocity Software Engineering", "SaaS MVP Deployment", "Custom AI Architecture",
-        "Next.js 15 Infrastructure", "Codebase Rescue", "Production-grade",
-        "Enterprise-ready", "Fixed-scope engineering", "Database-free architecture",
-        "Asynchronous deployment", "White-label engineering", "Mr² Labs"
-    ],
+    title: "Software Development Services | Mr² Labs",
+    description: "From MVP to scale — we offer full-stack development, React Native mobile apps, AI integration, and rapid product delivery.",
     openGraph: {
-        title: "Mr² Labs | High-Velocity Software Engineering",
-        description: "We architect and ship production-grade MVPs for funded founders in 48-72 hours.",
+        title: "Software Development Services | Mr² Labs",
+        description: "From MVP to scale — we offer full-stack development, React Native mobile apps, AI integration, and rapid product delivery.",
         url: "https://mr2labs.com/services",
+        siteName: "Mr² Labs",
+        images: [
+            {
+                url: "https://mr2labs.com/og/services.png",
+                width: 1200,
+                height: 630,
+                alt: "Mr² Labs — Software Development Services",
+            }
+        ],
+        locale: "en_US",
         type: "website",
-        images: [{ url: "/mr-squared-logo.png", width: 1200, height: 630, alt: "Mr² Labs — High-Velocity Software Engineering" }],
     },
     twitter: {
         card: "summary_large_image",
-        title: "Mr² Labs | High-Velocity Software Engineering",
-        description: "Production-grade MVPs shipped in 48-72 hours. Elite AI architecture.",
-        images: ["/mr-squared-logo.png"],
+        title: "Software Development Services | Mr² Labs",
+        description: "From MVP to scale — we offer full-stack development, React Native mobile apps, AI integration, and rapid product delivery.",
+        images: ["https://mr2labs.com/og/services.png"],
+        creator: "@mr2labs",
     },
-    alternates: { canonical: "https://www.mr2labs.com/services" },
-    robots: {
-        index: true,
-        follow: true,
-        googleBot: {
-            index: true,
-            follow: true,
-        },
-    },
+    alternates: { canonical: "https://mr2labs.com/services" },
 };
 
 // ============================================================
@@ -55,29 +51,6 @@ export const metadata = {
 export default function Services() {
 
     const jsonLd = [
-        {
-            "@context": "https://schema.org",
-            "@type": "Organization",
-            "name": "Mr² Labs",
-            "image": "https://mr2labs.com/mr-squared-logo.png",
-            "url": "https://mr2labs.com/services",
-            "email": process.env.NEXT_PUBLIC_REPLY_TO_EMAIL,
-            "address": { "@type": "PostalAddress", "addressLocality": "Colombo", "addressCountry": "LK" },
-            "priceRange": "$$$",
-            "description": "An elite software engineering and digital systems firm specializing in rapid 48 to 72-hour MVP deployment, AI architecture, and codebase rescue.",
-            "founder": { "@type": "Person", "name": "Mohamed Rashard Rizmi" },
-            "areaServed": ["Worldwide"],
-            "hasOfferCatalog": {
-                "@type": "OfferCatalog",
-                "name": "High-Velocity Engineering Deployments",
-                "itemListElement": [
-                    { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "SaaS MVP Deployment" } },
-                    { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Custom AI Architecture" } },
-                    { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Codebase Rescue" } },
-                    { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Next.js 15 Infrastructure" } }
-                ]
-            }
-        },
         {
             "@context": "https://schema.org",
             "@type": "FAQPage",
@@ -192,39 +165,44 @@ export default function Services() {
                 dangerouslySetInnerHTML={{
                     __html: JSON.stringify({
                         "@context": "https://schema.org",
-                        "@type": "Organization",
-                        "name": "Mr² Labs",
-                        "description": "An elite software engineering and digital systems firm specializing in rapid 48 to 72-hour MVP deployment, AI architecture, and codebase rescue.",
-                        "url": "https://mr2labs.com/services",
-                        "telephone": "",
-                        "address": {
-                            "@type": "PostalAddress",
-                            "streetAddress": "Colombo",
-                            "addressLocality": "Colombo",
-                            "addressRegion": "Western Province",
-                            "addressCountry": "LK"
+                        "@type": "Service",
+                        "serviceType": "Software Development",
+                        "provider": {
+                            "@type": "Organization",
+                            "name": "Mr² Labs",
+                            "url": "https://mr2labs.com"
                         },
-                        "geo": {
-                            "@type": "GeoCoordinates",
-                            "latitude": "6.9271",
-                            "longitude": "79.8612"
-                        },
-                        "priceRange": "$$$",
-                        "openingHours": "Mo-Fr 09:00-18:00",
+                        "areaServed": "Worldwide",
                         "hasOfferCatalog": {
                             "@type": "OfferCatalog",
-                            "name": "High-Velocity Engineering Deployments",
+                            "name": "Development Services",
                             "itemListElement": [
-                                { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "SaaS MVP Deployment" } },
-                                { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Custom AI Architecture" } },
-                                { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Codebase Rescue" } },
-                                { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Next.js 15 Infrastructure" } }
+                                {
+                                    "@type": "Offer",
+                                    "itemOffered": {
+                                        "@type": "Service",
+                                        "name": "MVP Development",
+                                        "description": "Rapid MVP delivery in 14 days or less"
+                                    }
+                                },
+                                {
+                                    "@type": "Offer",
+                                    "itemOffered": {
+                                        "@type": "Service",
+                                        "name": "React Native Mobile App Development",
+                                        "description": "Cross-platform mobile apps for iOS and Android"
+                                    }
+                                },
+                                {
+                                    "@type": "Offer",
+                                    "itemOffered": {
+                                        "@type": "Service",
+                                        "name": "AI Integration",
+                                        "description": "AI-powered features and integrations for digital products"
+                                    }
+                                }
                             ]
-                        },
-                        "sameAs": [
-                            "https://github.com/mohrashard/",
-                            "https://www.linkedin.com/in/mohamedrashard"
-                        ]
+                        }
                     })
                 }}
             />
