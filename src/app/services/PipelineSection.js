@@ -11,7 +11,7 @@ const steps = [
     {
         step: "01",
         title: "Architecture Audit",
-        desc: "We analyse your business bottlenecks and map out a high-leverage software or AI architecture. No sales pitches — just technical feasibility and a clear decision framework.",
+        desc: "We analyse your business bottlenecks and map out a high-leverage software or AI architecture. No sales pitches - just technical feasibility and a clear decision framework.",
         icon: <Terminal size={18} />,
         accent: "var(--primary)",
     },
@@ -33,7 +33,7 @@ const steps = [
     {
         step: "04",
         title: "Scale & AI Integration",
-        desc: "We scale the MVP through rapid, transparent sprints — integrating complex AI workflows, edge functions, and third-party APIs on demand.",
+        desc: "We scale the MVP through rapid, transparent sprints - integrating complex AI workflows, edge functions, and third-party APIs on demand.",
         icon: <Network size={18} />,
         accent: "var(--primary)",
     },

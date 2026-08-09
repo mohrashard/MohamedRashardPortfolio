@@ -18,10 +18,10 @@ const fontBody = { fontFamily: "'Inter', sans-serif" };
 const fontLabel = { fontFamily: "'Geist Mono', 'Geist', monospace" };
 
 export const metadata = {
-    title: "Labs | Mr² Labs — Products We're Building",
+    title: "Labs | Mr² Labs - Products We're Building",
     description: "Internal products and experiments by Mr² Labs. From marketplaces to AI tools, see what we're shipping next.",
     openGraph: {
-        title: "Labs | Mr² Labs — Products We're Building",
+        title: "Labs | Mr² Labs - Products We're Building",
         description: "Internal products and experiments by Mr² Labs. From marketplaces to AI tools, see what we're shipping next.",
         url: "https://mr2labs.com/labs",
         siteName: "Mr² Labs",
@@ -30,7 +30,7 @@ export const metadata = {
                 url: "https://mr2labs.com/og/labs.png",
                 width: 1200,
                 height: 630,
-                alt: "Mr² Labs — Labs",
+                alt: "Mr² Labs - Labs",
             }
         ],
         locale: "en_US",
@@ -38,7 +38,7 @@ export const metadata = {
     },
     twitter: {
         card: "summary_large_image",
-        title: "Labs | Mr² Labs — Products We're Building",
+        title: "Labs | Mr² Labs - Products We're Building",
         description: "Internal products and experiments by Mr² Labs. From marketplaces to AI tools, see what we're shipping next.",
         images: ["https://mr2labs.com/og/labs.png"],
         creator: "@mr2labs",

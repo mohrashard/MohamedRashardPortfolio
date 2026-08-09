@@ -46,7 +46,7 @@ const itemLeft = {
 };
 
 // ── Lightweight scroll-reveal wrapper ────────────────────────
-// One IntersectionObserver per visible section — far cheaper than per-element.
+// One IntersectionObserver per visible section - far cheaper than per-element.
 function ScrollReveal({ children, className = "", delay = 0, direction = "up" }) {
     const ref = useRef(null);
     // margin tuned for mobile: trigger 40px before entering viewport
@@ -66,7 +66,7 @@ function ScrollReveal({ children, className = "", delay = 0, direction = "up" })
     );
 }
 
-// ── Staggered container — one observer for the whole group ───
+// ── Staggered container - one observer for the whole group ───
 function StaggerGroup({ children, className = "" }) {
     const ref = useRef(null);
     const inView = useInView(ref, { once: true, margin: "-40px" });
@@ -144,7 +144,7 @@ const expertise = [
     {
         Icon: BarChart2,
         title: "Revenue Operations",
-        desc: "Architecting for scale from day one — automated systems designed to process high-ticket volumes securely.",
+        desc: "Architecting for scale from day one - automated systems designed to process high-ticket volumes securely.",
         accent: "#10b981",
     },
 ];
@@ -289,7 +289,7 @@ export default function About() {
                     </p>
                 </ScrollReveal>
 
-                {/* Stats row — stagger as group */}
+                {/* Stats row - stagger as group */}
                 <StaggerGroup className="flex flex-wrap justify-center gap-6 sm:gap-10 pt-4">
                     {stats.map((s, i) => (
                         <motion.div key={i} variants={itemVariants} className="flex flex-col items-center gap-1">

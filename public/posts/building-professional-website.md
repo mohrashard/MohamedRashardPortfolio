@@ -8,7 +8,7 @@ category: "Web Development"
 
 # Building Your Digital Presence: The Importance of a Professional Website
 
-In today’s digital era, having a professional website is no longer optional—it’s essential ([see what it costs to build](/cost-to-build)). For businesses in Sri Lanka, a well-designed online presence can significantly enhance credibility, attract new customers, and drive long-term growth. Whether you run a small local store or a growing enterprise, your website often serves as the first impression potential customers have of your brand. This blog explores why investing in a professional website is vital, the benefits it offers, and practical tips for building an impactful digital presence.
+In today’s digital era, having a professional website is no longer optional-it’s essential ([see what it costs to build](/cost-to-build)). For businesses in Sri Lanka, a well-designed online presence can significantly enhance credibility, attract new customers, and drive long-term growth. Whether you run a small local store or a growing enterprise, your website often serves as the first impression potential customers have of your brand. This blog explores why investing in a professional website is vital, the benefits it offers, and practical tips for building an impactful digital presence.
 
 ---
 
@@ -105,10 +105,10 @@ If your business needs a custom web or AI solution, this is exactly the type of 
 
 ## Ready to Ship Your MVP in 48 Hours?
 
-If this was useful, imagine what we could build together. I ship working AI products and MVPs in 48 to 72 hours — not weeks, not months.
+If this was useful, imagine what we could build together. I ship working AI products and MVPs in 48 to 72 hours - not weeks, not months.
 
-**Claim your free AI Opportunity Audit** — I will personally review your business and send you a Loom video within 48 hours showing exactly where AI can save you time and money. No pitch. No obligation.
+**Claim your free AI Opportunity Audit** - I will personally review your business and send you a Loom video within 48 hours showing exactly where AI can save you time and money. No pitch. No obligation.
 
 [Claim Your Free AI Audit →](https://www.mr2labs.com/services#audit-form)
 
-*Mr² Labs — AI-powered products shipped at startup speed.*
+*Mr² Labs - AI-powered products shipped at startup speed.*

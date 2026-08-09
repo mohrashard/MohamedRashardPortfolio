@@ -6,10 +6,10 @@ import ScrollReveal from './components/ScrollReveal';
 import AvailabilityBadge from '../components/AvailabilityBadge';
 import { Terminal } from 'lucide-react';
 export const metadata = {
-    title: "Blog | Mr² Labs — Tech, AI & Founder Insights",
+    title: "Blog | Mr² Labs - Tech, AI & Founder Insights",
     description: "Insights on AI, software development, startup MVPs, and building products fast. Written by the Mr² Labs team.",
     openGraph: {
-        title: "Blog | Mr² Labs — Tech, AI & Founder Insights",
+        title: "Blog | Mr² Labs - Tech, AI & Founder Insights",
         description: "Insights on AI, software development, startup MVPs, and building products fast. Written by the Mr² Labs team.",
         url: "https://mr2labs.com/blog",
         siteName: "Mr² Labs",
@@ -18,7 +18,7 @@ export const metadata = {
                 url: "https://mr2labs.com/og/blog.png",
                 width: 1200,
                 height: 630,
-                alt: "Mr² Labs — Blog",
+                alt: "Mr² Labs - Blog",
             }
         ],
         locale: "en_US",
@@ -26,7 +26,7 @@ export const metadata = {
     },
     twitter: {
         card: "summary_large_image",
-        title: "Blog | Mr² Labs — Tech, AI & Founder Insights",
+        title: "Blog | Mr² Labs - Tech, AI & Founder Insights",
         description: "Insights on AI, software development, startup MVPs, and building products fast. Written by the Mr² Labs team.",
         images: ["https://mr2labs.com/og/blog.png"],
         creator: "@mr2labs",

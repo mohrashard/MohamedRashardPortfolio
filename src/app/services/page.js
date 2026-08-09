@@ -18,10 +18,10 @@ const fontLabel = { fontFamily: "'Geist Mono', 'Geist', monospace" };
 // ============================================================
 export const metadata = {
     title: "Software Development Services | Mr² Labs",
-    description: "From MVP to scale — we offer full-stack development, React Native mobile apps, AI integration, and rapid product delivery.",
+    description: "From MVP to scale - we offer full-stack development, React Native mobile apps, AI integration, and rapid product delivery.",
     openGraph: {
         title: "Software Development Services | Mr² Labs",
-        description: "From MVP to scale — we offer full-stack development, React Native mobile apps, AI integration, and rapid product delivery.",
+        description: "From MVP to scale - we offer full-stack development, React Native mobile apps, AI integration, and rapid product delivery.",
         url: "https://mr2labs.com/services",
         siteName: "Mr² Labs",
         images: [
@@ -29,7 +29,7 @@ export const metadata = {
                 url: "https://mr2labs.com/og/services.png",
                 width: 1200,
                 height: 630,
-                alt: "Mr² Labs — Software Development Services",
+                alt: "Mr² Labs - Software Development Services",
             }
         ],
         locale: "en_US",
@@ -38,7 +38,7 @@ export const metadata = {
     twitter: {
         card: "summary_large_image",
         title: "Software Development Services | Mr² Labs",
-        description: "From MVP to scale — we offer full-stack development, React Native mobile apps, AI integration, and rapid product delivery.",
+        description: "From MVP to scale - we offer full-stack development, React Native mobile apps, AI integration, and rapid product delivery.",
         images: ["https://mr2labs.com/og/services.png"],
         creator: "@mr2labs",
     },
@@ -46,7 +46,7 @@ export const metadata = {
 };
 
 // ============================================================
-// SERVICES PAGE — Viewer-Arresting Redesign
+// SERVICES PAGE - Viewer-Arresting Redesign
 // ============================================================
 export default function Services() {
 
@@ -370,7 +370,7 @@ export default function Services() {
                     </div>
 
                     {/* ============================================================
-                    WHAT MAKES ME DIFFERENT — animated client component
+                    WHAT MAKES ME DIFFERENT - animated client component
                 ============================================================ */}
                     <DifferenceSection />
 
@@ -472,7 +472,7 @@ export default function Services() {
                     </section>
 
                     {/* ============================================================
-                    SERVICES — AI-first, full grid
+                    SERVICES - AI-first, full grid
                 ============================================================ */}
                     <section className="mb-32 relative z-10 px-4 sm:px-6 md:px-0">
                         <div className="max-w-7xl mx-auto">
@@ -669,11 +669,11 @@ export default function Services() {
                     <section className="mb-32 relative z-10 px-4 sm:px-6 md:px-0">
                         <div className="max-w-6xl mx-auto">
 
-                            {/* Section Header — left-aligned, editorial */}
+                            {/* Section Header - left-aligned, editorial */}
                             <div className="mb-16 border-b border-white/[0.06] pb-12" data-animate="slide-up">
                                 <div className="inline-flex items-center gap-2 px-3 py-1.5 mb-6 rounded border border-white/[0.08] bg-white/[0.02] text-zinc-400 text-[10px] font-bold uppercase tracking-[0.2em]" style={fontLabel}>
                                     <Terminal size={14} className="text-[var(--primary)]" />
-                                    <span>[ ] Deployment Log — {new Date().getFullYear()}</span>
+                                    <span>[ ] Deployment Log - {new Date().getFullYear()}</span>
                                 </div>
                                 <div className="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-6">
                                     <h2 className="text-4xl md:text-5xl font-extrabold text-zinc-100 tracking-tight leading-[1.05] max-w-lg" style={fontHeadline}>
@@ -685,7 +685,7 @@ export default function Services() {
                                 </div>
                             </div>
 
-                            {/* Case Study Table — full-width rows */}
+                            {/* Case Study Table - full-width rows */}
                             <div className="divide-y divide-white/[0.04]">
                                 {caseStudies.map((study, idx) => (
                                     <div
@@ -763,7 +763,7 @@ export default function Services() {
                                 ))}
                             </div>
 
-                            {/* Bottom trust strip — horizontal rule style */}
+                            {/* Bottom trust strip - horizontal rule style */}
                             <div className="mt-16 pt-8 border-t border-white/[0.05] flex flex-col sm:flex-row items-start sm:items-center justify-between gap-5">
                                 <div className="flex flex-wrap gap-x-8 gap-y-3">
                                     {[
@@ -790,7 +790,7 @@ export default function Services() {
 
 
                     {/* ============================================================
-                    PROCESS — Execution Pipeline (client component)
+                    PROCESS - Execution Pipeline (client component)
                 ============================================================ */}
                     <PipelineSection />
 
@@ -805,7 +805,7 @@ export default function Services() {
                         <div className="max-w-7xl mx-auto relative z-10">
                             {/* Two-column editorial layout */}
                             <div className="flex flex-col lg:flex-row gap-16 lg:gap-24">
-                                {/* Left — Sticky Heading + Live Metrics */}
+                                {/* Left - Sticky Heading + Live Metrics */}
                                 <div className="lg:w-[380px] flex-shrink-0 lg:sticky lg:top-32 h-fit" data-animate="slide-left">
 
                                     <div className="inline-flex items-center gap-2 px-3 py-1.5 mb-8 rounded border border-white/[0.08] bg-white/[0.02] text-zinc-400 text-[10px] font-bold uppercase tracking-[0.2em]" style={fontLabel}>
@@ -849,7 +849,7 @@ export default function Services() {
                                     </div>
                                 </div>
 
-                                {/* Right — Interactive Guarantee Cards */}
+                                {/* Right - Interactive Guarantee Cards */}
                                 <div className="flex-1 flex flex-col gap-6">
                                     {[
                                         {

@@ -44,7 +44,7 @@ export default function DifferenceSection() {
 
                     <div className="relative z-10 grid grid-cols-1 md:grid-cols-2">
 
-                        {/* ── LEFT PANEL — slides in from left ── */}
+                        {/* ── LEFT PANEL - slides in from left ── */}
                         <div
                             className="p-8 sm:p-10 md:p-12 lg:p-14 flex flex-col justify-center transition-all duration-[900ms] ease-out border-b md:border-b-0 border-white/[0.06]"
                             style={{
@@ -106,7 +106,7 @@ export default function DifferenceSection() {
                             </ul>
                         </div>
 
-                        {/* ── RIGHT PANEL — slides in from right ── */}
+                        {/* ── RIGHT PANEL - slides in from right ── */}
                         <div
                             className="p-8 sm:p-10 md:p-12 lg:p-14 bg-white/[0.01] flex flex-col justify-center transition-all duration-[900ms] ease-out"
                             style={{

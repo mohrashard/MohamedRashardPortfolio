@@ -52,7 +52,7 @@ export default function Contact() {
                     </h2>
                     
                     <p className="text-sm sm:text-base text-zinc-400 max-w-xl mx-auto leading-relaxed" style={fontBody}>
-                        Whether you need a full technical audit, a custom engineering build, or just want to connect—reach out directly.
+                        Whether you need a full technical audit, a custom engineering build, or just want to connect-reach out directly.
                     </p>
                 </motion.div>
 

@@ -134,7 +134,7 @@ function CardInner({ c }) {
                     </div>
                 </div>
 
-                {/* Bottom — metric + CTA */}
+                {/* Bottom - metric + CTA */}
                 <div className="flex flex-col gap-3 border-t border-white/[0.08] pt-4 mt-4 shrink-0">
                     <div className="flex items-end justify-between">
                         <div>
@@ -212,7 +212,7 @@ const DesktopCTA = React.forwardRef(function DesktopCTA(_, ref) {
 });
 
 // ══════════════════════════════════════════════════════════════════════════════
-// Mobile spotlight carousel — uses IntersectionObserver for spotlight effect
+// Mobile spotlight carousel - uses IntersectionObserver for spotlight effect
 // ══════════════════════════════════════════════════════════════════════════════
 function MobileCarousel({ allCases }) {
     const [activeIndex, setActiveIndex] = useState(0);
@@ -220,7 +220,7 @@ function MobileCarousel({ allCases }) {
     const cardRefs = useRef([]);
     const totalCards = allCases.length + 1; // +1 CTA
 
-    // IntersectionObserver — detects which card is most centered
+    // IntersectionObserver - detects which card is most centered
     useEffect(() => {
         const scroller = scrollRef.current;
         if (!scroller) return;
@@ -280,7 +280,7 @@ function MobileCarousel({ allCases }) {
                                 width: "min(80vw, 340px)",
                                 height: "480px",
                                 padding: "20px",
-                                /* CSS transitions for spotlight — GPU composited */
+                                /* CSS transitions for spotlight - GPU composited */
                                 transform: isActive ? "scale(1)" : "scale(0.88)",
                                 opacity: isActive ? 1 : 0.45,
                                 transition: "transform 0.4s cubic-bezier(0.22,1,0.36,1), opacity 0.4s ease",

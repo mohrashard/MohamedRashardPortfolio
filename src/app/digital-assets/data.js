@@ -14,7 +14,7 @@ export const assets = [
 
 <p>First impressions dictate your valuation. When users, investors, or early adopters land on your site, it needs to look like a heavily funded startup from day one. </p>
 
-<p><strong>AeroPulse</strong> is a God-tier, ultra-premium <strong>1-page Next.js landing page template</strong> engineered specifically for high-growth SaaS companies, tech agencies, and AI startups. Built by <strong>Mr² Labs</strong>, this architecture doesn't just look incredible—it is optimized for zero-latency performance, perfect Core Web Vitals, and seamless conversion.</p>
+<p><strong>AeroPulse</strong> is a God-tier, ultra-premium <strong>1-page Next.js landing page template</strong> engineered specifically for high-growth SaaS companies, tech agencies, and AI startups. Built by <strong>Mr² Labs</strong>, this architecture doesn't just look incredible-it is optimized for zero-latency performance, perfect Core Web Vitals, and seamless conversion.</p>
 
 <p>We did the heavy lifting so you can focus on building your actual product, not tweaking CSS.</p>
 
@@ -71,7 +71,7 @@ export const assets = [
         longDescription: `<h2 class="flex items-center"><i class="fas fa-rocket text-[var(--primary)] mr-3"></i> Nexus Animator: The Ultimate "Code-to-Content" Engine</h2>
 
 <h3><strong>Why Choose Nexus Animator?</strong></h3>
-<p>Recently, <strong>Claude Code</strong> went viral for creating stunning programmatic animations. Nexus Animator is your <strong>free, unlimited replacement</strong> for that exact workflow. Stop searching for the perfect background—create it.</p>
+<p>Recently, <strong>Claude Code</strong> went viral for creating stunning programmatic animations. Nexus Animator is your <strong>free, unlimited replacement</strong> for that exact workflow. Stop searching for the perfect background-create it.</p>
 
 <h3 class="flex items-center"><strong><i class="fas fa-magic text-[var(--accent)] mr-3"></i> Core Benefits</strong></h3>
 
@@ -97,7 +97,7 @@ export const assets = [
 <h4><strong>4. The "Infinite Loop" Advantage</strong></h4>
 <ul class="space-y-2">
     <li><strong>Seamless Looping:</strong> Perfect for streaming backgrounds (Twitch/YouTube) or website hero sections. The animation runs forever without a "jump" or "cut" point.</li>
-    <li><strong>Interactive:</strong> Because it's code, you can make animations that react to mouse movements or clicks—impossible with standard video.</li>
+    <li><strong>Interactive:</strong> Because it's code, you can make animations that react to mouse movements or clicks-impossible with standard video.</li>
 </ul>
 
 <hr class="my-8 border-white/10" />

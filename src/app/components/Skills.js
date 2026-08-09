@@ -340,7 +340,7 @@ export default function Capabilities() {
         scroller.scrollTo({ left: cardLeft - (scrollerWidth - cardWidth) / 2, behavior: "smooth" });
     }, []);
 
-    // GSAP vertical pin — desktop only
+    // GSAP vertical pin - desktop only
     useEffect(() => {
         if (window.innerWidth < 1024) return;
 
@@ -584,7 +584,7 @@ export default function Capabilities() {
                     </span>
                 </div>
 
-                {/* GSAP track — cards stack vertically */}
+                {/* GSAP track - cards stack vertically */}
                 <div
                     ref={trackRef}
                     className="absolute inset-x-0 flex flex-col items-center gap-8"

@@ -34,14 +34,14 @@ const cardVariants = {
 };
 
 // ── Data ──────────────────────────────────────────────────────
-// Hero row — 3 big punchy numbers
+// Hero row - 3 big punchy numbers
 const heroMetrics = [
     { value: "48–72h", label: "Scope to Live URL",        accent: "#0066ff" },
     { value: "100%",   label: "Builder-Led Execution",    accent: "#38BDF8" },
     { value: "~0h",    label: "Useless Meetings",         accent: "#f59e0b" },
 ];
 
-// Detail grid — 6 operational facts
+// Detail grid - 6 operational facts
 const facts = [
     {
         Icon: Zap,
@@ -65,7 +65,7 @@ const facts = [
         Icon: Cpu,
         accent: "#38BDF8",
         title: "Practical AI Integration",
-        body: "Claude, Gemini, and local models wired into real business logic. No AI hype — just measurable automation leverage.",
+        body: "Claude, Gemini, and local models wired into real business logic. No AI hype - just measurable automation leverage.",
     },
     {
         Icon: ShieldCheck,
@@ -185,7 +185,7 @@ export default function SystemTelemetry() {
                             className="relative overflow-hidden rounded-xl border border-white/[0.06] bg-white/[0.025] p-5 sm:p-8 flex flex-col justify-between group"
                             style={{ minHeight: "120px" }}
                         >
-                            {/* CSS-only hover glow — no JS state needed */}
+                            {/* CSS-only hover glow - no JS state needed */}
                             <div
                                 className="absolute inset-0 rounded-xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none"
                                 style={{

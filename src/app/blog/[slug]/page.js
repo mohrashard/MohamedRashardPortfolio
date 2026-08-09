@@ -93,7 +93,7 @@ export default async function Post({ params }) {
         }
     };
 
-    // FAQ Schema — dynamic from post frontmatter
+    // FAQ Schema - dynamic from post frontmatter
     const jsonLdFaq = postData.faqs && Array.isArray(postData.faqs) ? {
         "@context": "https://schema.org",
         "@type": "FAQPage",
@@ -116,7 +116,7 @@ export default async function Post({ params }) {
                 dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLdArticle) }}
             />
 
-            {/* FAQ Schema — Dynamic from postData.faqs */}
+            {/* FAQ Schema - Dynamic from postData.faqs */}
             {jsonLdFaq && (
                 <script
                     type="application/ld+json"
@@ -276,7 +276,7 @@ export default async function Post({ params }) {
                                 }
                             }}
                         >
-                            {postData.contentHtml ? postData.contentHtml.replace(/—/g, ' ') : ''}
+                            {postData.contentHtml ? postData.contentHtml.replace(/-/g, ' ') : ''}
                         </ReactMarkdown>
                     </article>
 
@@ -312,7 +312,7 @@ export default async function Post({ params }) {
                                         </span>
                                     </summary>
                                     <div className="relative px-6 md:px-8 pb-6 md:pb-8 text-slate-400 leading-relaxed text-base border-t border-blue-500/10 pt-6">
-                                        {faq.answer ? faq.answer.replace(/—/g, ' ') : ''}
+                                        {faq.answer ? faq.answer.replace(/-/g, ' ') : ''}
                                     </div>
                                 </details>
                             ))}

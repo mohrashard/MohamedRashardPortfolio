@@ -3,7 +3,7 @@
 import { useEffect } from 'react';
 
 /**
- * ScrollObserver — attaches a single IntersectionObserver to every
+ * ScrollObserver - attaches a single IntersectionObserver to every
  * [data-animate] element on the page and adds the "in-view" class when
  * each element enters the viewport.
  *

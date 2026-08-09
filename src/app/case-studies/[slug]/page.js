@@ -9,10 +9,10 @@ export async function generateMetadata({ params }) {
     
     if (slug === 'ignite-ed') {
         return {
-            title: "Ignite Ed Case Study | Mr² Labs — EdTech App in 14 Days",
+            title: "Ignite Ed Case Study | Mr² Labs - EdTech App in 14 Days",
             description: "How Mr² Labs built a trilingual AI-powered EdTech mobile app in 14 days for Sri Lankan students. Full case study.",
             openGraph: {
-                title: "Ignite Ed Case Study | Mr² Labs — EdTech App in 14 Days",
+                title: "Ignite Ed Case Study | Mr² Labs - EdTech App in 14 Days",
                 description: "How Mr² Labs built a trilingual AI-powered EdTech mobile app in 14 days for Sri Lankan students. Full case study.",
                 url: `https://mr2labs.com/case-studies/${slug}`,
                 siteName: "Mr² Labs",
@@ -22,7 +22,7 @@ export async function generateMetadata({ params }) {
             },
             twitter: {
                 card: "summary_large_image",
-                title: "Ignite Ed Case Study | Mr² Labs — EdTech App in 14 Days",
+                title: "Ignite Ed Case Study | Mr² Labs - EdTech App in 14 Days",
                 description: "How Mr² Labs built a trilingual AI-powered EdTech mobile app in 14 days for Sri Lankan students. Full case study.",
                 images: [`https://mr2labs.com/og/${slug}.png`],
                 creator: "@mr2labs",
@@ -32,10 +32,10 @@ export async function generateMetadata({ params }) {
     }
     if (slug === 'grabme') {
         return {
-            title: "Grab Me Case Study | Mr² Labs — PWA MVP in 72 Hours",
+            title: "Grab Me Case Study | Mr² Labs - PWA MVP in 72 Hours",
             description: "How Mr² Labs built a scalable commission-free PWA marketplace in 72 hours. Zero marketing spend. Live on day 3.",
             openGraph: {
-                title: "Grab Me Case Study | Mr² Labs — PWA MVP in 72 Hours",
+                title: "Grab Me Case Study | Mr² Labs - PWA MVP in 72 Hours",
                 description: "How Mr² Labs built a scalable commission-free PWA marketplace in 72 hours. Zero marketing spend. Live on day 3.",
                 url: `https://mr2labs.com/case-studies/${slug}`,
                 siteName: "Mr² Labs",
@@ -45,7 +45,7 @@ export async function generateMetadata({ params }) {
             },
             twitter: {
                 card: "summary_large_image",
-                title: "Grab Me Case Study | Mr² Labs — PWA MVP in 72 Hours",
+                title: "Grab Me Case Study | Mr² Labs - PWA MVP in 72 Hours",
                 description: "How Mr² Labs built a scalable commission-free PWA marketplace in 72 hours. Zero marketing spend. Live on day 3.",
                 images: [`https://mr2labs.com/og/${slug}.png`],
                 creator: "@mr2labs",
@@ -64,7 +64,7 @@ export default async function CaseStudy({ params }) {
         "@context": "https://schema.org",
         "@type": "Article",
         "headline": slug === 'ignite-ed' ? "How Mr² Labs Built an AI EdTech App in 14 Days" : "How Mr² Labs Built a Scalable PWA Marketplace in 72 Hours",
-        "description": slug === 'ignite-ed' ? "Full case study of Ignite Ed — a trilingual AI-powered EdTech platform built in 14 days." : "Full case study of Grab Me — a commission-free PWA marketplace built in 72 hours.",
+        "description": slug === 'ignite-ed' ? "Full case study of Ignite Ed - a trilingual AI-powered EdTech platform built in 14 days." : "Full case study of Grab Me - a commission-free PWA marketplace built in 72 hours.",
         "author": {
             "@type": "Organization",
             "name": "Mr² Labs",

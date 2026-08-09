@@ -4,7 +4,7 @@ import ScrollObserver from '../services/ScrollObserver';
 
 export const metadata = {
     title: "Privacy Policy | Mr² Labs",
-    description: "Mr² Labs privacy policy — how we collect, use, and protect your data across our software and AI services.",
+    description: "Mr² Labs privacy policy - how we collect, use, and protect your data across our software and AI services.",
     alternates: { canonical: "https://mr2labs.com/privacy" },
 };
 

@@ -5,7 +5,7 @@ description: "We analyzed the top strategies for acquiring your first 10 custome
 category: "Startup Growth"
 ---
 
-If you had a working product, zero marketing budget, no audience, and no investors—how would you get your first 10 customers? 
+If you had a working product, zero marketing budget, no audience, and no investors-how would you get your first 10 customers? 
 
 It is the most universal founder pain point. You've spent weeks or months building a product you *think* people want, but when it comes time to launch, there's just crickets. 
 
@@ -51,7 +51,7 @@ While manual outreach gets your first 10 customers, you need a strategy that get
 ### Programmatic SEO and Content
 If you have zero dollars but can code, use your skills to build programmatic SEO assets. 
 
-One founder shared a brilliant example: For their rhyming app, they programmatically created a rhyming dictionary with 5.8 million words across 22 languages. This created millions of indexable pages. After a few months, it hit 500k daily search impressions and drove 100 new users a day—all organically.
+One founder shared a brilliant example: For their rhyming app, they programmatically created a rhyming dictionary with 5.8 million words across 22 languages. This created millions of indexable pages. After a few months, it hit 500k daily search impressions and drove 100 new users a day-all organically.
 
 Build free tools, calculators, or directories that naturally drive traffic to your main product.
 
@@ -61,16 +61,16 @@ If we strip away the noise, almost every successful strategy for a $0 budget boi
 
 Stop hiding behind generic social media posts or tweaking your landing page for the 50th time. Pick one narrow customer type, find where they ask for help, and talk to them. 
 
-You do what doesn't scale. You manually reach out to people you believe are your market. You build as you speak to your audience. Ultimately, you need product-market fit—it's the only thing that matters.
+You do what doesn't scale. You manually reach out to people you believe are your market. You build as you speak to your audience. Ultimately, you need product-market fit-it's the only thing that matters.
 
 ---
 
 ## Ready to Ship Your MVP in 48 Hours?
 
-If this was useful, imagine what we could build together. I ship working AI products and MVPs in 48 to 72 hours — not weeks, not months.
+If this was useful, imagine what we could build together. I ship working AI products and MVPs in 48 to 72 hours - not weeks, not months.
 
-**Claim your free AI Opportunity Audit** — I will personally review your business and send you a Loom video within 48 hours showing exactly where AI can save you time and money. No pitch. No obligation.
+**Claim your free AI Opportunity Audit** - I will personally review your business and send you a Loom video within 48 hours showing exactly where AI can save you time and money. No pitch. No obligation.
 
 [Claim Your Free AI Audit →](https://www.mr2labs.com/services#audit-form)
 
-*Mr² Labs — AI-powered products shipped at startup speed.*
+*Mr² Labs - AI-powered products shipped at startup speed.*

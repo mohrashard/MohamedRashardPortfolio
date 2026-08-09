@@ -1,7 +1,7 @@
 ---
 title: "Why I Built AeroPulse: The Blueprint for a Zero-Latency SaaS Landing Page"
 date: 2026-04-02
-description: Learn why we engineered AeroPulse at Mr² Labs—a high-performance Next.js and Spline 3D architecture designed for zero-latency SaaS landing pages. High-growth startups in Colombo and globally can now deploy a multi-million dollar brand aesthetic in under 24 hours.
+description: Learn why we engineered AeroPulse at Mr² Labs-a high-performance Next.js and Spline 3D architecture designed for zero-latency SaaS landing pages. High-growth startups in Colombo and globally can now deploy a multi-million dollar brand aesthetic in under 24 hours.
 image: "/posts/aeropulse-blueprint.png"
 category: "SaaS Development"
 ---
@@ -28,7 +28,7 @@ To achieve that God-tier, tech-forward aesthetic, I completely bypassed traditio
 *   **Framer Motion** for buttery-smooth micro-interactions, asymmetric "Bento Box" grid assemblies, and cinematic text reveals.
 *   **Tailwind CSS** for a strict, dark-mode-first glassmorphism design language.
 
-One of the biggest challenges with 3D websites is performance. I specifically optimized the rendering and layered invisible contrast shields so the text remains perfectly legible while the 3D assets pop in the background—all while maintaining blazing-fast load times. 
+One of the biggest challenges with 3D websites is performance. I specifically optimized the rendering and layered invisible contrast shields so the text remains perfectly legible while the 3D assets pop in the background-all while maintaining blazing-fast load times. 
 
 ## Built for Developers
 The worst part about buying a template is digging through thousands of lines of spaghetti code just to change a button link. I solved this by building a centralized config file. Every piece of copy, every nav link, and every CTA destination is controlled from a single `site.ts` file. 
@@ -38,7 +38,7 @@ You don't need to be an advanced frontend engineer to launch this. If you can ru
 ## Ready to upgrade your architecture?
 If you want to stop wasting weeks on CSS and launch a landing page that commands immediate authority, you can grab the complete 1-page codebase and deployment blueprint below.
 
-I’m offering a special launch price for my community—get the full system for **$49** (normally $89) for a limited time.
+I’m offering a special launch price for my community-get the full system for **$49** (normally $89) for a limited time.
 
 **[Get the AeroPulse Template Here](https://mr2labs.com/digital-assets/aeropulse)**
 
@@ -52,10 +52,10 @@ I’m offering a special launch price for my community—get the full system for
 
 ## Ready to Ship Your MVP in 48 Hours?
 
-If this was useful, imagine what we could build together. I ship working AI products and MVPs in 48 to 72 hours — not weeks, not months.
+If this was useful, imagine what we could build together. I ship working AI products and MVPs in 48 to 72 hours - not weeks, not months.
 
-**Claim your free AI Opportunity Audit** — I will personally review your business and send you a Loom video within 48 hours showing exactly where AI can save you time and money. No pitch. No obligation.
+**Claim your free AI Opportunity Audit** - I will personally review your business and send you a Loom video within 48 hours showing exactly where AI can save you time and money. No pitch. No obligation.
 
 [Claim Your Free AI Audit →](https://www.mr2labs.com/services#audit-form)
 
-*Mr² Labs — AI-powered products shipped at startup speed.*
+*Mr² Labs - AI-powered products shipped at startup speed.*

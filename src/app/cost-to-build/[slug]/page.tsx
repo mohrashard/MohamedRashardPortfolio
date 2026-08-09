@@ -94,7 +94,7 @@ export default async function CostToBuildSlugPage({ params }: { params: Promise<
                                             "@type": "Answer",
                                             "text": project.technicalArchitecture && project.technicalArchitecture.length > 0
                                                 ? `Built using ${project.technicalArchitecture.join(', ')}.`
-                                                : "Next.js 15, Supabase, TypeScript, and Tailwind CSS — the fastest modern stack for production-grade MVPs."
+                                                : "Next.js 15, Supabase, TypeScript, and Tailwind CSS - the fastest modern stack for production-grade MVPs."
                                         }
                                     }
                                 ]
@@ -169,7 +169,7 @@ export default async function CostToBuildSlugPage({ params }: { params: Promise<
                             </p>
                             {project.location && (
                                 <p className="mt-4 text-sm text-slate-500 font-medium italic pl-5">
-                                    Remote-first agency serving {project.location.country} startups — same quality as a local agency, fraction of the {project.location.country} rate.
+                                    Remote-first agency serving {project.location.country} startups - same quality as a local agency, fraction of the {project.location.country} rate.
                                 </p>
                             )}
                         </AnimatedSection>

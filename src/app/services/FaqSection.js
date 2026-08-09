@@ -31,7 +31,7 @@ export default function FaqSection() {
         },
         {
             q: "What happens during the Technical Architecture Audit?",
-            a: "It is a comprehensive technical diagnostic. We analyze your business bottlenecks and deliver a custom blueprint—delivered via a Loom video walkthrough—detailing exactly how custom software and AI workflows can eliminate your manual overhead. Zero obligation."
+            a: "It is a comprehensive technical diagnostic. We analyze your business bottlenecks and deliver a custom blueprint-delivered via a Loom video walkthrough-detailing exactly how custom software and AI workflows can eliminate your manual overhead. Zero obligation."
         },
     ];
 

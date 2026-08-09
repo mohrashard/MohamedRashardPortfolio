@@ -53,7 +53,7 @@ export default function FundraisingReadiness() {
             title: "Pre-Fundraising Stage",
             badge: "bg-rose-500", border: "border-rose-500/30", text: "text-rose-400",
             label: "Focus on traction first.",
-            message: "Most investors at pre-seed and seed want to see evidence that real people have the problem and will pay to solve it. Your priority right now is not a pitch deck — it is getting 10 paying customers or 500 engaged waitlist signups.",
+            message: "Most investors at pre-seed and seed want to see evidence that real people have the problem and will pay to solve it. Your priority right now is not a pitch deck - it is getting 10 paying customers or 500 engaged waitlist signups.",
             hook: "The fastest way to move from this score to the next band is a live product users can react to. Mr² Labs ships that in 72 hours."
         };
         if (totalScore <= 55) return {
@@ -67,7 +67,7 @@ export default function FundraisingReadiness() {
             title: "Fundable",
             badge: "bg-blue-500", border: "border-blue-500/30", text: "text-blue-400",
             label: "Investor-ready with gaps.",
-            message: "You have the fundamentals. Most investors will take a meeting at this stage. Your focus now is tightening the story — a cleaner pitch deck, sharper market sizing, and at least one metric that shows momentum month over month.",
+            message: "You have the fundamentals. Most investors will take a meeting at this stage. Your focus now is tightening the story - a cleaner pitch deck, sharper market sizing, and at least one metric that shows momentum month over month.",
             hook: "Investors at this stage will ask to see the product in the first meeting. If your demo is not polished, that is the first thing to fix."
         };
         return {

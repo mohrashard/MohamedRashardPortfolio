@@ -121,7 +121,7 @@ export default function AuditForm() {
 
     return (
         <div ref={formRef}>
-            {/* Animated wrapper — always in DOM when isOpen, fades + slides in/out */}
+            {/* Animated wrapper - always in DOM when isOpen, fades + slides in/out */}
             <div
                 style={{
                     maxHeight: isVisible ? '2000px' : '0px',
@@ -179,7 +179,7 @@ export default function AuditForm() {
                                 <form onSubmit={handleSubmit} className="space-y-6 text-left">
                                     <div className="space-y-2">
                                         <label className="text-sm font-bold text-zinc-300 ml-1">What is your name and what does your business do? <span className="text-red-400">*</span></label>
-                                        <input required name="nameAndBusiness" type="text" placeholder="John Doe — I run a local lead gen agency..." className="w-full bg-black/40 border border-white/10 rounded-xl px-5 py-3.5 text-zinc-50 placeholder:text-zinc-600 focus:outline-none focus:border-[var(--primary)]/50 focus:ring-1 focus:ring-[var(--primary)]/50 transition-all font-medium" />
+                                        <input required name="nameAndBusiness" type="text" placeholder="John Doe - I run a local lead gen agency..." className="w-full bg-black/40 border border-white/10 rounded-xl px-5 py-3.5 text-zinc-50 placeholder:text-zinc-600 focus:outline-none focus:border-[var(--primary)]/50 focus:ring-1 focus:ring-[var(--primary)]/50 transition-all font-medium" />
                                     </div>
 
                                     <div className="space-y-2">

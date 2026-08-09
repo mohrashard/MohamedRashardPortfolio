@@ -11,13 +11,13 @@ import Contact from "./components/Contact";
 
 
 export const metadata = {
-    title: "Mr² Labs — AI & Software Development Agency",
+    title: "Mr² Labs - AI & Software Development Agency",
     description: "We build and ship high-performance software, mobile apps, and AI products for founders. MVPs delivered in days, not months.",
     alternates: {
         canonical: "https://mr2labs.com",
     },
     openGraph: {
-        title: "Mr² Labs — AI & Software Development Agency",
+        title: "Mr² Labs - AI & Software Development Agency",
         description: "We build and ship high-performance software, mobile apps, and AI products for founders. MVPs delivered in days, not months.",
         url: "https://mr2labs.com",
         siteName: "Mr² Labs",
@@ -26,7 +26,7 @@ export const metadata = {
                 url: "https://mr2labs.com/og/home.png",
                 width: 1200,
                 height: 630,
-                alt: "Mr² Labs — Home",
+                alt: "Mr² Labs - Home",
             }
         ],
         locale: "en_US",
@@ -34,7 +34,7 @@ export const metadata = {
     },
     twitter: {
         card: "summary_large_image",
-        title: "Mr² Labs — AI & Software Development Agency",
+        title: "Mr² Labs - AI & Software Development Agency",
         description: "We build and ship high-performance software, mobile apps, and AI products for founders. MVPs delivered in days, not months.",
         images: ["https://mr2labs.com/og/home.png"],
         creator: "@mr2labs",
@@ -53,23 +53,23 @@ export default function Home() {
             {/* 1. The Hook */}
             <Hero />
 
-            {/* 2. Immediate Validation — Tech & Telemetry Ribbon */}
+            {/* 2. Immediate Validation - Tech & Telemetry Ribbon */}
             <TrustBar />
             <SocialProofTicker />
 
-            {/* 3. The Proof — Deployed Architectures */}
+            {/* 3. The Proof - Deployed Architectures */}
             <Projects />
 
-            {/* 4. The Engine — Infrastructure Capabilities */}
+            {/* 4. The Engine - Infrastructure Capabilities */}
             <Skills />
 
-            {/* 5. The Firm Thesis — Studio Overview */}
+            {/* 5. The Firm Thesis - Studio Overview */}
             <About />
 
             {/* 6. Market Validation */}
             <Testimonials />
 
-            {/* 7. The Close — Deployment Terminal */}
+            {/* 7. The Close - Deployment Terminal */}
             <Contact />
 
         </main>

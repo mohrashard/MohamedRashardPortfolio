@@ -14,7 +14,7 @@ Recently, **Claude Code** went viral for its ability to create stunning, program
 
 Whether you are a YouTuber in Colombo needing unique b-roll, a web developer in New York, or a TikTok creator in Singapore, the struggle has always been real: stock footage is expensive, generic, and hard to edit.
 
-Enter **Nexus Animator**, a revolutionary AI tool designed to give you a "Creative Coder" brain inside Google Gemini—empowering you to create viral-worthy animated visuals for free.
+Enter **Nexus Animator**, a revolutionary AI tool designed to give you a "Creative Coder" brain inside Google Gemini-empowering you to create viral-worthy animated visuals for free.
 
 ---
 
@@ -96,10 +96,10 @@ This tool is proudly engineered to bridge the gap between high-end creative codi
 
 ## Ready to Ship Your MVP in 48 Hours?
 
-If this was useful, imagine what we could build together. I ship working AI products and MVPs in 48 to 72 hours — not weeks, not months.
+If this was useful, imagine what we could build together. I ship working AI products and MVPs in 48 to 72 hours - not weeks, not months.
 
-**Claim your free AI Opportunity Audit** — I will personally review your business and send you a Loom video within 48 hours showing exactly where AI can save you time and money. No pitch. No obligation.
+**Claim your free AI Opportunity Audit** - I will personally review your business and send you a Loom video within 48 hours showing exactly where AI can save you time and money. No pitch. No obligation.
 
 [Claim Your Free AI Audit →](https://www.mr2labs.com/services#audit-form)
 
-*Mr² Labs — AI-powered products shipped at startup speed.*
+*Mr² Labs - AI-powered products shipped at startup speed.*

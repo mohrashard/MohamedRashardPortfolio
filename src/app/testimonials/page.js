@@ -6,10 +6,10 @@ import VideoPlayer from './VideoPlayer';
 import AvailabilityBadge from '../components/AvailabilityBadge';
 
 export const metadata = {
-    title: "Testimonials | Mr² Labs — Real Founders, Real Results",
+    title: "Testimonials | Mr² Labs - Real Founders, Real Results",
     description: "Hear from founders who worked with Mr² Labs. Platform delivered in 48 hours. See what clients say.",
     openGraph: {
-        title: "Testimonials | Mr² Labs — Real Founders, Real Results",
+        title: "Testimonials | Mr² Labs - Real Founders, Real Results",
         description: "Hear from founders who worked with Mr² Labs. Platform delivered in 48 hours. See what clients say.",
         url: "https://mr2labs.com/testimonials",
         siteName: "Mr² Labs",
@@ -18,7 +18,7 @@ export const metadata = {
                 url: "https://mr2labs.com/og/testimonials.png",
                 width: 1200,
                 height: 630,
-                alt: "Mr² Labs — Testimonials",
+                alt: "Mr² Labs - Testimonials",
             }
         ],
         locale: "en_US",
@@ -26,7 +26,7 @@ export const metadata = {
     },
     twitter: {
         card: "summary_large_image",
-        title: "Testimonials | Mr² Labs — Real Founders, Real Results",
+        title: "Testimonials | Mr² Labs - Real Founders, Real Results",
         description: "Hear from founders who worked with Mr² Labs. Platform delivered in 48 hours. See what clients say.",
         images: ["https://mr2labs.com/og/testimonials.png"],
         creator: "@mr2labs",

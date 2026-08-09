@@ -15,7 +15,7 @@ const montserrat = Montserrat({
 export const metadata = {
     metadataBase: new URL("https://mr2labs.com"),
     title: {
-        default: "Mr² Labs — AI & Software Development Agency",
+        default: "Mr² Labs - AI & Software Development Agency",
         template: "%s | Mr² Labs"
     },
     description: "We build and ship high-performance software, mobile apps, and AI products for founders. MVPs in days, not months.",
@@ -50,7 +50,7 @@ export const metadata = {
     },
     openGraph: {
         type: "website",
-        title: "Mr² Labs — AI & Software Development Agency",
+        title: "Mr² Labs - AI & Software Development Agency",
         description: "We build and ship high-performance software, mobile apps, and AI products for founders. MVPs in days, not months.",
         url: "https://mr2labs.com",
         siteName: "Mr² Labs",
@@ -59,14 +59,14 @@ export const metadata = {
                 url: "https://mr2labs.com/og/home.png",
                 width: 1200,
                 height: 630,
-                alt: "Mr² Labs — Home",
+                alt: "Mr² Labs - Home",
             },
         ],
         locale: "en_US",
     },
     twitter: {
         card: "summary_large_image",
-        title: "Mr² Labs — AI & Software Development Agency",
+        title: "Mr² Labs - AI & Software Development Agency",
         description: "We build and ship high-performance software, mobile apps, and AI products for founders. MVPs in days, not months.",
         images: ["https://mr2labs.com/og/home.png"],
         creator: "@mrr_labs",

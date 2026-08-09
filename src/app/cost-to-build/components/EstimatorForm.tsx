@@ -271,7 +271,7 @@ export default function EstimatorForm({ appTitle, baseFeatures, slug }: Estimato
                         <div className="relative rounded-2xl overflow-hidden">
                             {/* Ghost content beneath blur */}
                             <div className="p-5 bg-gradient-to-br from-blue-950/60 to-indigo-950/40 border border-blue-500/20 select-none pointer-events-none blur-sm">
-                                <p className="text-[10px] font-black text-blue-400 uppercase tracking-widest mb-3">⚡ Mr² Labs — 72hr Sprint</p>
+                                <p className="text-[10px] font-black text-blue-400 uppercase tracking-widest mb-3">⚡ Mr² Labs - 72hr Sprint</p>
                                 <div className="space-y-2 mb-4">
                                     {[0, 1, 2].map(i => (
                                         <div key={i} className="flex items-center gap-2">
@@ -409,11 +409,11 @@ export default function EstimatorForm({ appTitle, baseFeatures, slug }: Estimato
 
                         {/* Founder Partnership Promise */}
                         <div className="p-5 rounded-2xl border border-blue-500/20 bg-gradient-to-br from-blue-500/5 to-indigo-500/5">
-                            <p className="text-[10px] font-black text-blue-400 uppercase tracking-widest mb-3">🤝 {estimateData.isSimpleBuild ? 'Post-Launch Partnership' : 'The Full Journey — Not Just the MVP'}</p>
+                            <p className="text-[10px] font-black text-blue-400 uppercase tracking-widest mb-3">🤝 {estimateData.isSimpleBuild ? 'Post-Launch Partnership' : 'The Full Journey - Not Just the MVP'}</p>
                             <p className="text-sm text-slate-200 leading-relaxed mb-4">
                                 {estimateData.isSimpleBuild 
                                     ? "We don't just launch a site and disappear. We optimize for speed and conversions. You get complete ownership and a high-performance foundation built to grow."
-                                    : "We don't hand you the code and disappear. After the MVP we validate it together — real users, real feedback. Then when you're ready, we build the final product from 0 to 1, acting as your technical co-founder."}
+                                    : "We don't hand you the code and disappear. After the MVP we validate it together - real users, real feedback. Then when you're ready, we build the final product from 0 to 1, acting as your technical co-founder."}
                             </p>
                             {!estimateData.isSimpleBuild && (
                             <div className="grid grid-cols-3 gap-2 text-center">
@@ -437,7 +437,7 @@ export default function EstimatorForm({ appTitle, baseFeatures, slug }: Estimato
                             <p className="text-[10px] font-black text-slate-500 uppercase tracking-widest">Next Steps</p>
                             {[
                                 { n: '1', title: 'Book a Free 15-Min Call', desc: "We scope, align, and confirm your fixed sprint price. Zero commitment required." },
-                                { n: '2', title: 'Fixed Invoice — No Hourly Billing', desc: 'One flat rate. You know exactly what you pay before a single line of code.' },
+                                { n: '2', title: 'Fixed Invoice - No Hourly Billing', desc: 'One flat rate. You know exactly what you pay before a single line of code.' },
                                 { n: '3', title: estimateData.isSimpleBuild ? 'Website Live Fast' : 'MVP Live in 72 Hours', desc: 'Working code, deployed. Your idea becomes real. You own 100% of it.' },
                             ].map(step => (
                                 <div key={step.n} className="flex gap-3 group">

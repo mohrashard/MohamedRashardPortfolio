@@ -116,7 +116,7 @@ export async function POST(req: NextRequest) {
                     from: fromEmail,
                     replyTo: process.env.REPLY_TO_EMAIL,
                     to: email,
-                    subject: `🚀 Your ${estimateData.appName} Blueprint — Mr² Labs`,
+                    subject: `🚀 Your ${estimateData.appName} Blueprint - Mr² Labs`,
                     attachments,
                     html: `
 <!DOCTYPE html>
@@ -317,14 +317,14 @@ export async function POST(req: NextRequest) {
         }
 
         // ─────────────────────────────────────────────────────────
-        // PHASE A: AI Analysis — Gemini 2.5 Flash → Groq Fallback
+        // PHASE A: AI Analysis - Gemini 2.5 Flash → Groq Fallback
         // ─────────────────────────────────────────────────────────
         const geminiApiKey = process.env.GEMINI_API_KEY;
         const groqApiKey = process.env.GROQ_API_KEY;
 
         const prompt = `
 You are a senior CTO and expert software architect. A founder has described their app idea below.
-Analyze it and return ONLY a valid JSON object — no markdown, no backticks, no explanation.
+Analyze it and return ONLY a valid JSON object - no markdown, no backticks, no explanation.
 
 App Idea: "${idea}"
 Reference Slug: "${slug}"

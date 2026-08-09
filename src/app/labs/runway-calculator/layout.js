@@ -46,7 +46,7 @@ export default function RunwayCalculatorLayout({ children }) {
                 <p>
                     The Startup Runway Calculator is a financial diagnostic utility engineered by Mr² Labs. 
                     It is designed for startup founders, CEOs, and operators to evaluate their current burn rate and total capital runway.
-                    Crucially, the tool calculates the "Agency Overhead Deficit"—the amount of capital and time lost to slow development retainers.
+                    Crucially, the tool calculates the "Agency Overhead Deficit"-the amount of capital and time lost to slow development retainers.
                 </p>
                 <p>
                     By inputting total cash, monthly burn, and agency overhead, founders receive a mathematical breakdown of their extended runway 

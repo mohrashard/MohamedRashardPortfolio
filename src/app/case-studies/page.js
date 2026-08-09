@@ -5,10 +5,10 @@ import Image from 'next/image';
 import AvailabilityBadge from '../components/AvailabilityBadge';
 
 export const metadata = {
-    title: "Case Studies | Mr² Labs — Real Products We've Built",
+    title: "Case Studies | Mr² Labs - Real Products We've Built",
     description: "Explore how Mr² Labs built an AI EdTech platform in 14 days and a PWA marketplace in 72 hours for real founders.",
     openGraph: {
-        title: "Case Studies | Mr² Labs — Real Products We've Built",
+        title: "Case Studies | Mr² Labs - Real Products We've Built",
         description: "Explore how Mr² Labs built an AI EdTech platform in 14 days and a PWA marketplace in 72 hours for real founders.",
         url: "https://mr2labs.com/case-studies",
         siteName: "Mr² Labs",
@@ -17,7 +17,7 @@ export const metadata = {
                 url: "https://mr2labs.com/og/case-studies.png",
                 width: 1200,
                 height: 630,
-                alt: "Mr² Labs — Case Studies",
+                alt: "Mr² Labs - Case Studies",
             }
         ],
         locale: "en_US",
@@ -25,7 +25,7 @@ export const metadata = {
     },
     twitter: {
         card: "summary_large_image",
-        title: "Case Studies | Mr² Labs — Real Products We've Built",
+        title: "Case Studies | Mr² Labs - Real Products We've Built",
         description: "Explore how Mr² Labs built an AI EdTech platform in 14 days and a PWA marketplace in 72 hours for real founders.",
         images: ["https://mr2labs.com/og/case-studies.png"],
         creator: "@mr2labs",

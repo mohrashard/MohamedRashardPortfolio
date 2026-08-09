@@ -115,7 +115,7 @@
     }
 
     /* ============================================================
-       HERO ENTRY ANIMATIONS — play on page load, no JS needed
+       HERO ENTRY ANIMATIONS - play on page load, no JS needed
     ============================================================ */
     @keyframes hero-bg-rise {
         from { opacity: 0; transform: scale(1.06) translateY(20px); }
