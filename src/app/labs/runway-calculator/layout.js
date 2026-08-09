@@ -14,7 +14,7 @@ export const metadata = {
         description: "Calculate your exact startup runway and see the capital gained by eliminating agency overhead.",
         url: "https://mr2labs.com/labs/runway-calculator",
         type: "website",
-        images: [{ url: "/labs-hero-bg.png", width: 1200, height: 630, alt: "Startup Runway Calculator" }],
+        images: [{ url: "/labs-hero-bg.webp", width: 1200, height: 630, alt: "Startup Runway Calculator" }],
     },
     alternates: {
         canonical: "https://mr2labs.com/labs/runway-calculator",

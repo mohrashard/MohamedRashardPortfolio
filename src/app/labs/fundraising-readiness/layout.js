@@ -14,7 +14,7 @@ export const metadata = {
         description: "Calculate your exact fundraising readiness score before you pitch investors. Engineered by Mr² Labs.",
         url: "https://mr2labs.com/labs/fundraising-readiness",
         type: "website",
-        images: [{ url: "/labs-hero-bg.png", width: 1200, height: 630, alt: "Fundraising Readiness Scorecard" }],
+        images: [{ url: "/labs-hero-bg.webp", width: 1200, height: 630, alt: "Fundraising Readiness Scorecard" }],
     },
     alternates: {
         canonical: "https://mr2labs.com/labs/fundraising-readiness",

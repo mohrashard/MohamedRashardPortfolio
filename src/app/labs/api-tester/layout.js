@@ -14,7 +14,7 @@ export const metadata = {
         description: "Test your API latency, payload size, and uptime in real-time. Engineered by Mr² Labs.",
         url: "https://mr2labs.com/labs/api-tester",
         type: "website",
-        images: [{ url: "/labs-hero-bg.png", width: 1200, height: 630, alt: "API Response Time Tester" }],
+        images: [{ url: "/labs-hero-bg.webp", width: 1200, height: 630, alt: "API Response Time Tester" }],
     },
     alternates: {
         canonical: "https://mr2labs.com/labs/api-tester",

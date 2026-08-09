@@ -142,7 +142,6 @@ export default function RootLayout({ children }) {
                 <script dangerouslySetInnerHTML={{ __html: "document.documentElement.classList.add('js-enabled');" }} />
             </head>
             <body className={`${montserrat.variable} font-[var(--font-montserrat)] bg-[#050505] text-zinc-400 antialiased selection:bg-[#0066FF]/30`}>
-                <noscript>You need to enable JavaScript to run this app.</noscript>
                 {children}
                 <Footer />
                 <ExitIntentPopup />

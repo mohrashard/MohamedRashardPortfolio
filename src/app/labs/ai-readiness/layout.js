@@ -16,7 +16,7 @@ export const metadata = {
         description: "Calculate your exact AI automation potential and get a custom implementation roadmap. Engineered by Mr² Labs.",
         url: "https://mr2labs.com/labs/ai-readiness",
         type: "website",
-        images: [{ url: "/labs-hero-bg.png", width: 1200, height: 630, alt: "AI Readiness Scorer Diagnostic" }],
+        images: [{ url: "/labs-hero-bg.webp", width: 1200, height: 630, alt: "AI Readiness Scorer Diagnostic" }],
     },
     alternates: {
         canonical: "https://mr2labs.com/labs/ai-readiness",

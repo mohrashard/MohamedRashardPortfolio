@@ -14,7 +14,7 @@ export const metadata = {
         description: "Calculate your exact financial loss to manual tasks and generate a custom AI automation blueprint.",
         url: "https://mr2labs.com/labs/automation-calculator",
         type: "website",
-        images: [{ url: "/labs-hero-bg.png", width: 1200, height: 630, alt: "Automation ROI Calculator" }],
+        images: [{ url: "/labs-hero-bg.webp", width: 1200, height: 630, alt: "Automation ROI Calculator" }],
     },
     alternates: {
         canonical: "https://mr2labs.com/labs/automation-calculator",

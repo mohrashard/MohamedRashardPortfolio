@@ -120,7 +120,7 @@ export default async function ProductPage({ params }) {
             {/* Background Decoration: Gradient Vibes */}
             <div className="fixed inset-0 z-0 pointer-events-none overflow-hidden bg-[#050505]">
                 <Image
-                    src="/digital-assets-bg.png"
+                    src="/digital-assets-bg.webp"
                     alt="Background"
                     fill
                     priority

@@ -57,7 +57,7 @@ export default function GrabMeCaseStudy() {
                         </h3>
                         <div className="flex items-center gap-3 mb-4">
                             <div className="w-8 h-8 rounded bg-white/5 flex items-center justify-center p-0.5 border border-white/10 shadow-[0_0_10px_rgba(0,0,0,0.5)]">
-                                <Image src="/grabme.png" alt="Grab Me Logo" width={32} height={32} className="w-full h-full object-contain rounded-sm" />
+                                <Image src="/grabme.webp" alt="Grab Me Logo" width={32} height={32} className="w-full h-full object-contain rounded-sm" />
                             </div>
                             <h4 className="text-2xl font-bold text-white">Grab Me</h4>
                         </div>

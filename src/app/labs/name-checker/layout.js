@@ -14,7 +14,7 @@ export const metadata = {
         description: "Generate brandable startup names and verify domain availability in real-time. Engineered by Mr² Labs.",
         url: "https://mr2labs.com/labs/name-checker",
         type: "website",
-        images: [{ url: "/labs-hero-bg.png", width: 1200, height: 630, alt: "Startup Name & Domain Checker" }],
+        images: [{ url: "/labs-hero-bg.webp", width: 1200, height: 630, alt: "Startup Name & Domain Checker" }],
     },
     alternates: {
         canonical: "https://mr2labs.com/labs/name-checker",

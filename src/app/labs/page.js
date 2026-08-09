@@ -196,7 +196,7 @@ export default function Labs() {
             {/* Premium Background Image */}
             <div className="fixed inset-0 z-0 hero-bg-anim pointer-events-none">
                 <Image
-                    src="/labs-hero-bg.png"
+                    src="/labs-hero-bg.webp"
                     alt=""
                     fill
                     priority

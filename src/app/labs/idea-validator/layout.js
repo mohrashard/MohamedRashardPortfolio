@@ -14,7 +14,7 @@ export const metadata = {
         description: "Calculate your idea's exact viability score and get a technical execution blueprint. Engineered by Mr² Labs.",
         url: "https://mr2labs.com/labs/idea-validator",
         type: "website",
-        images: [{ url: "/labs-hero-bg.png", width: 1200, height: 630, alt: "Startup Idea Validator Diagnostic" }],
+        images: [{ url: "/labs-hero-bg.webp", width: 1200, height: 630, alt: "Startup Idea Validator Diagnostic" }],
     },
     alternates: {
         canonical: "https://mr2labs.com/labs/idea-validator",

@@ -13,7 +13,7 @@ export const metadata = {
         description: "Analyze your website's technical SEO architecture in real-time.",
         url: "https://mr2labs.com/labs/site-audit",
         type: "website",
-        images: [{ url: "/labs-hero-bg.png", width: 1200, height: 630, alt: "SEO Audit Tool" }],
+        images: [{ url: "/labs-hero-bg.webp", width: 1200, height: 630, alt: "SEO Audit Tool" }],
     },
     alternates: {
         canonical: "https://mr2labs.com/labs/site-audit",

@@ -14,7 +14,7 @@ export const metadata = {
         description: "Generate high-converting, personalized cold email variants for your specific audience. Engineered by Mr² Labs.",
         url: "https://mr2labs.com/labs/cold-email",
         type: "website",
-        images: [{ url: "/labs-hero-bg.png", width: 1200, height: 630, alt: "Cold Email Generator" }],
+        images: [{ url: "/labs-hero-bg.webp", width: 1200, height: 630, alt: "Cold Email Generator" }],
     },
     alternates: {
         canonical: "https://mr2labs.com/labs/cold-email",

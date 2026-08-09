@@ -91,7 +91,7 @@ export default function CostToBuildPage() {
             {/* Background Decoration */}
             <div className="fixed inset-0 z-0 pointer-events-none overflow-hidden bg-[#050505]">
                 <Image
-                    src="/cost-to-build-bg.png"
+                    src="/cost-to-build-bg.webp"
                     alt="Background"
                     fill
                     priority

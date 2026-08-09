@@ -1,24 +1,27 @@
 export const metadata = {
-    title: "AI Prompt Library for Technical Founders & Operators | Mr² Labs",
-    description: "Access a curated library of production-tested prompt frameworks for Next.js development, workflow automation, and growth marketing. Engineered by Mr² Labs.",
-    keywords: [
-        "AI Prompt Library",
-        "Prompt Engineering Frameworks",
-        "Next.js AI Prompts",
-        "Startup Founder Prompts",
-        "Automation Prompts",
-        "Mr² Labs Developer Tools"
-    ],
-    openGraph: {
-        title: "AI Prompt Library for Technical Founders & Operators",
-        description: "Curated, production-tested prompt structures to automate engineering, workflows, and marketing. Built by Mr² Labs.",
-        url: "https://mr2labs.com/labs/prompt-library",
-        type: "website",
-        images: [{ url: "/labs-hero-bg.png", width: 1200, height: 630, alt: "AI Prompt Library Workspace" }],
-    },
-    alternates: {
-        canonical: "https://mr2labs.com/labs/prompt-library",
-    },
+  title: "Free AI Prompt Library for Developers & Founders | Mr² Labs",
+  description: "100+ free, copy-paste AI prompts for Next.js development, workflow automation, lead generation, and growth marketing. Curated by Mr² Labs engineers.",
+  keywords: [
+    "free AI prompt library",
+    "AI prompts for developers",
+    "ChatGPT prompts for founders",
+    "Next.js AI prompts",
+    "prompt engineering templates",
+    "AI automation prompts",
+    "developer prompt library",
+    "startup founder prompts",
+    "Mr² Labs tools"
+  ],
+  openGraph: {
+    title: "Free AI Prompt Library — 100+ Prompts for Developers & Founders",
+    description: "Copy-paste AI prompts for Next.js, automation, lead gen, and marketing. Free, no signup required for most prompts.",
+    url: "https://mr2labs.com/labs/prompt-library",
+    type: "website",
+    images: [{ url: "/labs-hero-bg.webp", width: 1200, height: 630, alt: "Mr² Labs AI Prompt Library" }],
+  },
+  alternates: {
+    canonical: "https://mr2labs.com/labs/prompt-library",
+  },
 };
 
 export default function PromptLibraryLayout({ children }) {

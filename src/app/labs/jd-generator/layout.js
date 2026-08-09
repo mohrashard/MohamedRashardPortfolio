@@ -14,7 +14,7 @@ export const metadata = {
         description: "Generate stack-aware, no-nonsense job descriptions designed to attract senior engineers. Engineered by Mr² Labs.",
         url: "https://mr2labs.com/labs/jd-generator",
         type: "website",
-        images: [{ url: "/labs-hero-bg.png", width: 1200, height: 630, alt: "Tech Job Description Generator" }],
+        images: [{ url: "/labs-hero-bg.webp", width: 1200, height: 630, alt: "Tech Job Description Generator" }],
     },
     alternates: {
         canonical: "https://mr2labs.com/labs/jd-generator",

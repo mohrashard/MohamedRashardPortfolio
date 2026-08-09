@@ -14,7 +14,7 @@ export const metadata = {
         description: "Analyze any GitHub profile to calculate developer scores and assess technical hiring readiness.",
         url: "https://mr2labs.com/labs/github-analyzer",
         type: "website",
-        images: [{ url: "/labs-hero-bg.png", width: 1200, height: 630, alt: "GitHub Developer Profile Analyzer" }],
+        images: [{ url: "/labs-hero-bg.webp", width: 1200, height: 630, alt: "GitHub Developer Profile Analyzer" }],
     },
     alternates: {
         canonical: "https://mr2labs.com/labs/github-analyzer",

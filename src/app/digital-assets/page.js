@@ -79,7 +79,7 @@ export default function DigitalAssets() {
             {/* Premium Background Image */}
             <div className="fixed inset-0 z-0 pointer-events-none bg-[#050505] overflow-hidden">
                 <Image
-                    src="/digital-assets-bg.png"
+                    src="/digital-assets-bg.webp"
                     alt="Background"
                     fill
                     priority

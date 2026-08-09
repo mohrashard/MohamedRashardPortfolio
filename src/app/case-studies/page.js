@@ -50,7 +50,7 @@ export default function CaseStudiesIndex() {
             title: 'Grab Me',
             tag: 'PWA Marketplace',
             desc: 'A scalable, commission-free marketplace for local technicians built as a PWA MVP in a record-breaking 72-hour sprint.',
-            logo: '/grabme.png',
+            logo: '/grabme.webp',
             color: 'var(--primary)', 
             bgClasses: 'hover:border-[var(--primary)] shadow-[0_0_0_rgba(0,102,255,0)] hover:shadow-[0_15px_40px_rgba(0,102,255,0.15)]',
             gradient: 'from-[var(--primary)]/20'
@@ -62,7 +62,7 @@ export default function CaseStudiesIndex() {
             {/* Premium Background Image */}
             <div className="fixed inset-0 z-0 pointer-events-none bg-[#050505] overflow-hidden">
                 <Image
-                    src="/digital-assets-bg.png"
+                    src="/digital-assets-bg.webp"
                     alt="Background"
                     fill
                     priority

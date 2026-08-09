@@ -14,7 +14,7 @@ export const metadata = {
         description: "Output highly-optimized pricing tiers and copy tailored to your product. Engineered by Mr² Labs.",
         url: "https://mr2labs.com/labs/pricing-generator",
         type: "website",
-        images: [{ url: "/labs-hero-bg.png", width: 1200, height: 630, alt: "SaaS Pricing Page Generator" }],
+        images: [{ url: "/labs-hero-bg.webp", width: 1200, height: 630, alt: "SaaS Pricing Page Generator" }],
     },
     alternates: {
         canonical: "https://mr2labs.com/labs/pricing-generator",

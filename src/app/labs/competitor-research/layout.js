@@ -14,7 +14,7 @@ export const metadata = {
         description: "Generate a tactical hit-list of your direct competitors and find the exact gap your MVP needs to exploit. Engineered by Mr² Labs.",
         url: "https://mr2labs.com/labs/competitor-research",
         type: "website",
-        images: [{ url: "/labs-hero-bg.png", width: 1200, height: 630, alt: "Competitor Research Tool" }],
+        images: [{ url: "/labs-hero-bg.webp", width: 1200, height: 630, alt: "Competitor Research Tool" }],
     },
     alternates: {
         canonical: "https://mr2labs.com/labs/competitor-research",

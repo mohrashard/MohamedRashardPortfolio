@@ -16,7 +16,7 @@ export const metadata = {
         description: "Calculate the exact technology stack required to build and scale your startup MVP. Engineered by Mr² Labs.",
         url: "https://mr2labs.com/labs/stack-picker",
         type: "website",
-        images: [{ url: "/labs-hero-bg.png", width: 1200, height: 630, alt: "Tech Stack Recommender Diagnostic" }],
+        images: [{ url: "/labs-hero-bg.webp", width: 1200, height: 630, alt: "Tech Stack Recommender Diagnostic" }],
     },
     alternates: {
         canonical: "https://mr2labs.com/labs/stack-picker",

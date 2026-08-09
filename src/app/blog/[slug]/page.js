@@ -280,6 +280,15 @@ export default async function Post({ params }) {
                         </ReactMarkdown>
                     </article>
 
+                    <div className="mt-16 p-8 rounded-2xl bg-white/[0.02] border border-white/[0.06]">
+                      <p className="text-xs text-zinc-500 uppercase font-bold mb-2">Built by Mr² Labs</p>
+                      <h3 className="text-xl font-bold text-white mb-3">Need this built for your startup?</h3>
+                      <p className="text-zinc-400 text-sm mb-6">We ship production-ready AI systems and SaaS MVPs in 72 hours. No agency bloat.</p>
+                      <a href="/services#audit-form" className="inline-flex items-center gap-2 px-5 py-3 rounded-xl bg-[var(--primary)] text-white text-xs font-bold uppercase">
+                        Get a Free Technical Audit →
+                      </a>
+                    </div>
+
                     {/* Author Bio (SEO Trust Signal) */}
                     <div className="mt-20 p-8 rounded-[2rem] bg-[#050b14]/50 border border-[var(--primary)]/20 flex flex-col md:flex-row items-center md:items-start text-center md:text-left gap-6 shadow-inner">
                         <div className="relative shrink-0 w-20 h-20 rounded-3xl overflow-hidden shadow-[0_0_25px_rgba(0,102,255,0.25)] border border-white/10 ring-2 ring-[var(--primary)]/20">
