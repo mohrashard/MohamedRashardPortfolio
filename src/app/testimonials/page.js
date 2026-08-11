@@ -44,7 +44,7 @@ export default function TestimonialsPage() {
             {
                 "@type": "Review",
                 "author": { "@type": "Person", "name": "Ahmed H. Ifthikar" },
-                "reviewBody": "Mr² Labs delivered our entire platform in 48 hours. The speed, clarity, and quality were beyond what we expected.",
+                "reviewBody": "Mr² Labs delivered entire admin panel in 48 hours. The speed, clarity, and quality were beyond what we expected.",
                 "reviewRating": {
                     "@type": "Rating",
                     "ratingValue": "5",
@@ -220,7 +220,7 @@ export default function TestimonialsPage() {
                         
                         <div className="flex-1 flex flex-col justify-center relative z-10 mt-2 sm:mt-0 pt-6 sm:pt-0">
                             <p className="text-zinc-300 text-[15px] sm:text-[17px] leading-relaxed mb-6 font-['Inter',sans-serif]">
-                                Mr² Labs delivered our entire platform in 48 hours. The speed, clarity, and quality were beyond what we expected.
+                                Mr² Labs delivered entire admin panel in 48 hours. The speed, clarity, and quality were beyond what we expected.
                             </p>
                             <div className="flex justify-between items-end mt-auto">
                                 <div>
