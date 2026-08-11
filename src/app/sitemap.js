@@ -3,7 +3,7 @@ import { assets } from './digital-assets/data';
 import pseoData from '../data/pseo-slugs.json';
 
 export default async function sitemap() {
-  const baseUrl = "https://mr2labs.com";
+  const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://www.mr2labs.com";
 
   // 1. Static Routes
   const staticRoutes = [
