@@ -13,7 +13,7 @@ export async function POST(request) {
     const productName = answers["What is the name of your product?"] || "Startup";
 
     // Insert into Supabase
-    await supabase.from('leads').insert([{ 
+    const { error: dbError } = await supabase.from('leads').insert([{ 
         name: 'Pricing Generator', 
         email, 
         pain_point: `Generated pricing for: ${productName}`, 
@@ -22,6 +22,10 @@ export async function POST(request) {
         website: 'N/A', 
         outcome: 'Pricing Generator' 
     }]);
+    if (dbError) {
+      console.error('[SUPABASE ERROR]:', dbError.message);
+      return NextResponse.json({ error: 'Failed to record lead in database' }, { status: 500 });
+    }
 
     // Format tiers for email
     let tiersHtml = pricingResult.tiers.map(t => `

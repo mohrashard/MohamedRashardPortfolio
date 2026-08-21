@@ -13,7 +13,7 @@ export async function POST(request) {
     const topName = namesResult[0]?.name || "Startup";
 
     // Insert into Supabase
-    await supabase.from('leads').insert([{ 
+    const { error: dbError } = await supabase.from('leads').insert([{ 
         name: 'Name & Domain Checker', 
         email, 
         pain_point: `Generated names including: ${topName}`, 
@@ -22,6 +22,10 @@ export async function POST(request) {
         website: 'N/A', 
         outcome: 'Name Checker' 
     }]);
+    if (dbError) {
+      console.error('[SUPABASE ERROR]:', dbError.message);
+      return NextResponse.json({ error: 'Failed to record lead in database' }, { status: 500 });
+    }
 
     // Send the Blueprint email via Resend
     let namesHtml = namesResult.map(n => `

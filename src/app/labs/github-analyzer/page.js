@@ -228,7 +228,7 @@ export default function GithubAnalyzer() {
                                                 required value={email} onChange={(e) => setEmail(e.target.value)} 
                                                 className="w-full px-5 py-4 bg-[#0A0A0A] border border-white/[0.1] rounded-xl text-white focus:border-[var(--primary)] outline-none transition-all text-sm text-center" 
                                             />
-                                            <button type="submit" disabled={isSending || !email} className="w-full flex justify-center items-center gap-2 py-4 rounded-xl bg-[var(--primary)] text-white text-[11px] font-bold uppercase tracking-widest hover:bg-[#0055d4] disabled:opacity-50 transition-all shadow-[0_0_20px_rgba(0,102,255,0.3)]" style={fontLabel}>
+                                            <button type="submit" disabled={isSending || !email} className="w-full flex justify-center items-center gap-2 py-4 rounded-xl bg-[var(--primary)] text-white text-[11px] font-bold uppercase tracking-widest hover:bg-[#0055d4] disabled:opacity-50 transition-all shadow-md border border-white/5" style={fontLabel}>
                                                 {isSending ? <><Activity size={16} className="animate-spin" /> Fetching Report...</> : <><Unlock size={16} /> Reveal Hiring Verdict</>}
                                             </button>
                                         </form>
@@ -265,7 +265,7 @@ export default function GithubAnalyzer() {
                                             <p className="text-zinc-300 text-sm leading-relaxed max-w-lg mx-auto mb-6 italic" style={fontBody}>"{result.analysis.hire_recommendation}"</p>
                                             <p className="text-zinc-400 text-sm max-w-md mx-auto mb-8">If you need a guaranteed top-tier architect to build your MVP right the first time, Mr² Labs ships production-ready applications in 72 hours.</p>
                                             
-                                            <a href={process.env.NEXT_PUBLIC_CALENDLY_URL || "#"} target="_blank" className="inline-flex items-center justify-center gap-2 px-8 py-4 rounded-xl bg-[var(--primary)] text-white text-[11px] font-bold uppercase tracking-widest hover:bg-[#0055d4] transition-all shadow-[0_0_20px_rgba(0,102,255,0.3)]" style={fontLabel}>
+                                            <a href={process.env.NEXT_PUBLIC_CALENDLY_URL || "#"} target="_blank" className="inline-flex items-center justify-center gap-2 px-8 py-4 rounded-xl bg-[var(--primary)] text-white text-[11px] font-bold uppercase tracking-widest hover:bg-[#0055d4] transition-all shadow-md border border-white/5" style={fontLabel}>
                                                 Book MVP Deployment
                                             </a>
                                         </div>

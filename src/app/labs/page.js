@@ -316,7 +316,7 @@ export default function Labs() {
                         Transition from theoretical modeling to production execution. Mr² Labs deploys deterministic, enterprise-ready infrastructure in 48-72 hours.
                     </p>
                     <div data-animate="slide-up" data-delay="3">
-                        <Link href="/services#audit-form" className="inline-flex items-center gap-3 px-8 py-4 rounded bg-[var(--primary)] text-white text-[11px] font-bold uppercase tracking-widest hover:bg-[#0055d4] transition-all shadow-[0_0_20px_rgba(0,102,255,0.3)] hover:-translate-y-0.5" style={fontLabel}>
+                        <Link href="/services#audit-form" className="inline-flex items-center gap-3 px-8 py-4 rounded bg-[var(--primary)] text-white text-[11px] font-bold uppercase tracking-widest hover:bg-[#0055d4] transition-all shadow-md border border-white/5 hover:-translate-y-0.5" style={fontLabel}>
                             <span> Request Technical Audit </span>
                             <ChevronRight size={14} />
                         </Link>

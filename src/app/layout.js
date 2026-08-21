@@ -15,7 +15,7 @@ const montserrat = Montserrat({
 export const metadata = {
     metadataBase: new URL("https://mr2labs.com"),
     title: {
-        default: "Mr² Labs - AI & Software Development Agency",
+        default: "Mr² Labs - AI and Software Development Agency",
         template: "%s | Mr² Labs"
     },
     description: "We build and ship high-performance software, mobile apps, and AI products for founders. MVPs in days, not months.",
@@ -50,7 +50,7 @@ export const metadata = {
     },
     openGraph: {
         type: "website",
-        title: "Mr² Labs - AI & Software Development Agency",
+        title: "Mr² Labs - AI and Software Development Agency",
         description: "We build and ship high-performance software, mobile apps, and AI products for founders. MVPs in days, not months.",
         url: "https://mr2labs.com",
         siteName: "Mr² Labs",
@@ -66,7 +66,7 @@ export const metadata = {
     },
     twitter: {
         card: "summary_large_image",
-        title: "Mr² Labs - AI & Software Development Agency",
+        title: "Mr² Labs - AI and Software Development Agency",
         description: "We build and ship high-performance software, mobile apps, and AI products for founders. MVPs in days, not months.",
         images: ["https://mr2labs.com/og/home.png"],
         creator: "@mrr_labs",
@@ -121,23 +121,65 @@ export default function RootLayout({ children }) {
         }
     };
 
+    const faqSchema = {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+            {
+                "@type": "Question",
+                "name": "How fast can you build a SaaS MVP?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "We ship production-ready MVPs in as little as 48 to 72 hours, depending on the complexity of the feature set and AI integrations required."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Do you use local AI models or API integrations?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "We deploy both. We engineer local, subscription-free AI pipelines where possible, and integrate with top-tier APIs like Claude, OpenAI, and Gemini when necessary."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "What tech stack do you specialize in?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Our core architecture relies on Next.js, React Native, Supabase, and advanced AI agent frameworks, ensuring scalable and highly performant applications."
+                }
+            }
+        ]
+    };
+
     return (
         <html lang="en" className="scroll-smooth" suppressHydrationWarning>
             <head>
                 {/* External CSS Links */}
-                {/* Font Awesome - Standard Reliable Load */}
+                {/* Preconnect to external asset domains for faster DNS resolution */}
+                <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossOrigin="anonymous" />
+                <link rel="preconnect" href="https://cdn.jsdelivr.net" crossOrigin="anonymous" />
+                
+                {/* Standard Stylesheet Loads */}
                 <link
                     rel="stylesheet"
                     href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
                     crossOrigin="anonymous"
                     referrerPolicy="no-referrer"
                 />
-                <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css" />
+                <link 
+                    rel="stylesheet" 
+                    href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css" 
+                />
 
                 {/* JSON-LD Structured Data */}
                 <script
                     type="application/ld+json"
                     dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLdOrganization) }}
+                />
+                <script
+                    type="application/ld+json"
+                    dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
                 />
                 <script dangerouslySetInnerHTML={{ __html: "document.documentElement.classList.add('js-enabled');" }} />
             </head>

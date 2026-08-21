@@ -14,7 +14,7 @@ export async function POST(request) {
     const a = gitResult.analysis;
 
     // Insert into Supabase
-    await supabase.from('leads').insert([{ 
+    const { error: dbError } = await supabase.from('leads').insert([{ 
         name: 'GitHub Analyzer', 
         email, 
         pain_point: `Evaluated dev: ${m.username}. Score: ${m.baseScore}/100`, 
@@ -23,6 +23,10 @@ export async function POST(request) {
         website: `github.com/${m.username}`, 
         outcome: 'GitHub Analyzer' 
     }]);
+    if (dbError) {
+      console.error('[SUPABASE ERROR]:', dbError.message);
+      return NextResponse.json({ error: 'Failed to record lead in database' }, { status: 500 });
+    }
 
     // Send the Blueprint email via Resend
     await resend.emails.send({

@@ -183,7 +183,7 @@ export default async function Post({ params }) {
                     {/* Scroll to Read Pill */}
                     <ScrollReveal delay={0.3}>
                         <div className="flex justify-center mt-12 mb-5">
-                            <div className="flex items-center gap-2 px-5 py-2 rounded-full border border-blue-500/30 bg-blue-500/10 backdrop-blur-sm text-blue-300 text-[10px] font-bold uppercase tracking-[0.2em] shadow-[0_0_20px_rgba(0,102,255,0.15)]">
+                            <div className="flex items-center gap-2 px-5 py-2 rounded-full border border-blue-500/30 bg-blue-500/10 backdrop-blur-sm text-blue-300 text-[10px] font-bold uppercase tracking-[0.2em] shadow-md border border-white/5">
                                 <span className="w-1.5 h-1.5 rounded-full bg-[var(--accent)] animate-pulse"></span>
                                 Scroll to read
                                 <svg className="w-3.5 h-3.5 ml-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -197,7 +197,7 @@ export default async function Post({ params }) {
 
 
                 {/* Main Post Container - Glassmorphic Sheet */}
-                <div className="relative rounded-[2.5rem] bg-[#00102a]/40 backdrop-blur-[40px] border border-blue-500/20 shadow-[0_0_80px_rgba(0,102,255,0.07)] p-6 md:p-10 lg:p-14 mb-20 overflow-hidden">
+                <div className="relative rounded-[2.5rem] bg-[#00102a]/40 backdrop-blur-[40px] border border-blue-500/20 shadow-md border border-white/5 p-6 md:p-10 lg:p-14 mb-20 overflow-hidden">
                     {/* Ambient glow inside the post card */}
                     <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-blue-500/15 blur-[120px] rounded-full pointer-events-none -mt-40 -mr-40" />
 
@@ -243,7 +243,7 @@ export default async function Post({ params }) {
                                     if (className === 'cta-banner') {
                                         return (
                                             <ScrollReveal>
-                                                <div className="not-prose my-16 relative overflow-hidden rounded-[2rem] border border-[var(--primary)]/30 bg-[#050505]/80 backdrop-blur-xl p-10 md:p-14 text-center shadow-[0_0_60px_-10px_rgba(0,102,255,0.2)]" {...props}>
+                                                <div className="not-prose my-16 relative overflow-hidden rounded-[2rem] border border-[var(--primary)]/30 bg-[#050505]/80 backdrop-blur-xl p-10 md:p-14 text-center shadow-md border border-white/5" {...props}>
                                                     {/* Glow accents */}
                                                     <div className="pointer-events-none absolute -top-16 left-1/2 h-40 w-96 -translate-x-1/2 rounded-full bg-[var(--primary)]/20 blur-[100px]" />
                                                     <div className="pointer-events-none absolute -bottom-12 right-0 h-32 w-64 rounded-full bg-[var(--accent)]/15 blur-[80px]" />
@@ -261,7 +261,7 @@ export default async function Post({ params }) {
                                                     </p>
                                                     <a
                                                         href="/cost-to-build"
-                                                        className="relative inline-flex items-center gap-3 rounded-xl bg-[var(--primary)] px-8 py-4 text-xs font-bold uppercase tracking-[0.15em] text-white shadow-[0_0_30px_rgba(0,102,255,0.4)] transition-all duration-300 hover:bg-[#0055d4] hover:shadow-[0_0_45px_rgba(0,102,255,0.6)] hover:-translate-y-1 active:scale-95"
+                                                        className="relative inline-flex items-center gap-3 rounded-xl bg-[var(--primary)] px-8 py-4 text-xs font-bold uppercase tracking-[0.15em] text-white shadow-md border border-white/5 transition-all duration-300 hover:bg-[#0055d4] hover:shadow-md border border-white/5 hover:-translate-y-1 active:scale-95"
                                                     >
                                                         Calculate Build Cost
                                                         <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
@@ -291,7 +291,7 @@ export default async function Post({ params }) {
 
                     {/* Author Bio (SEO Trust Signal) */}
                     <div className="mt-20 p-8 rounded-[2rem] bg-[#050b14]/50 border border-[var(--primary)]/20 flex flex-col md:flex-row items-center md:items-start text-center md:text-left gap-6 shadow-inner">
-                        <div className="relative shrink-0 w-20 h-20 rounded-3xl overflow-hidden shadow-[0_0_25px_rgba(0,102,255,0.25)] border border-white/10 ring-2 ring-[var(--primary)]/20">
+                        <div className="relative shrink-0 w-20 h-20 rounded-3xl overflow-hidden shadow-md border border-white/5 border border-white/10 ring-2 ring-[var(--primary)]/20">
                             <Image src="/mr-squared-logo.png" alt="Mr² Labs" fill className="object-cover" />
                         </div>
                         <div>
@@ -312,7 +312,7 @@ export default async function Post({ params }) {
                         </div>
                         <div className="space-y-4">
                             {postData.faqs.map((faq, index) => (
-                                <details key={index} className="group relative rounded-[2rem] bg-[#00102a]/40 backdrop-blur-[20px] border border-blue-500/20 overflow-hidden transition-all duration-300 hover:bg-[#00102a]/60 hover:border-blue-500/40 hover:shadow-[0_0_40px_rgba(0,102,255,0.1)]">
+                                <details key={index} className="group relative rounded-[2rem] bg-[#00102a]/40 backdrop-blur-[20px] border border-blue-500/20 overflow-hidden transition-all duration-300 hover:bg-[#00102a]/60 hover:border-blue-500/40 hover:shadow-md border border-white/5">
                                     <div className="absolute top-0 right-0 w-32 h-32 bg-blue-500/10 blur-[50px] rounded-full pointer-events-none -mt-16 -mr-16" />
                                     <summary className="relative flex items-center justify-between p-6 md:p-8 cursor-pointer list-none text-lg font-bold text-slate-200 group-open:text-blue-400">
                                         <span className="pr-6">{faq.question}</span>

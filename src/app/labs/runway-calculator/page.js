@@ -178,7 +178,7 @@ export default function RunwayCalculator() {
                                     />
                                 </div>
                                 <div className="mt-8 flex justify-end">
-                                    <button onClick={handleNext} disabled={!currentInput.trim()} className="inline-flex items-center gap-3 px-8 py-4 rounded-xl bg-white text-black text-xs font-bold uppercase tracking-[0.15em] hover:bg-zinc-200 hover:scale-[1.02] active:scale-[0.98] disabled:opacity-30 disabled:hover:scale-100 transition-all shadow-[0_0_20px_rgba(255,255,255,0.1)]" style={fontLabel}>
+                                    <button onClick={handleNext} disabled={!currentInput.trim()} className="inline-flex items-center gap-3 px-8 py-4 rounded-xl bg-white text-black text-xs font-bold uppercase tracking-[0.15em] hover:bg-zinc-200 hover:scale-[1.02] active:scale-[0.98] disabled:opacity-30 disabled:hover:scale-100 transition-all shadow-md border border-white/5" style={fontLabel}>
                                         {step === QUESTIONS.length - 1 ? "Calculate Runway" : "Next Parameter"} <ChevronRight size={16} />
                                     </button>
                                 </div>
@@ -234,7 +234,7 @@ export default function RunwayCalculator() {
                                     </div>
 
                                     {/* Optimized Runway */}
-                                    <div className="p-6 print:p-4 rounded-2xl bg-emerald-500/10 border border-emerald-500/30 flex flex-col items-center justify-center text-center relative overflow-hidden print:break-inside-avoid shadow-[0_0_30px_rgba(16,185,129,0.15)] print:shadow-none print:border-emerald-500/50">
+                                    <div className="p-6 print:p-4 rounded-2xl bg-emerald-500/10 border border-emerald-500/30 flex flex-col items-center justify-center text-center relative overflow-hidden print:break-inside-avoid shadow-md border border-white/5 print:shadow-none print:border-emerald-500/50">
                                         <div className="print:hidden absolute top-0 right-0 w-20 h-20 bg-emerald-500/20 rounded-full blur-2xl" />
                                         <ShieldCheck size={20} className="text-emerald-400 mb-3 print:mb-2 relative z-10" />
                                         <div className="text-[9px] font-bold uppercase tracking-widest text-emerald-300 mb-2 print:mb-1 relative z-10" style={fontLabel}>Runway w/o Agency</div>
@@ -242,7 +242,7 @@ export default function RunwayCalculator() {
                                     </div>
 
                                     {/* Capital Saved */}
-                                    <div className="p-6 print:p-4 rounded-2xl bg-[var(--primary)]/10 border border-[var(--primary)]/30 flex flex-col items-center justify-center text-center print:break-inside-avoid shadow-[0_0_30px_rgba(0,102,255,0.15)] print:shadow-none print:border-[var(--primary)]/50">
+                                    <div className="p-6 print:p-4 rounded-2xl bg-[var(--primary)]/10 border border-[var(--primary)]/30 flex flex-col items-center justify-center text-center print:break-inside-avoid shadow-md border border-white/5 print:shadow-none print:border-[var(--primary)]/50">
                                         <DollarSign size={20} className="text-[var(--primary)] mb-3 print:mb-2" />
                                         <div className="text-[9px] font-bold uppercase tracking-widest text-[var(--accent)] mb-2 print:mb-1" style={fontLabel}>Annual Capital Saved</div>
                                         <h3 className="text-3xl print:text-2xl font-black text-white tabular-nums" style={fontHeadline}>${Number(result.metrics.capitalSavedAnnually).toLocaleString()}</h3>

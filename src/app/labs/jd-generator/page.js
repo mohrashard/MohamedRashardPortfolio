@@ -163,7 +163,7 @@ export default function JDGenerator() {
                                     />
                                 </div>
                                 <div className="mt-8 flex justify-end">
-                                    <button onClick={handleNext} disabled={!currentInput.trim()} className="inline-flex items-center gap-3 px-8 py-4 rounded-xl bg-[var(--primary)] text-white text-xs font-bold uppercase tracking-[0.15em] hover:bg-[#0055d4] disabled:opacity-30 transition-all shadow-[0_0_20px_rgba(0,102,255,0.3)]" style={fontLabel}>
+                                    <button onClick={handleNext} disabled={!currentInput.trim()} className="inline-flex items-center gap-3 px-8 py-4 rounded-xl bg-[var(--primary)] text-white text-xs font-bold uppercase tracking-[0.15em] hover:bg-[#0055d4] disabled:opacity-30 transition-all shadow-md border border-white/5" style={fontLabel}>
                                         {step === QUESTIONS.length - 1 ? "Generate JD" : "Next"} <ChevronRight size={16} />
                                     </button>
                                 </div>
@@ -264,7 +264,7 @@ export default function JDGenerator() {
                                                     <button onClick={() => window.print()} className="flex items-center justify-center gap-2 px-4 py-3.5 rounded-xl bg-white text-black text-[10px] font-bold uppercase tracking-widest hover:bg-zinc-200 transition-all w-full" style={fontLabel}>
                                                         <Download size={14} /> Download JD
                                                     </button>
-                                                    <a href={process.env.NEXT_PUBLIC_CALENDLY_URL || "https://calendly.com/mohrashard/30min"} target="_blank" className="flex items-center justify-center gap-2 px-4 py-3.5 rounded-xl bg-[var(--primary)] text-white text-[10px] font-bold uppercase tracking-widest hover:bg-[#0055d4] transition-all shadow-[0_0_20px_rgba(0,102,255,0.4)]" style={fontLabel}>
+                                                    <a href={process.env.NEXT_PUBLIC_CALENDLY_URL || "https://calendly.com/mohrashard/30min"} target="_blank" className="flex items-center justify-center gap-2 px-4 py-3.5 rounded-xl bg-[var(--primary)] text-white text-[10px] font-bold uppercase tracking-widest hover:bg-[#0055d4] transition-all shadow-md border border-white/5" style={fontLabel}>
                                                         Skip Hiring. Book Deployment
                                                     </a>
                                                 </div>
@@ -274,7 +274,7 @@ export default function JDGenerator() {
                                                         <Mail size={18} className="absolute left-5 top-1/2 -translate-y-1/2 text-zinc-500"/>
                                                         <input type="email" placeholder="founder@startup.com" required value={email} onChange={(e) => setEmail(e.target.value)} className="w-full pl-14 pr-5 py-4 bg-[#0A0A0A] border border-white/[0.1] rounded-xl text-white focus:border-[var(--primary)] outline-none transition-all" />
                                                     </div>
-                                                    <button type="submit" disabled={isSending || !email} className="w-full flex justify-center items-center gap-2 py-4 rounded-xl bg-[var(--primary)] text-white text-xs font-bold uppercase tracking-widest hover:bg-[#0055d4] disabled:opacity-50 transition-all shadow-[0_0_20px_rgba(0,102,255,0.3)]" style={fontLabel}>
+                                                    <button type="submit" disabled={isSending || !email} className="w-full flex justify-center items-center gap-2 py-4 rounded-xl bg-[var(--primary)] text-white text-xs font-bold uppercase tracking-widest hover:bg-[#0055d4] disabled:opacity-50 transition-all shadow-md border border-white/5" style={fontLabel}>
                                                         {isSending ? <><Activity size={18} className="animate-spin"/> Saving...</> : <><Zap size={18} /> Unlock Download & Next Steps</>}
                                                     </button>
                                                 </form>

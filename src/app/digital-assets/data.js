@@ -117,27 +117,27 @@ export const assets = [
         <tr class="border-b border-gray-800 hover:bg-white/5 transition-colors">
             <td class="p-4 font-bold text-slate-300">Resolution</td>
             <td class="p-4 text-slate-400">Low (720p/1080p)</td>
-            <td class="p-4 font-bold text-green-400 shadow-[0_0_15px_rgba(74,222,128,0.1)]">Infinite (4K/8K+)</td>
+            <td class="p-4 font-bold text-green-400 shadow-md border border-white/5">Infinite (4K/8K+)</td>
         </tr>
         <tr class="border-b border-gray-800 hover:bg-white/5 transition-colors">
             <td class="p-4 font-bold text-slate-300">Duration</td>
             <td class="p-4 text-slate-400">Short (3-5 seconds)</td>
-            <td class="p-4 font-bold text-green-400 shadow-[0_0_15px_rgba(74,222,128,0.1)]">Unlimited (Runs forever)</td>
+            <td class="p-4 font-bold text-green-400 shadow-md border border-white/5">Unlimited (Runs forever)</td>
         </tr>
         <tr class="border-b border-gray-800 hover:bg-white/5 transition-colors">
             <td class="p-4 font-bold text-slate-300">Editing</td>
             <td class="p-4 text-slate-400">Hard to change details</td>
-            <td class="p-4 font-bold text-green-400 shadow-[0_0_15px_rgba(74,222,128,0.1)]">Instant (Just ask AI)</td>
+            <td class="p-4 font-bold text-green-400 shadow-md border border-white/5">Instant (Just ask AI)</td>
         </tr>
         <tr class="border-b border-gray-800 hover:bg-white/5 transition-colors">
             <td class="p-4 font-bold text-slate-300">File Size</td>
             <td class="p-4 text-slate-400">Huge (Gigabytes)</td>
-            <td class="p-4 font-bold text-green-400 shadow-[0_0_15px_rgba(74,222,128,0.1)]">Tiny (Kilobytes)</td>
+            <td class="p-4 font-bold text-green-400 shadow-md border border-white/5">Tiny (Kilobytes)</td>
         </tr>
         <tr class="border-b border-gray-800 hover:bg-white/5 transition-colors">
             <td class="p-4 font-bold text-slate-300">Cost</td>
             <td class="p-4 text-slate-400">Monthly Credits</td>
-            <td class="p-4 font-bold text-green-400 shadow-[0_0_15px_rgba(74,222,128,0.1)]">Unlimited Free Generation</td>
+            <td class="p-4 font-bold text-green-400 shadow-md border border-white/5">Unlimited Free Generation</td>
         </tr>
     </tbody>
 </table>

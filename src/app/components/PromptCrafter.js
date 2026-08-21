@@ -112,7 +112,7 @@ export default function PromptCrafter() {
                                 <button 
                                     type="submit" 
                                     disabled={isSendingLead || !email} 
-                                    className="w-full flex justify-center items-center gap-2 py-4 rounded-xl bg-[var(--primary)] text-white text-xs font-bold uppercase tracking-widest hover:bg-[#0055d4] disabled:opacity-50 transition-all shadow-[0_0_20px_rgba(0,102,255,0.3)]" 
+                                    className="w-full flex justify-center items-center gap-2 py-4 rounded-xl bg-[var(--primary)] text-white text-xs font-bold uppercase tracking-widest hover:bg-[#0055d4] disabled:opacity-50 transition-all shadow-md border border-white/5" 
                                     style={fontLabel}
                                 >
                                     {isSendingLead ? <><Activity size={16} className="animate-spin" /> Unlocking...</> : <><Zap size={14} /> Unlock Custom Crafter</>}
@@ -147,7 +147,7 @@ export default function PromptCrafter() {
                                 <button 
                                     type="submit" 
                                     disabled={isCrafting || !crafterInput.trim()} 
-                                    className="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-[var(--primary)] text-white text-[10px] font-bold uppercase tracking-widest hover:bg-[#0055d4] disabled:opacity-30 transition-all shadow-[0_0_20px_rgba(0,102,255,0.3)]" 
+                                    className="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-[var(--primary)] text-white text-[10px] font-bold uppercase tracking-widest hover:bg-[#0055d4] disabled:opacity-30 transition-all shadow-md border border-white/5" 
                                     style={fontLabel}
                                 >
                                     {isCrafting ? <><Activity size={14} className="animate-spin" /> Engineering Prompt...</> : <><Terminal size={14} /> Generate Master Prompt</>}

@@ -201,7 +201,7 @@ const DesktopCTA = React.forwardRef(function DesktopCTA(_, ref) {
                 </p>
                 <Link
                     href="/services#audit-form"
-                    className="inline-flex items-center gap-2 px-6 py-3.5 bg-[var(--primary)] hover:bg-[#0055d4] text-white text-[11px] font-bold tracking-[0.15em] uppercase rounded-xl transition-all duration-300 shadow-[0_0_30px_rgba(0,102,255,0.4)] hover:shadow-[0_0_50px_rgba(0,102,255,0.6)] hover:-translate-y-0.5 active:scale-[0.98]"
+                    className="inline-flex items-center gap-2 px-6 py-3.5 bg-[var(--primary)] hover:bg-[#0055d4] text-white text-[11px] font-bold tracking-[0.15em] uppercase rounded-xl transition-all duration-300 shadow-md border border-white/5 hover:shadow-md border border-white/5 hover:-translate-y-0.5 active:scale-[0.98]"
                     style={fontLabel}
                 >
                     Initiate System Audit <ArrowUpRight size={14} />
@@ -340,7 +340,7 @@ function MobileCarousel({ allCases }) {
                                 </p>
                                 <Link
                                     href="/services#audit-form"
-                                    className="inline-flex items-center gap-2 px-6 py-3.5 bg-[var(--primary)] text-white text-[11px] font-bold tracking-[0.15em] uppercase rounded-xl shadow-[0_0_24px_rgba(0,102,255,0.4)] active:scale-95 transition-transform"
+                                    className="inline-flex items-center gap-2 px-6 py-3.5 bg-[var(--primary)] text-white text-[11px] font-bold tracking-[0.15em] uppercase rounded-xl shadow-md border border-white/5 active:scale-95 transition-transform"
                                     style={fontLabel}
                                 >
                                     Initiate System Audit <ArrowUpRight size={13} />

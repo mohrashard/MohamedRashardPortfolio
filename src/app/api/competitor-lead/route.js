@@ -13,7 +13,7 @@ export async function POST(request) {
     const competitorsList = reportResult.competitors.map(c => c.name).join(', ');
 
     // Insert into Supabase
-    await supabase.from('leads').insert([{ 
+    const { error: dbError } = await supabase.from('leads').insert([{ 
         name: 'Competitor Analyzer', 
         email, 
         pain_point: `Competitors identified: ${competitorsList}`, 
@@ -22,6 +22,10 @@ export async function POST(request) {
         website: 'N/A', 
         outcome: 'Competitor Research' 
     }]);
+    if (dbError) {
+      console.error('[SUPABASE ERROR]:', dbError.message);
+      return NextResponse.json({ error: 'Failed to record lead in database' }, { status: 500 });
+    }
 
     // Send the Blueprint email via Resend
     let competitorHtml = reportResult.competitors.map(c => `

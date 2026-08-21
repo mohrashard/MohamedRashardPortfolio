@@ -217,7 +217,7 @@ export default function AIReadinessScorer() {
                                     <button 
                                         onClick={handleNext}
                                         disabled={!currentInput.trim()}
-                                        className="inline-flex items-center gap-3 px-8 py-4 rounded-xl bg-white text-black text-xs font-bold uppercase tracking-[0.15em] hover:bg-zinc-200 hover:scale-[1.02] active:scale-[0.98] disabled:opacity-30 disabled:hover:scale-100 transition-all shadow-[0_0_20px_rgba(255,255,255,0.1)]"
+                                        className="inline-flex items-center gap-3 px-8 py-4 rounded-xl bg-white text-black text-xs font-bold uppercase tracking-[0.15em] hover:bg-zinc-200 hover:scale-[1.02] active:scale-[0.98] disabled:opacity-30 disabled:hover:scale-100 transition-all shadow-md border border-white/5"
                                         style={fontLabel}
                                     >
                                         {step === QUESTIONS.length - 1 ? "Analyze Infrastructure" : "Next Parameter"} <ChevronRight size={16} />
@@ -279,7 +279,7 @@ export default function AIReadinessScorer() {
                                     <div className="relative w-36 h-36 flex-shrink-0 flex items-center justify-center">
                                         <svg className="absolute inset-0 w-full h-full transform -rotate-90" viewBox="0 0 100 100">
                                             <circle cx="50" cy="50" r="45" fill="none" stroke="currentColor" strokeWidth="2" className="text-white/[0.05]" />
-                                            <circle cx="50" cy="50" r="45" fill="none" stroke="currentColor" strokeWidth="4" className="text-[var(--primary)] drop-shadow-[0_0_10px_rgba(0,102,255,0.5)] transition-all duration-1000 ease-out" 
+                                            <circle cx="50" cy="50" r="45" fill="none" stroke="currentColor" strokeWidth="4" className="text-[var(--primary)] drop-shadow-md border border-white/5 transition-all duration-1000 ease-out" 
                                                 strokeDasharray="283" 
                                                 strokeDashoffset={283 - (283 * result.score) / 100}
                                                 strokeLinecap="round" 

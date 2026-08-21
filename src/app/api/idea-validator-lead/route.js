@@ -13,7 +13,7 @@ export async function POST(request) {
     const ideaData = `Score: ${valResult.score}/100. Verdict: ${valResult.verdict}`;
 
     // Insert into Supabase
-    await supabase.from('leads').insert([{ 
+    const { error: dbError } = await supabase.from('leads').insert([{ 
         name: 'Idea Validator', 
         email, 
         pain_point: ideaData, 
@@ -22,6 +22,10 @@ export async function POST(request) {
         website: 'N/A', 
         outcome: 'Idea Validator' 
     }]);
+    if (dbError) {
+      console.error('[SUPABASE ERROR]:', dbError.message);
+      return NextResponse.json({ error: 'Failed to record lead in database' }, { status: 500 });
+    }
 
     // Send the Blueprint email via Resend
     const { error: emailError } = await resend.emails.send({

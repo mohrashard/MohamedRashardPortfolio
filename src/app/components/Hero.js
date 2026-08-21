@@ -85,21 +85,11 @@ export default function Hero() {
                     initial={{ opacity: 0, y: 14 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.7, delay: 0.15 }}
-                    className="text-lg sm:text-xl md:text-2xl font-medium text-zinc-300"
+                    className="text-lg sm:text-xl md:text-2xl font-medium text-zinc-300 max-w-2xl mx-auto"
                 >
-                    <span className="text-[var(--primary)] font-semibold">Rapid Software & AI Labs.</span> <span className="block sm:inline">Architecting systems from Sri Lanka.</span>
+                    <span className="text-[var(--primary)] font-semibold">High-performance AI tools and tailored web apps.</span> <span className="block sm:inline">Built to eliminate your technical debt and scale your revenue.</span>
                 </motion.h2>
 
-                {/* Sub-description */}
-                <motion.p
-                    initial={{ opacity: 0, y: 12 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.7, delay: 0.2 }}
-                    className="text-zinc-400 max-w-xl text-xs sm:text-sm md:text-base leading-relaxed font-normal opacity-90 mx-auto px-2 sm:px-0"
-                    style={fontBody}
-                >
-                    High-performance AI tools, SaaS platforms, and tailored web apps for founders who are done waiting. Trusted by global startups to deliver scalable revenue ecosystems.
-                </motion.p>
 
                 {/* Primary Action Row */}
                 <motion.div
@@ -112,7 +102,7 @@ export default function Hero() {
                         href="/services#audit-form"
                         whileHover={{ scale: 1.02 }}
                         whileTap={{ scale: 0.98 }}
-                        className="w-full sm:w-auto px-6 py-3 sm:px-8 sm:py-3.5 bg-[var(--primary)] hover:bg-[#0055d4] text-white text-[10px] sm:text-[11px] md:text-xs font-bold tracking-[0.15em] uppercase rounded-full sm:rounded-lg transition-all duration-300 flex items-center justify-center gap-2 shadow-[0_0_40px_rgba(0,102,255,0.5)] hover:shadow-[0_0_60px_rgba(0,102,255,0.7)]"
+                        className="w-full sm:w-auto px-6 py-3 sm:px-8 sm:py-3.5 bg-[var(--primary)] hover:bg-[#0055d4] text-white text-[10px] sm:text-[11px] md:text-xs font-bold tracking-[0.15em] uppercase rounded-full sm:rounded-lg transition-all duration-300 flex items-center justify-center gap-2 shadow-md border border-white/5 hover:shadow-md border border-white/5"
                         style={fontLabel}
                     >
                         <span>Build Your AI System</span>
@@ -187,7 +177,7 @@ export default function Hero() {
                 <div className="absolute z-30 flex flex-col items-center">
                     <motion.div
                         whileHover={{ scale: 1.04 }}
-                        className="w-20 h-20 border border-[var(--primary)]/50 bg-[var(--primary)]/[0.05] backdrop-blur-2xl shadow-[0_0_40px_rgba(0,102,255,0.3)] rounded-2xl flex items-center justify-center cursor-pointer group relative overflow-hidden"
+                        className="w-20 h-20 border border-[var(--primary)]/50 bg-[var(--primary)]/[0.05] backdrop-blur-2xl shadow-md border border-white/5 rounded-2xl flex items-center justify-center cursor-pointer group relative overflow-hidden"
                     >
                         <div className="absolute inset-0 bg-gradient-to-br from-[var(--primary)]/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none" />
                         <div className="absolute inset-0 bg-[var(--accent)]/10 opacity-0 group-hover:opacity-100 blur-xl transition-opacity duration-300 pointer-events-none" />

@@ -11,7 +11,7 @@ export async function POST(request) {
     if (!email) return NextResponse.json({ error: 'Missing email' }, { status: 400 });
 
     // Insert into Supabase
-    await supabase.from('leads').insert([{ 
+    const { error: dbError } = await supabase.from('leads').insert([{ 
         name: 'Fundraising Scorecard', 
         email, 
         pain_point: `Score: ${score}/100. Gaps: ${gaps.length}`, 
@@ -20,6 +20,10 @@ export async function POST(request) {
         website: 'N/A', 
         outcome: 'Fundraising Readiness' 
     }]);
+    if (dbError) {
+      console.error('[SUPABASE ERROR]:', dbError.message);
+      return NextResponse.json({ error: 'Failed to record lead in database' }, { status: 500 });
+    }
 
     // Format gaps for email
     let gapsHtml = gaps.length > 0 

@@ -233,7 +233,7 @@ export default function PipelineSection() {
                     >
                         {/* Animated travelling dot */}
                         <div
-                            className="absolute left-1/2 -translate-x-1/2 w-1.5 h-1.5 rounded-full bg-[var(--accent)] shadow-[0_0_8px_var(--accent)]"
+                            className="absolute left-1/2 -translate-x-1/2 w-1.5 h-1.5 rounded-full bg-[var(--accent)] shadow-md border border-white/5"
                             style={{
                                 top: `${lineHeight}%`,
                                 transition: 'top 2.5s cubic-bezier(0.22, 1, 0.36, 1)',

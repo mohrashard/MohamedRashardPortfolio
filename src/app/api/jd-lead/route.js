@@ -13,7 +13,7 @@ export async function POST(request) {
     const roleTitle = answers["What role are you hiring for? (e.g., Founding Full Stack Engineer)"] || jdResult.role_title;
 
     // Insert into Supabase
-    await supabase.from('leads').insert([{ 
+    const { error: dbError } = await supabase.from('leads').insert([{ 
         name: 'JD Generator', 
         email, 
         pain_point: `Hiring for: ${roleTitle}`, 
@@ -22,6 +22,10 @@ export async function POST(request) {
         website: 'N/A', 
         outcome: 'JD Generator' 
     }]);
+    if (dbError) {
+      console.error('[SUPABASE ERROR]:', dbError.message);
+      return NextResponse.json({ error: 'Failed to record lead in database' }, { status: 500 });
+    }
 
     // Send the Blueprint email via Resend
     let listHtml = (title, items) => `

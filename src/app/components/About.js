@@ -165,7 +165,7 @@ function MilestoneItem({ m, last }) {
             <div className="flex-shrink-0 w-11 sm:w-13 flex flex-col items-center pt-1">
                 <span
                     className={`w-3 h-3 rounded-full border flex-shrink-0 transition-all duration-500 ${m.accent
-                        ? "bg-[var(--primary)] border-[var(--primary)] shadow-[0_0_14px_rgba(0,102,255,0.55)]"
+                        ? "bg-[var(--primary)] border-[var(--primary)] shadow-md border border-white/5"
                         : "bg-zinc-800 border-zinc-700 group-hover:border-[var(--primary)]/50"
                         }`}
                 />
@@ -440,7 +440,7 @@ export default function About() {
                             </div>
                             <Link
                                 href="/services#audit-form"
-                                className="inline-flex items-center justify-center gap-2 w-full px-7 py-3.5 bg-[var(--primary)] hover:bg-[#0055d4] active:scale-[0.98] text-white text-[11px] font-bold tracking-[0.15em] uppercase rounded-xl transition-all duration-300 shadow-[0_0_28px_rgba(0,102,255,0.4)] hover:shadow-[0_0_48px_rgba(0,102,255,0.6)]"
+                                className="inline-flex items-center justify-center gap-2 w-full px-7 py-3.5 bg-[var(--primary)] hover:bg-[#0055d4] active:scale-[0.98] text-white text-[11px] font-bold tracking-[0.15em] uppercase rounded-xl transition-all duration-300 shadow-md border border-white/5 hover:shadow-md border border-white/5"
                                 style={fontLabel}
                             >
                                 <span>Initiate System Audit</span>

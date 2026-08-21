@@ -3,7 +3,7 @@ export default function robots() {
     rules: {
       userAgent: "*",
       allow: "/",
-      disallow: ["/api/", "/_next/"],
+      disallow: ["/api/"],
     },
     sitemap: "https://mr2labs.com/sitemap.xml",
   };

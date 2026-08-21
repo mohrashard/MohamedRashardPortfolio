@@ -170,7 +170,7 @@ export default async function ProductPage({ params }) {
                             <div className="w-px h-4 bg-white/20"></div>
                             {asset.tech.map((t, i) => (
                                 <div key={i} className="px-3 py-1.5 rounded-lg bg-[#0a0a0a] border border-white/5 text-[11px] font-bold text-slate-200 flex items-center gap-2" style={fontLabel}>
-                                    <div className="w-1.5 h-1.5 rounded-full bg-[var(--accent)] shadow-[0_0_8px_rgba(56,189,248,0.8)]"></div>
+                                    <div className="w-1.5 h-1.5 rounded-full bg-[var(--accent)] shadow-md border border-white/5"></div>
                                     {t}
                                 </div>
                             ))}
@@ -181,7 +181,7 @@ export default async function ProductPage({ params }) {
                     <div className="lg:col-span-5 flex flex-col justify-start">
                         {/* Breadcrumb / Category */}
                         <div className="flex items-center gap-3 mb-4" style={fontLabel}>
-                            <span className="text-[var(--primary)] text-xs font-bold uppercase tracking-widest bg-[var(--primary)]/10 px-3 py-1 rounded-full border border-[var(--primary)]/20 shadow-[0_0_15px_rgba(0,102,255,0.2)]">
+                            <span className="text-[var(--primary)] text-xs font-bold uppercase tracking-widest bg-[var(--primary)]/10 px-3 py-1 rounded-full border border-[var(--primary)]/20 shadow-md border border-white/5">
                                 {asset.category}
                             </span>
                         </div>
@@ -234,7 +234,7 @@ export default async function ProductPage({ params }) {
 
                             {/* CTAs */}
                             <div className="flex flex-col gap-3 mb-6">
-                                <Link href={asset.buyLink || "#"} target="_blank" className="relative group w-full flex items-center justify-center gap-3 py-5 rounded-2xl bg-[var(--primary)] hover:bg-[#0055d4] text-white font-black text-lg tracking-wide overflow-hidden shadow-[0_0_30px_rgba(0,102,255,0.4)] hover:shadow-[0_0_50px_rgba(0,102,255,0.6)] transition-all duration-300 transform hover:-translate-y-1 active:scale-95" style={fontHeadline}>
+                                <Link href={asset.buyLink || "#"} target="_blank" className="relative group w-full flex items-center justify-center gap-3 py-5 rounded-2xl bg-[var(--primary)] hover:bg-[#0055d4] text-white font-black text-lg tracking-wide overflow-hidden shadow-md border border-white/5 hover:shadow-md border border-white/5 transition-all duration-300 transform hover:-translate-y-1 active:scale-95" style={fontHeadline}>
                                     <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000"></div>
                                     <i className="fas fa-unlock-alt"></i>
                                     <span>Get Instant Access Now</span>
@@ -351,7 +351,7 @@ export default async function ProductPage({ params }) {
                 <AnimatedSection delay={0.1} className="mt-24 p-10 md:p-14 rounded-[2.5rem] bg-gradient-to-br from-[#0a0a0a] to-[#050505] border border-white/10 shadow-2xl relative overflow-hidden flex flex-col md:flex-row items-center gap-10">
                     <div className="absolute top-0 right-0 w-64 h-64 bg-[var(--accent)]/10 blur-[100px] pointer-events-none"></div>
                     
-                    <div className="w-24 h-24 md:w-32 md:h-32 shrink-0 rounded-full bg-gradient-to-br from-amber-400 to-orange-600 flex items-center justify-center shadow-[0_0_50px_rgba(245,158,11,0.3)]">
+                    <div className="w-24 h-24 md:w-32 md:h-32 shrink-0 rounded-full bg-gradient-to-br from-amber-400 to-orange-600 flex items-center justify-center shadow-md border border-white/5">
                         <i className="fas fa-award text-5xl md:text-6xl text-white"></i>
                     </div>
                     
@@ -382,7 +382,7 @@ export default async function ProductPage({ params }) {
 
                     <div className="grid md:grid-cols-3 gap-8">
                         {assets.filter(a => a.slug !== asset.slug).slice(0, 3).map((item) => (
-                            <Link href={`/digital-assets/${item.slug}`} key={item.id} className="group flex flex-col bg-[#0a0a0a] border border-white/10 rounded-3xl overflow-hidden hover:border-[var(--primary)]/50 hover:shadow-[0_0_30px_rgba(0,102,255,0.15)] transition-all duration-500">
+                            <Link href={`/digital-assets/${item.slug}`} key={item.id} className="group flex flex-col bg-[#0a0a0a] border border-white/10 rounded-3xl overflow-hidden hover:border-[var(--primary)]/50 hover:shadow-md border border-white/5 transition-all duration-500">
                                 <div className="relative h-48 w-full overflow-hidden">
                                     <Image
                                         src={item.image}

@@ -162,7 +162,7 @@ export default function CompetitorResearch() {
                                     />
                                 </div>
                                 <div className="mt-8 flex justify-end">
-                                    <button onClick={handleNext} disabled={!currentInput.trim()} className="inline-flex items-center gap-3 px-8 py-4 rounded-xl bg-white text-black text-xs font-bold uppercase tracking-[0.15em] hover:bg-zinc-200 disabled:opacity-30 transition-all shadow-[0_0_20px_rgba(255,255,255,0.1)]" style={fontLabel}>
+                                    <button onClick={handleNext} disabled={!currentInput.trim()} className="inline-flex items-center gap-3 px-8 py-4 rounded-xl bg-white text-black text-xs font-bold uppercase tracking-[0.15em] hover:bg-zinc-200 disabled:opacity-30 transition-all shadow-md border border-white/5" style={fontLabel}>
                                         {step === QUESTIONS.length - 1 ? "Extract Vulnerabilities" : "Next Parameter"} <ChevronRight size={16} />
                                     </button>
                                 </div>

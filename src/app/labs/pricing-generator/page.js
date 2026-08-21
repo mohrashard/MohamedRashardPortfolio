@@ -216,7 +216,7 @@ export default function PricingGenerator() {
                                     />
                                 </div>
                                 <div className="mt-8 flex justify-end">
-                                    <button onClick={handleNext} disabled={!currentInput.trim()} className="inline-flex items-center gap-3 px-8 py-4 rounded-xl bg-white text-black text-xs font-bold uppercase tracking-[0.15em] hover:bg-zinc-200 disabled:opacity-30 transition-all shadow-[0_0_20px_rgba(255,255,255,0.1)]" style={fontLabel}>
+                                    <button onClick={handleNext} disabled={!currentInput.trim()} className="inline-flex items-center gap-3 px-8 py-4 rounded-xl bg-white text-black text-xs font-bold uppercase tracking-[0.15em] hover:bg-zinc-200 disabled:opacity-30 transition-all shadow-md border border-white/5" style={fontLabel}>
                                         {step === QUESTIONS.length - 1 ? "Generate Pricing" : "Next"} <ChevronRight size={16} />
                                     </button>
                                 </div>
@@ -254,7 +254,7 @@ export default function PricingGenerator() {
                                     {result.tiers.map((tier, i) => (
                                         <div key={i} className={`relative flex flex-col p-8 rounded-3xl print:break-inside-avoid ${
                                             tier.is_popular 
-                                            ? 'bg-gradient-to-b from-[var(--primary)]/10 to-transparent border-2 border-[var(--primary)]/50 shadow-[0_0_40px_rgba(0,102,255,0.15)] transform md:-translate-y-4' 
+                                            ? 'bg-gradient-to-b from-[var(--primary)]/10 to-transparent border-2 border-[var(--primary)]/50 shadow-md border border-white/5 transform md:-translate-y-4' 
                                             : 'bg-[#050505] border border-white/[0.08]'
                                         }`}>
                                             {tier.is_popular && (

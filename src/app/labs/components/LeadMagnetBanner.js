@@ -44,7 +44,7 @@ export default function LeadMagnetBanner() {
                     </p>
                     
                     {status === 'success' ? (
-                        <div className="inline-block px-10 py-5 rounded-2xl bg-green-500/10 border border-green-500/30 text-green-400 font-bold text-lg shadow-[0_0_30px_rgba(34,197,94,0.15)] animate-in fade-in zoom-in duration-300">
+                        <div className="inline-block px-10 py-5 rounded-2xl bg-green-500/10 border border-green-500/30 text-green-400 font-bold text-lg shadow-md border border-white/5 animate-in fade-in zoom-in duration-300">
                             <i className="fas fa-check-circle mr-3 text-xl"></i> Blueprint sent! Check your inbox.
                         </div>
                     ) : (
@@ -60,7 +60,7 @@ export default function LeadMagnetBanner() {
                             <button 
                                 type="submit" 
                                 disabled={status === 'loading'}
-                                className="px-8 py-4 rounded-2xl bg-white text-black font-black text-lg hover:bg-slate-200 transition-all shadow-[0_0_20px_rgba(255,255,255,0.1)] hover:shadow-[0_0_30px_rgba(255,255,255,0.3)] hover:-translate-y-0.5 disabled:opacity-70 disabled:hover:translate-y-0 flex items-center justify-center gap-3 whitespace-nowrap min-w-[240px]"
+                                className="px-8 py-4 rounded-2xl bg-white text-black font-black text-lg hover:bg-slate-200 transition-all shadow-md border border-white/5 hover:shadow-md border border-white/5 hover:-translate-y-0.5 disabled:opacity-70 disabled:hover:translate-y-0 flex items-center justify-center gap-3 whitespace-nowrap min-w-[240px]"
                             >
                                 {status === 'loading' ? (
                                     <><i className="fas fa-spinner fa-spin"></i> Sending...</>

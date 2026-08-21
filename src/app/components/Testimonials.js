@@ -318,7 +318,7 @@ export default function SystemTelemetry() {
                 <FadeUp className="mt-12 sm:mt-16 text-center" delay={0.08}>
                     <Link
                         href="/services#audit-form"
-                        className="group inline-flex items-center gap-3 px-7 sm:px-9 py-3.5 sm:py-4 rounded-xl bg-[var(--primary)] hover:bg-[#0055d4] active:scale-[0.98] text-white text-[11px] font-bold tracking-[0.15em] uppercase transition-all duration-300 shadow-[0_0_28px_rgba(0,102,255,0.35)] hover:shadow-[0_0_48px_rgba(0,102,255,0.55)]"
+                        className="group inline-flex items-center gap-3 px-7 sm:px-9 py-3.5 sm:py-4 rounded-xl bg-[var(--primary)] hover:bg-[#0055d4] active:scale-[0.98] text-white text-[11px] font-bold tracking-[0.15em] uppercase transition-all duration-300 shadow-md border border-white/5 hover:shadow-md border border-white/5"
                         style={fontLabel}
                     >
                         <span>Initiate a System Build</span>

@@ -56,7 +56,7 @@ export default function DigitalAssetsClient({ initialAssets }) {
                         onClick={() => setActiveFilter(filter)}
                         className={`px-6 py-2 rounded-full text-sm font-semibold border transition-all 
                         ${activeFilter === filter
-                                ? 'bg-white text-black border-white shadow-[0_0_15px_rgba(255,255,255,0.3)]'
+                                ? 'bg-white text-black border-white shadow-md border border-white/5'
                                 : 'bg-transparent text-slate-400 border-white/10 hover:border-white/30 hover:text-white'
                             }`}
                     >
@@ -83,7 +83,7 @@ export default function DigitalAssetsClient({ initialAssets }) {
                                 animate="show"
                                 exit="exit"
                             >
-                                <Link href={`/digital-assets/${asset.slug}`} className="group relative flex flex-col h-full bg-[#0a0a0a] border border-white/10 rounded-3xl overflow-hidden hover:border-[var(--primary)]/50 hover:shadow-[0_0_30px_rgba(0,102,255,0.15)] transition-all duration-500">
+                                <Link href={`/digital-assets/${asset.slug}`} className="group relative flex flex-col h-full bg-[#0a0a0a] border border-white/10 rounded-3xl overflow-hidden hover:border-[var(--primary)]/50 hover:shadow-md border border-white/5 transition-all duration-500">
 
                                     {/* Image Container */}
                                     <div className="relative h-60 w-full overflow-hidden bg-gray-900/50">

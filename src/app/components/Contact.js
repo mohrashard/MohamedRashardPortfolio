@@ -75,7 +75,7 @@ export default function Contact() {
                             className="flex flex-col items-center justify-center gap-4 bg-[var(--primary)]/10 hover:bg-[var(--primary)]/20 border border-[var(--primary)]/30 hover:border-[var(--primary)]/60 rounded-xl px-6 py-10 transition-all duration-300 group relative overflow-hidden"
                         >
                             <div className="absolute inset-0 bg-gradient-to-br from-[var(--primary)]/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-                            <div className="relative z-10 w-14 h-14 rounded-2xl bg-[var(--primary)]/20 text-[var(--primary)] flex items-center justify-center text-2xl group-hover:scale-110 group-hover:shadow-[0_0_30px_rgba(0,102,255,0.4)] transition-all duration-300">
+                            <div className="relative z-10 w-14 h-14 rounded-2xl bg-[var(--primary)]/20 text-[var(--primary)] flex items-center justify-center text-2xl group-hover:scale-110 group-hover:shadow-md border border-white/5 transition-all duration-300">
                                 <i className="fas fa-magnifying-glass"></i>
                             </div>
                             <div className="relative z-10 text-center mt-2">
@@ -89,7 +89,7 @@ export default function Contact() {
                             href={`mailto:${process.env.NEXT_PUBLIC_REPLY_TO_EMAIL}`}
                             className="flex flex-col items-center justify-center gap-4 bg-white/[0.02] hover:bg-white/[0.04] border border-white/[0.06] hover:border-[var(--primary)]/50 rounded-xl px-6 py-10 transition-all duration-300 group"
                         >
-                            <div className="w-14 h-14 rounded-2xl bg-white/[0.05] text-zinc-300 group-hover:bg-[var(--primary)]/10 group-hover:text-[var(--primary)] flex items-center justify-center text-2xl group-hover:scale-110 group-hover:shadow-[0_0_20px_rgba(0,102,255,0.2)] transition-all duration-300">
+                            <div className="w-14 h-14 rounded-2xl bg-white/[0.05] text-zinc-300 group-hover:bg-[var(--primary)]/10 group-hover:text-[var(--primary)] flex items-center justify-center text-2xl group-hover:scale-110 group-hover:shadow-md border border-white/5 transition-all duration-300">
                                 <i className="far fa-envelope"></i>
                             </div>
                             <div className="text-center mt-2">
@@ -105,7 +105,7 @@ export default function Contact() {
                             rel="noopener noreferrer"
                             className="flex flex-col items-center justify-center gap-4 bg-white/[0.02] hover:bg-white/[0.04] border border-white/[0.06] hover:border-[#0077b5]/50 rounded-xl px-6 py-10 transition-all duration-300 group"
                         >
-                            <div className="w-14 h-14 rounded-2xl bg-[#0077b5]/10 text-[#0077b5] flex items-center justify-center text-2xl group-hover:scale-110 group-hover:shadow-[0_0_20px_rgba(0,119,181,0.2)] transition-all duration-300">
+                            <div className="w-14 h-14 rounded-2xl bg-[#0077b5]/10 text-[#0077b5] flex items-center justify-center text-2xl group-hover:scale-110 group-hover:shadow-md border border-white/5 transition-all duration-300">
                                 <i className="fab fa-linkedin-in"></i>
                             </div>
                             <div className="text-center mt-2">

@@ -155,7 +155,7 @@ export default function SeoAudit() {
                                     />
                                 </div>
                                 <div className="mt-8 flex justify-end">
-                                    <button onClick={handleNext} disabled={!currentInput.trim()} className="inline-flex items-center gap-3 px-8 py-4 rounded-xl bg-white text-black text-xs font-bold uppercase tracking-[0.15em] hover:bg-zinc-200 disabled:opacity-30 transition-all shadow-[0_0_20px_rgba(255,255,255,0.1)]" style={fontLabel}>
+                                    <button onClick={handleNext} disabled={!currentInput.trim()} className="inline-flex items-center gap-3 px-8 py-4 rounded-xl bg-white text-black text-xs font-bold uppercase tracking-[0.15em] hover:bg-zinc-200 disabled:opacity-30 transition-all shadow-md border border-white/5" style={fontLabel}>
                                         Analyze Site <ChevronRight size={16} />
                                     </button>
                                 </div>
@@ -192,9 +192,9 @@ export default function SeoAudit() {
                                 {/* Grade Header */}
                                 <div className="flex flex-col md:flex-row items-center gap-8 mb-12 print:mb-4 p-8 rounded-[2rem] bg-gradient-to-r from-white/[0.03] to-transparent border border-white/[0.05] print:border-white/[0.1] print:p-5 print:rounded-xl">
                                     <div className={`w-28 h-28 print:w-20 print:h-20 flex-shrink-0 rounded-full border-4 print:border-2 flex items-center justify-center ${
-                                        result.metrics.grade === 'A' || result.metrics.grade === 'B' ? 'border-emerald-500 text-emerald-400 shadow-[0_0_30px_rgba(16,185,129,0.3)] print:shadow-none' : 
-                                        result.metrics.grade === 'C' ? 'border-amber-500 text-amber-400 shadow-[0_0_30px_rgba(245,158,11,0.3)] print:shadow-none' : 
-                                        'border-rose-500 text-rose-400 shadow-[0_0_30px_rgba(244,63,94,0.3)] print:shadow-none'
+                                        result.metrics.grade === 'A' || result.metrics.grade === 'B' ? 'border-emerald-500 text-emerald-400 shadow-md border border-white/5 print:shadow-none' : 
+                                        result.metrics.grade === 'C' ? 'border-amber-500 text-amber-400 shadow-md border border-white/5 print:shadow-none' : 
+                                        'border-rose-500 text-rose-400 shadow-md border border-white/5 print:shadow-none'
                                     }`}>
                                         <span className="text-5xl print:text-3xl font-black tabular-nums" style={fontHeadline}>{result.metrics.grade}</span>
                                     </div>

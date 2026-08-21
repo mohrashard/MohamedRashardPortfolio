@@ -149,7 +149,7 @@ export default function LinkedinHeadlineGenerator() {
                                     />
                                 </div>
                                 <div className="mt-8 flex justify-end">
-                                    <button onClick={handleNext} disabled={!currentInput.trim()} className="inline-flex items-center gap-3 px-8 py-4 rounded-xl bg-white text-black text-xs font-bold uppercase tracking-[0.15em] hover:bg-zinc-200 disabled:opacity-30 transition-all shadow-[0_0_20px_rgba(255,255,255,0.1)]" style={fontLabel}>
+                                    <button onClick={handleNext} disabled={!currentInput.trim()} className="inline-flex items-center gap-3 px-8 py-4 rounded-xl bg-white text-black text-xs font-bold uppercase tracking-[0.15em] hover:bg-zinc-200 disabled:opacity-30 transition-all shadow-md border border-white/5" style={fontLabel}>
                                         {step === QUESTIONS.length - 1 ? "Generate Headlines" : "Next"} <ChevronRight size={16} />
                                     </button>
                                 </div>
@@ -249,7 +249,7 @@ export default function LinkedinHeadlineGenerator() {
                                         </p>
                                         
                                         <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-                                            <a href={process.env.NEXT_PUBLIC_CALENDLY_URL || "https://calendly.com/mohrashard/30min"} target="_blank" className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-8 py-4 rounded-xl bg-[#0a66c2] text-white text-[11px] font-bold uppercase tracking-widest hover:bg-[#004182] transition-all shadow-[0_0_20px_rgba(10,102,194,0.4)]" style={fontLabel}>
+                                            <a href={process.env.NEXT_PUBLIC_CALENDLY_URL || "https://calendly.com/mohrashard/30min"} target="_blank" className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-8 py-4 rounded-xl bg-[#0a66c2] text-white text-[11px] font-bold uppercase tracking-widest hover:bg-[#004182] transition-all shadow-md border border-white/5" style={fontLabel}>
                                                 Build Your Tool
                                             </a>
                                             <Link href="/cost-to-build" className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-8 py-4 rounded-xl bg-white/[0.05] border border-white/[0.1] text-white text-[11px] font-bold uppercase tracking-widest hover:bg-white/[0.1] transition-all" style={fontLabel}>

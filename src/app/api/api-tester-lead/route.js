@@ -14,7 +14,7 @@ export async function POST(request) {
     const painData = `URL: ${m.targetUrl}. Latency: ${m.latency}ms. Grade: ${m.grade}. Use Case: ${m.useCase}`;
 
     // Insert into Supabase
-    await supabase.from('leads').insert([{ 
+    const { error: dbError } = await supabase.from('leads').insert([{ 
         name: 'API Tester', 
         email, 
         pain_point: painData, 
@@ -23,6 +23,10 @@ export async function POST(request) {
         website: m.targetUrl, 
         outcome: 'API Tester' 
     }]);
+    if (dbError) {
+      console.error('[SUPABASE ERROR]:', dbError.message);
+      return NextResponse.json({ error: 'Failed to record lead in database' }, { status: 500 });
+    }
 
     // Send the Blueprint email via Resend
     const { error: emailError } = await resend.emails.send({

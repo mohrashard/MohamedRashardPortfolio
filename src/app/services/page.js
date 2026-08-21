@@ -135,7 +135,7 @@ export default function Services() {
             title: "48-Hour Production Deployment",
             desc: "We bypass corporate lag. Core business logic, UI, and database schemas are engineered and deployed to a live, secure staging URL within 48 to 72 hours.",
             icon: <Zap size={18} />,
-            color: "text-[var(--accent)] border-[var(--accent)]/30 bg-[var(--accent)]/10 shadow-[0_0_15px_rgba(56,189,248,0.15)]",
+            color: "text-[var(--accent)] border-[var(--accent)]/30 bg-[var(--accent)]/10 shadow-md border border-white/5",
             glow: true
         },
         {
@@ -284,7 +284,7 @@ export default function Services() {
                         <div className="flex flex-col sm:flex-row items-center gap-4 mt-2 pt-2 hero-item-5">
                             <a
                                 href="#audit-form"
-                                className="w-full sm:w-auto px-8 py-4 bg-[var(--primary)] hover:bg-[#0055d4] text-white text-[11px] md:text-xs font-bold tracking-[0.15em] uppercase rounded-full transition-all duration-300 flex items-center justify-center gap-2 shadow-[0_0_40px_rgba(0,102,255,0.5)] hover:shadow-[0_0_60px_rgba(0,102,255,0.7)] hover:-translate-y-0.5"
+                                className="w-full sm:w-auto px-8 py-4 bg-[var(--primary)] hover:bg-[#0055d4] text-white text-[11px] md:text-xs font-bold tracking-[0.15em] uppercase rounded-full transition-all duration-300 flex items-center justify-center gap-2 shadow-md border border-white/5 hover:shadow-md border border-white/5 hover:-translate-y-0.5"
                                 style={fontLabel}
                             >
                                 <span>Initiate System Audit</span>
@@ -308,7 +308,7 @@ export default function Services() {
 
                         {/* Connecting Data Line */}
                         <div className="hidden md:block absolute top-[3rem] left-[10%] right-[10%] h-[1px] bg-gradient-to-r from-transparent via-[var(--primary)]/50 to-transparent opacity-60 z-0" />
-                        <div className="hidden md:block absolute top-[3rem] left-[50%] -translate-x-1/2 w-32 h-[1px] bg-white shadow-[0_0_20px_rgba(255,255,255,0.4)] opacity-80 z-0" />
+                        <div className="hidden md:block absolute top-[3rem] left-[50%] -translate-x-1/2 w-32 h-[1px] bg-white shadow-md border border-white/5 opacity-80 z-0" />
 
                         <div className="relative z-10 flex flex-col md:flex-row justify-between items-center gap-12 md:gap-4">
                             {[
@@ -316,30 +316,30 @@ export default function Services() {
                                     value: "48-72h", label: "MVP Deployment",
                                     icon: <Zap size={24} />,
                                     ringColor: "border-[var(--accent)]/30", hoverRing: "group-hover:border-[var(--accent)]/60",
-                                    glowColor: "shadow-[0_0_25px_rgba(56,189,248,0.15)]", iconColor: "text-[var(--accent)]"
+                                    glowColor: "shadow-md border border-white/5", iconColor: "text-[var(--accent)]"
                                 },
                                 {
                                     value: "Weeks", label: "Production Scale",
                                     icon: <Server size={24} />,
                                     ringColor: "border-[var(--primary)]/30", hoverRing: "group-hover:border-[var(--primary)]/60",
-                                    glowColor: "shadow-[0_0_25px_rgba(0,102,255,0.15)]", iconColor: "text-[var(--primary)]"
+                                    glowColor: "shadow-md border border-white/5", iconColor: "text-[var(--primary)]"
                                 },
                                 {
                                     value: "10+", label: "Systems Live",
                                     icon: <Cpu size={24} />,
                                     ringColor: "border-zinc-100/20", hoverRing: "group-hover:border-zinc-100/50",
-                                    glowColor: "shadow-[0_0_25px_rgba(255,255,255,0.1)]", iconColor: "text-zinc-100"
+                                    glowColor: "shadow-md border border-white/5", iconColor: "text-zinc-100"
                                 },
                                 {
                                     value: "Zero", label: "Agency Overhead",
                                     icon: <ShieldOff size={24} />,
                                     ringColor: "border-[var(--accent)]/30", hoverRing: "group-hover:border-[var(--accent)]/60",
-                                    glowColor: "shadow-[0_0_25px_rgba(56,189,248,0.15)]", iconColor: "text-[var(--accent)]"
+                                    glowColor: "shadow-md border border-white/5", iconColor: "text-[var(--accent)]"
                                 },
                             ].map((s, i) => (
                                 <div key={i} className="flex flex-col items-center group cursor-default" data-animate="fade-pop" data-delay={String(i + 1)}>
                                     {/* Tech Ring Node */}
-                                    <div className={`relative w-24 h-24 mb-6 rounded-full flex items-center justify-center bg-[#050505]/90 backdrop-blur-xl border ${s.ringColor} ${s.hoverRing} ${s.glowColor} group-hover:shadow-[0_0_40px_rgba(255,255,255,0.1)] group-hover:scale-105 transition-all duration-500 z-10 overflow-hidden`}>
+                                    <div className={`relative w-24 h-24 mb-6 rounded-full flex items-center justify-center bg-[#050505]/90 backdrop-blur-xl border ${s.ringColor} ${s.hoverRing} ${s.glowColor} group-hover:shadow-md border border-white/5 group-hover:scale-105 transition-all duration-500 z-10 overflow-hidden`}>
 
                                         {/* Inner glow base */}
                                         <div className="absolute inset-0 bg-white/[0.01] group-hover:bg-white/[0.05] transition-colors duration-500" />
@@ -423,7 +423,7 @@ export default function Services() {
                                         { icon: <PlaySquare size={18} />, text: "Direct Loom video walkthrough" },
                                     ].map((item, i) => (
                                         <div key={i} className="flex items-center gap-4 group/item cursor-default" style={fontBody}>
-                                            <span className="flex items-center justify-center w-8 h-8 rounded-lg bg-white/[0.04] border border-white/[0.08] text-[var(--accent)] group-hover/item:scale-110 group-hover/item:bg-white/[0.08] transition-all duration-300 shadow-[0_0_15px_rgba(0,0,0,0.5)]">
+                                            <span className="flex items-center justify-center w-8 h-8 rounded-lg bg-white/[0.04] border border-white/[0.08] text-[var(--accent)] group-hover/item:scale-110 group-hover/item:bg-white/[0.08] transition-all duration-300 shadow-md border border-white/5">
                                                 {item.icon}
                                             </span>
                                             <span className="font-medium text-zinc-300 group-hover/item:text-zinc-100 transition-colors duration-300">{item.text}</span>
@@ -440,7 +440,7 @@ export default function Services() {
                                 <div className="relative p-2 rounded-[1.5rem] bg-gradient-to-b from-white/[0.12] to-white/[0.02] backdrop-blur-xl border border-white/[0.05]">
                                     <div className="bg-[#050505]/90 rounded-[1.2rem] p-8 md:p-10 flex flex-col items-center w-full lg:w-[360px] shadow-inner">
 
-                                        <div className="w-16 h-16 rounded-full bg-gradient-to-br from-[var(--primary)]/20 to-[var(--accent)]/20 border border-[var(--primary)]/30 flex items-center justify-center mb-6 shadow-[0_0_30px_rgba(0,102,255,0.2)]">
+                                        <div className="w-16 h-16 rounded-full bg-gradient-to-br from-[var(--primary)]/20 to-[var(--accent)]/20 border border-[var(--primary)]/30 flex items-center justify-center mb-6 shadow-md border border-white/5">
                                             <Terminal size={28} className="text-[var(--accent)]" />
                                         </div>
 
@@ -449,7 +449,7 @@ export default function Services() {
 
                                         <a
                                             href="#audit-form"
-                                            className="relative flex items-center justify-center gap-3 w-full px-8 py-4.5 rounded-xl bg-gradient-to-r from-[var(--primary)] to-blue-600 text-zinc-50 font-bold text-sm tracking-[0.15em] uppercase hover:from-blue-500 hover:to-[var(--primary)] transition-all duration-500 shadow-[0_0_40px_rgba(0,102,255,0.4)] hover:shadow-[0_0_60px_rgba(0,102,255,0.6)] overflow-hidden"
+                                            className="relative flex items-center justify-center gap-3 w-full px-8 py-4.5 rounded-xl bg-gradient-to-r from-[var(--primary)] to-blue-600 text-zinc-50 font-bold text-sm tracking-[0.15em] uppercase hover:from-blue-500 hover:to-[var(--primary)] transition-all duration-500 shadow-md border border-white/5 hover:shadow-md border border-white/5 overflow-hidden"
                                             style={fontLabel}
                                         >
                                             <span className="relative z-10 flex items-center gap-2">
@@ -512,7 +512,7 @@ export default function Services() {
                                     </div>
 
                                     <div className="absolute top-8 right-8 px-4 py-2 rounded-lg text-[10px] bg-white/[0.03] border border-white/[0.08] text-zinc-300 font-bold uppercase tracking-[0.2em] flex items-center gap-2 backdrop-blur-md" style={fontLabel}>
-                                        <span className="w-2 h-2 rounded-full bg-[var(--accent)] animate-pulse shadow-[0_0_10px_var(--accent)]" />
+                                        <span className="w-2 h-2 rounded-full bg-[var(--accent)] animate-pulse shadow-md border border-white/5" />
                                         Primary Focus
                                     </div>
 
@@ -546,7 +546,7 @@ export default function Services() {
 
                                             <div className="flex flex-wrap gap-3 text-[10px] font-bold uppercase tracking-[0.15em]" style={fontLabel}>
                                                 {["Python", "Gemini API", "Local LLMs", "LangChain", "Vector DBs"].map((tag, i) => (
-                                                    <span key={i} className="px-4 py-2 rounded-lg bg-[var(--accent)]/10 border border-[var(--accent)]/20 text-[var(--accent)] shadow-[0_0_15px_rgba(56,189,248,0.1)]">{tag}</span>
+                                                    <span key={i} className="px-4 py-2 rounded-lg bg-[var(--accent)]/10 border border-[var(--accent)]/20 text-[var(--accent)] shadow-md border border-white/5">{tag}</span>
                                                 ))}
                                             </div>
                                         </div>
@@ -584,7 +584,7 @@ export default function Services() {
 
                                         <div className="flex flex-wrap gap-2.5 text-[10px] font-bold uppercase tracking-[0.15em] mt-auto" style={fontLabel}>
                                             {["Next.js 15", "Supabase", "Tailwind"].map((t, i) => (
-                                                <span key={i} className="px-4 py-2 rounded-lg bg-[var(--primary)]/10 border border-[var(--primary)]/20 text-[var(--primary)] shadow-[0_0_15px_rgba(0,102,255,0.1)]">{t}</span>
+                                                <span key={i} className="px-4 py-2 rounded-lg bg-[var(--primary)]/10 border border-[var(--primary)]/20 text-[var(--primary)] shadow-md border border-white/5">{t}</span>
                                             ))}
                                         </div>
                                     </div>
@@ -728,7 +728,7 @@ export default function Services() {
                                             </div>
                                             <div>
                                                 <div className="flex items-center gap-2 mb-2">
-                                                    <span className="w-1 h-1 rounded-full bg-[var(--primary)] group-hover:shadow-[0_0_8px_var(--primary)] transition-shadow" />
+                                                    <span className="w-1 h-1 rounded-full bg-[var(--primary)] group-hover:shadow-md border border-white/5 transition-shadow" />
                                                     <div className="text-[10px] font-black uppercase tracking-[0.25em] text-zinc-300 group-hover:text-white transition-colors" style={fontLabel}>
                                                         System Engineered
                                                     </div>
@@ -829,7 +829,7 @@ export default function Services() {
                                         ].map((m, i) => (
                                             <div key={i} className="group/metric relative">
                                                 {/* Timeline Node */}
-                                                <span className="absolute -left-[37px] top-3 w-2 h-2 rounded-full bg-zinc-800 border border-zinc-600 group-hover/metric:bg-[var(--accent)] group-hover/metric:border-[var(--accent)] group-hover/metric:shadow-[0_0_10px_var(--accent)] transition-all duration-300" />
+                                                <span className="absolute -left-[37px] top-3 w-2 h-2 rounded-full bg-zinc-800 border border-zinc-600 group-hover/metric:bg-[var(--accent)] group-hover/metric:border-[var(--accent)] group-hover/metric:shadow-md border border-white/5 transition-all duration-300" />
 
                                                 <div className="flex flex-col">
                                                     <div className="flex items-center gap-3">
@@ -837,7 +837,7 @@ export default function Services() {
                                                             {m.value}
                                                         </span>
                                                         {m.pulse && (
-                                                            <span className="w-1.5 h-1.5 rounded-full bg-[var(--accent)] shadow-[0_0_8px_var(--accent)] animate-pulse" />
+                                                            <span className="w-1.5 h-1.5 rounded-full bg-[var(--accent)] shadow-md border border-white/5 animate-pulse" />
                                                         )}
                                                     </div>
                                                     <span className="text-[11px] font-bold uppercase tracking-wider text-zinc-500 mt-1.5 leading-snug group-hover/metric:text-[var(--primary)] transition-colors" style={fontLabel}>
@@ -859,7 +859,7 @@ export default function Services() {
                                             desc: "We architect production-ready MVPs in 48-72 hours. We bypass standard agency lag through elite, founder-led engineering and zero-overhead deployment cycles.",
                                             icon: <Zap size={20} />,
                                             color: "text-[var(--accent)]",
-                                            hoverGlow: "group-hover:border-[var(--accent)]/30 group-hover:shadow-[0_0_30px_rgba(56,189,248,0.1)] group-hover:from-[var(--accent)]/10"
+                                            hoverGlow: "group-hover:border-[var(--accent)]/30 group-hover:shadow-md border border-white/5 group-hover:from-[var(--accent)]/10"
                                         },
                                         {
                                             index: "02",
@@ -868,7 +868,7 @@ export default function Services() {
                                             desc: "Zero hidden retainers. Zero scope creep. You receive a precise technical blueprint and a locked execution cost before a single line of code is written.",
                                             icon: <ShieldCheck size={20} />,
                                             color: "text-zinc-100",
-                                            hoverGlow: "group-hover:border-zinc-300/30 group-hover:shadow-[0_0_30px_rgba(255,255,255,0.05)] group-hover:from-white/5"
+                                            hoverGlow: "group-hover:border-zinc-300/30 group-hover:shadow-md border border-white/5 group-hover:from-white/5"
                                         },
                                         {
                                             index: "03",
@@ -877,7 +877,7 @@ export default function Services() {
                                             desc: "Deployment is just the baseline. We monitor system health, manage infrastructure scaling, and maintain edge performance long after the initial launch.",
                                             icon: <Activity size={20} />,
                                             color: "text-[var(--primary)]",
-                                            hoverGlow: "group-hover:border-[var(--primary)]/30 group-hover:shadow-[0_0_30px_rgba(0,102,255,0.1)] group-hover:from-[var(--primary)]/10"
+                                            hoverGlow: "group-hover:border-[var(--primary)]/30 group-hover:shadow-md border border-white/5 group-hover:from-[var(--primary)]/10"
                                         },
                                     ].map((item, idx) => (
                                         <div
@@ -981,7 +981,7 @@ export default function Services() {
                                 <div className="flex flex-col sm:flex-row items-center justify-center gap-4 w-full sm:w-auto mb-16" data-animate="slide-up" data-delay="4">
                                     <a
                                         href="#audit-form"
-                                        className="group/btn relative flex items-center justify-center gap-3 w-full sm:w-auto px-8 py-4 rounded bg-[var(--primary)] text-zinc-50 font-bold text-xs tracking-[0.15em] uppercase hover:bg-[#0055d4] transition-all duration-300 shadow-[0_0_30px_rgba(0,102,255,0.3)] hover:shadow-[0_0_50px_rgba(0,102,255,0.5)] hover:-translate-y-0.5 overflow-hidden"
+                                        className="group/btn relative flex items-center justify-center gap-3 w-full sm:w-auto px-8 py-4 rounded bg-[var(--primary)] text-zinc-50 font-bold text-xs tracking-[0.15em] uppercase hover:bg-[#0055d4] transition-all duration-300 shadow-md border border-white/5 hover:shadow-md border border-white/5 hover:-translate-y-0.5 overflow-hidden"
                                         style={fontLabel}
                                     >
                                         <span className="relative z-10 flex items-center gap-2">

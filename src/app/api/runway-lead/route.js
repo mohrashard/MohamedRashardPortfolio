@@ -14,7 +14,7 @@ export async function POST(request) {
     const painData = `Runway: ${m.standardRunwayMonths}mo. Bleeding $${m.agencyOverhead}/mo on agencies. Could gain ${m.monthsGained}mo.`;
 
     // Insert into Supabase
-    await supabase.from('leads').insert([{ 
+    const { error: dbError } = await supabase.from('leads').insert([{ 
         name: 'Runway Calculator', 
         email, 
         pain_point: painData, 
@@ -23,6 +23,10 @@ export async function POST(request) {
         website: 'N/A', 
         outcome: 'Runway Calculator' 
     }]);
+    if (dbError) {
+      console.error('[SUPABASE ERROR]:', dbError.message);
+      return NextResponse.json({ error: 'Failed to record lead in database' }, { status: 500 });
+    }
 
     // Send the Blueprint email via Resend
     const { error: emailError } = await resend.emails.send({

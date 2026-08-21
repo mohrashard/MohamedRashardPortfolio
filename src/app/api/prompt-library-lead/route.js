@@ -11,7 +11,7 @@ export async function POST(request) {
     if (!email) return NextResponse.json({ error: 'Missing email' }, { status: 400 });
 
     // Insert lead into Supabase
-    await supabase.from('leads').insert([{ 
+    const { error: dbError } = await supabase.from('leads').insert([{ 
         name: 'Prompt Library Vault Unlock', 
         email, 
         pain_point: 'Unlocking 50+ Prompt Master Vault', 
@@ -20,6 +20,10 @@ export async function POST(request) {
         website: 'N/A', 
         outcome: 'Prompt Library' 
     }]);
+    if (dbError) {
+      console.error('[SUPABASE ERROR]:', dbError.message);
+      return NextResponse.json({ error: 'Failed to record lead in database' }, { status: 500 });
+    }
 
     // Send Registration Confirmation via Resend
     const { error: emailError } = await resend.emails.send({

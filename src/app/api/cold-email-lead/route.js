@@ -13,7 +13,7 @@ export async function POST(request) {
     const targetAudience = answers["Who is your exact target customer? (e.g., CFOs at mid-sized logistics companies)"] || "Unknown Target";
 
     // Insert into Supabase
-    await supabase.from('leads').insert([{ 
+    const { error: dbError } = await supabase.from('leads').insert([{ 
         name: 'Cold Email Generator', 
         email, 
         pain_point: `Targeting: ${targetAudience}.`, 
@@ -22,6 +22,10 @@ export async function POST(request) {
         website: 'N/A', 
         outcome: 'Cold Email Generator' 
     }]);
+    if (dbError) {
+      console.error('[SUPABASE ERROR]:', dbError.message);
+      return NextResponse.json({ error: 'Failed to record lead in database' }, { status: 500 });
+    }
 
     // Send the Blueprint email via Resend
     let variantsHtml = emailResult.variants.map(v => `

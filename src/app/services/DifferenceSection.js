@@ -151,7 +151,7 @@ export default function DifferenceSection() {
                                         {/* Phase badge */}
                                         <div
                                             className={`flex-shrink-0 mt-0.5 w-[72px] flex items-center justify-center py-1.5 rounded-xl text-[9px] font-bold uppercase tracking-wider border transition-all duration-300 ${item.active
-                                                ? 'text-[var(--accent)] bg-[var(--accent)]/10 border-[var(--accent)]/25 shadow-[0_0_18px_rgba(56,189,248,0.12)] group-hover:shadow-[0_0_28px_rgba(56,189,248,0.22)]'
+                                                ? 'text-[var(--accent)] bg-[var(--accent)]/10 border-[var(--accent)]/25 shadow-md border border-white/5 group-hover:shadow-md border border-white/5'
                                                 : 'text-zinc-500 bg-white/[0.03] border-white/[0.08]'
                                                 }`}
                                             style={fontLabel}

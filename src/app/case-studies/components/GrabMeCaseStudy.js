@@ -50,13 +50,13 @@ export default function GrabMeCaseStudy() {
                     </div>
 
                     {/* Solution */}
-                    <div className="bg-gradient-to-br from-[#0A0A0A] to-[#111] border border-[var(--primary)]/30 rounded-3xl p-8 md:p-10 relative group shadow-[0_0_40px_rgba(0,102,255,0.05)]" data-animate="slide-left" data-delay="1">
+                    <div className="bg-gradient-to-br from-[#0A0A0A] to-[#111] border border-[var(--primary)]/30 rounded-3xl p-8 md:p-10 relative group shadow-md border border-white/5" data-animate="slide-left" data-delay="1">
                         <div className="absolute top-0 left-8 w-24 h-1 bg-[var(--primary)] blur-lg opacity-60 rounded-full"></div>
                         <h3 className="text-[var(--accent)] text-xs font-bold tracking-[0.2em] uppercase mb-4 flex items-center gap-2">
                             <i className="fa-solid fa-lightbulb"></i> The Solution
                         </h3>
                         <div className="flex items-center gap-3 mb-4">
-                            <div className="w-8 h-8 rounded bg-white/5 flex items-center justify-center p-0.5 border border-white/10 shadow-[0_0_10px_rgba(0,0,0,0.5)]">
+                            <div className="w-8 h-8 rounded bg-white/5 flex items-center justify-center p-0.5 border border-white/10 shadow-md border border-white/5">
                                 <Image src="/grabme.webp" alt="Grab Me Logo" width={32} height={32} className="w-full h-full object-contain rounded-sm" />
                             </div>
                             <h4 className="text-2xl font-bold text-white">Grab Me</h4>
@@ -148,11 +148,11 @@ export default function GrabMeCaseStudy() {
                                     </div>
                                     
                                     <div className="absolute left-[-11px] sm:left-1/2 w-12 h-12 sm:-translate-x-1/2 flex items-center justify-center z-10 order-1 sm:order-2">
-                                        <div className="w-3 h-3 rounded-full bg-[var(--primary)] border-[3px] border-[#050505] shadow-[0_0_20px_rgba(0,102,255,0.8)] group-hover:scale-150 transition-transform duration-300"></div>
+                                        <div className="w-3 h-3 rounded-full bg-[var(--primary)] border-[3px] border-[#050505] shadow-md border border-white/5 group-hover:scale-150 transition-transform duration-300"></div>
                                     </div>
 
                                     <div className="sm:w-1/2 sm:pl-14 hidden sm:flex items-center justify-start order-3 text-left">
-                                        <span className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/[0.03] border border-white/10 text-[var(--primary)] font-bold text-xs tracking-widest uppercase shadow-[0_0_20px_rgba(0,0,0,0.5)] group-hover:bg-white/[0.06] transition-colors">
+                                        <span className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/[0.03] border border-white/10 text-[var(--primary)] font-bold text-xs tracking-widest uppercase shadow-md border border-white/5 group-hover:bg-white/[0.06] transition-colors">
                                             <i className="fa-solid fa-stopwatch text-[10px]"></i>
                                             {step.date}
                                         </span>
@@ -176,7 +176,7 @@ export default function GrabMeCaseStudy() {
                             By delivering the MVP internally in just 72 hours, we proved that high-quality marketplaces can be built from scratch at unprecedented speed. Technicians now keep their hard-earned money through a flat subscription model, and Sri Lankan families have a reliable, instant way to find help.
                         </p>
                         
-                        <a href="/services#audit-form" className="inline-flex items-center gap-3 px-8 py-4 bg-[var(--primary)] text-white rounded-xl font-bold hover:brightness-110 transition-all shadow-[0_0_20px_rgba(0,102,255,0.3)]">
+                        <a href="/services#audit-form" className="inline-flex items-center gap-3 px-8 py-4 bg-[var(--primary)] text-white rounded-xl font-bold hover:brightness-110 transition-all shadow-md border border-white/5">
                             <span>Launch Solution</span>
                             <i className="fa-solid fa-arrow-right"></i>
                         </a>

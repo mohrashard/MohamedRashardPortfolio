@@ -68,7 +68,7 @@ export default function Navbar({ position = "fixed" }) {
                 <div className="hidden md:flex items-center">
                     <Link
                         href="/services#audit-form"
-                        className="px-6 py-2.5 rounded-full text-[13px] font-extrabold text-white bg-[#0055FF] hover:bg-[#0044CC] transition-all duration-300 shadow-[0_0_25px_rgba(0,85,255,0.5)] hover:shadow-[0_0_40px_rgba(0,85,255,0.8)] hover:-translate-y-0.5 active:translate-y-0"
+                        className="px-6 py-2.5 rounded-full text-[13px] font-extrabold text-white bg-[#0055FF] hover:bg-[#0044CC] transition-all duration-300 shadow-md border border-white/5 hover:shadow-md border border-white/5 hover:-translate-y-0.5 active:translate-y-0"
                         style={fontHeadline}
                     >
                         Request Audit
@@ -111,7 +111,7 @@ export default function Navbar({ position = "fixed" }) {
                     <Link
                         href="/services#audit-form"
                         onClick={() => setIsMenuOpen(false)}
-                        className="text-center p-4 rounded-2xl text-sm font-extrabold text-white bg-[#0055FF] shadow-[0_0_25px_rgba(0,85,255,0.5)]"
+                        className="text-center p-4 rounded-2xl text-sm font-extrabold text-white bg-[#0055FF] shadow-md border border-white/5"
                         style={fontHeadline}
                     >
                         Request Audit

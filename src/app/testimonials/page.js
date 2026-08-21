@@ -135,7 +135,7 @@ export default function TestimonialsPage() {
                 </div>
 
                 {/* Client Success Story (Video) */}
-                <div className="w-full relative rounded-3xl border border-[var(--primary)]/20 bg-[#0A0A0A]/50 backdrop-blur-sm p-6 sm:p-8 md:p-10 mb-20 flex flex-col md:flex-row gap-8 sm:gap-12 items-center overflow-hidden group shadow-[0_0_40px_rgba(0,102,255,0.08)]" data-animate="slide-up" data-delay="1">
+                <div className="w-full relative rounded-3xl border border-[var(--primary)]/20 bg-[#0A0A0A]/50 backdrop-blur-sm p-6 sm:p-8 md:p-10 mb-20 flex flex-col md:flex-row gap-8 sm:gap-12 items-center overflow-hidden group shadow-md border border-white/5" data-animate="slide-up" data-delay="1">
                     {/* Subtle glow background */}
                     <div className="absolute inset-0 bg-gradient-to-br from-[var(--primary)]/10 via-transparent to-transparent opacity-60 pointer-events-none" />
                     
@@ -162,7 +162,7 @@ export default function TestimonialsPage() {
                             <div className="absolute top-0 left-0 w-32 h-px bg-gradient-to-r from-[var(--primary)]/50 to-transparent"></div>
                             
                             <div className="flex items-center gap-3 mb-3">
-                                <div className="w-6 h-6 rounded bg-white/5 flex items-center justify-center p-0.5 border border-white/10 shadow-[0_0_10px_rgba(0,0,0,0.5)]">
+                                <div className="w-6 h-6 rounded bg-white/5 flex items-center justify-center p-0.5 border border-white/10 shadow-md border border-white/5">
                                     <img src="/igniteed.webp" alt="Ignite Ed Logo" className="w-full h-full object-contain rounded-sm" />
                                 </div>
                                 <span className="text-white font-bold text-[13px] tracking-wide">Ignite Ed</span>
@@ -211,7 +211,7 @@ export default function TestimonialsPage() {
                 <div className="w-full flex flex-col gap-6 mb-24">
                     
                     {/* Ahmed Card */}
-                    <div className="bg-[#0A0A0A]/60 backdrop-blur-md border border-white/[0.06] rounded-3xl p-6 sm:p-8 flex flex-col sm:flex-row gap-6 relative group hover:border-[var(--primary)]/30 transition-all duration-500 hover:shadow-[0_0_30px_rgba(0,102,255,0.05)]" data-animate="slide-up" data-delay="1">
+                    <div className="bg-[#0A0A0A]/60 backdrop-blur-md border border-white/[0.06] rounded-3xl p-6 sm:p-8 flex flex-col sm:flex-row gap-6 relative group hover:border-[var(--primary)]/30 transition-all duration-500 hover:shadow-md border border-white/5" data-animate="slide-up" data-delay="1">
                         <div className="absolute left-6 top-6 sm:left-8 sm:top-8 text-[var(--accent)] text-5xl leading-none opacity-40 font-serif font-black">&ldquo;</div>
                         
                         <div className="w-20 h-20 shrink-0 mt-8 sm:mt-0 z-10">
@@ -240,7 +240,7 @@ export default function TestimonialsPage() {
                     </div>
 
                     {/* Sajid Card */}
-                    <div className="bg-[#0A0A0A]/60 backdrop-blur-md border border-white/[0.06] rounded-3xl p-6 sm:p-8 flex flex-col sm:flex-row gap-6 relative group hover:border-[var(--primary)]/30 transition-all duration-500 hover:shadow-[0_0_30px_rgba(0,102,255,0.05)]" data-animate="slide-up" data-delay="2">
+                    <div className="bg-[#0A0A0A]/60 backdrop-blur-md border border-white/[0.06] rounded-3xl p-6 sm:p-8 flex flex-col sm:flex-row gap-6 relative group hover:border-[var(--primary)]/30 transition-all duration-500 hover:shadow-md border border-white/5" data-animate="slide-up" data-delay="2">
                         <div className="absolute left-6 top-6 sm:left-8 sm:top-8 text-[var(--accent)] text-5xl leading-none opacity-40 font-serif font-black">&ldquo;</div>
                         
                         <div className="w-20 h-20 shrink-0 mt-8 sm:mt-0 z-10">

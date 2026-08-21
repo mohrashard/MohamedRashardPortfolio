@@ -119,7 +119,7 @@ export default function VideoPlayer({ src }) {
                     <div className="relative">
                         <div className="absolute inset-0 bg-[var(--primary)] rounded-full blur-[40px] opacity-40 group-hover/video:opacity-70 transition-opacity duration-500"></div>
                         <div className="relative w-24 h-24 rounded-full bg-white/10 backdrop-blur-xl border border-white/20 flex items-center justify-center transform transition-all duration-500 group-hover/video:scale-110 group-hover/video:border-[var(--primary)]/50 shadow-[inset_0_1px_1px_rgba(255,255,255,0.3)]">
-                            <i className="fa-solid fa-play text-white text-4xl ml-3 drop-shadow-[0_0_15px_rgba(255,255,255,0.5)] transition-transform duration-500 group-hover/video:scale-110"></i>
+                            <i className="fa-solid fa-play text-white text-4xl ml-3 drop-shadow-md border border-white/5 transition-transform duration-500 group-hover/video:scale-110"></i>
                         </div>
                     </div>
                 </div>
@@ -133,7 +133,7 @@ export default function VideoPlayer({ src }) {
                 {/* Header */}
                 <div className="flex items-center justify-between px-6 py-5 border-b border-white/[0.05] bg-[#050505]/40">
                     <div className="flex items-center gap-3">
-                        <div className="w-7 h-7 rounded-full bg-[var(--primary)]/10 flex items-center justify-center border border-[var(--primary)]/20 shadow-[0_0_15px_rgba(0,102,255,0.2)]">
+                        <div className="w-7 h-7 rounded-full bg-[var(--primary)]/10 flex items-center justify-center border border-[var(--primary)]/20 shadow-md border border-white/5">
                             <i className="fa-solid fa-wand-magic-sparkles text-[var(--primary)] text-[11px]"></i>
                         </div>
                         <span className="text-white text-[11px] font-bold tracking-[0.2em] uppercase">Transcript</span>

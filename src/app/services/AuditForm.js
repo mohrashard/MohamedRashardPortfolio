@@ -111,6 +111,13 @@ export default function AuditForm() {
             }
 
             setStatus('success');
+            if (typeof window !== 'undefined' && window.gtag) {
+                window.gtag('event', 'generate_lead', {
+                    event_category: 'form_submission',
+                    event_label: 'Audit Request',
+                    value: 1
+                });
+            }
             e.target.reset();
         } catch (error) {
             console.error(error);
@@ -139,20 +146,30 @@ export default function AuditForm() {
                         /* ── SUCCESS STATE ── */
                         <div className="w-full max-w-2xl mx-auto rounded-3xl bg-white/5 border border-[var(--primary)]/30 backdrop-blur-md p-12 md:p-16 text-center mt-12">
                             <div className="w-24 h-24 bg-[var(--primary)]/20 border border-[var(--primary)]/40 rounded-full flex items-center justify-center mx-auto mb-8 animate-bounce">
-                                <i className="fas fa-check text-4xl text-[var(--primary)] drop-shadow-[0_0_15px_rgba(34,211,238,0.8)]" />
+                                <i className="fas fa-check text-4xl text-[var(--primary)] drop-shadow-md border border-white/5" />
                             </div>
                             <h3 className="text-4xl md:text-5xl font-extrabold text-zinc-50 mb-6">BOOM!</h3>
                             <p className="text-xl text-zinc-300">Audit request received. Check your inbox!</p>
-                            <button
-                                onClick={closeForm}
-                                className="mt-10 px-8 py-3 rounded-full bg-white/5 border border-white/10 text-zinc-50 font-bold hover:bg-white/10 transition-colors"
-                            >
-                                Close
-                            </button>
+                            <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mt-10">
+                                <a
+                                    href={process.env.NEXT_PUBLIC_CALENDLY_URL || "https://calendly.com/mohrashard/30min"}
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    className="px-8 py-3 rounded-full bg-[var(--primary)] text-white font-bold hover:bg-[#0055d4] transition-all shadow-md border border-white/5 hover:shadow-md border border-white/5 w-full sm:w-auto"
+                                >
+                                    Book Scoping Call Now
+                                </a>
+                                <button
+                                    onClick={closeForm}
+                                    className="px-8 py-3 rounded-full bg-white/5 border border-white/10 text-zinc-400 font-bold hover:bg-white/10 hover:text-white transition-colors w-full sm:w-auto"
+                                >
+                                    Close
+                                </button>
+                            </div>
                         </div>
                     ) : (
                         /* ── FORM STATE ── */
-                        <div className="w-full max-w-3xl mx-auto rounded-3xl bg-[#0a0a0a]/40 bg-white/5 border border-white/10 backdrop-blur-xl p-8 md:p-12 shadow-[0_0_50px_rgba(0,0,0,0.5)] relative overflow-hidden mt-12">
+                        <div className="w-full max-w-3xl mx-auto rounded-3xl bg-[#0a0a0a]/40 bg-white/5 border border-white/10 backdrop-blur-xl p-8 md:p-12 shadow-md border border-white/5 relative overflow-hidden mt-12">
                             {/* Close button */}
                             <button
                                 onClick={closeForm}
@@ -173,7 +190,7 @@ export default function AuditForm() {
                                         <span>[ ] Next Steps</span>
                                     </div>
                                     <h3 className="text-3xl md:text-4xl font-extrabold text-zinc-50 mb-3">Free AI Opportunity Audit</h3>
-                                    <p className="text-sm md:text-base text-zinc-400">Takes 2 minutes. Every audit request gets a personal Loom video response within 48 hours. Not a template. Not an assistant. Me.</p>
+                                    <p className="text-sm md:text-base text-zinc-400">Takes 2 minutes. Every audit request gets a personal Loom video response within 48 hours. Not a template. Not an assistant. Us.</p>
                                 </div>
 
                                 <form onSubmit={handleSubmit} className="space-y-6 text-left">
@@ -245,7 +262,7 @@ export default function AuditForm() {
                                     <button
                                         type="submit"
                                         disabled={status === 'loading'}
-                                        className="w-full group mt-8 relative flex items-center justify-center gap-3 px-8 py-4 rounded-xl bg-gradient-to-r from-[var(--primary)] to-[var(--accent)] text-zinc-50 font-extrabold text-lg hover:shadow-[0_0_40px_rgba(37,99,235,0.4)] disabled:opacity-70 disabled:hover:shadow-none hover:-translate-y-1 transition-all duration-300 overflow-hidden"
+                                        className="w-full group mt-8 relative flex items-center justify-center gap-3 px-8 py-4 rounded-xl bg-gradient-to-r from-[var(--primary)] to-[var(--accent)] text-zinc-50 font-extrabold text-lg hover:shadow-md border border-white/5 disabled:opacity-70 disabled:hover:shadow-none hover:-translate-y-1 transition-all duration-300 overflow-hidden"
                                     >
                                         {status === 'loading' ? (
                                             <>
@@ -254,7 +271,7 @@ export default function AuditForm() {
                                             </>
                                         ) : (
                                             <>
-                                                <span>Send Audit Request</span>
+                                                <span>Get Your Custom Audit Video</span>
                                                 <i className="fas fa-paper-plane text-sm group-hover:-translate-y-1 group-hover:translate-x-1 transition-transform" />
                                             </>
                                         )}
