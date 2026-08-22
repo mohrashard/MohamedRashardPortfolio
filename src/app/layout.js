@@ -3,6 +3,7 @@ import { Montserrat } from "next/font/google";
 import Script from "next/script";
 import Footer from "./components/Footer";
 import ExitIntentPopup from "./components/ExitIntentPopup";
+import ScrollObserver from "./services/ScrollObserver";
 
 const montserrat = Montserrat({
     subsets: ["latin"],
@@ -184,6 +185,7 @@ export default function RootLayout({ children }) {
                 <script dangerouslySetInnerHTML={{ __html: "document.documentElement.classList.add('js-enabled');" }} />
             </head>
             <body className={`${montserrat.variable} font-[var(--font-montserrat)] bg-[#050505] text-zinc-400 antialiased selection:bg-[#0066FF]/30`}>
+                <ScrollObserver />
                 {children}
                 <Footer />
                 <ExitIntentPopup />

@@ -1,40 +1,53 @@
 'use client';
 
 import { useEffect } from 'react';
+import { usePathname } from 'next/navigation';
 
 /**
  * ScrollObserver - attaches a single IntersectionObserver to every
  * [data-animate] element on the page and adds the "in-view" class when
  * each element enters the viewport.
- *
- * All animation states are defined in globals.css using GPU-composited
- * properties only (opacity + transform), so there is zero layout thrash.
  */
 export default function ScrollObserver() {
+    const pathname = usePathname();
+
     useEffect(() => {
-        const elements = document.querySelectorAll('[data-animate]');
+        const observeElements = () => {
+            const elements = document.querySelectorAll('[data-animate]:not(.in-view)');
 
-        if (!elements.length) return;
+            if (!elements.length) return;
 
-        const observer = new IntersectionObserver(
-            (entries) => {
-                entries.forEach((entry) => {
-                    if (entry.isIntersecting) {
-                        entry.target.classList.add('in-view');
-                        observer.unobserve(entry.target); // fire once, then stop watching
-                    }
-                });
-            },
-            {
-                threshold: 0.12,
-                rootMargin: '0px 0px -48px 0px', // trigger a bit before the bottom edge
-            }
-        );
+            const observer = new IntersectionObserver(
+                (entries) => {
+                    entries.forEach((entry) => {
+                        if (entry.isIntersecting) {
+                            entry.target.classList.add('in-view');
+                            observer.unobserve(entry.target);
+                        }
+                    });
+                },
+                {
+                    threshold: 0.05,
+                    rootMargin: '100px 0px 100px 0px', // Generous margin so elements reveal smoothly before scrolling into view
+                }
+            );
 
-        elements.forEach((el) => observer.observe(el));
+            elements.forEach((el) => observer.observe(el));
+            return observer;
+        };
 
-        return () => observer.disconnect();
-    }, []);
+        const observer = observeElements();
 
-    return null; // renders nothing, purely side-effect
+        // Safety fallback: re-scan after 300ms in case of delayed hydration or client-side rendering
+        const timer = setTimeout(() => {
+            observeElements();
+        }, 300);
+
+        return () => {
+            clearTimeout(timer);
+            if (observer) observer.disconnect();
+        };
+    }, [pathname]);
+
+    return null;
 }
