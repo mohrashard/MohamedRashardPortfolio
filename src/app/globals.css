@@ -191,4 +191,22 @@
             transition: none !important;
         }
     }
+
+    /* GPU-accelerated SVG pulse animations */
+    @keyframes pulseDashForward {
+        from { stroke-dashoffset: 120; }
+        to   { stroke-dashoffset: 0; }
+    }
+    @keyframes pulseDashBackward {
+        from { stroke-dashoffset: 0; }
+        to   { stroke-dashoffset: 120; }
+    }
+    .animate-pulse-dash-forward {
+        animation: pulseDashForward 4s linear infinite;
+        will-change: stroke-dashoffset;
+    }
+    .animate-pulse-dash-backward {
+        animation: pulseDashBackward 3.5s linear infinite;
+        will-change: stroke-dashoffset;
+    }
 }

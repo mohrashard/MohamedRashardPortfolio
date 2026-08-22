@@ -1,5 +1,5 @@
 import "./globals.css"; // Import your main CSS here
-import { Montserrat } from "next/font/google";
+import { Montserrat, Plus_Jakarta_Sans, Inter, Geist_Mono } from "next/font/google";
 import Script from "next/script";
 import Footer from "./components/Footer";
 import ScrollObserver from "./services/ScrollObserver";
@@ -11,6 +11,27 @@ const montserrat = Montserrat({
     weight: ["300", "400", "500", "600", "700"],
     display: "swap",
     variable: '--font-montserrat',
+});
+
+const jakarta = Plus_Jakarta_Sans({
+    subsets: ["latin"],
+    weight: ["400", "500", "600", "700", "800"],
+    display: "swap",
+    variable: '--font-jakarta',
+});
+
+const inter = Inter({
+    subsets: ["latin"],
+    weight: ["300", "400", "500", "600", "700"],
+    display: "swap",
+    variable: '--font-inter',
+});
+
+const geistMono = Geist_Mono({
+    subsets: ["latin"],
+    weight: ["400", "500", "600"],
+    display: "swap",
+    variable: '--font-geist-mono',
 });
 
 // Comprehensive SEO Metadata migrated from App.js for High Ranking
@@ -157,9 +178,13 @@ export default function RootLayout({ children }) {
     return (
         <html lang="en" className="scroll-smooth" suppressHydrationWarning>
             <head>
-                {/* External CSS Links - Preconnect for DNS resolution */}
+                {/* External CSS Links - Preconnect & DNS Prefetch */}
                 <link rel="preconnect" href="https://cdn.jsdelivr.net" crossOrigin="anonymous" />
+                <link rel="dns-prefetch" href="https://cdn.jsdelivr.net" />
                 
+                {/* High Priority Preload for LCP Hero Background */}
+                <link rel="preload" as="image" href="/hero-bg.webp" type="image/webp" fetchPriority="high" />
+
                 {/* Asynchronous Non-Render-Blocking Devicon Stylesheet */}
                 <link 
                     rel="stylesheet" 
@@ -227,7 +252,7 @@ export default function RootLayout({ children }) {
                 />
                 <script dangerouslySetInnerHTML={{ __html: "document.documentElement.classList.add('js-enabled');" }} />
             </head>
-            <body className={`${montserrat.variable} font-[var(--font-montserrat)] bg-[#050505] text-zinc-400 antialiased selection:bg-[#0066FF]/30`}>
+            <body className={`${montserrat.variable} ${jakarta.variable} ${inter.variable} ${geistMono.variable} font-[var(--font-inter)] bg-[#050505] text-zinc-300 antialiased selection:bg-[#0066FF]/30`}>
                 <WebVitals />
                 <ChunkLoadHandler />
                 <ScrollObserver />

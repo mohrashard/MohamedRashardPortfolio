@@ -1,5 +1,8 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
+  experimental: {
+    optimizePackageImports: ['lucide-react', 'framer-motion', '@fortawesome/react-fontawesome'],
+  },
   async redirects() {
     return [
       {
@@ -51,3 +54,4 @@ const nextConfig = {
 };
 
 module.exports = nextConfig;
+

@@ -5,9 +5,9 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 
 // ── Shared font tokens ──────────────────────────────────────
-const fontHeadline = { fontFamily: "'Plus Jakarta Sans', sans-serif" };
-const fontBody = { fontFamily: "'Inter', sans-serif" };
-const fontLabel = { fontFamily: "'Geist Mono', 'Geist', monospace" };
+const fontHeadline = { fontFamily: "var(--font-jakarta), 'Plus Jakarta Sans', sans-serif" };
+const fontBody = { fontFamily: "var(--font-inter), 'Inter', sans-serif" };
+const fontLabel = { fontFamily: "var(--font-geist-mono), 'Geist Mono', monospace" };
 
 export default function Navbar({ position = "fixed" }) {
     const pathname = usePathname();
@@ -54,7 +54,7 @@ export default function Navbar({ position = "fixed" }) {
                                 className={`px-5 py-2.5 rounded-full text-[13px] font-bold transition-all duration-300 relative
                                     ${isActive
                                         ? 'text-white bg-white/[0.06] shadow-[inset_0_0_0_1px_rgba(255,255,255,0.05)]'
-                                        : 'text-zinc-400 hover:text-white hover:bg-white/[0.03]'
+                                        : 'text-zinc-300 hover:text-white hover:bg-white/[0.03]'
                                     }`}
                                 style={fontBody}
                             >
@@ -79,6 +79,7 @@ export default function Navbar({ position = "fixed" }) {
                 <button
                     className="md:hidden w-11 h-11 flex flex-col justify-center items-center gap-[5px] z-[1001] bg-white/[0.03] rounded-full hover:bg-white/[0.06] transition-colors border border-white/[0.08]"
                     onClick={() => setIsMenuOpen(!isMenuOpen)}
+                    aria-label="Toggle Navigation Menu"
                 >
                     <div className={`h-0.5 bg-white transition-all duration-300 ${isMenuOpen ? 'w-5 rotate-45 translate-y-[7px]' : 'w-5'}`}></div>
                     <div className={`h-0.5 bg-white transition-all duration-300 ${isMenuOpen ? 'opacity-0 w-5' : 'w-4'}`}></div>
