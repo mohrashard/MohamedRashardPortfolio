@@ -4,6 +4,7 @@ import Script from "next/script";
 import Footer from "./components/Footer";
 import ExitIntentPopup from "./components/ExitIntentPopup";
 import ScrollObserver from "./services/ScrollObserver";
+import ChunkLoadHandler from "./components/ChunkLoadHandler";
 
 const montserrat = Montserrat({
     subsets: ["latin"],
@@ -173,6 +174,51 @@ export default function RootLayout({ children }) {
                     href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css" 
                 />
 
+                {/* Inline ChunkLoadError Early Catch Script */}
+                <script
+                    dangerouslySetInnerHTML={{
+                        __html: `
+                            (function() {
+                                function checkAndReload(msg) {
+                                    var str = String(msg || '').toLowerCase();
+                                    if (
+                                        str.indexOf('chunkloaderror') !== -1 ||
+                                        str.indexOf('loading chunk') !== -1 ||
+                                        str.indexOf('failed to fetch dynamically imported module') !== -1 ||
+                                        str.indexOf('css chunk') !== -1 ||
+                                        (str.indexOf('/_next/static/') !== -1 && str.indexOf('404') !== -1)
+                                    ) {
+                                        var lastReload = sessionStorage.getItem('mr2_chunk_err_reload');
+                                        var now = Date.now();
+                                        if (!lastReload || (now - parseInt(lastReload, 10)) > 12000) {
+                                            sessionStorage.setItem('mr2_chunk_err_reload', String(now));
+                                            window.location.reload();
+                                        }
+                                    }
+                                }
+
+                                window.addEventListener('error', function(e) {
+                                    var target = e.target || e.srcElement;
+                                    if (target && (target.tagName === 'SCRIPT' || target.tagName === 'LINK')) {
+                                        var src = target.src || target.href || '';
+                                        if (src.indexOf('/_next/static/') !== -1) {
+                                            checkAndReload('ChunkLoadError: static asset failed to load');
+                                            return;
+                                        }
+                                    }
+                                    if (e.message) checkAndReload(e.message);
+                                }, true);
+
+                                window.addEventListener('unhandledrejection', function(e) {
+                                    if (e && e.reason) {
+                                        checkAndReload(e.reason.message || e.reason.name || String(e.reason));
+                                    }
+                                });
+                            })();
+                        `,
+                    }}
+                />
+
                 {/* JSON-LD Structured Data */}
                 <script
                     type="application/ld+json"
@@ -185,6 +231,7 @@ export default function RootLayout({ children }) {
                 <script dangerouslySetInnerHTML={{ __html: "document.documentElement.classList.add('js-enabled');" }} />
             </head>
             <body className={`${montserrat.variable} font-[var(--font-montserrat)] bg-[#050505] text-zinc-400 antialiased selection:bg-[#0066FF]/30`}>
+                <ChunkLoadHandler />
                 <ScrollObserver />
                 {children}
                 <Footer />
