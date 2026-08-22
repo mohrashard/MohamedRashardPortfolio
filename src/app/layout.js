@@ -181,6 +181,14 @@ export default function RootLayout({ children }) {
                 {/* External CSS Links - Preconnect & DNS Prefetch */}
                 <link rel="preconnect" href="https://cdn.jsdelivr.net" crossOrigin="anonymous" />
                 <link rel="dns-prefetch" href="https://cdn.jsdelivr.net" />
+                <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossOrigin="anonymous" />
+                <link rel="dns-prefetch" href="https://cdnjs.cloudflare.com" />
+                
+                {/* FontAwesome CDN for fa- icon rendering */}
+                <link 
+                    rel="stylesheet" 
+                    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" 
+                />
                 
                 {/* High Priority Preload for LCP Hero Background */}
                 <link rel="preload" as="image" href="/hero-bg.webp" type="image/webp" fetchPriority="high" />

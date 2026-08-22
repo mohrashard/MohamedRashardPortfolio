@@ -1,0 +1,237 @@
+# Mr² Labs — AI & Software Development Agency
+
+We build and ship high-performance software, mobile apps, and AI products for founders. MVPs delivered in 72 hours, not months. Based in Colombo, Sri Lanka. Serving clients globally across the US, UK, Canada, and Australia.
+
+## Our Services
+- Custom AI Integration and Local LLM Deployment
+- SaaS MVP Development in 48-72 Hours
+- React Native Mobile App Development
+- Next.js Web Application Architecture
+- Supabase Database Infrastructure
+- Automated Workflow and Prospecting Systems
+
+## Projects Shipped
+- Ignite Ed — AI-powered trilingual education platform for Sri Lankan students
+- GrabMe — Home services marketplace PWA built in 48 hours
+- BizFinder AI — Automated B2B prospecting pipeline for design agencies
+[Mr² Labs](https://mr2labs.com/)
+[Home](https://mr2labs.com/)
+[Services](https://mr2labs.com/services)
+[Labs](https://mr2labs.com/labs)
+[Case Studies](https://mr2labs.com/case-studies)
+[Testimonials](https://mr2labs.com/testimonials)
+[Blog](https://mr2labs.com/blog)
+[Request Audit](https://mr2labs.com/services#audit-form)
+[Home](https://mr2labs.com/)
+[Services](https://mr2labs.com/services)
+[Labs](https://mr2labs.com/labs)
+[Case Studies](https://mr2labs.com/case-studies)
+[Testimonials](https://mr2labs.com/testimonials)
+[Blog](https://mr2labs.com/blog)
+[Request Audit](https://mr2labs.com/services#audit-form)
+
+## High-performance AI tools and tailored web apps. Built to eliminate your technical debt and scale your revenue.
+[Build Your AI System](https://mr2labs.com/services#audit-form)
+[Explore Solutions](https://mr2labs.com#work)
+Deploying minimal software products and automated revenue systems in rapid engineering sprint cycles.
+Engineering $0-subscription, localized AI pipelines for complex media, video, and data processing.
+Architecting secure directories, robust relational databases, and automated web platforms.
+
+## Systems we’ve engineered. Results that speak.
+Real problems. Real engineering. Swipe to explore each build.Scroll to step through each build.
+
+### Ignite Ed
+“Trilingual AI education ecosystem for Sri Lankan students.”
+Partnered with a top Sri Lankan creator to engineer a production-ready educational platform. We architected the administrative data-entry panel in 48 hours and built a React Native mobile application powered by Gemini to natively support Sinhala, Tamil, and English.
+[Build Similar System](https://mr2labs.com/services#audit-form)
+
+### BizFinder AI
+“Zero-touch automated prospecting pipeline for design agencies.”
+An intelligent lead generation engine engineered in-house to automate manual B2B prospecting. Architected entirely without a database for high-speed execution, utilizing Gemini to autonomously discover, qualify, and route high-intent leads.
+[Build Similar System](https://mr2labs.com/services#audit-form)
+
+### GrabMe
+“Sri Lanka's premiere local home services marketplace.”
+Went from raw concept to a fully secured, live Progressive Web App architecture in under 48 hours. Built as a proprietary Mr² Labs platform to validate the local service-matching market with zero agency bloat.
+[Build Similar System](https://mr2labs.com/services#audit-form)
+
+### Bypass
+“Local AI video editing automation for system marketing.”
+An internal, open-source automation tool built exclusively to handle the heavy lifting of content creation. It runs automated workflows to scale Mr² Labs product marketing without the overhead of recurring SaaS subscriptions.
+[Build Similar System](https://mr2labs.com/services#audit-form)
+
+### Sonic Portal
+“Zero-cost local AI audio production and enhancement studio.”
+A custom, offline desktop setup engineered to process high-fidelity TTS, voice enhancement, and audio workflows entirely on local hardware. Eliminates reliance on external cloud processing and subscription bottlenecks.
+[Build Similar System](https://mr2labs.com/services#audit-form)
+
+### Alt Cut
+“The 'Cursor' for video editors. AI-native timeline replacement.”
+Currently under active development to replace legacy, subscription-heavy tools like CapCut. Alt Cut is being engineered as an AI-powered, context-aware video editing platform designed for extreme speed and precision.
+[Build Similar System](https://mr2labs.com/services#audit-form)
+Ready to build?
+
+### Your system could be next.
+Tell us your problem. We’ll deliver a technical teardown in 48 hours.
+[Initiate System Audit](https://mr2labs.com/services#audit-form)
+
+### Ignite Ed
+“Trilingual AI education ecosystem for Sri Lankan students.”
+Partnered with a top Sri Lankan creator to engineer a production-ready educational platform. We architected the administrative data-entry panel in 48 hours and built a React Native mobile application powered by Gemini to natively support Sinhala, Tamil, and English.
+[Build Similar System](https://mr2labs.com/services#audit-form)
+
+### BizFinder AI
+“Zero-touch automated prospecting pipeline for design agencies.”
+An intelligent lead generation engine engineered in-house to automate manual B2B prospecting. Architected entirely without a database for high-speed execution, utilizing Gemini to autonomously discover, qualify, and route high-intent leads.
+[Build Similar System](https://mr2labs.com/services#audit-form)
+
+### GrabMe
+“Sri Lanka's premiere local home services marketplace.”
+Went from raw concept to a fully secured, live Progressive Web App architecture in under 48 hours. Built as a proprietary Mr² Labs platform to validate the local service-matching market with zero agency bloat.
+[Build Similar System](https://mr2labs.com/services#audit-form)
+
+### Bypass
+“Local AI video editing automation for system marketing.”
+An internal, open-source automation tool built exclusively to handle the heavy lifting of content creation. It runs automated workflows to scale Mr² Labs product marketing without the overhead of recurring SaaS subscriptions.
+[Build Similar System](https://mr2labs.com/services#audit-form)
+
+### Sonic Portal
+“Zero-cost local AI audio production and enhancement studio.”
+A custom, offline desktop setup engineered to process high-fidelity TTS, voice enhancement, and audio workflows entirely on local hardware. Eliminates reliance on external cloud processing and subscription bottlenecks.
+[Build Similar System](https://mr2labs.com/services#audit-form)
+
+### Alt Cut
+“The 'Cursor' for video editors. AI-native timeline replacement.”
+Currently under active development to replace legacy, subscription-heavy tools like CapCut. Alt Cut is being engineered as an AI-powered, context-aware video editing platform designed for extreme speed and precision.
+[Build Similar System](https://mr2labs.com/services#audit-form)
+Ready to build?
+
+### Your system could be next.
+Tell us your problem. We’ll deliver a technical teardown in 48 hours.
+[Initiate System Audit](https://mr2labs.com/services#audit-form)
+
+## Engineering pillars we deploy in every build.
+
+We do not build templates. We architect secure, hyper-scalable infrastructures and localized AI systems. Swipe to explore each pillar.Scroll to raise each pillar.
+
+### Local-First AI & Automation
+We engineer zero-subscription, fully localized AI models. By bypassing bloated cloud APIs, we deploy secure, on-premise generative AI, autonomous workflow nodes, and complex media processing pipelines that you own 100%.
+
+### Scalable Platform Infrastructure
+Architecting heavy-duty web applications and relational databases. From verified directory platforms to secure user authentication and cron-job automation, we build foundations that refuse to break under load.
+
+### Data & Revenue Ecosystems
+We convert static interfaces into dynamic revenue engines. Implementing algorithmic sorting, predictive data regression, and automated database keep-alive systems to ensure continuous operational uptime.
+
+### 72-Hour Sprint Cycles
+Corporate agencies take 6 months to ship; we take 72 hours. We engineer, test, and deploy minimal, production-ready software products in rapid, ruthless sprint cycles. Zero fluff. Immediate market validation.
+
+### Local-First AI & Automation
+We engineer zero-subscription, fully localized AI models. By bypassing bloated cloud APIs, we deploy secure, on-premise generative AI, autonomous workflow nodes, and complex media processing pipelines that you own 100%.
+
+### Scalable Platform Infrastructure
+Architecting heavy-duty web applications and relational databases. From verified directory platforms to secure user authentication and cron-job automation, we build foundations that refuse to break under load.
+
+### Data & Revenue Ecosystems
+We convert static interfaces into dynamic revenue engines. Implementing algorithmic sorting, predictive data regression, and automated database keep-alive systems to ensure continuous operational uptime.
+
+### 72-Hour Sprint Cycles
+Corporate agencies take 6 months to ship; we take 72 hours. We engineer, test, and deploy minimal, production-ready software products in rapid, ruthless sprint cycles. Zero fluff. Immediate market validation.
+
+## We engineer intelligent infrastructure for founders who scale.
+
+Mr² Labs is an elite systems architecture firm based in Colombo, Sri Lanka. Founded by Mohamed Rashard, we bypass corporate bloat to deliver production-ready software and AI ecosystems at 72-hour sprint velocity.
+Firm Chronicle
+
+### Global Systems Deployment
+Architecting high-ticket AI tools, SaaS platforms, and intelligent automation for enterprises across the US, UK, Canada, and Australia.
+
+### Mr² Labs Founded
+Established as a rapid AI & software labs with a singular focus: shipping production-ready systems in 72 hours with zero corporate bloat.
+
+### Academic Rigor Meets Agile Execution
+Studio leadership secured First Class Honours in Software Engineering (B.Sc. Cardiff Metropolitan), embedding strict architectural standards into our rapid delivery pipelines.
+
+### Local-First Architecture
+Pioneered a strict engineering thesis focusing on $0-subscription AI, deploying localized database models, and ensuring 100% client code ownership.
+Firm Capabilities
+
+### Engineering pillars we bring to every build
+#### AI Integration
+Custom models trained on your data, local-first video pipelines, prediction engines, and background worker automation.
+
+#### Systems Architecture
+End-to-end infrastructure ownership. Heavy-duty backend logic engineered in Python, Rust, and Next.js.
+
+#### 72-Hour Sprints
+Tight scope, hyper-fast execution. Real users testing your product in days instead of months.
+
+#### Revenue Operations
+Architecting for scale from day one - automated systems designed to process high-ticket volumes securely.
+Headquartered in Colombo, Sri Lanka (UTC+5:30). Our systems architecture team responds to technical issues within 4 hours locally and within 12 hours globally. Every partner gets direct engineer-to-client communication.
+Global Communication Standards
+Unsure if your infrastructure is scalable? Our architects will run a full diagnostic on your current software and deliver a technical teardown video within 48 hours. Zero cost. Zero obligations.
+[Initiate System Audit](https://mr2labs.com/services#audit-form)
+
+## Operational reality. No fluff. Just the facts.
+
+We don't sell bloated agency timelines. Here's exactly how we operate, build, and ship.
+
+### Ruthless Sprint Velocity
+Core, functional MVPs from architecture lock to a live production URL. No scope bloat, no enterprise theatre.
+
+### Scope-Driven Architecture
+We deploy the most dominant, high-performance tech stack tailored precisely to your product's requirements and scaling needs.
+
+### Async-First Workflow
+Daily staging links and Loom updates instead of 2-hour Zoom calls. You see progress every single day.
+
+### Practical AI Integration
+Claude, Gemini, and local models wired into real business logic. No AI hype - just measurable automation leverage.
+
+### Direct Founder Access
+No project managers or account executives in the loop. You communicate directly with the engineer building your system.
+
+### Beyond the MVP
+We don't just ship MVPs and vanish. When you're ready for full product scaling, we architect and develop the complete system in weeks, not months.
+[!] We partner with founders who need to validate ideas and ship fast.
+[Initiate a System Build](https://mr2labs.com/services#audit-form)
+No obligation. Free diagnostic within 48h.
+
+## Let's build your system.
+
+Whether you need a full technical audit, a custom engineering build, or just want to connect-reach out directly.
+[System AuditFree technical teardown](https://mr2labs.com/services#audit-form)
+
+#### System Audit
+Free technical teardown
+[Email Directly[email protected]](https://mr2labs.com/cdn-cgi/l/email-protection#ec8b9e839b9884ac819ede808d8e9fc28f8381)
+
+#### Email Directly
+[email protected]
+[LinkedInConnect and message](https://www.linkedin.com/in/mohamedrashard)
+
+#### LinkedIn
+Connect and message
+
+### Engineered with precision.Built to scale.
+
+We don't just build MVPs; we engineer production-ready systems that outlast the hype.
+
+#### Navigation
+[Home](https://mr2labs.com/)
+[Services](https://mr2labs.com/services)
+[Labs](https://mr2labs.com/labs)
+[Digital Assets](https://mr2labs.com/digital-assets)
+[Blog](https://mr2labs.com/blog)
+[Case Studies](https://mr2labs.com/case-studies)
+[Testimonials](https://mr2labs.com/testimonials)
+
+#### Support
+[[email protected]](https://mr2labs.com/cdn-cgi/l/email-protection#3255405d45465a725f40005e5350411c515d5f)
+[Request Audit](https://mr2labs.com/services#audit-form)
+[Privacy Policy](https://mr2labs.com/privacy)
+
+#### Operations
+© 2026 Mr² Labs. Rooted in code, engineered for scale.
+Design & Build by MRR
