@@ -1,27 +1,23 @@
 # Mr² Labs — AI & Software Development Agency
 
-## About
-Mr² Labs (mr2labs.com) is an AI and software development agency that builds and ships high-performance digital products for founders. We specialize in rapid MVP delivery — our fastest build was 48 hours.
+> Mr² Labs builds and ships production-ready AI-powered MVPs, full-stack applications, and automation systems for startup founders in 72 hours.
 
-## Services
-- Full-stack web application development
-- React Native cross-platform mobile apps
-- AI integration and AI-powered product features
-- PWA (Progressive Web App) development
-- EdTech platform development
-- Rapid MVP delivery (14-day standard, 72-hour sprint available)
+## Key Services & Resources
 
-## Proven Work
-- Ignite Ed: Trilingual AI-powered EdTech mobile app — built in 14 days
-- Grab Me: Commission-free PWA marketplace for local technicians — built in 72 hours
+- [Home Page](https://mr2labs.com): Core agency overview, engineering philosophy, and showcase.
+- [Software Development Services](https://mr2labs.com/services): Full-stack web development, React Native mobile apps, and rapid MVP sprints.
+- [App Cost Estimator](https://mr2labs.com/cost-to-build): Interactive cost breakdowns and technology stack guides for 70+ app categories.
+- [Engineering Labs & AI Utilities](https://mr2labs.com/labs): Free tools including API testers, runway calculators, and prompt libraries.
+- [Case Studies](https://mr2labs.com/case-studies): Detailed engineering teardowns of shipped client platforms.
+- [Technical Blog](https://mr2labs.com/blog): In-depth articles on software architecture, AI agents, and startup development.
+- [Client Testimonials](https://mr2labs.com/testimonials): Verified feedback from startup founders and enterprise partners.
 
-## Client Results
-- 48h fastest MVP delivered
-- 14 days average build time
-- 3 live platforms shipped
-- $0 marketing spend (organic only)
+## Featured Case Studies
 
-## Contact
-Email: growth@mr2labs.com
-Website: https://mr2labs.com
-Audit Request: https://mr2labs.com/services#audit-form
+- [Ignite Ed Case Study](https://mr2labs.com/case-studies/ignite-ed): Trilingual AI-powered EdTech mobile app built in 14 days.
+- [Grab Me Case Study](https://mr2labs.com/case-studies/grabme): Commission-free PWA marketplace for local technicians built in 72 hours.
+
+## Contact & Intake
+
+- [Request Technical Audit](https://mr2labs.com/services#audit-form): Free application architecture and performance audit request.
+- [Email Contact](mailto:growth@mr2labs.com): Direct founder and engineering lead inquiry line.

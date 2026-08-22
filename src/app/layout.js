@@ -1,10 +1,10 @@
-import "./globals.css"; // Import your main CSS here
+// Main CSS and font imports
+import "./globals.css";
 import { Montserrat, Plus_Jakarta_Sans, Inter, Geist_Mono } from "next/font/google";
 import Script from "next/script";
 import Footer from "./components/Footer";
 import ScrollObserver from "./services/ScrollObserver";
 import ChunkLoadHandler from "./components/ChunkLoadHandler";
-import { WebVitals } from "./components/WebVitals";
 
 const montserrat = Montserrat({
     subsets: ["latin"],
@@ -189,8 +189,6 @@ export default function RootLayout({ children }) {
                 <link 
                     rel="stylesheet" 
                     href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css" 
-                    media="print"
-                    onLoad="this.media='all'"
                 />
 
                 {/* Inline ChunkLoadError Early Catch Script */}
@@ -253,7 +251,6 @@ export default function RootLayout({ children }) {
                 <script dangerouslySetInnerHTML={{ __html: "document.documentElement.classList.add('js-enabled');" }} />
             </head>
             <body className={`${montserrat.variable} ${jakarta.variable} ${inter.variable} ${geistMono.variable} font-[var(--font-inter)] bg-[#050505] text-zinc-300 antialiased selection:bg-[#0066FF]/30`}>
-                <WebVitals />
                 <ChunkLoadHandler />
                 <ScrollObserver />
                 {children}

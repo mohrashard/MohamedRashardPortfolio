@@ -60,9 +60,29 @@ export default function ChunkLoadHandler() {
         window.addEventListener('error', handleWindowError, true);
         window.addEventListener('unhandledrejection', handleUnhandledRejection);
 
+        // Native PerformanceObserver tracking LCP, FCP, CLS, and INP metrics
+        let observer = null;
+        if (typeof window !== 'undefined' && 'PerformanceObserver' in window) {
+            try {
+                observer = new PerformanceObserver((list) => {
+                    for (const entry of list.getEntries()) {
+                        if (process.env.NODE_ENV === 'development') {
+                            const val = entry.value !== undefined ? entry.value : entry.startTime;
+                            console.log(`[Web Vitals] ${entry.name || entry.entryType}:`, Math.round(val * 100) / 100);
+                        }
+                    }
+                });
+                const types = ['largest-contentful-paint', 'paint', 'layout-shift', 'first-input'];
+                types.forEach((type) => {
+                    try { observer.observe({ type, buffered: true }); } catch (e) {}
+                });
+            } catch (e) {}
+        }
+
         return () => {
             window.removeEventListener('error', handleWindowError, true);
             window.removeEventListener('unhandledrejection', handleUnhandledRejection);
+            if (observer) observer.disconnect();
         };
     }, []);
 

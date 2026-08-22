@@ -24,9 +24,14 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
     
     if (!project) return { title: 'Not Found' };
 
+    // Format clean, non-truncated titles under 60 characters
+    const cleanTitle = project.h1Title.length > 45
+        ? `${project.h1Title.replace('Cost to Build a ', '').replace('Cost to Build an ', '').slice(0, 44)} | Mr² Labs`
+        : `${project.h1Title} | Mr² Labs`;
+
     return {
-        title: `${project.h1Title} | Mr² Labs Fast-Track MVPs`,
-        description: project.seoDescription,
+        title: cleanTitle,
+        description: `${project.seoDescription} Calculate dev costs & 72-hour MVP architecture.`,
         alternates: {
             canonical: `${process.env.NEXT_PUBLIC_SITE_URL}/cost-to-build/${project.slug}`,
         }
@@ -44,6 +49,11 @@ export default async function CostToBuildSlugPage({ params }: { params: Promise<
     const rawCost = parseInt(project.traditionalAgencyEstimate.costRange.replace(/[^0-9]/g, ''));
     const complexityTier = rawCost > 40000 ? "Enterprise / Heavy Data" : "Advanced / SaaS Logic";
 
+    // Related spokes for Hub-and-Spoke Mesh Interlinking
+    const relatedProjects = typedData
+        .filter((p) => p.slug !== slug && (p.category === project.category || true))
+        .slice(0, 3);
+
     return (
         <div className="min-h-screen bg-[#050505] text-[#e0e0e0] font-sans overflow-x-hidden pt-36 pb-24">
             <script
@@ -52,6 +62,22 @@ export default async function CostToBuildSlugPage({ params }: { params: Promise<
                     __html: JSON.stringify({
                         "@context": "https://schema.org",
                         "@graph": [
+                            {
+                                "@type": "SoftwareApplication",
+                                "name": project.h1Title,
+                                "applicationCategory": project.category || "BusinessApplication",
+                                "operatingSystem": "Web, iOS, Android",
+                                "description": project.seoDescription,
+                                "offers": {
+                                    "@type": "Offer",
+                                    "priceCurrency": "USD",
+                                    "price": rawCost || 25000,
+                                    "priceValidUntil": "2027-12-31",
+                                    "availability": "https://schema.org/InStock",
+                                    "description": project.mr2LabsHook,
+                                    "url": `${process.env.NEXT_PUBLIC_SITE_URL}/cost-to-build/${project.slug}`
+                                }
+                            },
                             {
                                 "@type": "Service",
                                 "name": project.h1Title,
@@ -201,7 +227,7 @@ export default async function CostToBuildSlugPage({ params }: { params: Promise<
                             </p>
                         </AnimatedSection>
 
-                        <AnimatedSection component="section" delay={0.3} className="mb-10 lg:mb-0">
+                        <AnimatedSection component="section" delay={0.3} className="mb-10">
                             <h2 className="text-2xl font-bold text-white mb-6 flex items-center gap-3">
                                 <i className="fas fa-server text-[var(--accent)]"></i> Under The Hood Architecture
                             </h2>
@@ -221,6 +247,36 @@ export default async function CostToBuildSlugPage({ params }: { params: Promise<
                                 ))}
                             </div>
                         </AnimatedSection>
+
+                        {/* Spoke-to-Spoke Related Estimators Interlinking */}
+                        {relatedProjects.length > 0 && (
+                            <AnimatedSection component="section" delay={0.35} className="mt-6 border-t border-white/10 pt-10">
+                                <h3 className="text-xl font-bold text-white mb-6 flex items-center gap-2">
+                                    <i className="fas fa-sitemap text-[var(--primary)]"></i> Related Development Cost Estimators
+                                </h3>
+                                <div className="grid sm:grid-cols-3 gap-4">
+                                    {relatedProjects.map((rel) => (
+                                        <Link
+                                            key={rel.slug}
+                                            href={`/cost-to-build/${rel.slug}`}
+                                            className="p-4 rounded-2xl bg-[#0a0a0a] border border-white/10 hover:border-[var(--primary)]/50 transition-all flex flex-col justify-between group"
+                                        >
+                                            <div>
+                                                <span className="text-[9px] uppercase tracking-wider font-bold text-[var(--accent)] block mb-1" style={fontLabel}>
+                                                    {rel.category}
+                                                </span>
+                                                <h4 className="text-sm font-bold text-white group-hover:text-[var(--primary)] transition-colors line-clamp-2">
+                                                    {rel.h1Title.replace('Cost to Build a ', '').replace('Cost to Build an ', '')}
+                                                </h4>
+                                            </div>
+                                            <span className="text-[10px] text-slate-400 font-semibold mt-3 flex items-center gap-1 group-hover:translate-x-1 transition-transform">
+                                                View Cost <i className="fas fa-arrow-right text-[8px]"></i>
+                                            </span>
+                                        </Link>
+                                    ))}
+                                </div>
+                            </AnimatedSection>
+                        )}
 
                     </div>
 

@@ -6,6 +6,8 @@ import { PSEOSlug } from '@/types/pseo';
 import { Metadata } from 'next';
 import Navbar from '../components/Navbar';
 
+import Link from 'next/link';
+
 const fontHeadline = { fontFamily: "'Plus Jakarta Sans', sans-serif" };
 const fontBody = { fontFamily: "'Inter', sans-serif" };
 const fontLabel = { fontFamily: "'Geist Mono', 'Geist', monospace" };
@@ -21,6 +23,14 @@ export const metadata: Metadata = {
 export default function CostToBuildPage() {
     // Cast the imported data to our new type
     const typedData = pseoData as PSEOSlug[];
+
+    // Group items by category for static SEO directory index
+    const categoriesMap = typedData.reduce((acc, item) => {
+        const cat = item.category || 'Other';
+        if (!acc[cat]) acc[cat] = [];
+        acc[cat].push(item);
+        return acc;
+    }, {} as Record<string, PSEOSlug[]>);
 
     return (
         <div className="min-h-screen bg-[#050505] text-[#e0e0e0] font-sans selection:bg-blue-500/30 overflow-x-hidden pt-32 pb-24">
@@ -103,8 +113,42 @@ export default function CostToBuildPage() {
                 <div className="absolute inset-0 bg-gradient-to-b from-transparent via-black/5 to-black/25" />
             </div>
 
-            {/* Client Component Island (Now includes Hero) */}
+            {/* Client Component Island */}
             <CostToBuildClient data={typedData} />
+
+            {/* Server-Side Rendered Crawlable Directory Footer */}
+            <section className="relative z-10 max-w-7xl mx-auto px-6 md:px-12 mt-20 pt-16 border-t border-white/10">
+                <div className="mb-10 text-center md:text-left">
+                    <span className="text-[10px] uppercase font-bold text-[var(--accent)] tracking-widest block mb-2" style={fontLabel}>
+                        Directory & Search Index
+                    </span>
+                    <h2 className="text-2xl font-bold text-white tracking-tight" style={fontHeadline}>
+                        Browse All Development Cost Estimators
+                    </h2>
+                </div>
+
+                <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+                    {Object.entries(categoriesMap).map(([category, items]) => (
+                        <div key={category} className="flex flex-col gap-3">
+                            <h3 className="text-xs font-bold text-slate-300 uppercase tracking-wider pb-2 border-b border-white/10" style={fontLabel}>
+                                {category} ({items.length})
+                            </h3>
+                            <ul className="flex flex-col gap-2">
+                                {items.map((item) => (
+                                    <li key={item.slug}>
+                                        <Link 
+                                            href={`/cost-to-build/${item.slug}`}
+                                            className="text-xs text-slate-400 hover:text-[var(--accent)] transition-colors line-clamp-1 block"
+                                        >
+                                            • {item.h1Title.replace('Cost to Build a ', '').replace('Cost to Build an ', '')}
+                                        </Link>
+                                    </li>
+                                ))}
+                            </ul>
+                        </div>
+                    ))}
+                </div>
+            </section>
 
         </div>
     );

@@ -116,6 +116,7 @@ return (
                                             aria-label="Get Blueprint PDF"
                                             className="bg-[var(--primary)] text-white px-6 h-full rounded-xl font-bold hover:bg-[#0055d4] transition-colors flex items-center justify-center shrink-0 disabled:opacity-70"
                                         >
+                                            <span className="sr-only">Get Blueprint PDF</span>
                                             {status === 'loading' ? (
                                                 <i className="fas fa-spinner fa-spin"></i>
                                             ) : (
@@ -130,11 +131,11 @@ return (
                             )}
                             {/* Socials */}
                             <div className="flex gap-5">
-                                <a href="https://x.com/mrr_labs" target="_blank" rel="noopener noreferrer" aria-label="X Twitter" className="text-zinc-400 hover:text-white text-lg transition-transform hover:scale-110"><i className="fab fa-twitter"></i></a>
-                                <a href="https://www.linkedin.com/in/mohamedrashard" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" className="text-zinc-400 hover:text-[#0077b5] text-lg transition-transform hover:scale-110"><i className="fab fa-linkedin-in"></i></a>
-                                <a href="https://github.com/mohrashard/" target="_blank" rel="noopener noreferrer" aria-label="GitHub" className="text-zinc-400 hover:text-white text-lg transition-transform hover:scale-110"><i className="fab fa-github"></i></a>
-                                <a href="https://web.facebook.com/profile.php?id=61575921543570" target="_blank" rel="noopener noreferrer" aria-label="Facebook" className="text-zinc-400 hover:text-[#1877F2] text-lg transition-transform hover:scale-110"><i className="fab fa-facebook-f"></i></a>
-                                <a href="https://www.instagram.com/mrr_labs/" target="_blank" rel="noopener noreferrer" aria-label="Instagram" className="text-zinc-400 hover:text-[#E1306C] text-lg transition-transform hover:scale-110"><i className="fab fa-instagram"></i></a>
+                                <a href="https://x.com/mrr_labs" target="_blank" rel="noopener noreferrer" aria-label="X Twitter" className="text-zinc-400 hover:text-white text-lg transition-transform hover:scale-110"><span className="sr-only">X Twitter</span><i className="fab fa-twitter"></i></a>
+                                <a href="https://www.linkedin.com/in/mohamedrashard" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" className="text-zinc-400 hover:text-[#0077b5] text-lg transition-transform hover:scale-110"><span className="sr-only">LinkedIn</span><i className="fab fa-linkedin-in"></i></a>
+                                <a href="https://github.com/mohrashard/" target="_blank" rel="noopener noreferrer" aria-label="GitHub" className="text-zinc-400 hover:text-white text-lg transition-transform hover:scale-110"><span className="sr-only">GitHub</span><i className="fab fa-github"></i></a>
+                                <a href="https://web.facebook.com/profile.php?id=61575921543570" target="_blank" rel="noopener noreferrer" aria-label="Facebook" className="text-zinc-400 hover:text-[#1877F2] text-lg transition-transform hover:scale-110"><span className="sr-only">Facebook</span><i className="fab fa-facebook-f"></i></a>
+                                <a href="https://www.instagram.com/mrr_labs/" target="_blank" rel="noopener noreferrer" aria-label="Instagram" className="text-zinc-400 hover:text-[#E1306C] text-lg transition-transform hover:scale-110"><span className="sr-only">Instagram</span><i className="fab fa-instagram"></i></a>
                             </div>
                         </div>
                     </div>

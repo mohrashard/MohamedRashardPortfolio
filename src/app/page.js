@@ -4,8 +4,9 @@ import Navbar from "./components/Navbar";
 import Hero from "./components/Hero";
 import TrustBar from "./components/TrustBar";
 
+import SocialProofTicker from "./components/SocialProofTicker";
+
 // Code-split below-the-fold components for optimal initial bundle & FCP
-const SocialProofTicker = dynamic(() => import("./components/SocialProofTicker"));
 const Projects = dynamic(() => import("./components/Projects"));
 const Skills = dynamic(() => import("./components/Skills"));
 const About = dynamic(() => import("./components/About"));
