@@ -5,6 +5,15 @@ import { useEffect, useState } from 'react';
 export default function GlobalErrorPage({ error, reset }) {
     const [isChunkError, setIsChunkError] = useState(false);
 
+    const performCacheBustingReload = () => {
+        const now = Date.now();
+        sessionStorage.setItem('mr2_chunk_err_reload', String(now));
+        const search = window.location.search || '';
+        const cleanSearch = search.replace(/([?&])nocache=[^&]*(&|$)/, '$1').replace(/[?&]$/, '');
+        const sep = cleanSearch ? '&' : '?';
+        window.location.href = window.location.pathname + cleanSearch + sep + 'nocache=' + now;
+    };
+
     useEffect(() => {
         const errStr = String(error?.message || error?.name || error || '').toLowerCase();
         const detected = (
@@ -19,20 +28,14 @@ export default function GlobalErrorPage({ error, reset }) {
             setIsChunkError(true);
             const lastReload = sessionStorage.getItem('mr2_chunk_err_reload');
             const now = Date.now();
-            if (!lastReload || now - parseInt(lastReload, 10) > 12000) {
-                sessionStorage.setItem('mr2_chunk_err_reload', String(now));
+            if (!lastReload || now - parseInt(lastReload, 10) > 8000) {
                 const timer = setTimeout(() => {
-                    window.location.reload();
-                }, 800);
+                    performCacheBustingReload();
+                }, 500);
                 return () => clearTimeout(timer);
             }
         }
     }, [error]);
-
-    const handleManualReload = () => {
-        sessionStorage.setItem('mr2_chunk_err_reload', String(Date.now()));
-        window.location.reload();
-    };
 
     return (
         <div className="min-h-screen bg-[#050505] text-zinc-100 flex items-center justify-center p-6">
@@ -62,7 +65,7 @@ export default function GlobalErrorPage({ error, reset }) {
 
                 <div className="flex flex-col gap-3">
                     <button
-                        onClick={handleManualReload}
+                        onClick={performCacheBustingReload}
                         className="w-full py-3 px-4 bg-[#0066FF] hover:bg-[#0052CC] text-white font-medium rounded-xl transition-all shadow-lg shadow-[#0066FF]/20 flex items-center justify-center gap-2"
                     >
                         <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">

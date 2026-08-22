@@ -186,13 +186,16 @@ export default function RootLayout({ children }) {
                                         str.indexOf('loading chunk') !== -1 ||
                                         str.indexOf('failed to fetch dynamically imported module') !== -1 ||
                                         str.indexOf('css chunk') !== -1 ||
-                                        (str.indexOf('/_next/static/') !== -1 && str.indexOf('404') !== -1)
+                                        (str.indexOf('/_next/static/') !== -1 && (str.indexOf('404') !== -1 || str.indexOf('failed') !== -1))
                                     ) {
                                         var lastReload = sessionStorage.getItem('mr2_chunk_err_reload');
                                         var now = Date.now();
-                                        if (!lastReload || (now - parseInt(lastReload, 10)) > 12000) {
+                                        if (!lastReload || (now - parseInt(lastReload, 10)) > 8000) {
                                             sessionStorage.setItem('mr2_chunk_err_reload', String(now));
-                                            window.location.reload();
+                                            var search = window.location.search || '';
+                                            var cleanSearch = search.replace(/([?&])nocache=[^&]*(&|$)/, '$1').replace(/[?&]$/, '');
+                                            var sep = cleanSearch ? '&' : '?';
+                                            window.location.href = window.location.pathname + cleanSearch + sep + 'nocache=' + now;
                                         }
                                     }
                                 }
