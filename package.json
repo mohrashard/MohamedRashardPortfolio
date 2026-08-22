@@ -8,6 +8,7 @@
     "@fortawesome/react-fontawesome": "^0.2.2",
     "@google/generative-ai": "^0.24.1",
     "@react-three/drei": "^10.7.7",
+    "@supabase/ssr": "^0.12.4",
     "@supabase/supabase-js": "^2.99.1",
     "@tailwindcss/typography": "^0.5.19",
     "@testing-library/dom": "^10.4.0",
@@ -16,11 +17,16 @@
     "@testing-library/user-event": "^13.5.0",
     "docx": "^9.7.1",
     "framer-motion": "^12.23.15",
+    "google-trends-api": "^4.9.2",
     "gray-matter": "^4.0.3",
     "groq-sdk": "^1.2.1",
     "gsap": "^3.15.0",
     "lucide-react": "^0.544.0",
     "next": "^15.3.1",
+    "octokit": "^5.0.5",
+    "puppeteer": "^25.8.0",
+    "puppeteer-extra": "^3.3.6",
+    "puppeteer-extra-plugin-stealth": "^2.11.2",
     "react": "^19.2.3",
     "react-dom": "^19.2.3",
     "react-icons": "^5.5.0",
@@ -34,7 +40,10 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "ingest": "node scripts/ingest-thread.js",
+    "draft": "node scripts/generate-post.js",
+    "content-engine": "npm run ingest && npm run draft"
   },
   "browserslist": {
     "production": [

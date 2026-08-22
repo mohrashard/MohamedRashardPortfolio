@@ -3,11 +3,18 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { X, Zap, Terminal, CheckCircle } from 'lucide-react';
+import { usePathname } from 'next/navigation';
 
 const fontHeadline = { fontFamily: "'Plus Jakarta Sans', sans-serif" };
 const fontLabel = { fontFamily: "'Geist Mono', 'Geist', monospace" };
 
 export default function ExitIntentPopup() {
+    const pathname = usePathname();
+    if (pathname?.startsWith('/admin')) return null;
+    return <ExitIntentContent />;
+}
+
+function ExitIntentContent() {
     const [isVisible, setIsVisible] = useState(false);
     const [email, setEmail] = useState('');
     const [status, setStatus] = useState('idle');
