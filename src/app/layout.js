@@ -2,7 +2,6 @@ import "./globals.css"; // Import your main CSS here
 import { Montserrat } from "next/font/google";
 import Script from "next/script";
 import Footer from "./components/Footer";
-import ExitIntentPopup from "./components/ExitIntentPopup";
 import ScrollObserver from "./services/ScrollObserver";
 import ChunkLoadHandler from "./components/ChunkLoadHandler";
 
@@ -238,7 +237,6 @@ export default function RootLayout({ children }) {
                 <ScrollObserver />
                 {children}
                 <Footer />
-                <ExitIntentPopup />
 
                 {/* Google Analytics Script */}
                 <Script
