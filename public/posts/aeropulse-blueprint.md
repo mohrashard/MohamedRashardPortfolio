@@ -2,7 +2,7 @@
 title: "Why I Built AeroPulse: The Blueprint for a Zero-Latency SaaS Landing Page"
 date: 2026-04-02
 description: Learn why we engineered AeroPulse at Mr² Labs-a high-performance Next.js and Spline 3D architecture designed for zero-latency SaaS landing pages. High-growth startups in Colombo and globally can now deploy a multi-million dollar brand aesthetic in under 24 hours.
-image: "/posts/aeropulse-blueprint.png"
+image: "/posts/aeropulse-blueprint.webp"
 category: "SaaS Development"
 ---
 
@@ -49,4 +49,4 @@ I’m offering a special launch price for my community-get the full system for *
 **Mohamed Rashard** is a Full-Stack AI Engineer and Founder of **Mr² Labs**, specialized in high-performance Web Apps and AI integrations. Based in Colombo, Sri Lanka, he builds digital products that scale.
 
 ---
-
+

@@ -4,7 +4,7 @@ date: "2026-02-06"
 author: "Mohamed Rashard"
 description: "Explore the evolution from Search Engine Optimization (SEO) to Generative Engine Optimization (GEO). Learn how to stay visible in an age dominated by AI search engines like ChatGPT, Perplexity, and Google Gemini."
 keywords: "SEO vs GEO, Generative Engine Optimization, AI Search Optimization, ChatGPT SEO, Perplexity Optimization, Future of Digital Marketing, Mohamed Rashard"
-image: "/posts/seo-vs-geo.png"
+image: "/posts/seo-vs-geo.webp"
 category: "AI & Marketing"
 ---
 
@@ -74,4 +74,4 @@ Not necessarily. It requires a different *mindset* and better technical implemen
 - **MR² Labs** provides the expertise to master both, ensuring your business is ready for the future.
 
 ---
-
+

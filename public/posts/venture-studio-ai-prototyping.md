@@ -3,7 +3,7 @@ title: "Why Venture Studios are Switching to 48-Hour AI Prototyping for Portfoli
 date: 2026-03-26
 description: >-
     A CTO-level whitepaper exploring how top venture studios use rapid AI prototyping for startups to radically maximize capital efficiency and kill flawed ideas before they drain operational funds.
-image: "/posts/venture-studio-ai.png"
+image: "/posts/venture-studio-ai.webp"
 category: "Venture Capital & Strategy"
 ---
 
@@ -72,4 +72,4 @@ The software has already eaten the world; now, speed is eating the software indu
 **Stop funding theoretical roadmaps. Turn your thesis into live code this weekend. Request a Portfolio Audit for your Founders with Mr² Labs today.**
 
 ---
-
+

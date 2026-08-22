@@ -2,7 +2,7 @@
 title: "Why WordPress Is Costing You Clients in 2026 (And What to Use Instead)"
 date: 2026-04-02
 description: WordPress powers 43% of the internet but in 2026 it is quietly working against premium service businesses. Here is the honest breakdown of what it costs you and what the fastest companies use instead.
-image: "/posts/wordpress-vs-nextjs-2026.png"
+image: "/posts/wordpress-vs-nextjs-2026.webp"
 category: "Web Development"
 ---
 
@@ -89,4 +89,4 @@ If you have questions about whether Next.js is the right move for your specific 
 **Mohamed Rashard** is a full-stack AI engineer based in **Colombo, Sri Lanka**. He builds Next.js web applications and AI-powered products for founders and businesses globally. Recent builds include **BizFinder AI**, **LiverLens**, and **Mentora**. Through **Mr² Labs**, he focuses on delivering high-performance digital experiences that convert visitors into premium clients.
 
 ---
-
+

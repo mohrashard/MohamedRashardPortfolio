@@ -3,7 +3,7 @@ title: "Why Your Startup Doesn't Need 3 Months to Launch an MVP"
 date: 2026-03-26
 description: >-
     Fast SaaS MVP development is your ultimate competitive advantage. Learn why founders are over-engineering and how Mr² Labs ships working AI MVPs in just 48 hours.
-image: "/posts/mr2-labs-10x-future.png"
+image: "/posts/mr2-labs-10x-future.webp"
 category: "SaaS Development"
 ---
 
@@ -48,4 +48,4 @@ Whether you are a booming local startup here in Sri Lanka or a scaling enterpris
 Are you ready to turn your concept into a reality in record time? Stop waiting. Let's talk about how we can accelerate your SaaS development journey and launch your product this week.
 
 ---
-
+

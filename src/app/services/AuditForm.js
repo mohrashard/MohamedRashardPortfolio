@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, useEffect, useRef } from 'react';
-import { Terminal } from 'lucide-react';
+import { Terminal, Check, X, ChevronDown, AlertCircle, Loader2, Send, Lock } from 'lucide-react';
 
 export default function AuditForm() {
     const [status, setStatus] = useState('idle'); // idle, loading, success, error
@@ -146,7 +146,7 @@ export default function AuditForm() {
                         /* ── SUCCESS STATE ── */
                         <div className="w-full max-w-2xl mx-auto rounded-3xl bg-white/5 border border-[var(--primary)]/30 backdrop-blur-md p-12 md:p-16 text-center mt-12">
                             <div className="w-24 h-24 bg-[var(--primary)]/20 border border-[var(--primary)]/40 rounded-full flex items-center justify-center mx-auto mb-8 animate-bounce">
-                                <i className="fas fa-check text-4xl text-[var(--primary)] drop-shadow-md border border-white/5" />
+                                <Check className="w-10 h-10 text-[var(--primary)] drop-shadow-md border border-white/5" />
                             </div>
                             <h3 className="text-4xl md:text-5xl font-extrabold text-zinc-50 mb-6">BOOM!</h3>
                             <p className="text-xl text-zinc-300">Audit request received. Check your inbox!</p>
@@ -176,7 +176,7 @@ export default function AuditForm() {
                                 className="absolute top-6 right-6 w-10 h-10 rounded-full bg-white/5 border border-white/10 flex items-center justify-center text-zinc-400 hover:text-zinc-50 hover:bg-white/10 transition-all z-50"
                                 aria-label="Close audit form"
                             >
-                                <i className="fas fa-times" />
+                                <X size={16} />
                             </button>
 
                             {/* Decorative glows */}
@@ -219,7 +219,7 @@ export default function AuditForm() {
                                                     <option value="Exploring options, no rush" className="bg-[#0f172a] text-zinc-50 py-2">Exploring options, no rush</option>
                                                     <option value="Just curious for now" className="bg-[#0f172a] text-zinc-50 py-2">Just curious for now</option>
                                                 </select>
-                                                <i className="fas fa-chevron-down absolute right-5 top-1/2 -translate-y-1/2 text-zinc-500 pointer-events-none text-xs" />
+                                                <ChevronDown size={14} className="absolute right-5 top-1/2 -translate-y-1/2 text-zinc-500 pointer-events-none" />
                                             </div>
                                         </div>
                                         <div className="space-y-2">
@@ -234,7 +234,7 @@ export default function AuditForm() {
                                                     <option value="$25,000 – $50,000" className="bg-[#0f172a] text-zinc-50 py-2">$25,000 – $50,000</option>
                                                     <option value="$50,000+" className="bg-[#0f172a] text-zinc-50 py-2">$50,000+</option>
                                                 </select>
-                                                <i className="fas fa-chevron-down absolute right-5 top-1/2 -translate-y-1/2 text-zinc-500 pointer-events-none text-xs" />
+                                                <ChevronDown size={14} className="absolute right-5 top-1/2 -translate-y-1/2 text-zinc-500 pointer-events-none" />
                                             </div>
                                         </div>
                                     </div>
@@ -254,7 +254,7 @@ export default function AuditForm() {
 
                                     {status === 'error' && (
                                         <div className="p-4 rounded-xl bg-red-500/10 border border-red-500/20 text-red-400 text-sm font-medium flex items-center">
-                                            <i className="fas fa-exclamation-circle mr-3 text-lg" />
+                                            <AlertCircle size={18} className="mr-3 shrink-0" />
                                             <span>{errorMessage}</span>
                                         </div>
                                     )}
@@ -266,20 +266,20 @@ export default function AuditForm() {
                                     >
                                         {status === 'loading' ? (
                                             <>
-                                                <i className="fas fa-spinner fa-spin text-xl" />
+                                                <Loader2 size={20} className="animate-spin" />
                                                 <span>Sending...</span>
                                             </>
                                         ) : (
                                             <>
                                                 <span>Get Your Custom Audit Video</span>
-                                                <i className="fas fa-paper-plane text-sm group-hover:-translate-y-1 group-hover:translate-x-1 transition-transform" />
+                                                <Send size={16} className="group-hover:-translate-y-1 group-hover:translate-x-1 transition-transform" />
                                             </>
                                         )}
                                         <div className="absolute inset-0 bg-white/10 translate-y-full group-hover:translate-y-0 transition-transform duration-300 rounded-xl pointer-events-none" />
                                     </button>
 
-                                    <p className="text-center text-xs text-zinc-500 mt-4">
-                                        <i className="fas fa-lock mr-1" /> Your information is 100% secure.
+                                    <p className="text-center text-xs text-zinc-500 mt-4 flex items-center justify-center gap-1">
+                                        <Lock size={12} /> Your information is 100% secure.
                                     </p>
                                 </form>
                             </div>

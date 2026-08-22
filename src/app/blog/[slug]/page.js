@@ -127,11 +127,11 @@ export default async function Post({ params }) {
             {/* Background Decoration - Matched to Home Page */}
             <div className="fixed inset-0 z-0 pointer-events-none bg-[#050505]">
                 <Image
-                    src="/blog-hero-bg-v2.png"
+                    src="/blog-hero-bg-v2.webp"
                     alt=""
                     fill
                     priority
-                    quality={90}
+                    quality={80}
                     className="object-cover object-center opacity-60"
                     aria-hidden="true"
                 />
@@ -292,7 +292,7 @@ export default async function Post({ params }) {
                     {/* Author Bio (SEO Trust Signal) */}
                     <div className="mt-20 p-8 rounded-[2rem] bg-[#050b14]/50 border border-[var(--primary)]/20 flex flex-col md:flex-row items-center md:items-start text-center md:text-left gap-6 shadow-inner">
                         <div className="relative shrink-0 w-20 h-20 rounded-3xl overflow-hidden shadow-md border border-white/5 border border-white/10 ring-2 ring-[var(--primary)]/20">
-                            <Image src="/mr-squared-logo.png" alt="Mr² Labs" fill className="object-cover" />
+                            <Image src="/mr-squared-logo.webp" alt="Mr² Labs" fill className="object-cover" />
                         </div>
                         <div>
                             <h3 className="text-xl font-black text-white mb-2">Written by <span className="text-[var(--accent)]">Mohamed Rashard</span></h3>

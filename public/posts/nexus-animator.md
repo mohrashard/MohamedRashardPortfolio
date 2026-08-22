@@ -2,7 +2,7 @@
 title: "Nexus Animator: The 'Code-to-Content' Revolution for Creators"
 date: 2026-01-28
 description: "The free alternative to the viral Claude Code animations. Generate professional 4K web animations, b-rolls, and dynamic backgrounds with simple text commands. No coding required."
-image: "/nexus-animator.png"
+image: "/nexus-animator.webp"
 category: "AI Tools"
 ---
 
@@ -93,4 +93,4 @@ This tool is proudly engineered to bridge the gap between high-end creative codi
 *Mr² Labs is dedicated to building premium digital assets that accelerate your workflow. Based in Colombo, Sri Lanka, we bring world-class tech solutions to the global market.*
 
 ---
-
+

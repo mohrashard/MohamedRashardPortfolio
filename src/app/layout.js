@@ -4,6 +4,7 @@ import Script from "next/script";
 import Footer from "./components/Footer";
 import ScrollObserver from "./services/ScrollObserver";
 import ChunkLoadHandler from "./components/ChunkLoadHandler";
+import { WebVitals } from "./components/WebVitals";
 
 const montserrat = Montserrat({
     subsets: ["latin"],
@@ -73,8 +74,8 @@ export const metadata = {
         creator: "@mrr_labs",
     },
     icons: {
-        icon: "/mr-squared-logo.png",
-        apple: "/mr-squared-logo.png",
+        icon: "/mr-squared-logo.webp",
+        apple: "/mr-squared-logo.webp",
     },
     manifest: "/manifest.json",
     other: {
@@ -89,7 +90,7 @@ export default function RootLayout({ children }) {
         "@type": "Organization",
         "name": "Mr² Labs",
         "url": "https://mr2labs.com",
-        "logo": "https://mr2labs.com/logo.png",
+        "logo": "https://mr2labs.com/mr-squared-logo.webp",
         "description": "AI and software development agency specializing in rapid MVP delivery for founders.",
         "email": "growth@mr2labs.com",
         "foundingDate": "2024",
@@ -156,21 +157,15 @@ export default function RootLayout({ children }) {
     return (
         <html lang="en" className="scroll-smooth" suppressHydrationWarning>
             <head>
-                {/* External CSS Links */}
-                {/* Preconnect to external asset domains for faster DNS resolution */}
-                <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossOrigin="anonymous" />
+                {/* External CSS Links - Preconnect for DNS resolution */}
                 <link rel="preconnect" href="https://cdn.jsdelivr.net" crossOrigin="anonymous" />
                 
-                {/* Standard Stylesheet Loads */}
-                <link
-                    rel="stylesheet"
-                    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
-                    crossOrigin="anonymous"
-                    referrerPolicy="no-referrer"
-                />
+                {/* Asynchronous Non-Render-Blocking Devicon Stylesheet */}
                 <link 
                     rel="stylesheet" 
                     href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css" 
+                    media="print"
+                    onLoad="this.media='all'"
                 />
 
                 {/* Inline ChunkLoadError Early Catch Script */}
@@ -233,17 +228,18 @@ export default function RootLayout({ children }) {
                 <script dangerouslySetInnerHTML={{ __html: "document.documentElement.classList.add('js-enabled');" }} />
             </head>
             <body className={`${montserrat.variable} font-[var(--font-montserrat)] bg-[#050505] text-zinc-400 antialiased selection:bg-[#0066FF]/30`}>
+                <WebVitals />
                 <ChunkLoadHandler />
                 <ScrollObserver />
                 {children}
                 <Footer />
 
-                {/* Google Analytics Script */}
+                {/* Google Analytics Script - Defer to lazyOnload to unblock main thread */}
                 <Script
                     src="https://www.googletagmanager.com/gtag/js?id=G-3F63E7EG0D"
-                    strategy="afterInteractive"
+                    strategy="lazyOnload"
                 />
-                <Script id="google-analytics" strategy="afterInteractive">
+                <Script id="google-analytics" strategy="lazyOnload">
                     {`
             window.dataLayer = window.dataLayer || [];
             function gtag(){dataLayer.push(arguments);}

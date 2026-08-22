@@ -3,7 +3,7 @@ title: "Stop Building Full Products. Build a Validation Engine."
 date: 2026-03-31
 description: >-
     Learn why your MVP should be a validation engine, not a full product. Mohamed from Mr² Labs, a premier AI development agency in Sri Lanka, shares the reality of rapid SaaS MVP development in 48 hours.
-image: "/posts/fast-ai-mvp-development.png"
+image: "/posts/fast-ai-mvp-development.webp"
 category: "SaaS Development"
 ---
 
@@ -57,4 +57,4 @@ Your 48-hour clock starts right now. Get to work.
 *Looking to launch your own validation engine? **Mr² Labs**, based in Colombo, Sri Lanka, specializes in 48-hour AI product development for global founders and visionaries. Reach out and let's ship your MVP this weekend.*
 
 ---
-
+

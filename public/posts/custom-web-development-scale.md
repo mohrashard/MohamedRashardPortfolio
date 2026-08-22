@@ -2,7 +2,7 @@
 title: "Custom Web Development: The Key to Scaling Your Business Faster"
 date: 2025-12-16
 description: Discover how custom web development helps businesses scale faster than generic templates. Learn why scalable web apps and tailored software drive real growth.
-image: "/posts/custom-web-dev-scaling.png"
+image: "/posts/custom-web-dev-scaling.webp"
 category: "Web Development"
 ---
 
@@ -93,4 +93,4 @@ Businesses with complex workflows, unique product offerings, or high security ne
 If your business needs a custom web or AI solution, this is exactly the type of problem I help solve.
 
 ---
-
+

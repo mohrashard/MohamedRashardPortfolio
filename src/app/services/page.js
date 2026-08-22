@@ -4,7 +4,7 @@ import AuditForm from './AuditForm';
 import SocialProofTicker from '../components/SocialProofTicker';
 import AvailabilityBadge from '../components/AvailabilityBadge';
 import Navbar from '../components/Navbar';
-import { Terminal, Zap, Cpu, ShieldCheck, Layers, Clock, Server, ShieldOff, SearchCode, FileCode2, PlaySquare, ChevronRight, Workflow, LayoutTemplate, CheckCircle2, Smartphone, Network, Database, Code2, AlertCircle, Activity, Mail, MapPin, Globe } from 'lucide-react';
+import { Terminal, Zap, Cpu, ShieldCheck, Layers, Clock, Server, ShieldOff, SearchCode, FileCode2, PlaySquare, ChevronRight, ArrowRight, Workflow, LayoutTemplate, CheckCircle2, Smartphone, Network, Database, Code2, AlertCircle, Activity, Mail, MapPin, Globe } from 'lucide-react';
 import DifferenceSection from './DifferenceSection';
 import PipelineSection from './PipelineSection';
 import FaqSection from './FaqSection';
@@ -231,11 +231,11 @@ export default function Services() {
                     {/* Premium Background Image */}
                     <div className="absolute inset-0 z-0 hero-bg-anim">
                         <Image
-                            src="/services-hero-bg.png"
+                            src="/services-hero-bg.webp"
                             alt=""
                             fill
                             priority
-                            quality={90}
+                            quality={80}
                             className="object-cover object-center opacity-70"
                             aria-hidden="true"
                         />
@@ -259,7 +259,7 @@ export default function Services() {
                             <AvailabilityBadge />
                             <span className="hidden sm:block w-1 h-1 bg-zinc-700 rounded-full" />
                             <div className="hidden sm:flex items-center gap-1.5 text-[9px] sm:text-[10px] tracking-[0.25em] uppercase font-bold text-zinc-400" style={fontLabel}>
-                                <i className="fas fa-terminal text-[var(--accent)]" /> Enterprise Scale. Startup Velocity.
+                                <Terminal size={12} className="text-[var(--accent)]" /> Enterprise Scale. Startup Velocity.
                             </div>
                         </div>
 
@@ -288,14 +288,14 @@ export default function Services() {
                                 style={fontLabel}
                             >
                                 <span>Initiate System Audit</span>
-                                <i className="fas fa-arrow-right" />
+                                <ArrowRight size={14} />
                             </a>
                             <a
                                 href={`mailto:${process.env.NEXT_PUBLIC_REPLY_TO_EMAIL}`}
                                 className="w-full sm:w-auto px-8 py-4 border border-white/10 bg-gradient-to-br from-white/[0.05] to-transparent hover:from-white/[0.08] hover:to-white/[0.02] text-zinc-300 hover:text-white text-[11px] md:text-xs font-bold tracking-[0.15em] uppercase rounded-full backdrop-blur-2xl transition-all duration-300 flex items-center justify-center gap-2 shadow-[0_8px_32px_rgba(0,0,0,0.2)] hover:shadow-[0_8px_32px_rgba(0,0,0,0.3)] hover:-translate-y-0.5"
                                 style={fontLabel}
                             >
-                                <i className="fas fa-terminal text-[var(--accent)]" />
+                                <Terminal size={14} className="text-[var(--accent)]" />
                                 <span>Request Deployment</span>
                             </a>
                         </div>

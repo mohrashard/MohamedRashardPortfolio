@@ -5,7 +5,7 @@ excerpt: "NIST just proved mathematically that no fixed guardrail set can make a
 author: "Mohamed Rashard Rizmi"
 category: "Security"
 slug: "robust-ai-security-alignment"
-image: "/posts/robust-ai-security-alignment.png"
+image: "/posts/robust-ai-security-alignment.webp"
 tags: ["ai security", "alignment", "red teaming", "llm security", "enterprise ai", "nist"]
 ---
 

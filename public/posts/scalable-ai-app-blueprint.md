@@ -2,7 +2,7 @@
 title: The 3-Step Blueprint to Building an AI App That Actually Scales (And Survives the Real World)
 date: 2026-06-29
 description: A comprehensive guide to building a profitable, scalable AI business by engineering a robust system designed for actual users.
-image: "/posts/scalable-ai-app-blueprint.png"
+image: "/posts/scalable-ai-app-blueprint.webp"
 category: "AI & Development"
 ---
 
@@ -64,4 +64,4 @@ Stop guessing about infrastructure and pricing. Reach out to us with the word **
 If your business needs a custom web or AI solution, this is exactly the type of problem I help solve.
 
 ---
-
+

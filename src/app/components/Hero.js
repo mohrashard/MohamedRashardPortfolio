@@ -29,11 +29,11 @@ export default function Hero() {
             {/* ── Premium Background Image ── */}
             <div className="absolute inset-0 z-0">
                 <Image
-                    src="/hero-bg.png"
+                    src="/hero-bg.webp"
                     alt=""
                     fill
                     priority
-                    quality={90}
+                    quality={80}
                     className="object-cover object-center opacity-60"
                     aria-hidden="true"
                 />

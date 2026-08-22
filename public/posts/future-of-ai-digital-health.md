@@ -3,7 +3,7 @@ title: "The Future of AI in Digital Health: Scaling Wellness Platforms with 90%+
 date: 2026-03-26
 description: >-
     A deep dive by a MedTech AI Specialist into how sophisticated XGBoost and LLM models are transforming patient triage, disease prediction, and clinical efficiency.
-image: "/posts/ai-digital-health-future.png"
+image: "/posts/ai-digital-health-future.webp"
 category: "MedTech & AI"
 ---
 
@@ -105,4 +105,4 @@ It is time to stop conceptualizing and start executing. Stop allowing unstructur
 **Want to build the next LiverLens? Claim your audit at Mr² Labs today.**
 
 ---
-
+

@@ -223,7 +223,7 @@ export default function About() {
             {/* ── Background image (lazy, low-priority) ── */}
             <div className="absolute inset-0 z-0 pointer-events-none">
                 <Image
-                    src="/about-bg.png"
+                    src="/about-bg.webp"
                     alt=""
                     fill
                     quality={75}

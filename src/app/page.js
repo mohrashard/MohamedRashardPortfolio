@@ -1,13 +1,16 @@
 import React from "react";
+import dynamic from "next/dynamic";
 import Navbar from "./components/Navbar";
 import Hero from "./components/Hero";
 import TrustBar from "./components/TrustBar";
-import SocialProofTicker from "./components/SocialProofTicker";
-import About from "./components/About";
-import Skills from "./components/Skills";
-import Projects from "./components/Projects";
-import Testimonials from "./components/Testimonials";
-import Contact from "./components/Contact";
+
+// Code-split below-the-fold components for optimal initial bundle & FCP
+const SocialProofTicker = dynamic(() => import("./components/SocialProofTicker"));
+const Projects = dynamic(() => import("./components/Projects"));
+const Skills = dynamic(() => import("./components/Skills"));
+const About = dynamic(() => import("./components/About"));
+const Testimonials = dynamic(() => import("./components/Testimonials"));
+const Contact = dynamic(() => import("./components/Contact"));
 
 
 export const metadata = {

@@ -72,11 +72,11 @@ export default function Blog() {
             {/* Background Decoration - Matched to Home Page */}
             <div className="fixed inset-0 z-0 pointer-events-none bg-[#050505]">
                 <Image
-                    src="/blog-hero-bg-v2.png"
+                    src="/blog-hero-bg-v2.webp"
                     alt=""
                     fill
                     priority
-                    quality={90}
+                    quality={80}
                     className="object-cover object-center opacity-60"
                     aria-hidden="true"
                 />

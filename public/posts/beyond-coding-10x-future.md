@@ -4,7 +4,7 @@ date: "2026-03-06"
 author: "Mohamed Rashard"
 description: "Discover how Mr² Labs transforms standard development into 10x engineering. Learn our high-intelligence framework for AI-augmented software architecture, UI/UX synthesis, and enterprise scalability."
 keywords: "10x Developer, AI-Augmented Engineering, AI Software Architecture, Generative UI/UX Design, Mr² Labs, Enterprise AI Solutions, Mohamed Rashard, Future of Coding, AI in Tech, High-Performance Software Development"
-image: "/posts/mr2-labs-10x-future.png"
+image: "/posts/mr2-labs-10x-future.webp"
 category: "Software Engineering & AI"
 ---
 
@@ -58,4 +58,4 @@ We deliver much more than just code; we deliver the future of your business, arc
 [**Contact Mr² Labs for Technical Consulting & Custom Solutions**](/services)
 
 ---
-
+

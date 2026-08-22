@@ -3,7 +3,7 @@ title: "The MVP Feature Cutter Framework: How to Launch Your Validation Engine i
 date: 2026-04-15
 description: >-
     How to launch your validation engine in days, not months. Stop letting dev agencies hold you hostage with tech jargon to inflate their timelines. Let's build the "skateboard" you need to get users today.
-image: "/posts/mvp_feature_cutter.png"
+image: "/posts/mvp_feature_cutter.webp"
 category: "Startup Strategy"
 ---
 
