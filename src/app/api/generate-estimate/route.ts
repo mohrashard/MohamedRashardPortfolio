@@ -4,8 +4,7 @@ import { Resend } from 'resend';
 import { EstimateData } from '@/types/pseo';
 import fs from 'fs';
 import path from 'path';
-import { GoogleGenerativeAI } from '@google/generative-ai';
-import Groq from 'groq-sdk';
+import { executeWaterfallAi } from '@/lib/waterfallAi';
 
 // Initialize clients
 const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL!;
@@ -41,7 +40,6 @@ export async function POST(req: NextRequest) {
             }
 
             // 2. Build premium personalized email
-            // Compute Mr² Labs price
             const averageCost = (estimateData.agencyCostMin + estimateData.agencyCostMax) / 2;
             const mr2Price = estimateData.isSimpleBuild 
                 ? Math.round((averageCost * 0.25) / 100) * 100 
@@ -90,9 +88,6 @@ export async function POST(req: NextRequest) {
 
             const techStackHtml = estimateData.techStack.map(t => `<span style="display:inline-block; margin:3px; padding:4px 10px; border-radius:20px; background:#f1f5f9; font-size:11px; font-weight:600; color:#334155;">${t}</span>`).join('');
 
-            // ─────────────────────────────────────────────────────────
-            // 2. BUILD PREMIUM EBM (EMAIL) & SEND
-            // ─────────────────────────────────────────────────────────
             let attachments: any[] = [];
 
             if (!estimateData.isSimpleBuild) {
@@ -104,7 +99,6 @@ export async function POST(req: NextRequest) {
                             filename: '72-Hour-MVP-Blueprint.pdf',
                             content: pdfBuffer.toString('base64'),
                         }];
-                        console.log('📎 PDF Blueprint attached to email');
                     }
                 } catch (err) {
                     console.error('❌ Failed to read blueprint PDF:', err);
@@ -180,7 +174,6 @@ export async function POST(req: NextRequest) {
   <tr><td style="background:linear-gradient(135deg,#050505,#0f172a);padding:32px 36px;border-top:2px solid #2563eb;">
     <p style="margin:0 0 6px;font-size:11px;font-weight:800;color:#3b82f6;text-transform:uppercase;letter-spacing:0.1em;">⚡ The Mr² Labs Approach</p>
 
-    <!-- Pricing highlight -->
     <div style="background:#0f2040;border:1px solid #2563eb50;border-radius:12px;padding:20px;margin-bottom:20px;">
       <div style="display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:8px;">
         <div>
@@ -195,7 +188,6 @@ export async function POST(req: NextRequest) {
       </div>
     </div>
 
-    <!-- Approach -->
     <div style="background:#1e293b;border:1px solid #334155;border-radius:12px;padding:20px;margin-bottom:20px;">
       <p style="margin:0;font-size:14px;color:#cbd5e1;line-height:1.7;">${estimateData.mr2Labs.approach}</p>
     </div>
@@ -265,7 +257,6 @@ export async function POST(req: NextRequest) {
             }
 
             // 3. INTERNAL NOTIFICATION (TO FOUNDER)
-            // ─────────────────────────────────────────────────────────
             try {
                 const adminTechStack = estimateData.techStack.join(', ');
 
@@ -317,18 +308,10 @@ export async function POST(req: NextRequest) {
         }
 
         // ─────────────────────────────────────────────────────────
-        // PHASE A: AI Analysis - Gemini 2.5 Flash → Groq Fallback
+        // PHASE A: AI Analysis via 4-Tier Waterfall AI Engine
         // ─────────────────────────────────────────────────────────
-        const geminiApiKey = process.env.GEMINI_API_KEY;
-        const groqApiKey = process.env.GROQ_API_KEY;
-
-        const prompt = `
-You are a senior CTO and expert software architect. A founder has described their app idea below.
-Analyze it and return ONLY a valid JSON object - no markdown, no backticks, no explanation.
-
-App Idea: "${idea}"
-Reference Slug: "${slug}"
-Base Features Context: ${JSON.stringify(baseFeatures)}
+        const SYSTEM_PROMPT = `You are a senior CTO and expert software architect. A founder has described their app idea below.
+Analyze it and return ONLY a valid JSON object.
 
 Return this EXACT JSON structure (fill in all fields):
 {
@@ -366,8 +349,8 @@ Return this EXACT JSON structure (fill in all fields):
     "sprintTime": "72 hours",
     "approach": "A 2-3 sentence strategic explanation of HOW you will build this specific app rapidly by stripping it to its core value proposition. Be specific to the idea.",
     "coreFeatures": [
-      "The single most important feature that proves the concept",
-      "Second essential feature that creates the core user loop",
+      "The single most important feature that proves concept",
+      "Second essential feature that creates core user loop",
       "Third feature needed for a real usable MVP"
     ],
     "skippedForMVP": [
@@ -379,70 +362,26 @@ Return this EXACT JSON structure (fill in all fields):
 }
 
 Rules:
-- CRITICAL: Detect if the project is a Simple Website (Portfolio, WordPress, Landing page) or a complex app (SaaS, Mobile App, AI). Set "isSimpleBuild" to true if it is a simple website.
-- CRITICAL: Scale the tech stack based on project complexity!
-  - If isSimpleBuild is true: ALWAYS recommend WordPress, WooCommerce, or Shopify. DO NOT over-engineer. Cost should be low ($2,000 - $8,000) and timeline short (1-2 weeks).
-  - If it is a SaaS, AI tool, or Complex Web App: Use the premium Mr² Labs ecosystem: Next.js 15 App Router, React, Node.js, Python, Flask, PostgreSQL (Supabase).
-  - For AI/ML specific tasks: Use Hugging Face, XGBoost, or Gemini API or OpenAI, Claude ETC.
+- CRITICAL: Detect if project is a Simple Website (Portfolio, WordPress, Landing page) or complex app (SaaS, Mobile App, AI). Set "isSimpleBuild" to true if simple.
+- CRITICAL: Scale tech stack based on project complexity!
+  - If isSimpleBuild is true: Recommend WordPress, WooCommerce, or Shopify.
+  - If SaaS, AI tool, or Complex Web App: Use Next.js 15 App Router, React, Node.js, Python, Flask, Supabase.
+  - For AI/ML specific tasks: Use Hugging Face, XGBoost, or Gemini API.
   - For Mobile Apps: Use React Native / Expo.
-- BE HIGHLY SPECIFIC in the stack. Example: "WordPress with Elementor", or "Node.js with Express", not just "CMS" or "Backend".
-- agencyCostMin/Max must be realistic 2026 agency rates appropriate for the scope.
+- agencyCostMin/Max must be realistic 2026 agency rates.
 - features array must have exactly 5 items.
 - coreFeatures must have 3-4 items.
 - skippedForMVP must have 3-4 items.
-- complexity values must be exactly "Low", "Medium", or "High"
-- Return ONLY the JSON object, nothing else
-        `;
+- complexity values must be "Low", "Medium", or "High"`;
 
-        // ── Helper: parse and validate AI output ──
-        const parseAiOutput = (raw: string): EstimateData => {
-            const cleaned = raw.trim()
-                .replace(/^```json\n?/, '').replace(/^```\n?/, '').replace(/\n?```$/, '');
-            return JSON.parse(cleaned);
-        };
-
-        let aiContent = '';
-
-        // 1️⃣ Try Gemini with official SDK
-        if (geminiApiKey) {
-            try {
-                const genAI = new GoogleGenerativeAI(geminiApiKey);
-                const model = genAI.getGenerativeModel({ model: "gemini-2.5-flash" });
-                const result = await model.generateContent(prompt);
-                aiContent = result.response.text();
-                console.log(`✅ Gemini responded successfully`);
-            } catch (err) {
-                console.error(`❌ Gemini fetch crash:`, err);
-            }
-        }
-
-        // 2️⃣ Fallback: Groq Llama 3.1 8B with official SDK
-        if (!aiContent && groqApiKey) {
-            console.log('🔄 Using Groq fallback...');
-            try {
-                const groq = new Groq({ apiKey: groqApiKey });
-                const completion = await groq.chat.completions.create({
-                    messages: [{ role: 'user', content: prompt }],
-                    model: 'llama-3.1-8b-instant',
-                    temperature: 0.2,
-                });
-                aiContent = completion.choices[0]?.message?.content || "";
-                console.log('✅ Groq fallback responded');
-            } catch (err) {
-                console.error('❌ Groq fallback also failed:', err);
-            }
-        }
-
-        if (!aiContent) {
-            return NextResponse.json({ error: 'All AI engines are currently unavailable. Please try again shortly.' }, { status: 503 });
-        }
+        const userPrompt = `App Idea: "${idea}"\nReference Slug: "${slug}"\nBase Features Context: ${JSON.stringify(baseFeatures)}`;
 
         try {
-            const parsedData: EstimateData = parseAiOutput(aiContent);
+            const parsedData: EstimateData = await executeWaterfallAi(SYSTEM_PROMPT, userPrompt, { isJson: true });
             return NextResponse.json(parsedData);
-        } catch (parseError) {
-            console.error('JSON parse failed. AI output:', aiContent);
-            return NextResponse.json({ error: 'AI response formatting error' }, { status: 500 });
+        } catch (aiErr: any) {
+            console.error('❌ Waterfall AI Engine failed for Cost Estimator:', aiErr);
+            return NextResponse.json({ error: 'All AI engines are currently unavailable. Please try again shortly.' }, { status: 503 });
         }
 
     } catch (err: any) {

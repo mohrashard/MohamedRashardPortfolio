@@ -1,9 +1,5 @@
 import { NextResponse } from 'next/server';
-import { GoogleGenerativeAI } from '@google/generative-ai';
-import Groq from 'groq-sdk';
-
-const genAI = new GoogleGenerativeAI(process.env.GEMINI_API_KEY || "");
-const groq = new Groq({ apiKey: process.env.GROQ_API_KEY || "" });
+import { executeWaterfallAi } from '@/lib/waterfallAi';
 
 export async function POST(req) {
     try {
@@ -24,7 +20,6 @@ export async function POST(req) {
         
         const startTime = performance.now();
         try {
-            // Using AbortController to prevent hanging on dead URLs (8s timeout)
             const controller = new AbortController();
             const timeoutId = setTimeout(() => controller.abort(), 8000);
             
@@ -46,7 +41,7 @@ export async function POST(req) {
         } catch (fetchError) {
             const endTime = performance.now();
             latency = Math.round(endTime - startTime);
-            statusCode = fetchError.name === 'AbortError' ? 408 : 503; // Timeout or Unavailable
+            statusCode = fetchError.name === 'AbortError' ? 408 : 503;
         }
 
         // Calculate Performance Grade
@@ -67,30 +62,13 @@ Here are the hard metrics for the endpoint (${targetUrl}):
 - Payload Size: ${(sizeBytes / 1024).toFixed(2)} KB
 - Computed Grade: ${grade}
 
-Write a STRICT JSON object (no markdown, raw JSON only) evaluating this performance.
+Write a STRICT JSON object evaluating this performance:
 {
-  "verdict": (string, 2 punchy sentences. If it's slow, tell them they need edge caching/better DB indexing. If it's fast, commend the infrastructure),
+  "verdict": (string, 2 punchy sentences. If slow, tell them they need edge caching/better DB indexing. If fast, commend infrastructure),
   "recommendation": (string, 1 technical sentence on how Mr² Labs would architect/improve this for production scale)
 }`;
 
-        let jsonText = "";
-
-        try {
-            const model = genAI.getGenerativeModel({ model: "gemini-2.5-flash" });
-            const result = await model.generateContent(SYSTEM_PROMPT);
-            jsonText = result.response.text();
-        } catch (geminiError) {
-            console.warn("[SYSTEM] Gemini Failed, falling back to Groq...");
-            const completion = await groq.chat.completions.create({
-                messages: [{ role: "system", content: SYSTEM_PROMPT }],
-                model: "llama-3.1-8b-instant",
-                temperature: 0.2,
-            });
-            jsonText = completion.choices[0]?.message?.content || "";
-        }
-
-        const cleanedJson = jsonText.replace(/```json/gi, '').replace(/```/gi, '').trim();
-        const aiData = JSON.parse(cleanedJson);
+        const aiData = await executeWaterfallAi(SYSTEM_PROMPT, "Analyze API metrics", { isJson: true });
 
         return NextResponse.json({ 
             success: true, 

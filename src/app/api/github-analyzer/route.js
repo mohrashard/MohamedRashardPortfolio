@@ -1,9 +1,5 @@
 import { NextResponse } from 'next/server';
-import { GoogleGenerativeAI } from '@google/generative-ai';
-import Groq from 'groq-sdk';
-
-const genAI = new GoogleGenerativeAI(process.env.GEMINI_API_KEY);
-const groq = new Groq({ apiKey: process.env.GROQ_API_KEY });
+import { executeWaterfallAi } from '@/lib/waterfallAi';
 
 export async function POST(req) {
     try {
@@ -48,13 +44,9 @@ export async function POST(req) {
         const recentEventsCount = eventsData.length;
 
         // Mathematical Scoring (Out of 100)
-        // Consistency: based on recent public events (30 max)
         const consistencyScore = Math.min(100, Math.round((recentEventsCount / 30) * 100));
-        // Diversity: based on unique languages (5 = 100%)
         const diversityScore = Math.min(100, Math.round((languages.size / 5) * 100));
-        // Community: based on stars and followers
         const communityScore = Math.min(100, Math.round(((totalStars + userData.followers) / 50) * 100));
-        // Total Base Score
         const baseScore = Math.round((consistencyScore * 0.4) + (diversityScore * 0.3) + (communityScore * 0.3));
 
         // ── ⭐ GOD MODE: MR² LABS FOUNDER OVERRIDE ⭐ ─────────────────
@@ -67,7 +59,7 @@ export async function POST(req) {
                         avatar: userData.avatar_url,
                         name: "Mohamed Rashard Rizmi",
                         repoCount: reposData.length > 0 ? reposData.length : 42, 
-                        totalStars: totalStars > 100 ? totalStars : 999, // Aesthetic flex
+                        totalStars: totalStars > 100 ? totalStars : 999,
                         languages: ["Next.js", "React", "Supabase", "Tailwind CSS", "TypeScript"],
                         baseScore: 99, 
                         consistencyScore: 98, 
@@ -89,7 +81,6 @@ export async function POST(req) {
                 } 
             });
         }
-        // ──────────────────────────────────────────────────────────────
 
         // ── 3. AI CTO VERDICT ────────────────────────────────────────
         const SYSTEM_PROMPT = `You are a strict, elite CTO at Mr² Labs evaluating a developer for a fast-paced startup.
@@ -100,7 +91,7 @@ Review these real GitHub metrics for user '${cleanUser}':
 - Recent API Events: ${recentEventsCount}/30
 - Total Score Calculated: ${baseScore}/100
 
-Write a STRICT JSON object (no markdown, raw JSON only) evaluating this developer's readiness to build a production MVP.
+Write a STRICT JSON object evaluating this developer's readiness to build a production MVP:
 {
   "summary": "2 sentences on what their profile says about their experience level",
   "strengths": [
@@ -110,29 +101,10 @@ Write a STRICT JSON object (no markdown, raw JSON only) evaluating this develope
   "gaps": [
     "technical gap or warning sign based on the data"
   ],
-  "hire_recommendation": "a brutal but fair 2-sentence verdict on whether a founder should hire this person for a rapid MVP build. If their score is low, suggest they might be too junior or inactive."
+  "hire_recommendation": "a brutal but fair 2-sentence verdict on whether a founder should hire this person for a rapid MVP build."
 }`;
 
-        let jsonText = "";
-
-        try {
-            const model = genAI.getGenerativeModel({ model: "gemini-1.5-flash" });
-            const result = await model.generateContent(SYSTEM_PROMPT);
-            jsonText = result.response.text();
-        } catch (geminiError) {
-            console.warn("[SYSTEM] Gemini Failed, falling back to Groq...");
-            const completion = await groq.chat.completions.create({
-                messages: [{ role: "system", content: SYSTEM_PROMPT }],
-                model: "llama-3.1-8b-instant",
-                temperature: 0.2,
-            });
-            jsonText = completion.choices[0]?.message?.content || "";
-        }
-
-        // Robust JSON extraction matching your other tools
-        const match = jsonText.match(/\{[\s\S]*\}/);
-        if (!match) throw new Error("Failed to extract JSON from AI response.");
-        const aiData = JSON.parse(match[0]);
+        const aiData = await executeWaterfallAi(SYSTEM_PROMPT, "Analyze GitHub metrics", { isJson: true });
 
         return NextResponse.json({ 
             success: true, 

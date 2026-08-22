@@ -1,19 +1,15 @@
 import { NextResponse } from 'next/server';
-import { GoogleGenerativeAI } from '@google/generative-ai';
-import Groq from 'groq-sdk';
-
-const genAI = new GoogleGenerativeAI(process.env.GEMINI_API_KEY || "");
-const groq = new Groq({ apiKey: process.env.GROQ_API_KEY || "" });
+import { executeWaterfallAi } from '@/lib/waterfallAi';
 
 const SYSTEM_PROMPT = `You are an elite SaaS Monetization Strategist and Copywriter at Mr² Labs.
 A founder needs a high-converting, 3-tier pricing page for their new product.
 
 Analyze their inputs and architect a standard SaaS pricing model (e.g., Starter, Pro, Enterprise/Scale).
-- Set realistic, psychological price points based on their target audience (e.g., 19, 49, 149 or 99, 299, Custom).
-- Distribute their features logically across the tiers to encourage upselling.
+- Set realistic, psychological price points based on their target audience.
+- Distribute features logically across tiers to encourage upselling.
 - Write punchy, conversion-focused copy.
 
-Return a STRICT JSON object (no markdown, raw JSON only) with this exact structure:
+Return a STRICT JSON object with this exact structure:
 {
   "page_headline": (string, punchy main headline),
   "page_subheadline": (string, 1 sentence subheadline),
@@ -44,32 +40,7 @@ export async function POST(req) {
             .map(([q, a]) => `Q: ${q}\nA: ${a}`)
             .join('\n\n');
 
-        const finalPrompt = `${SYSTEM_PROMPT}\n\nPRODUCT DATA:\n${userData}`;
-
-        let jsonText = "";
-
-        // ── PRIMARY: Try Gemini ───────────────────────────────
-        try {
-            const model = genAI.getGenerativeModel({ model: "gemini-2.5-flash" });
-            const result = await model.generateContent(finalPrompt);
-            jsonText = result.response.text();
-        } catch (geminiError) {
-            console.warn("[SYSTEM] Gemini Failed, falling back to Groq...");
-            const completion = await groq.chat.completions.create({
-                messages: [{ role: "system", content: SYSTEM_PROMPT }, { role: "user", content: userData }],
-                model: "llama-3.1-8b-instant", 
-                temperature: 0.3,
-            });
-            jsonText = completion.choices[0]?.message?.content || "";
-        }
-
-        let cleanedJson = jsonText.replace(/```json/gi, '').replace(/```/gi, '').trim();
-        const jsonMatch = cleanedJson.match(/\{[\s\S]*\}/);
-        if (jsonMatch) {
-            cleanedJson = jsonMatch[0];
-        }
-        const parsedData = JSON.parse(cleanedJson);
-
+        const parsedData = await executeWaterfallAi(SYSTEM_PROMPT, userData, { isJson: true });
         return NextResponse.json({ success: true, data: parsedData });
 
     } catch (error) {

@@ -87,11 +87,19 @@ async function callMistral(systemPrompt, userPrompt, model, jsonMode) {
 // ============================================================================
 const WATERFALL_PROVIDERS = [
     { 
+        name: 'Gemini', 
+        call: callGemini, 
+        models: { 
+            node1: 'gemini-2.5-flash',    // Free tier hybrid reasoning
+            node2: 'gemini-2.5-pro'      // Flagship reasoning & writing
+        } 
+    },
+    { 
         name: 'Groq', 
         call: callGroq, 
         models: { 
             node1: 'openai/gpt-oss-120b', // Flagship reasoning for strategy
-            node2: 'openai/gpt-oss-120b'  // Heavy lifting for writing
+            node2: 'openai/gpt-oss-20b'   // High-speed writing model
         } 
     },
     { 
@@ -103,19 +111,11 @@ const WATERFALL_PROVIDERS = [
         } 
     },
     { 
-        name: 'Gemini', 
-        call: callGemini, 
-        models: { 
-            node1: 'gemini-2.5-flash',    // Free tier hybrid reasoning
-            node2: 'gemini-2.5-flash'     // Fast & standard for markdown
-        } 
-    },
-    { 
         name: 'Mistral', 
         call: callMistral, 
         models: { 
-            node1: 'magistral-medium-latest', // Dedicated CoT reasoning model
-            node2: 'mistral-large-latest'     // General flagship writing
+            node1: 'mistral-medium-latest', // Mid-tier reasoning
+            node2: 'mistral-small-latest'  // Fast writing
         } 
     }
 ];
