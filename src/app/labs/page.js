@@ -9,7 +9,7 @@ import AvailabilityBadge from '../components/AvailabilityBadge';
 import {
     Terminal, ArrowLeft, BookOpen, Calculator, Target, Layers,
     TrendingDown, Lightbulb, Globe, Mail, Activity, Search,
-    Crosshair, DollarSign, FileText, UserCircle, ChevronRight, Zap, TrendingUp, Github
+    Crosshair, DollarSign, FileText, UserCircle, ChevronRight, Zap, TrendingUp, Github, Shield, Server, Smartphone
 } from 'lucide-react';
 
 // ── Shared font tokens ──────────────────────────────────────
@@ -62,6 +62,9 @@ export default function Labs() {
         { title: "Cold Email Generator", desc: "Direct, high-converting outreach variants generated for your specific audience.", icon: <Mail size={20} />, href: "/labs/cold-email" },
         { title: "API Response Time Tester", desc: "Ping endpoints and analyze latency, uptime, and payload efficiency.", icon: <Activity size={20} />, href: "/labs/api-tester" },
         { title: "Website SEO & Performance Audit", desc: "Deep technical analysis of metadata, tags, and indexing configurations.", icon: <Search size={20} />, href: "/labs/site-audit" },
+        { title: "DNS & Security Infrastructure", desc: "Audit DMARC, MX records, and critical HTTP security headers.", icon: <Shield size={20} />, href: "/labs/security" },
+        { title: "DOM & CDN Analysis", desc: "Scan DOM bloat, inline payloads, and edge cache control directives.", icon: <Server size={20} />, href: "/labs/performance" },
+        { title: "UX & PWA Audit", desc: "Analyze lead leakage, social OpenGraph sharing, and mobile PWA configurations.", icon: <Smartphone size={20} />, href: "/labs/conversion" },
         { title: "Competitor Research Tool", desc: "Identify direct competitors, pricing models, and specific market vulnerabilities.", icon: <Crosshair size={20} />, href: "/labs/competitor-research" },
     ];
 

@@ -52,23 +52,23 @@ export default function Home() {
 
             {/* Static SEO content — visible to Google, hidden visually */}
             <div className="sr-only">
-              <h1>Mr² Labs — AI & Software Development Agency</h1>
-              <p>We build and ship high-performance software, mobile apps, and AI products for founders. MVPs delivered in 72 hours, not months. Based in Colombo, Sri Lanka. Serving clients globally across the US, UK, Canada, and Australia.</p>
-              <h2>Our Services</h2>
-              <ul>
-                <li>Custom AI Integration and Local LLM Deployment</li>
-                <li>SaaS MVP Development in 48-72 Hours</li>
-                <li>React Native Mobile App Development</li>
-                <li>Next.js Web Application Architecture</li>
-                <li>Supabase Database Infrastructure</li>
-                <li>Automated Workflow and Prospecting Systems</li>
-              </ul>
-              <h2>Projects Shipped</h2>
-              <ul>
-                <li>Ignite Ed — AI-powered trilingual education platform for Sri Lankan students</li>
-                <li>GrabMe — Home services marketplace PWA built in 48 hours</li>
-                <li>BizFinder AI — Automated B2B prospecting pipeline for design agencies</li>
-              </ul>
+                <h1>Mr² Labs — AI & Software Development Agency</h1>
+                <p>We build and ship high-performance software, mobile apps, and AI products for founders. MVPs delivered in 72 hours, not months. Based in Colombo, Sri Lanka. Serving clients globally across the US, UK, Canada, and Australia.</p>
+                <h2>Our Services</h2>
+                <ul>
+                    <li>Custom AI Integration and Local LLM Deployment</li>
+                    <li>SaaS MVP Development in 48-72 Hours</li>
+                    <li>React Native Mobile App Development</li>
+                    <li>Next.js Web Application Architecture</li>
+                    <li>Supabase Database Infrastructure</li>
+                    <li>Automated Workflow and Prospecting Systems</li>
+                </ul>
+                <h2>Projects Shipped</h2>
+                <ul>
+                    <li>Ignite Ed — AI-powered trilingual education platform for Sri Lankan students</li>
+                    <li>GrabMe — Home services marketplace PWA built in 48 hours</li>
+                    <li>BizFinder AI — Automated B2B prospecting pipeline for design agencies</li>
+                </ul>
             </div>
 
 
