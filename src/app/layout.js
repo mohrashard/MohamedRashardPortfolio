@@ -193,11 +193,6 @@ export default function RootLayout({ children }) {
                 {/* High Priority Preload for LCP Hero Background */}
                 <link rel="preload" as="image" href="/hero-bg.webp" type="image/webp" fetchPriority="high" />
 
-                {/* Asynchronous Non-Render-Blocking Devicon Stylesheet */}
-                <link 
-                    rel="stylesheet" 
-                    href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css" 
-                />
 
                 {/* Inline ChunkLoadError Early Catch Script */}
                 <script
