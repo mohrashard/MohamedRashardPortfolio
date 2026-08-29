@@ -42,6 +42,16 @@ export default function BookingPage({
   // 1. Fetch Lead context
   useEffect(() => {
     async function loadLead() {
+      // Check query params passed via iframe first
+      const urlParams = new URLSearchParams(window.location.search);
+      const qName = urlParams.get('name');
+      const qEmail = urlParams.get('email');
+      const qNotes = urlParams.get('notes');
+
+      if (qName) setName(qName);
+      if (qEmail) setEmail(qEmail);
+      if (qNotes) setNotes(qNotes);
+
       if (!id || id === 'direct') return;
       const { data } = await supabase
         .from('outreach_leads')
@@ -51,8 +61,21 @@ export default function BookingPage({
 
       if (data) {
         setLead(data);
-        setName(data.company_name || '');
-        setEmail(data.email || '');
+        if (!qEmail && data.email) {
+          setEmail(data.email);
+        }
+        if (!qName) {
+          if (data.email) {
+            const prefix = data.email.split('@')[0];
+            if (!['info', 'contact', 'hello', 'support', 'sales', 'admin', 'team'].includes(prefix.toLowerCase())) {
+              setName(prefix.charAt(0).toUpperCase() + prefix.slice(1));
+            } else if (data.company_name) {
+              setName(data.company_name);
+            }
+          } else if (data.company_name) {
+            setName(data.company_name);
+          }
+        }
       }
     }
     loadLead();
