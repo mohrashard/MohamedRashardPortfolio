@@ -3,15 +3,49 @@ import { NextRequest, NextResponse } from 'next/server';
 
 // Weekly working windows (UTC timestamps)
 const AVAILABILITY: Record<string, string[]> = {
-  monday:    ['03:30', '04:30', '08:30', '09:30'], // 9am, 10am, 2pm, 3pm IST
-  tuesday:   ['03:30', '04:30', '08:30'],
-  wednesday: ['03:30', '04:30', '08:30'],
-  thursday:  ['03:30', '04:30', '08:30', '09:30'],
-  friday:    ['03:30', '04:30'],
-  saturday:  [],
-  sunday:    [],
+  monday: [
+    '05:30', // 11:00 AM IST — UAE/Europe
+    '06:30', // 12:00 PM IST — UK/Europe  
+    '07:30', // 1:00 PM IST  — UK/Europe
+    '14:30', // 8:00 PM IST  — US East/Canada
+    '15:30', // 9:00 PM IST  — US East/Central
+    '16:30', // 10:00 PM IST — US All zones
+  ],
+  tuesday: [
+    '05:30',
+    '06:30',
+    '14:30',
+    '15:30',
+    '16:30',
+  ],
+  wednesday: [
+    '06:30',
+    '07:30',
+    '15:30',
+    '16:30',
+  ],
+  thursday: [
+    '05:30',
+    '06:30',
+    '07:30',
+    '14:30',
+    '15:30',
+    '16:30',
+    '17:30', // 11:00 PM IST — US West
+  ],
+  friday: [
+    '05:30',
+    '06:30',
+    '14:30',
+    '15:30',
+  ],
+  saturday: [
+    '06:30', // light availability
+    '07:30',
+    '14:30',
+  ],
+  sunday: [],
 };
-
 const DAYS = ['sunday', 'monday', 'tuesday', 'wednesday', 'thursday', 'friday', 'saturday'];
 
 function getOAuthClient() {
@@ -28,7 +62,8 @@ export async function GET(req: NextRequest) {
   const date = searchParams.get('date'); // Format: YYYY-MM-DD
   if (!date) return NextResponse.json({ error: 'date query parameter required' }, { status: 400 });
 
-  const dayOfWeek = DAYS[new Date(date).getDay()];
+  // ✅ Fix: use UTC day to avoid timezone shift bug
+  const dayOfWeek = DAYS[new Date(`${date}T00:00:00Z`).getUTCDay()];
   const configuredSlots = AVAILABILITY[dayOfWeek] || [];
 
   if (configuredSlots.length === 0) {
@@ -47,12 +82,24 @@ export async function GET(req: NextRequest) {
       timeMin: dayStart,
       timeMax: dayEnd,
       singleEvents: true,
+      orderBy: 'startTime',
     });
 
-    const busyRanges = (eventsRes.data.items || []).map(event => ({
-      start: new Date(event.start?.dateTime || event.start?.date || '').getTime(),
-      end: new Date(event.end?.dateTime || event.end?.date || '').getTime(),
-    }));
+    const busyRanges = (eventsRes.data.items || [])
+      .filter(event => event.status !== 'cancelled')
+      .map(event => {
+        // All-day event blocks the whole day
+        if (!event.start?.dateTime) {
+          return {
+            start: new Date(`${date}T00:00:00Z`).getTime(),
+            end:   new Date(`${date}T23:59:59Z`).getTime(),
+          };
+        }
+        return {
+          start: new Date(event.start.dateTime).getTime(),
+          end:   new Date(event.end!.dateTime!).getTime(),
+        };
+      });
 
     // Filter slots colliding with busy ranges
     const freeSlots = configuredSlots.filter(slot => {
