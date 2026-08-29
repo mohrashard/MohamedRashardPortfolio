@@ -2,7 +2,6 @@
 
 import React, { useEffect, useState, use } from 'react';
 import { createClient } from '@supabase/supabase-js';
-import Navbar from '../../components/Navbar';
 
 const supabase = createClient(
   process.env.NEXT_PUBLIC_SUPABASE_URL!,
@@ -120,7 +119,7 @@ export default function BookingPage({ params }: { params: Promise<{ id: string }
   // Success Screen
   if (bookedLink) {
     return (
-      <div className="w-full bg-[#121215] border border-white/10 rounded-2xl p-8 text-center space-y-4 shadow-2xl">
+      <div className="w-full h-full min-h-[400px] flex flex-col items-center justify-center p-8 text-center space-y-4 bg-black">
         <div className="w-16 h-16 bg-blue-500/10 text-blue-400 rounded-full flex items-center justify-center mx-auto text-3xl">✓</div>
         <h2 className="text-2xl font-semibold text-white">Call Confirmed</h2>
         <p className="text-zinc-400 text-sm">A calendar invite and Google Meet link have been sent to <strong>{email}</strong>.</p>
@@ -133,12 +132,10 @@ export default function BookingPage({ params }: { params: Promise<{ id: string }
   }
 
   return (
-    <>
-      <Navbar />
-      <div className="min-h-screen bg-[#050505] text-white flex items-center justify-center p-4 md:p-8 pt-28">
-        <div className="w-full max-w-2xl bg-[#121215] border border-white/10 rounded-2xl p-6 md:p-8 shadow-2xl text-left">
-          <div className="mb-8">
-            <h2 className="text-2xl font-semibold tracking-tight text-white">
+    <div className="w-full min-h-full bg-transparent text-white p-6 md:p-8 text-left">
+      <div className="w-full max-w-2xl mx-auto">
+        <div className="mb-8">
+          <h2 className="text-2xl font-semibold tracking-tight text-white">
               {lead?.website_url ? `Book your call about ${lead.website_url}` : 'Schedule a Working Session'}
             </h2>
             <p className="text-zinc-400 text-sm mt-2">15-min discovery & architecture review for your project</p>
@@ -246,7 +243,6 @@ export default function BookingPage({ params }: { params: Promise<{ id: string }
             )}
           </div>
         </div>
-      </div>
-    </>
+    </div>
   );
 }
