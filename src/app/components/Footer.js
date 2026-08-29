@@ -3,7 +3,7 @@
 import React, { useState, useRef } from 'react';
 import Link from 'next/link';
 import { motion, useScroll, useTransform } from 'framer-motion';
-import { usePathname, useSearchParams } from 'next/navigation';
+import { usePathname } from 'next/navigation';
 
 // ── Shared font tokens ──────────────────────────────────────
 const fontHeadline = { fontFamily: "var(--font-jakarta), 'Plus Jakarta Sans', sans-serif" };
@@ -12,21 +12,20 @@ const fontLabel = { fontFamily: "var(--font-geist-mono), 'Geist Mono', monospace
 
 export default function Footer() {
     const pathname = usePathname();
-    const searchParams = useSearchParams();
-    const isEmbedQuery = searchParams?.get('embed') === 'true';
-    const [isIframe, setIsIframe] = useState(false);
+    const [isEmbedded, setIsEmbedded] = useState(false);
 
     React.useEffect(() => {
         try {
-            if (window.self !== window.top) {
-                setIsIframe(true);
+            const hasEmbedParam = new URLSearchParams(window.location.search).get('embed') === 'true';
+            if (window.self !== window.top || hasEmbedParam) {
+                setIsEmbedded(true);
             }
         } catch (e) {
-            setIsIframe(true);
+            setIsEmbedded(true);
         }
     }, []);
 
-    if (pathname?.startsWith('/admin') || isEmbedQuery || isIframe) return null;
+    if (pathname?.startsWith('/admin') || isEmbedded) return null;
     return <FooterContent />;
 }
 
