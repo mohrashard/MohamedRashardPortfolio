@@ -2,6 +2,7 @@
 
 import React, { useEffect, useState, use } from 'react';
 import { createClient } from '@supabase/supabase-js';
+import Navbar from '../../components/Navbar';
 
 const supabase = createClient(
   process.env.NEXT_PUBLIC_SUPABASE_URL!,
@@ -111,19 +112,44 @@ export default function BookingPage({ params }: { params: Promise<{ id: string }
   }
 
   const [mounted, setMounted] = useState(false);
+  const [isEmbed, setIsEmbed] = useState(false);
   
   useEffect(() => {
+    try {
+      setIsEmbed(window.self !== window.top);
+    } catch (e) {
+      setIsEmbed(true);
+    }
     setMounted(true);
   }, []);
 
   // Success Screen
   if (bookedLink) {
-    return (
-      <div className="w-full h-full min-h-[400px] flex flex-col items-center justify-center p-8 text-center space-y-4 bg-black">
+    const successContent = (
+      <>
         <div className="w-16 h-16 bg-blue-500/10 text-blue-400 rounded-full flex items-center justify-center mx-auto text-3xl">✓</div>
         <h2 className="text-2xl font-semibold text-white">Call Confirmed</h2>
         <p className="text-zinc-400 text-sm">A calendar invite and Google Meet link have been sent to <strong>{email}</strong>.</p>
-      </div>
+      </>
+    );
+
+    if (isEmbed) {
+      return (
+        <div className="w-full h-full min-h-[400px] flex flex-col items-center justify-center p-8 text-center space-y-4 bg-black">
+          {successContent}
+        </div>
+      );
+    }
+
+    return (
+      <>
+        <Navbar />
+        <div className="min-h-screen bg-[#050505] text-white flex items-center justify-center p-4 md:p-8 pt-28">
+          <div className="w-full max-w-2xl bg-[#121215] border border-white/10 rounded-2xl p-8 text-center space-y-4 shadow-2xl">
+            {successContent}
+          </div>
+        </div>
+      </>
     );
   }
 
@@ -131,9 +157,8 @@ export default function BookingPage({ params }: { params: Promise<{ id: string }
     return null; // Prevent hydration mismatch on date generation
   }
 
-  return (
-    <div className="w-full min-h-full bg-transparent text-white p-6 md:p-8 text-left">
-      <div className="w-full max-w-2xl mx-auto">
+  const innerContent = (
+    <>
         <div className="mb-8">
           <h2 className="text-2xl font-semibold tracking-tight text-white">
               {lead?.website_url ? `Book your call about ${lead.website_url}` : 'Schedule a Working Session'}
@@ -242,7 +267,27 @@ export default function BookingPage({ params }: { params: Promise<{ id: string }
               </div>
             )}
           </div>
+    </>
+  );
+
+  if (isEmbed) {
+    return (
+      <div className="w-full min-h-full bg-transparent text-white p-6 md:p-8 text-left">
+        <div className="w-full max-w-2xl mx-auto">
+          {innerContent}
         </div>
-    </div>
+      </div>
+    );
+  }
+
+  return (
+    <>
+      <Navbar />
+      <div className="min-h-screen bg-[#050505] text-white flex items-center justify-center p-4 md:p-8 pt-28">
+        <div className="w-full max-w-2xl bg-[#121215] border border-white/10 rounded-2xl p-6 md:p-8 shadow-2xl text-left">
+          {innerContent}
+        </div>
+      </div>
+    </>
   );
 }
