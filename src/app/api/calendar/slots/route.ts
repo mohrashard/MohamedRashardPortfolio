@@ -1,6 +1,9 @@
 import { google } from 'googleapis';
 import { NextRequest, NextResponse } from 'next/server';
 
+export const dynamic = 'force-dynamic';
+export const revalidate = 0;
+
 // Weekly working windows (UTC timestamps)
 const AVAILABILITY: Record<string, string[]> = {
   monday: [
@@ -86,7 +89,7 @@ export async function GET(req: NextRequest) {
     });
 
     const busyRanges = (eventsRes.data.items || [])
-      .filter(event => event.status !== 'cancelled')
+      .filter(event => event.status !== 'cancelled' && event.transparency !== 'transparent')
       .map(event => {
         // All-day event blocks the whole day
         if (!event.start?.dateTime) {
@@ -95,9 +98,15 @@ export async function GET(req: NextRequest) {
             end:   new Date(`${date}T23:59:59Z`).getTime(),
           };
         }
+        
+        // Safely parse start and end times, falling back gracefully
+        const startTime = new Date(event.start.dateTime).getTime();
+        // Some events might not have an end time, assume 1 hour duration as fallback
+        const endTime = event.end?.dateTime ? new Date(event.end.dateTime).getTime() : startTime + (60 * 60 * 1000);
+        
         return {
-          start: new Date(event.start.dateTime).getTime(),
-          end:   new Date(event.end!.dateTime!).getTime(),
+          start: startTime,
+          end: endTime,
         };
       });
 

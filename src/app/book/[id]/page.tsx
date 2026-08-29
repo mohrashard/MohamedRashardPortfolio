@@ -9,8 +9,16 @@ const supabase = createClient(
   process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY || ''
 );
 
-export default function BookingPage({ params }: { params: Promise<{ id: string }> }) {
+export default function BookingPage({ 
+  params, 
+  searchParams 
+}: { 
+  params: Promise<{ id: string }>; 
+  searchParams?: Promise<{ embed?: string }>; 
+}) {
   const { id } = use(params);
+  const sParams = searchParams ? use(searchParams) : undefined;
+  const isEmbedQuery = sParams?.embed === 'true';
 
   const [lead, setLead] = useState<any>(null);
   const [selectedDate, setSelectedDate] = useState<string>('');
@@ -68,7 +76,10 @@ export default function BookingPage({ params }: { params: Promise<{ id: string }
       setSlots([]);
       setSelectedSlot(''); // Reset slot if they change date
       try {
-        const res = await fetch(`/api/calendar/slots?date=${selectedDate}`);
+        const res = await fetch(`/api/calendar/slots?date=${selectedDate}`, {
+          cache: 'no-store',
+          headers: { 'Cache-Control': 'no-cache' }
+        });
         const data = await res.json();
         setSlots(data.slots || []);
       } catch (e) {
@@ -112,16 +123,20 @@ export default function BookingPage({ params }: { params: Promise<{ id: string }
   }
 
   const [mounted, setMounted] = useState(false);
-  const [isEmbed, setIsEmbed] = useState(false);
+  const [isIframe, setIsIframe] = useState(false);
   
   useEffect(() => {
     try {
-      setIsEmbed(window.self !== window.top);
+      if (window.self !== window.top) {
+        setIsIframe(true);
+      }
     } catch (e) {
-      setIsEmbed(true);
+      setIsIframe(true);
     }
     setMounted(true);
   }, []);
+
+  const isEmbed = isEmbedQuery || isIframe;
 
   // Success Screen
   if (bookedLink) {
