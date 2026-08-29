@@ -12,7 +12,19 @@ const fontLabel = { fontFamily: "var(--font-geist-mono), 'Geist Mono', monospace
 
 export default function Footer() {
     const pathname = usePathname();
-    if (pathname?.startsWith('/admin')) return null;
+    const [isEmbedded, setIsEmbedded] = useState(false);
+
+    React.useEffect(() => {
+        try {
+            if (window.self !== window.top || new URLSearchParams(window.location.search).get('embed') === 'true') {
+                setIsEmbedded(true);
+            }
+        } catch (e) {
+            setIsEmbedded(true);
+        }
+    }, []);
+
+    if (pathname?.startsWith('/admin') || isEmbedded) return null;
     return <FooterContent />;
 }
 

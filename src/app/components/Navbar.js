@@ -13,6 +13,19 @@ export default function Navbar({ position = "fixed" }) {
     const pathname = usePathname();
     const [isScrolled, setIsScrolled] = useState(false);
     const [isMenuOpen, setIsMenuOpen] = useState(false);
+    const [isEmbedded, setIsEmbedded] = useState(false);
+
+    useEffect(() => {
+        try {
+            if (window.self !== window.top || new URLSearchParams(window.location.search).get('embed') === 'true') {
+                setIsEmbedded(true);
+            }
+        } catch (e) {
+            setIsEmbedded(true);
+        }
+    }, []);
+
+    if (isEmbedded) return null;
 
     useEffect(() => {
         const handleScroll = () => {
