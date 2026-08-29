@@ -16,6 +16,15 @@ const nextConfig = {
   async headers() {
     return [
       {
+        source: '/book/:path*',
+        headers: [
+          {
+            key: 'Content-Security-Policy',
+            value: "frame-ancestors 'self' https://mr2labs.com https://*.mr2labs.com http://localhost:3000;",
+          },
+        ],
+      },
+      {
         source: '/_next/static/:path*',
         headers: [
           {
