@@ -45,7 +45,7 @@ export async function POST(request) {
           </div>
 
           <p style="color: #a1a1aa;">Don't leave your infrastructure exposed. Book a technical review to patch this.</p>
-          <a href="${process.env.NEXT_PUBLIC_CALENDLY_URL || 'https://calendly.com/mohrashard/30min'}" style="display: inline-block; padding: 12px 24px; background: #0066ff; color: #fff; text-decoration: none; border-radius: 6px; font-weight: bold;">Book Security Call</a>
+          <a href="${process.env.NEXT_PUBLIC_CALENDLY_URL || 'https://mr2labs.com/book/direct'}" style="display: inline-block; padding: 12px 24px; background: #0066ff; color: #fff; text-decoration: none; border-radius: 6px; font-weight: bold;">Book Security Call</a>
         </div>
       `,
     });

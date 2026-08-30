@@ -249,7 +249,7 @@ export default function LinkedinHeadlineGenerator() {
                                         </p>
                                         
                                         <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-                                            <a href={process.env.NEXT_PUBLIC_CALENDLY_URL || "https://calendly.com/mohrashard/30min"} target="_blank" className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-8 py-4 rounded-xl bg-[#0a66c2] text-white text-[11px] font-bold uppercase tracking-widest hover:bg-[#004182] transition-all shadow-md border border-white/5" style={fontLabel}>
+                                            <a href={process.env.NEXT_PUBLIC_CALENDLY_URL || "https://mr2labs.com/book/direct"} target="_blank" className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-8 py-4 rounded-xl bg-[#0a66c2] text-white text-[11px] font-bold uppercase tracking-widest hover:bg-[#004182] transition-all shadow-md border border-white/5" style={fontLabel}>
                                                 Build Your Tool
                                             </a>
                                             <Link href="/cost-to-build" className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-8 py-4 rounded-xl bg-white/[0.05] border border-white/[0.1] text-white text-[11px] font-bold uppercase tracking-widest hover:bg-white/[0.1] transition-all" style={fontLabel}>

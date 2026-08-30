@@ -351,9 +351,12 @@ export default function Capabilities() {
             const cards = cardRefs.current.filter(Boolean);
             if (!pin || !track || !cards.length) return;
 
-            gsapCtx.current = gsap.context(() => {
-                const cardH = cards[0].offsetHeight;
-                const gap   = 32;
+            const cardH = cards[0].offsetHeight;
+            if (!cardH || cardH <= 0) return;
+
+            requestAnimationFrame(() => {
+                gsapCtx.current = gsap.context(() => {
+                    const gap   = 32;
                 const step  = cardH + gap;
                 const n     = cards.length;
                 const travel = step * (n - 1);
@@ -428,6 +431,7 @@ export default function Capabilities() {
                 // Force a refresh after creation to catch any late layout shifts
                 ScrollTrigger.refresh();
             }, pin);
+            });
         }, 100);
 
         return () => { 

@@ -152,7 +152,7 @@ export default function AuditForm() {
                             <p className="text-xl text-zinc-300">Audit request received. Check your inbox!</p>
                             <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mt-10">
                                 <a
-                                    href={process.env.NEXT_PUBLIC_CALENDLY_URL || "https://calendly.com/mohrashard/30min"}
+                                    href={process.env.NEXT_PUBLIC_CALENDLY_URL || "https://mr2labs.com/book/direct"}
                                     target="_blank"
                                     rel="noopener noreferrer"
                                     className="px-8 py-3 rounded-full bg-[var(--primary)] text-white font-bold hover:bg-[#0055d4] transition-all shadow-md border border-white/5 hover:shadow-md border border-white/5 w-full sm:w-auto"

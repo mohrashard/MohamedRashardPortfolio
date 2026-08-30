@@ -451,7 +451,7 @@ export default function EstimatorForm({ appTitle, baseFeatures, slug }: Estimato
                         </div>
 
                         <button
-                            onClick={() => window.open(process.env.NEXT_PUBLIC_CALENDLY_URL, '_blank')}
+                            onClick={() => window.open(process.env.NEXT_PUBLIC_CALENDLY_URL || 'https://mr2labs.com/book/direct', '_blank')}
                             className="w-full flex items-center justify-center gap-2 py-4 rounded-2xl bg-white text-black font-black text-xs uppercase tracking-[0.2em] shadow-2xl transition-all transform hover:-translate-y-0.5 hover:shadow-white/30"
                         >
                             <span>Book Free 15-Min Strategy Call</span>

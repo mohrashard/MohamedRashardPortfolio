@@ -373,7 +373,7 @@ function PerformanceAuditContent() {
                                                         <CheckCircle2 size={18} />
                                                         <span className="text-[11px] font-bold tracking-widest uppercase" style={fontLabel}>Review Requested</span>
                                                     </div>
-                                                    <a href={process.env.NEXT_PUBLIC_CALENDLY_URL || "https://calendly.com/mohrashard/30min"} target="_blank" rel="noopener noreferrer" className="flex items-center justify-center gap-2 px-4 py-3.5 rounded-xl bg-rose-600 text-white text-[10px] font-bold uppercase tracking-widest hover:bg-rose-700 transition-all" style={fontLabel}>
+                                                    <a href={process.env.NEXT_PUBLIC_CALENDLY_URL || "https://mr2labs.com/book/direct"} target="_blank" rel="noopener noreferrer" className="flex items-center justify-center gap-2 px-4 py-3.5 rounded-xl bg-rose-600 text-white text-[10px] font-bold uppercase tracking-widest hover:bg-rose-700 transition-all" style={fontLabel}>
                                                         Book Strategy Call
                                                     </a>
                                                 </div>

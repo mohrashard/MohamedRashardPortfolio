@@ -52,7 +52,7 @@ export async function POST(request) {
           </div>
 
           <p style="color: #a1a1aa;">If you need to optimize this infrastructure or build a high-performance frontend to consume it, let's talk.</p>
-          <a href="${process.env.NEXT_PUBLIC_CALENDLY_URL || 'https://calendly.com/mohrashard/30min'}" style="display: inline-block; padding: 12px 24px; background: #0066ff; color: #fff; text-decoration: none; border-radius: 6px; font-weight: bold;">Book Architecture Call</a>
+          <a href="${process.env.NEXT_PUBLIC_CALENDLY_URL || 'https://mr2labs.com/book/direct'}" style="display: inline-block; padding: 12px 24px; background: #0066ff; color: #fff; text-decoration: none; border-radius: 6px; font-weight: bold;">Book Architecture Call</a>
         </div>
       `,
     });

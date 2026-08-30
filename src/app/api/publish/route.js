@@ -17,6 +17,9 @@ export async function POST(request) {
             return NextResponse.json({ error: "Missing slug or markdown" }, { status: 400 });
         }
 
+        // Sanitize em-dashes and en-dashes from markdown before publishing
+        markdown = markdown.replace(/\s*—\s*/g, ' - ').replace(/\s*–\s*/g, ' - ');
+
         // Automated Validation Check: Ensure Node 2 successfully injected the JSON-LD FAQ schema
         if (!markdown.includes('<script type="application/ld+json">') || !markdown.includes('FAQPage')) {
             return NextResponse.json({ 

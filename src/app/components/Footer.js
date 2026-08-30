@@ -5,6 +5,9 @@ import Link from 'next/link';
 import { motion, useScroll, useTransform } from 'framer-motion';
 import { usePathname, useSearchParams } from 'next/navigation';
 import { Suspense } from 'react';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faCheckCircle, faSpinner, faArrowRight, faExclamationTriangle } from '@fortawesome/free-solid-svg-icons';
+import { faTwitter, faLinkedinIn, faGithub, faFacebookF, faInstagram } from '@fortawesome/free-brands-svg-icons';
 
 // ── Shared font tokens ──────────────────────────────────────
 const fontHeadline = { fontFamily: "var(--font-jakarta), 'Plus Jakarta Sans', sans-serif" };
@@ -119,7 +122,7 @@ return (
 
                             {status === 'success' ? (
                                 <div className="flex items-center gap-2 max-w-sm mb-8 h-[52px] bg-green-500/10 border border-green-500/30 rounded-xl px-4 text-green-400 text-sm font-bold">
-                                    <i className="fas fa-check-circle"></i> Blueprint sent to inbox!
+                                    <FontAwesomeIcon icon={faCheckCircle} /> Blueprint sent to inbox!
                                 </div>
                             ) : (
                                 <form onSubmit={handleSubmit} className="flex flex-col max-w-sm mb-8 relative">
@@ -141,24 +144,24 @@ return (
                                         >
                                             <span className="sr-only">Get Blueprint PDF</span>
                                             {status === 'loading' ? (
-                                                <i className="fas fa-spinner fa-spin"></i>
+                                                <FontAwesomeIcon icon={faSpinner} spin />
                                             ) : (
-                                                <i className="fas fa-arrow-right"></i>
+                                                <FontAwesomeIcon icon={faArrowRight} />
                                             )}
                                         </button>
                                     </div>
                                     {status === 'error' && (
-                                        <p className="text-red-400 text-[10px] mt-2 absolute -bottom-5"><i className="fas fa-exclamation-triangle"></i> Error. Try again.</p>
+                                        <p className="text-red-400 text-[10px] mt-2 absolute -bottom-5"><FontAwesomeIcon icon={faExclamationTriangle} /> Error. Try again.</p>
                                     )}
                                 </form>
                             )}
                             {/* Socials */}
                             <div className="flex gap-5">
-                                <a href="https://x.com/mrr_labs" target="_blank" rel="noopener noreferrer" aria-label="X Twitter" className="text-zinc-400 hover:text-white text-lg transition-transform hover:scale-110"><span className="sr-only">X Twitter</span><i className="fab fa-twitter"></i></a>
-                                <a href="https://www.linkedin.com/in/mohamedrashard" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" className="text-zinc-400 hover:text-[#0077b5] text-lg transition-transform hover:scale-110"><span className="sr-only">LinkedIn</span><i className="fab fa-linkedin-in"></i></a>
-                                <a href="https://github.com/mohrashard/" target="_blank" rel="noopener noreferrer" aria-label="GitHub" className="text-zinc-400 hover:text-white text-lg transition-transform hover:scale-110"><span className="sr-only">GitHub</span><i className="fab fa-github"></i></a>
-                                <a href="https://web.facebook.com/profile.php?id=61575921543570" target="_blank" rel="noopener noreferrer" aria-label="Facebook" className="text-zinc-400 hover:text-[#1877F2] text-lg transition-transform hover:scale-110"><span className="sr-only">Facebook</span><i className="fab fa-facebook-f"></i></a>
-                                <a href="https://www.instagram.com/mrr_labs/" target="_blank" rel="noopener noreferrer" aria-label="Instagram" className="text-zinc-400 hover:text-[#E1306C] text-lg transition-transform hover:scale-110"><span className="sr-only">Instagram</span><i className="fab fa-instagram"></i></a>
+                                <a href="https://x.com/mrr_labs" target="_blank" rel="noopener noreferrer" aria-label="X Twitter" className="text-zinc-400 hover:text-white text-lg transition-transform hover:scale-110"><span className="sr-only">X Twitter</span><FontAwesomeIcon icon={faTwitter} /></a>
+                                <a href="https://www.linkedin.com/in/mohamedrashard" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" className="text-zinc-400 hover:text-[#0077b5] text-lg transition-transform hover:scale-110"><span className="sr-only">LinkedIn</span><FontAwesomeIcon icon={faLinkedinIn} /></a>
+                                <a href="https://github.com/mohrashard/" target="_blank" rel="noopener noreferrer" aria-label="GitHub" className="text-zinc-400 hover:text-white text-lg transition-transform hover:scale-110"><span className="sr-only">GitHub</span><FontAwesomeIcon icon={faGithub} /></a>
+                                <a href="https://web.facebook.com/profile.php?id=61575921543570" target="_blank" rel="noopener noreferrer" aria-label="Facebook" className="text-zinc-400 hover:text-[#1877F2] text-lg transition-transform hover:scale-110"><span className="sr-only">Facebook</span><FontAwesomeIcon icon={faFacebookF} /></a>
+                                <a href="https://www.instagram.com/mrr_labs/" target="_blank" rel="noopener noreferrer" aria-label="Instagram" className="text-zinc-400 hover:text-[#E1306C] text-lg transition-transform hover:scale-110"><span className="sr-only">Instagram</span><FontAwesomeIcon icon={faInstagram} /></a>
                             </div>
                         </div>
                     </div>

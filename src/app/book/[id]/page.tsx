@@ -182,7 +182,7 @@ export default function BookingPage({
     return (
       <>
         <Navbar />
-        <div className="min-h-screen bg-[#050505] text-white flex items-center justify-center p-4 md:p-8 pt-28">
+        <div className="min-h-screen bg-[#050505] text-white flex flex-col items-center justify-start p-4 md:p-8 pt-32 md:pt-40 pb-20">
           <div className="w-full max-w-2xl bg-[#121215] border border-white/10 rounded-2xl p-8 text-center space-y-4 shadow-2xl">
             {successContent}
           </div>
@@ -192,7 +192,33 @@ export default function BookingPage({
   }
 
   if (!mounted) {
-    return null; // Prevent hydration mismatch on date generation
+    const loadingUI = (
+      <div className="w-full min-h-[400px] flex flex-col items-center justify-center space-y-4">
+        <div className="w-8 h-8 border-2 border-blue-500 border-t-transparent rounded-full animate-spin"></div>
+        <p className="text-sm text-zinc-500 font-medium animate-pulse">Loading secure session...</p>
+      </div>
+    );
+
+    if (isEmbedQuery) {
+      return (
+        <div className="w-full min-h-full bg-transparent text-white p-6 md:p-8 text-left">
+          <div className="w-full max-w-2xl mx-auto">
+            {loadingUI}
+          </div>
+        </div>
+      );
+    }
+
+    return (
+      <>
+        <Navbar />
+        <div className="min-h-screen bg-[#050505] text-white flex flex-col items-center justify-start p-4 md:p-8 pt-32 md:pt-40 pb-20">
+          <div className="w-full max-w-2xl bg-[#121215] border border-white/10 rounded-2xl p-6 md:p-8 shadow-2xl text-left">
+            {loadingUI}
+          </div>
+        </div>
+      </>
+    );
   }
 
   const innerContent = (
@@ -321,7 +347,7 @@ export default function BookingPage({
   return (
     <>
       <Navbar />
-      <div className="min-h-screen bg-[#050505] text-white flex items-center justify-center p-4 md:p-8 pt-28">
+      <div className="min-h-screen bg-[#050505] text-white flex flex-col items-center justify-start p-4 md:p-8 pt-32 md:pt-40 pb-20">
         <div className="w-full max-w-2xl bg-[#121215] border border-white/10 rounded-2xl p-6 md:p-8 shadow-2xl text-left">
           {innerContent}
         </div>

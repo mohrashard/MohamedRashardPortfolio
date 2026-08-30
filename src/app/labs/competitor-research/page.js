@@ -265,7 +265,7 @@ export default function CompetitorResearch() {
                                                     <button onClick={() => window.print()} className="flex items-center justify-center gap-2 px-4 py-3.5 rounded-xl bg-white text-black text-[10px] font-bold uppercase tracking-widest hover:bg-zinc-200 transition-all w-full" style={fontLabel}>
                                                         <Download size={14} /> Download Hit-List
                                                     </button>
-                                                    <a href={process.env.NEXT_PUBLIC_CALENDLY_URL || "https://calendly.com/mohrashard/30min"} target="_blank" className="flex items-center justify-center gap-2 px-4 py-3.5 rounded-xl bg-[var(--primary)] text-white text-[10px] font-bold uppercase tracking-widest hover:bg-[#0055d4] transition-all" style={fontLabel}>
+                                                    <a href={process.env.NEXT_PUBLIC_CALENDLY_URL || "https://mr2labs.com/book/direct"} target="_blank" className="flex items-center justify-center gap-2 px-4 py-3.5 rounded-xl bg-[var(--primary)] text-white text-[10px] font-bold uppercase tracking-widest hover:bg-[#0055d4] transition-all" style={fontLabel}>
                                                         Book MVP Deployment
                                                     </a>
                                                 </div>

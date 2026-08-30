@@ -148,6 +148,8 @@ export async function executeWithWaterfall(systemPrompt, userPrompt, taskType) {
                 } else if (rawContent.startsWith('\`\`\`')) {
                     rawContent = rawContent.replace(/^\`\`\`\n/, '').replace(/\n\`\`\`$/, '');
                 }
+                // Sanitize em-dashes and en-dashes
+                rawContent = rawContent.replace(/\s*—\s*/g, ' - ').replace(/\s*–\s*/g, ' - ');
                 console.log(`[Waterfall] ✅ ${provider.name} succeeded!`);
                 return rawContent.trim();
             }
@@ -210,6 +212,7 @@ export async function generateTechnicalDraft(brief) {
 
 GUARDRAILS (STRICTLY ENFORCED):
 - NO fluff or AI slop. Banned phrases: "In today's fast-paced digital world," "Let's dive in," "In conclusion," "A game-changer."
+- ABSOLUTELY NO em-dashes (—) or en-dashes (–). Use standard hyphens (-) or colons (:) instead.
 - Lead with the answer. Put a definitive, italicized summary block at the top of every H2 section to capture AI search engine snippets.
 - Use the Problem-Agitation-Solution (PAS) framework.
 - Include at least one Mermaid.js diagram illustrating the architecture or data flow.

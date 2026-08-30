@@ -53,7 +53,7 @@ export async function POST(request) {
           </div>
 
           <p style="color: #a1a1aa;">Found a name you love? Let's take it from an idea to a live MVP in 72 hours.</p>
-          <a href="${process.env.NEXT_PUBLIC_CALENDLY_URL || 'https://calendly.com/mohrashard/30min'}" style="display: inline-block; padding: 12px 24px; background: #a855f7; color: #fff; text-decoration: none; border-radius: 6px; font-weight: bold;">Scope Your MVP</a>
+          <a href="${process.env.NEXT_PUBLIC_CALENDLY_URL || 'https://mr2labs.com/book/direct'}" style="display: inline-block; padding: 12px 24px; background: #a855f7; color: #fff; text-decoration: none; border-radius: 6px; font-weight: bold;">Scope Your MVP</a>
         </div>
       `,
     });

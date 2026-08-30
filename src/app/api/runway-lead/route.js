@@ -53,7 +53,7 @@ export async function POST(request) {
           `).join('') : ''}
 
           <p style="color: #a1a1aa;">Stop burning capital on slow development. Let's scope your next release to ship in 72 hours.</p>
-          <a href="${process.env.NEXT_PUBLIC_CALENDLY_URL || 'https://calendly.com/mohrashard/30min'}" style="display: inline-block; padding: 12px 24px; background: #0066ff; color: #fff; text-decoration: none; border-radius: 6px; font-weight: bold;">Book Scoping Call</a>
+          <a href="${process.env.NEXT_PUBLIC_CALENDLY_URL || 'https://mr2labs.com/book/direct'}" style="display: inline-block; padding: 12px 24px; background: #0066ff; color: #fff; text-decoration: none; border-radius: 6px; font-weight: bold;">Book Scoping Call</a>
         </div>
       `,
     });

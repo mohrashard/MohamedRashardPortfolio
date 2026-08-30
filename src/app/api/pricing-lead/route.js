@@ -54,7 +54,7 @@ export async function POST(request) {
           </table>
 
           <p style="color: #a1a1aa;">Having the pricing strategy is step one. Having the infrastructure to actually bill users is step two. If you need Stripe integrated and this pricing page coded into your Next.js app, we can deploy it in 24 hours.</p>
-          <a href="${process.env.NEXT_PUBLIC_CALENDLY_URL || 'https://calendly.com/mohrashard/30min'}" style="display: inline-block; padding: 12px 24px; background: #0066ff; color: #fff; text-decoration: none; border-radius: 6px; font-weight: bold;">Book Deployment Call</a>
+          <a href="${process.env.NEXT_PUBLIC_CALENDLY_URL || 'https://mr2labs.com/book/direct'}" style="display: inline-block; padding: 12px 24px; background: #0066ff; color: #fff; text-decoration: none; border-radius: 6px; font-weight: bold;">Book Deployment Call</a>
         </div>
       `,
     });

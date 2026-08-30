@@ -16,7 +16,8 @@ export function getSortedPostsData() {
 
             // Read markdown file as string
             const fullPath = path.join(postsDirectory, fileName);
-            const fileContents = fs.readFileSync(fullPath, 'utf8');
+            let fileContents = fs.readFileSync(fullPath, 'utf8');
+            fileContents = fileContents.replace(/\s*—\s*/g, ' - ').replace(/\s*–\s*/g, ' - ');
 
             // Use gray-matter to parse the post metadata section
             const matterResult = matter(fileContents);
@@ -60,7 +61,8 @@ export function getAllPostIds() {
 
 export async function getPostData(id) {
     const fullPath = path.join(postsDirectory, `${id}.md`);
-    const fileContents = fs.readFileSync(fullPath, 'utf8');
+    let fileContents = fs.readFileSync(fullPath, 'utf8');
+    fileContents = fileContents.replace(/\s*—\s*/g, ' - ').replace(/\s*–\s*/g, ' - ');
 
     // Use gray-matter to parse the post metadata section
     const matterResult = matter(fileContents);

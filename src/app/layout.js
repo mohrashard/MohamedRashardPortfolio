@@ -5,6 +5,7 @@ import Script from "next/script";
 import Footer from "./components/Footer";
 import ScrollObserver from "./services/ScrollObserver";
 import ChunkLoadHandler from "./components/ChunkLoadHandler";
+import { GoogleAnalytics } from '@next/third-parties/google';
 
 const montserrat = Montserrat({
     subsets: ["latin"],
@@ -179,16 +180,9 @@ export default function RootLayout({ children }) {
         <html lang="en" className="scroll-smooth" suppressHydrationWarning>
             <head>
                 {/* External CSS Links - Preconnect & DNS Prefetch */}
-                <link rel="preconnect" href="https://cdn.jsdelivr.net" crossOrigin="anonymous" />
-                <link rel="dns-prefetch" href="https://cdn.jsdelivr.net" />
                 <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossOrigin="anonymous" />
                 <link rel="dns-prefetch" href="https://cdnjs.cloudflare.com" />
-                
-                {/* FontAwesome CDN for fa- icon rendering */}
-                <link 
-                    rel="stylesheet" 
-                    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" 
-                />
+
                 
                 {/* High Priority Preload for LCP Hero Background */}
                 <link rel="preload" as="image" href="/hero-bg.webp" type="image/webp" fetchPriority="high" />
@@ -258,22 +252,7 @@ export default function RootLayout({ children }) {
                 <ScrollObserver />
                 {children}
                 <Footer />
-
-                {/* Google Analytics Script - Defer to lazyOnload to unblock main thread */}
-                <Script
-                    src="https://www.googletagmanager.com/gtag/js?id=G-3F63E7EG0D"
-                    strategy="lazyOnload"
-                />
-                <Script id="google-analytics" strategy="lazyOnload">
-                    {`
-            window.dataLayer = window.dataLayer || [];
-            function gtag(){dataLayer.push(arguments);}
-            gtag('js', new Date());
-            gtag('config', 'G-3F63E7EG0D', {
-              page_title: 'Mr² Labs',
-            });
-          `}
-                </Script>
+                <GoogleAnalytics gaId="G-3F63E7EG0D" />
             </body>
         </html>
     );

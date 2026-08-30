@@ -360,7 +360,7 @@ export default function AIReadinessScorer() {
                                                     </button>
                                                     
                                                     <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
-                                                        <a href={process.env.NEXT_PUBLIC_CALENDLY_URL || "https://calendly.com/mohrashard/30min"} target="_blank" rel="noopener noreferrer" className="flex items-center justify-center gap-2 px-4 py-3.5 rounded-xl bg-[var(--primary)] text-white text-[10px] font-bold uppercase tracking-widest hover:bg-[#0055d4] transition-all shadow-[0_5px_20px_rgba(0,102,255,0.3)] text-center" style={fontLabel}>
+                                                        <a href={process.env.NEXT_PUBLIC_CALENDLY_URL || "https://mr2labs.com/book/direct"} target="_blank" rel="noopener noreferrer" className="flex items-center justify-center gap-2 px-4 py-3.5 rounded-xl bg-[var(--primary)] text-white text-[10px] font-bold uppercase tracking-widest hover:bg-[#0055d4] transition-all shadow-[0_5px_20px_rgba(0,102,255,0.3)] text-center" style={fontLabel}>
                                                             Book a Call
                                                         </a>
                                                         <Link href="/cost-to-build" className="flex items-center justify-center gap-2 px-4 py-3.5 rounded-xl bg-white/[0.05] border border-white/[0.1] text-white text-[10px] font-bold uppercase tracking-widest hover:bg-white/[0.1] transition-all text-center" style={fontLabel}>

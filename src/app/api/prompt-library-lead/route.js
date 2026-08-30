@@ -44,7 +44,7 @@ export async function POST(request) {
           </div>
 
           <p style="color: #a1a1aa;">Prompting is powerful, but automated execution is where leverage lives. If you want these prompt systems engineered directly into your application codebase or custom AI workflows, let's connect.</p>
-          <a href="${process.env.NEXT_PUBLIC_CALENDLY_URL || 'https://calendly.com/mohrashard/30min'}" style="color: #38bdf8; text-decoration: none; font-weight: bold;">Book an AI Workflow Integration Call →</a>
+          <a href="${process.env.NEXT_PUBLIC_CALENDLY_URL || 'https://mr2labs.com/book/direct'}" style="color: #38bdf8; text-decoration: none; font-weight: bold;">Book an AI Workflow Integration Call →</a>
         </div>
       `,
     });

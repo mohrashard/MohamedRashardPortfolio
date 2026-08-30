@@ -88,7 +88,7 @@ export async function POST(request) {
                       ` : ''}
                       
                       <div style="text-align: center; margin-bottom: 32px;">
-                        <a href="${process.env.NEXT_PUBLIC_CALENDLY_URL || 'https://calendly.com/mohrashard/30min'}" style="display: inline-block; padding: 16px 32px; background-color: #0066ff; color: #ffffff; text-decoration: none; font-weight: bold; border-radius: 8px; font-size: 16px;">
+                        <a href="${process.env.NEXT_PUBLIC_CALENDLY_URL || 'https://mr2labs.com/book/direct'}" style="display: inline-block; padding: 16px 32px; background-color: #0066ff; color: #ffffff; text-decoration: none; font-weight: bold; border-radius: 8px; font-size: 16px;">
                           Book a Strategy Call
                         </a>
                       </div>

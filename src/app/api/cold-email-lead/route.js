@@ -51,7 +51,7 @@ export async function POST(request) {
           </div>
 
           <p style="color: #a1a1aa;">Getting replies is great, but do you have the infrastructure to handle the traffic? If you need a landing page or app built before your outreach campaign scales, let's talk.</p>
-          <a href="${process.env.NEXT_PUBLIC_CALENDLY_URL || 'https://calendly.com/mohrashard/30min'}" style="display: inline-block; padding: 12px 24px; background: #0066ff; color: #000; text-decoration: none; border-radius: 6px; font-weight: bold;">Book Architecture Call</a>
+          <a href="${process.env.NEXT_PUBLIC_CALENDLY_URL || 'https://mr2labs.com/book/direct'}" style="display: inline-block; padding: 12px 24px; background: #0066ff; color: #000; text-decoration: none; border-radius: 6px; font-weight: bold;">Book Architecture Call</a>
         </div>
       `,
     });

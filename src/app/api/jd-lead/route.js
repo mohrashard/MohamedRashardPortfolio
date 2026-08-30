@@ -57,7 +57,7 @@ export async function POST(request) {
               <p style="color: #a1a1aa;">The average technical hiring cycle takes 3 months. In that time, Mr² Labs can architect, build, and deploy your entire MVP in a 72-hour sprint.</p>
               <p style="color: #a1a1aa;">While you search for the right full-time hire, let us ship your v1.</p>
               <br>
-              <a href="${process.env.NEXT_PUBLIC_CALENDLY_URL || 'https://calendly.com/mohrashard/30min'}" style="display: inline-block; padding: 12px 24px; background: #0066ff; color: #fff; text-decoration: none; border-radius: 6px; font-weight: bold;">Book MVP Deployment</a>
+              <a href="${process.env.NEXT_PUBLIC_CALENDLY_URL || 'https://mr2labs.com/book/direct'}" style="display: inline-block; padding: 12px 24px; background: #0066ff; color: #fff; text-decoration: none; border-radius: 6px; font-weight: bold;">Book MVP Deployment</a>
           </div>
         </div>
       `,

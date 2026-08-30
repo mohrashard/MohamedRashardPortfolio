@@ -403,8 +403,10 @@ export default function Projects() {
             const cardW = cards[0].offsetWidth;
             if (!cardW || cardW <= 0) return;
 
-            gsapCtx.current = gsap.context(() => {
-                const vw = window.innerWidth;
+            requestAnimationFrame(() => {
+                if (!isMounted.current) return;
+                gsapCtx.current = gsap.context(() => {
+                    const vw = window.innerWidth;
                 const gap = 32;
                 const step = cardW + gap;
                 const n = cards.length;
@@ -461,6 +463,7 @@ export default function Projects() {
                 // Force a refresh after creation to catch any late layout shifts
                 ScrollTrigger.refresh();
             }, pin);
+            });
         }, 100);
 
         return () => {

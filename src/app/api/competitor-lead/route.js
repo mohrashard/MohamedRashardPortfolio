@@ -55,7 +55,7 @@ export async function POST(request) {
           </div>
 
           <p style="color: #a1a1aa;">You know the gap. Now you need the product. We architect and deploy high-velocity MVPs designed to exploit exactly these weaknesses in 48-72 hours.</p>
-          <a href="${process.env.NEXT_PUBLIC_CALENDLY_URL || 'https://calendly.com/mohrashard/30min'}" style="display: inline-block; padding: 12px 24px; background: #0066ff; color: #fff; text-decoration: none; border-radius: 6px; font-weight: bold;">Book MVP Deployment</a>
+          <a href="${process.env.NEXT_PUBLIC_CALENDLY_URL || 'https://mr2labs.com/book/direct'}" style="display: inline-block; padding: 12px 24px; background: #0066ff; color: #fff; text-decoration: none; border-radius: 6px; font-weight: bold;">Book MVP Deployment</a>
         </div>
       `,
     });
