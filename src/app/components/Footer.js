@@ -3,30 +3,40 @@
 import React, { useState, useRef } from 'react';
 import Link from 'next/link';
 import { motion, useScroll, useTransform } from 'framer-motion';
-import { usePathname } from 'next/navigation';
+import { usePathname, useSearchParams } from 'next/navigation';
+import { Suspense } from 'react';
 
 // ── Shared font tokens ──────────────────────────────────────
 const fontHeadline = { fontFamily: "var(--font-jakarta), 'Plus Jakarta Sans', sans-serif" };
 const fontBody = { fontFamily: "var(--font-inter), 'Inter', sans-serif" };
 const fontLabel = { fontFamily: "var(--font-geist-mono), 'Geist Mono', monospace" };
 
-export default function Footer() {
+function FooterInner() {
     const pathname = usePathname();
+    const searchParams = useSearchParams();
+    const isEmbedParam = searchParams.get('embed') === 'true';
     const [isEmbedded, setIsEmbedded] = useState(false);
 
     React.useEffect(() => {
         try {
-            const hasEmbedParam = new URLSearchParams(window.location.search).get('embed') === 'true';
-            if (window.self !== window.top || hasEmbedParam) {
+            if (window.self !== window.top || isEmbedParam) {
                 setIsEmbedded(true);
             }
         } catch (e) {
             setIsEmbedded(true);
         }
-    }, []);
+    }, [isEmbedParam]);
 
-    if (pathname?.startsWith('/admin') || isEmbedded) return null;
+    if (pathname?.startsWith('/admin') || isEmbedded || isEmbedParam) return null;
     return <FooterContent />;
+}
+
+export default function Footer() {
+    return (
+        <Suspense fallback={null}>
+            <FooterInner />
+        </Suspense>
+    );
 }
 
 function FooterContent() {
