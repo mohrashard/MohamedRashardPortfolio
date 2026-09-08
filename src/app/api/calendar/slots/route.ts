@@ -120,7 +120,11 @@ export async function GET(req: NextRequest) {
 
     return NextResponse.json({ slots: freeSlots });
   } catch (err: any) {
-    console.error('Error fetching calendar availability:', err);
-    return NextResponse.json({ error: err.message || 'Failed to fetch slots' }, { status: 500 });
+    console.error('Error fetching calendar availability (falling back to configured slots):', err?.message || err);
+    // Graceful fallback: return configuredSlots so prospective clients can still see and book slots even if Google Calendar API token is expired or offline
+    return NextResponse.json({ 
+      slots: configuredSlots,
+      warning: 'Live calendar sync unavailable, showing standard availability'
+    });
   }
 }

@@ -30,33 +30,43 @@ export async function POST(req: NextRequest) {
     const startTime = new Date(`${date}T${slot}:00Z`);
     const endTime = new Date(startTime.getTime() + 15 * 60 * 1000);
 
-    const auth = getOAuthClient();
-    const calendar = google.calendar({ version: 'v3', auth });
+    let meetLink = '';
+    let googleEventId = '';
+    let calendarSyncError: string | null = null;
 
-    // 1. Create Google Calendar Event with Google Meet
-    const event = await calendar.events.insert({
-      calendarId: process.env.GOOGLE_CALENDAR_ID || 'primary',
-      conferenceDataVersion: 1,
-      requestBody: {
-        summary: `MR² Labs Strategy Session — ${company || domain || name}`,
-        description: `Strategy session with ${name}.\nWebsite: ${domain || 'N/A'}\nNotes: ${notes || 'None provided'}\nLead ID: ${lead_id || 'N/A'}`,
-        start: { dateTime: startTime.toISOString() },
-        end: { dateTime: endTime.toISOString() },
-        attendees: [
-          { email: email },
-          { email: 'rashard@mr2labs.com' },
-        ],
-        conferenceData: {
-          createRequest: {
-            requestId: `meet-${lead_id || Date.now()}-${Math.random().toString(36).substring(7)}`,
-            conferenceSolutionKey: { type: 'hangoutsMeet' },
+    try {
+      const auth = getOAuthClient();
+      const calendar = google.calendar({ version: 'v3', auth });
+
+      // 1. Create Google Calendar Event with Google Meet
+      const event = await calendar.events.insert({
+        calendarId: process.env.GOOGLE_CALENDAR_ID || 'primary',
+        conferenceDataVersion: 1,
+        requestBody: {
+          summary: `MR² Labs Strategy Session — ${company || domain || name}`,
+          description: `Strategy session with ${name}.\nWebsite: ${domain || 'N/A'}\nNotes: ${notes || 'None provided'}\nLead ID: ${lead_id || 'N/A'}`,
+          start: { dateTime: startTime.toISOString() },
+          end: { dateTime: endTime.toISOString() },
+          attendees: [
+            { email: email },
+            { email: 'rashard@mr2labs.com' },
+          ],
+          conferenceData: {
+            createRequest: {
+              requestId: `meet-${lead_id || Date.now()}-${Math.random().toString(36).substring(7)}`,
+              conferenceSolutionKey: { type: 'hangoutsMeet' },
+            },
           },
         },
-      },
-    });
+      });
 
-    const meetLink = event.data.hangoutLink || event.data.conferenceData?.entryPoints?.[0]?.uri || '';
-    const googleEventId = event.data.id || '';
+      meetLink = event.data.hangoutLink || event.data.conferenceData?.entryPoints?.[0]?.uri || '';
+      googleEventId = event.data.id || '';
+    } catch (calErr: any) {
+      console.error('Google Calendar event creation failed (fallback mode active):', calErr?.message || calErr);
+      calendarSyncError = calErr?.message || 'Google Calendar OAuth token expired or revoked';
+      meetLink = 'https://meet.google.com/new';
+    }
 
     // 2. Log to Supabase
     await supabase.from('bookings').insert({
@@ -112,6 +122,7 @@ export async function POST(req: NextRequest) {
         <p><strong>Email:</strong> ${email}</p>
         <p><strong>Domain:</strong> ${domain}</p>
         <p><strong>Notes:</strong> ${notes || 'None'}</p>
+        ${calendarSyncError ? `<p style="color: #dc2626; background: #fee2e2; padding: 10px; border-radius: 6px;"><strong>⚠️ Note:</strong> Google Calendar event creation failed (${calendarSyncError}). Please add event manually and refresh Google OAuth token.</p>` : ''}
       `,
     });
 
