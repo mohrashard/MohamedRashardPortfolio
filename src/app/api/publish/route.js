@@ -39,12 +39,33 @@ export async function POST(request) {
 
         const octokit = new Octokit({ auth: token });
 
-        // 1. Get the current commit object
-        const { data: refData } = await octokit.rest.git.getRef({
-            owner,
-            repo,
-            ref: 'heads/main'
-        });
+        // 1. Get the current commit object (support master or main branch)
+        const preferredBranch = process.env.GITHUB_BRANCH;
+        let activeBranch = preferredBranch || 'master';
+        let refData;
+
+        try {
+            const res = await octokit.rest.git.getRef({
+                owner,
+                repo,
+                ref: `heads/${activeBranch}`
+            });
+            refData = res.data;
+        } catch (err) {
+            if (err.status === 404 && !preferredBranch) {
+                // Fallback to the other common branch name (main <-> master)
+                const fallbackBranch = activeBranch === 'master' ? 'main' : 'master';
+                const res = await octokit.rest.git.getRef({
+                    owner,
+                    repo,
+                    ref: `heads/${fallbackBranch}`
+                });
+                refData = res.data;
+                activeBranch = fallbackBranch;
+            } else {
+                throw err;
+            }
+        }
         const commitSha = refData.object.sha;
 
         const { data: commitData } = await octokit.rest.git.getCommit({
@@ -111,7 +132,7 @@ export async function POST(request) {
         await octokit.rest.git.updateRef({
             owner,
             repo,
-            ref: 'heads/main',
+            ref: `heads/${activeBranch}`,
             sha: newCommitData.sha
         });
 

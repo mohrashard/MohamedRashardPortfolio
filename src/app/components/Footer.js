@@ -179,12 +179,16 @@ return (
                             <Link href="/blog" className="text-zinc-400 hover:text-[var(--primary)] text-[13px] font-medium transition-colors" style={fontBody}>Blog</Link>
                             <Link href="/case-studies" className="text-zinc-400 hover:text-[var(--primary)] text-[13px] font-medium transition-colors" style={fontBody}>Case Studies</Link>
                             <Link href="/testimonials" className="text-zinc-400 hover:text-[var(--primary)] text-[13px] font-medium transition-colors" style={fontBody}>Testimonials</Link>
+                            <Link href="/book/direct" className="text-zinc-400 hover:text-[var(--primary)] text-[13px] font-medium transition-colors" style={fontBody}>Book a Call</Link>
                         </div>
 
                         {/* Col 2 */}
                         <div className="flex flex-col gap-5">
                             <h4 className="text-zinc-100 font-bold text-sm mb-2" style={fontHeadline}>Support</h4>
-                            <a href={`mailto:${process.env.NEXT_PUBLIC_REPLY_TO_EMAIL}`} className="text-zinc-400 hover:text-[var(--primary)] text-[13px] font-medium transition-colors" style={fontBody}>{process.env.NEXT_PUBLIC_REPLY_TO_EMAIL}</a>
+                            <a href={`mailto:${process.env.NEXT_PUBLIC_REPLY_TO_EMAIL || 'growth@mr2labs.com'}`} className="text-zinc-400 hover:text-[var(--primary)] text-[13px] font-medium transition-colors" style={fontBody}>{process.env.NEXT_PUBLIC_REPLY_TO_EMAIL || 'growth@mr2labs.com'}</a>
+                            <Link href="/book/direct" className="text-zinc-400 hover:text-[var(--primary)] text-[13px] font-medium transition-colors flex items-center gap-1.5" style={fontBody}>
+                                Book a Call <span className="text-[9px] px-1.5 py-0.5 rounded bg-[var(--primary)]/10 text-[var(--accent)] border border-[var(--primary)]/20 font-bold uppercase tracking-wider">Direct</span>
+                            </Link>
                             <Link href="/services#audit-form" className="text-zinc-400 hover:text-[var(--primary)] text-[13px] font-medium transition-colors" style={fontBody}>Request Audit</Link>
                             <Link href="/privacy" className="text-zinc-400 hover:text-[var(--primary)] text-[13px] font-medium transition-colors" style={fontBody}>Privacy Policy</Link>
                         </div>
