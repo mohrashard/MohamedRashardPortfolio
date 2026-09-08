@@ -4,6 +4,7 @@ import Navbar from '../components/Navbar';
 import ScrollObserver from '../services/ScrollObserver';
 import VideoPlayer from './VideoPlayer';
 import AvailabilityBadge from '../components/AvailabilityBadge';
+import { Play, ArrowRight, Linkedin, Instagram, Plus } from 'lucide-react';
 
 export const metadata = {
     title: "Testimonials | Mr² Labs - Real Founders, Real Results",
@@ -149,7 +150,7 @@ export default function TestimonialsPage() {
                         
                         <div className="flex items-center gap-4 cursor-pointer group/btn w-fit">
                             <div className="w-12 h-12 rounded-full bg-[var(--primary)]/10 border border-[var(--primary)]/30 flex items-center justify-center text-[var(--accent)] group-hover/btn:bg-[var(--primary)]/20 group-hover/btn:scale-110 transition-all duration-300">
-                                <i className="fa-solid fa-play ml-1"></i>
+                                <Play className="w-5 h-5 ml-0.5 fill-current text-[var(--accent)]" />
                             </div>
                             <div>
                                 <p className="text-white font-bold text-sm tracking-wide">WATCH VIDEO</p>
@@ -174,7 +175,7 @@ export default function TestimonialsPage() {
                             </p>
 
                             <Link href="/case-studies/ignite-ed" className="inline-flex items-center gap-2 text-[var(--primary)] text-sm font-bold tracking-widest uppercase hover:text-[var(--accent)] transition-colors group/link">
-                                Read Full Case Study <i className="fa-solid fa-arrow-right group-hover/link:translate-x-1 transition-transform"></i>
+                                Read Full Case Study <ArrowRight className="w-4 h-4 group-hover/link:translate-x-1 transition-transform" />
                             </Link>
                         </div>
                     </div>
@@ -228,11 +229,11 @@ export default function TestimonialsPage() {
                                     <p className="text-zinc-500 text-xs mt-0.5 tracking-wide">Founder of Batpeida & Co-founder of Ignite Ed</p>
                                 </div>
                                 <div className="flex gap-2">
-                                    <a href="https://www.linkedin.com/in/ahmedh-ifthikar-b09656243/" target="_blank" rel="noopener noreferrer" className="w-8 h-8 rounded-lg bg-white/[0.03] flex items-center justify-center text-[var(--primary)] hover:bg-[var(--primary)] hover:text-white transition-colors border border-white/[0.05]">
-                                        <i className="fa-brands fa-linkedin-in text-sm"></i>
+                                    <a href="https://www.linkedin.com/in/ahmedh-ifthikar-b09656243/" target="_blank" rel="noopener noreferrer" className="w-8 h-8 rounded-lg bg-white/[0.03] flex items-center justify-center text-[var(--primary)] hover:bg-[var(--primary)] hover:text-white transition-colors border border-white/[0.05]" aria-label="LinkedIn">
+                                        <Linkedin className="w-4 h-4" />
                                     </a>
-                                    <a href="https://www.instagram.com/ifthikarahmedh_?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" target="_blank" rel="noopener noreferrer" className="w-8 h-8 rounded-lg bg-white/[0.03] flex items-center justify-center text-pink-500 hover:bg-gradient-to-r hover:from-purple-500 hover:via-pink-500 hover:to-orange-500 hover:text-white transition-all border border-white/[0.05]">
-                                        <i className="fa-brands fa-instagram text-sm"></i>
+                                    <a href="https://www.instagram.com/ifthikarahmedh_?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" target="_blank" rel="noopener noreferrer" className="w-8 h-8 rounded-lg bg-white/[0.03] flex items-center justify-center text-pink-500 hover:bg-gradient-to-r hover:from-purple-500 hover:via-pink-500 hover:to-orange-500 hover:text-white transition-all border border-white/[0.05]" aria-label="Instagram">
+                                        <Instagram className="w-4 h-4" />
                                     </a>
                                 </div>
                             </div>
@@ -256,8 +257,8 @@ export default function TestimonialsPage() {
                                     <h4 className="text-white font-bold text-[15px]">Sajid</h4>
                                     <p className="text-zinc-500 text-xs mt-0.5 tracking-wide">Entrepreneur & Founder of Ignite Ed</p>
                                 </div>
-                                <a href="https://www.instagram.com/msm__sajid/?utm_source=ig_web_button_share_sheet" target="_blank" rel="noopener noreferrer" className="w-8 h-8 rounded-lg bg-white/[0.03] flex items-center justify-center text-pink-500 hover:bg-gradient-to-r hover:from-purple-500 hover:via-pink-500 hover:to-orange-500 hover:text-white transition-all border border-white/[0.05]">
-                                    <i className="fa-brands fa-instagram text-sm"></i>
+                                <a href="https://www.instagram.com/msm__sajid/?utm_source=ig_web_button_share_sheet" target="_blank" rel="noopener noreferrer" className="w-8 h-8 rounded-lg bg-white/[0.03] flex items-center justify-center text-pink-500 hover:bg-gradient-to-r hover:from-purple-500 hover:via-pink-500 hover:to-orange-500 hover:text-white transition-all border border-white/[0.05]" aria-label="Instagram">
+                                    <Instagram className="w-4 h-4" />
                                 </a>
                             </div>
                         </div>
@@ -266,7 +267,7 @@ export default function TestimonialsPage() {
                     {/* Placeholder Card */}
                     <Link href="/services#audit-form" className="bg-[#050505] border border-dashed border-zinc-800 rounded-3xl p-6 sm:p-8 flex flex-col sm:flex-row items-center justify-center gap-5 group hover:border-[var(--primary)]/50 transition-all duration-300 hover:bg-[var(--primary)]/[0.02]" data-animate="slide-up" data-delay="3">
                         <div className="w-14 h-14 rounded-full bg-zinc-900 border border-zinc-800 flex items-center justify-center group-hover:scale-110 transition-transform duration-300 group-hover:border-[var(--primary)]/30">
-                            <i className="fa-solid fa-plus text-zinc-600 group-hover:text-[var(--primary)] transition-colors"></i>
+                            <Plus className="w-5 h-5 text-zinc-600 group-hover:text-[var(--primary)] transition-colors" />
                         </div>
                         <div className="text-center sm:text-left">
                             <h4 className="text-zinc-400 font-bold text-[16px] group-hover:text-white transition-colors">Your Story Could Be Next</h4>

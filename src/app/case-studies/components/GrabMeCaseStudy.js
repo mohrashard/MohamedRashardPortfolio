@@ -3,6 +3,7 @@ import Image from 'next/image';
 import Navbar from '../../components/Navbar';
 import ScrollObserver from '../../services/ScrollObserver';
 import AvailabilityBadge from '../../components/AvailabilityBadge';
+import { AlertCircle, Lightbulb, Search, Handshake, Briefcase, Wrench, Smartphone, Server, Timer, ArrowRight } from 'lucide-react';
 
 export default function GrabMeCaseStudy() {
     return (
@@ -41,7 +42,7 @@ export default function GrabMeCaseStudy() {
                     <div className="bg-[#0A0A0A]/50 backdrop-blur-xl border border-white/5 rounded-3xl p-8 md:p-10 relative group" data-animate="slide-right">
                         <div className="absolute top-0 left-8 w-24 h-1 bg-red-500 blur-xl opacity-30 rounded-full"></div>
                         <h3 className="text-red-400 text-xs font-bold tracking-[0.2em] uppercase mb-4 flex items-center gap-2">
-                            <i className="fa-solid fa-circle-exclamation"></i> The Problem
+                            <AlertCircle className="w-3.5 h-3.5" /> The Problem
                         </h3>
                         <h4 className="text-2xl font-bold text-white mb-4">The Commission Trap.</h4>
                         <p className="text-zinc-400 leading-relaxed font-['Inter',sans-serif] text-sm md:text-base">
@@ -53,7 +54,7 @@ export default function GrabMeCaseStudy() {
                     <div className="bg-gradient-to-br from-[#0A0A0A] to-[#111] border border-[var(--primary)]/30 rounded-3xl p-8 md:p-10 relative group shadow-md border border-white/5" data-animate="slide-left" data-delay="1">
                         <div className="absolute top-0 left-8 w-24 h-1 bg-[var(--primary)] blur-lg opacity-60 rounded-full"></div>
                         <h3 className="text-[var(--accent)] text-xs font-bold tracking-[0.2em] uppercase mb-4 flex items-center gap-2">
-                            <i className="fa-solid fa-lightbulb"></i> The Solution
+                            <Lightbulb className="w-3.5 h-3.5" /> The Solution
                         </h3>
                         <div className="flex items-center gap-3 mb-4">
                             <div className="w-8 h-8 rounded bg-white/5 flex items-center justify-center p-0.5 border border-white/10 shadow-md border border-white/5">
@@ -104,21 +105,24 @@ export default function GrabMeCaseStudy() {
 
                     <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
                         {[
-                            { icon: 'fa-magnifying-glass', title: 'Frictionless Search', desc: 'No-login search functionality allowing customers to instantly find nearby technicians for quick repairs.' },
-                            { icon: 'fa-handshake', title: 'Subscription Model', desc: 'Eliminated the broker commission model. Workers keep 100% of their earnings by paying a flat fee.' },
-                            { icon: 'fa-briefcase', title: 'Worker Dashboard', desc: 'A dedicated portal for technicians to manage their leads, profile, and active jobs.' },
-                            { icon: 'fa-hammer', title: 'Admin Master Panel', desc: 'Complete central oversight system for managing workers, customers, and subscriptions.' },
-                            { icon: 'fa-mobile-button', title: 'PWA Architecture', desc: 'Installable directly to home screens without the friction of App Store downloads or updates.' },
-                            { icon: 'fa-server', title: 'Infinite Scale', desc: 'Cloud-native database and robust backend designed to handle nationwide concurrency.' },
-                        ].map((feat, i) => (
-                            <div key={i} className="bg-[#0A0A0A]/80 backdrop-blur-md border border-white/5 hover:border-[var(--primary)]/30 rounded-2xl p-6 transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_15px_30px_rgba(0,102,255,0.08)] group" data-animate="slide-up" data-delay={i % 3 + 1}>
-                                <div className="w-12 h-12 rounded-full bg-white/5 border border-white/10 flex items-center justify-center text-[var(--primary)] mb-5 group-hover:bg-[var(--primary)]/10 group-hover:scale-110 transition-all duration-300">
-                                    <i className={`fa-solid ${feat.icon} text-lg`}></i>
+                            { icon: Search, title: 'Frictionless Search', desc: 'No-login search functionality allowing customers to instantly find nearby technicians for quick repairs.' },
+                            { icon: Handshake, title: 'Subscription Model', desc: 'Eliminated the broker commission model. Workers keep 100% of their earnings by paying a flat fee.' },
+                            { icon: Briefcase, title: 'Worker Dashboard', desc: 'A dedicated portal for technicians to manage their leads, profile, and active jobs.' },
+                            { icon: Wrench, title: 'Admin Master Panel', desc: 'Complete central oversight system for managing workers, customers, and subscriptions.' },
+                            { icon: Smartphone, title: 'PWA Architecture', desc: 'Installable directly to home screens without the friction of App Store downloads or updates.' },
+                            { icon: Server, title: 'Infinite Scale', desc: 'Cloud-native database and robust backend designed to handle nationwide concurrency.' },
+                        ].map((feat, i) => {
+                            const Icon = feat.icon;
+                            return (
+                                <div key={i} className="bg-[#0A0A0A]/80 backdrop-blur-md border border-white/5 hover:border-[var(--primary)]/30 rounded-2xl p-6 transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_15px_30px_rgba(0,102,255,0.08)] group" data-animate="slide-up" data-delay={i % 3 + 1}>
+                                    <div className="w-12 h-12 rounded-full bg-white/5 border border-white/10 flex items-center justify-center text-[var(--primary)] mb-5 group-hover:bg-[var(--primary)]/10 group-hover:scale-110 transition-all duration-300">
+                                        <Icon className="w-5 h-5 text-[var(--primary)]" />
+                                    </div>
+                                    <h4 className="text-white font-bold mb-3">{feat.title}</h4>
+                                    <p className="text-zinc-500 text-[13px] leading-relaxed font-['Inter',sans-serif]">{feat.desc}</p>
                                 </div>
-                                <h4 className="text-white font-bold mb-3">{feat.title}</h4>
-                                <p className="text-zinc-500 text-[13px] leading-relaxed font-['Inter',sans-serif]">{feat.desc}</p>
-                            </div>
-                        ))}
+                            );
+                        })}
                     </div>
                 </div>
 
@@ -153,7 +157,7 @@ export default function GrabMeCaseStudy() {
 
                                     <div className="sm:w-1/2 sm:pl-14 hidden sm:flex items-center justify-start order-3 text-left">
                                         <span className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/[0.03] border border-white/10 text-[var(--primary)] font-bold text-xs tracking-widest uppercase shadow-md border border-white/5 group-hover:bg-white/[0.06] transition-colors">
-                                            <i className="fa-solid fa-stopwatch text-[10px]"></i>
+                                            <Timer className="w-3 h-3 text-[var(--primary)]" />
                                             {step.date}
                                         </span>
                                     </div>
@@ -178,7 +182,7 @@ export default function GrabMeCaseStudy() {
                         
                         <a href="/services#audit-form" className="inline-flex items-center gap-3 px-8 py-4 bg-[var(--primary)] text-white rounded-xl font-bold hover:brightness-110 transition-all shadow-md border border-white/5">
                             <span>Launch Solution</span>
-                            <i className="fa-solid fa-arrow-right"></i>
+                            <ArrowRight className="w-4 h-4" />
                         </a>
                     </div>
                 </div>

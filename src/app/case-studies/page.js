@@ -3,6 +3,7 @@ import Navbar from '../components/Navbar';
 import Link from 'next/link';
 import Image from 'next/image';
 import AvailabilityBadge from '../components/AvailabilityBadge';
+import { ArrowRight } from 'lucide-react';
 
 export const metadata = {
     title: "Case Studies | Mr² Labs - Real Products We've Built",
@@ -132,7 +133,7 @@ export default function CaseStudiesIndex() {
                                     style={{ color: study.color }}
                                 >
                                     <span>Read Case Study</span>
-                                    <i className="fa-solid fa-arrow-right"></i>
+                                    <ArrowRight className="w-4 h-4" />
                                 </div>
                             </div>
                         </Link>

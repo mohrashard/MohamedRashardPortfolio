@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useState, useRef, useEffect } from 'react';
+import { Play, Pause, Sparkles, X, Loader2, Volume2, VolumeX, Maximize } from 'lucide-react';
 
 export default function VideoPlayer({ src }) {
     const [isPlaying, setIsPlaying] = useState(false);
@@ -119,7 +120,7 @@ export default function VideoPlayer({ src }) {
                     <div className="relative">
                         <div className="absolute inset-0 bg-[var(--primary)] rounded-full blur-[40px] opacity-40 group-hover/video:opacity-70 transition-opacity duration-500"></div>
                         <div className="relative w-24 h-24 rounded-full bg-white/10 backdrop-blur-xl border border-white/20 flex items-center justify-center transform transition-all duration-500 group-hover/video:scale-110 group-hover/video:border-[var(--primary)]/50 shadow-[inset_0_1px_1px_rgba(255,255,255,0.3)]">
-                            <i className="fa-solid fa-play text-white text-4xl ml-3 drop-shadow-md border border-white/5 transition-transform duration-500 group-hover/video:scale-110"></i>
+                            <Play className="w-10 h-10 ml-1.5 text-white fill-white drop-shadow-md transition-transform duration-500 group-hover/video:scale-110" />
                         </div>
                     </div>
                 </div>
@@ -134,12 +135,12 @@ export default function VideoPlayer({ src }) {
                 <div className="flex items-center justify-between px-6 py-5 border-b border-white/[0.05] bg-[#050505]/40">
                     <div className="flex items-center gap-3">
                         <div className="w-7 h-7 rounded-full bg-[var(--primary)]/10 flex items-center justify-center border border-[var(--primary)]/20 shadow-md border border-white/5">
-                            <i className="fa-solid fa-wand-magic-sparkles text-[var(--primary)] text-[11px]"></i>
+                            <Sparkles className="w-3.5 h-3.5 text-[var(--primary)]" />
                         </div>
                         <span className="text-white text-[11px] font-bold tracking-[0.2em] uppercase">Transcript</span>
                     </div>
-                    <button onClick={() => setShowTranscript(false)} className="w-7 h-7 flex items-center justify-center rounded-full bg-white/5 hover:bg-white/10 text-zinc-400 hover:text-white transition-colors border border-white/5">
-                        <i className="fa-solid fa-xmark text-xs"></i>
+                    <button onClick={() => setShowTranscript(false)} className="w-7 h-7 flex items-center justify-center rounded-full bg-white/5 hover:bg-white/10 text-zinc-400 hover:text-white transition-colors border border-white/5" aria-label="Close transcript">
+                        <X className="w-3.5 h-3.5" />
                     </button>
                 </div>
                 
@@ -183,8 +184,12 @@ export default function VideoPlayer({ src }) {
                     {/* Controls Row */}
                     <div className="flex items-center justify-between text-white">
                         <div className="flex items-center gap-5">
-                            <button onClick={togglePlay} className="hover:text-[var(--primary)] transition-colors w-6 h-6 flex items-center justify-center">
-                                <i className={`fa-solid ${isPlaying ? 'fa-pause' : 'fa-play'} text-lg`}></i>
+                            <button onClick={togglePlay} className="hover:text-[var(--primary)] transition-colors w-6 h-6 flex items-center justify-center" aria-label={isPlaying ? "Pause" : "Play"}>
+                                {isPlaying ? (
+                                    <Pause className="w-5 h-5 fill-current" />
+                                ) : (
+                                    <Play className="w-5 h-5 fill-current ml-0.5" />
+                                )}
                             </button>
                             
                             <div className="text-sm font-medium tracking-wide tabular-nums font-['Inter',sans-serif] opacity-90">
@@ -194,20 +199,20 @@ export default function VideoPlayer({ src }) {
 
                         <div className="flex items-center gap-5">
                             {/* AI Transcribe Button */}
-                            <button onClick={handleTranscribe} className="hover:text-[var(--primary)] transition-colors w-6 h-6 flex items-center justify-center relative group/cc" title="AI Transcribe">
+                            <button onClick={handleTranscribe} className="hover:text-[var(--primary)] transition-colors w-6 h-6 flex items-center justify-center relative group/cc" title="AI Transcribe" aria-label="AI Transcribe">
                                 {isTranscribing ? (
-                                    <i className="fa-solid fa-circle-notch fa-spin text-sm text-[var(--primary)]"></i>
+                                    <Loader2 className="w-4 h-4 animate-spin text-[var(--primary)]" />
                                 ) : (
-                                    <i className={`fa-solid fa-wand-magic-sparkles text-sm ${showTranscript ? 'text-[var(--primary)]' : ''}`}></i>
+                                    <Sparkles className={`w-4 h-4 ${showTranscript ? 'text-[var(--primary)]' : ''}`} />
                                 )}
                             </button>
 
-                            <button onClick={toggleMute} className="hover:text-[var(--primary)] transition-colors w-6 h-6 flex items-center justify-center">
-                                <i className={`fa-solid ${isMuted ? 'fa-volume-xmark' : 'fa-volume-high'} text-sm`}></i>
+                            <button onClick={toggleMute} className="hover:text-[var(--primary)] transition-colors w-6 h-6 flex items-center justify-center" aria-label={isMuted ? "Unmute" : "Mute"}>
+                                {isMuted ? <VolumeX className="w-4 h-4" /> : <Volume2 className="w-4 h-4" />}
                             </button>
                             
-                            <button onClick={toggleFullscreen} className="hover:text-[var(--primary)] transition-colors w-6 h-6 flex items-center justify-center">
-                                <i className="fa-solid fa-expand text-sm"></i>
+                            <button onClick={toggleFullscreen} className="hover:text-[var(--primary)] transition-colors w-6 h-6 flex items-center justify-center" aria-label="Fullscreen">
+                                <Maximize className="w-4 h-4" />
                             </button>
                         </div>
                     </div>
